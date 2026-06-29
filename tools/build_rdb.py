@@ -74,6 +74,117 @@ def summarize_raw_text(raw_text: str, max_len: int = 240) -> str:
     return text[: max_len - 3].rstrip() + "..."
 
 
+def clean_title(value: str) -> tuple[str, bool]:
+    title = re.sub(r"\s+", " ", value).strip()
+    is_subtrait = title.startswith("●")
+    title = title.lstrip("●").strip()
+    return title, is_subtrait
+
+
+def parse_number(value: str) -> float | int:
+    number = float(value.replace(",", "."))
+    return int(number) if number.is_integer() else number
+
+
+def parse_trait_costs(cost_text: str) -> dict[str, Any]:
+    costs: dict[str, Any] = {}
+    normalized = re.sub(r"\s+", " ", cost_text).strip()
+
+    hunger = re.search(r"([+-]?\d+(?:[,.]\d+)?)\s*Голод", normalized, re.IGNORECASE)
+    if hunger:
+        costs["hunger"] = parse_number(hunger.group(1))
+
+    dread = re.search(r"([+-]?\d+(?:[,.]\d+)?)\s*Жут[ьиь]?", normalized, re.IGNORECASE)
+    appeal = re.search(r"([+-]?\d+(?:[,.]\d+)?)\s*Привлекательност[ьи]?", normalized, re.IGNORECASE)
+    both = re.search(r"([+-]?\d+(?:[,.]\d+)?)\s*Обоим", normalized, re.IGNORECASE)
+
+    if dread:
+        costs["dread"] = parse_number(dread.group(1))
+    if appeal:
+        costs["appeal"] = parse_number(appeal.group(1))
+    if both:
+        value = parse_number(both.group(1))
+        costs["dread"] = value
+        costs["appeal"] = value
+
+    if "или" in normalized and ("Жут" in normalized or "Привлекательност" in normalized):
+        options = []
+        if dread or "Жут" in normalized:
+            options.append("dread")
+        if appeal or "Привлекательност" in normalized:
+            options.append("appeal")
+        if options:
+            costs["social_cost_options"] = options
+            option_value = None
+            if dread:
+                option_value = parse_number(dread.group(1))
+            elif appeal:
+                option_value = parse_number(appeal.group(1))
+            if option_value is not None:
+                for option in options:
+                    costs.setdefault(option, option_value)
+
+    if normalized:
+        costs["raw"] = normalized
+
+    return costs
+
+
+def split_trait_parts(raw_text: str) -> dict[str, Any]:
+    lines = [line.strip() for line in raw_text.splitlines() if line.strip()]
+    if not lines:
+        return {
+            "name": "",
+            "is_subtrait": False,
+            "cost_text": "",
+            "body": "",
+        }
+
+    name, is_subtrait = clean_title(lines[0])
+    cost_lines: list[str] = []
+    body_start = 1
+
+    for index in range(1, min(len(lines), 4)):
+        window = " ".join(lines[1 : index + 1])
+        if re.match(r"^\s*[+-]?\d+(?:[,.]\d+)?", window) and re.search(
+            r"Голод|Жут|Привлекательност|Обоим", window, re.IGNORECASE
+        ):
+            cost_lines = lines[1 : index + 1]
+            body_start = index + 1
+            break
+
+    body = "\n".join(lines[body_start:]).strip()
+    return {
+        "name": name,
+        "is_subtrait": is_subtrait,
+        "cost_text": " ".join(cost_lines).strip(),
+        "body": body,
+    }
+
+
+def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
+    parts = split_trait_parts(raw_text)
+    tags = list(item["tags"])
+    if "trait" not in tags:
+        tags.append("trait")
+    if parts["is_subtrait"] and "subtrait" not in tags:
+        tags.append("subtrait")
+
+    item["name"] = parts["name"] or item["name"]
+    item["subcategory"] = "Subtrait" if parts["is_subtrait"] else "Trait"
+    item["costs"] = parse_trait_costs(parts["cost_text"])
+    item["summary"] = summarize_raw_text(parts["body"] or raw_text)
+    item["effects"] = [
+        {
+            "type": "unparsed_effect_text",
+            "text": parts["body"] or raw_text,
+            "needs_manual_review": True,
+        }
+    ]
+    item["tags"] = tags
+    return item
+
+
 def candidate_to_rule_object(candidate: dict[str, Any]) -> dict[str, Any]:
     category_hint = candidate.get("category_hint", "unknown")
     file_name = CATEGORY_TO_FILE[category_hint]
@@ -81,7 +192,7 @@ def candidate_to_rule_object(candidate: dict[str, Any]) -> dict[str, Any]:
     source = candidate.get("source", {})
     raw_text = candidate.get("raw_text", "")
 
-    return {
+    item = {
         "id": stable_rule_id(category_hint, candidate),
         "type": category_hint,
         "category": category,
@@ -102,6 +213,11 @@ def candidate_to_rule_object(candidate: dict[str, Any]) -> dict[str, Any]:
         },
         "needs_manual_review": True,
     }
+
+    if category_hint == "traits":
+        item = normalize_trait_rule_object(item, raw_text)
+
+    return item
 
 
 def empty_container(file_name: str) -> dict[str, Any]:
