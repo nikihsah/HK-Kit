@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/nikihsah/HK-Kit/HK-RDB/schema/schema.json",
+  "title": "HK-RDB Data File",
+  "type": "object",
+  "required": ["category", "file", "complete", "items"],
+  "additionalProperties": true,
+  "properties": {
+    "category": {
+      "type": "string",
+      "minLength": 1
+    },
+    "file": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^[a-z0-9-]+\\.json$"
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ruleObject"
+      }
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": ["book", "page_start", "page_end"],
+      "additionalProperties": false,
+      "properties": {
+        "book": {
+          "type": "string",
+          "minLength": 1
+        },
+        "page_start": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "page_end": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "relationship": {
+      "type": "object",
+      "required": ["type", "target"],
+      "additionalProperties": true,
+      "properties": {
+        "type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "ruleObject": {
+      "type": "object",
+      "required": [
+        "id",
+        "type",
+        "category",
+        "subcategory",
+        "name",
+        "raw_text",
+        "summary",
+        "costs",
+        "requirements",
+        "effects",
+        "modifiers",
+        "relationships",
+        "tags",
+        "source",
+        "needs_manual_review"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[a-z0-9]+(\\.[a-z0-9-]+)+$"
+        },
+        "type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subcategory": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "raw_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        },
+        "costs": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "requirements": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "effects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        },
+        "modifiers": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "relationships": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relationship"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        },
+        "needs_manual_review": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

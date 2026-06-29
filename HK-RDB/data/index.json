@@ -1,0 +1,29 @@
+{
+  "name": "HK-RDB",
+  "version": "0.1.0",
+  "complete": false,
+  "mode_create_ready": false,
+  "required_files": [
+    "core-rules.json",
+    "templates.json",
+    "traits.json",
+    "paths.json",
+    "skills.json",
+    "advancement.json",
+    "combat-arts.json",
+    "magic.json",
+    "charms.json",
+    "equipment.json",
+    "combat-rules.json",
+    "travel-rest-rules.json",
+    "social-rules.json",
+    "glossary.json",
+    "validation.json",
+    "version.json"
+  ],
+  "policy": {
+    "operational_rules_source": "HK-RDB only",
+    "pdf_during_mode_create": "forbidden",
+    "missing_rules_behavior": "fail_loudly"
+  }
+}

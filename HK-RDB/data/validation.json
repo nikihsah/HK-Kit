@@ -1,0 +1,19 @@
+{
+  "category": "Validation",
+  "file": "validation.json",
+  "complete": false,
+  "items": [],
+  "critical_categories": [
+    "core-rules.json",
+    "templates.json",
+    "traits.json",
+    "paths.json",
+    "skills.json",
+    "advancement.json",
+    "combat-arts.json",
+    "magic.json",
+    "charms.json",
+    "equipment.json",
+    "combat-rules.json"
+  ]
+}
