@@ -21,8 +21,7 @@ After STATE 0, questions should become rarer. The model asks only when multiple 
 ## Promt
 MODE CREATE
 
-Repository:
-[<GitHub link>](https://github.com/nikihsah/hollow_knigt_cas_new_person)
+[Repository](https://github.com/nikihsah/hollow_knigt_cas_new_person)
 
 Use HK-CAS v2.1 and HK-RDB.
 Do not build immediately.
