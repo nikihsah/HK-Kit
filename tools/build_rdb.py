@@ -86,7 +86,7 @@ def parse_number(value: str) -> float | int:
     return int(number) if number.is_integer() else number
 
 
-def parse_trait_costs(cost_text: str) -> dict[str, Any]:
+def parse_trait_base_costs(cost_text: str) -> dict[str, Any]:
     costs: dict[str, Any] = {}
     normalized = re.sub(r"\s+", " ", cost_text).strip()
 
@@ -128,6 +128,44 @@ def parse_trait_costs(cost_text: str) -> dict[str, Any]:
         costs["raw"] = normalized
 
     return costs
+
+
+def sentence_around(text: str, start: int, end: int) -> str:
+    left = max(text.rfind(".", 0, start), text.rfind("\n", 0, start))
+    right_candidates = [pos for pos in [text.find(".", end), text.find("\n", end)] if pos != -1]
+    right = min(right_candidates) if right_candidates else len(text)
+    return re.sub(r"\s+", " ", text[left + 1 : right + 1]).strip()
+
+
+def parse_trait_conditional_costs(body: str) -> list[dict[str, Any]]:
+    conditional: list[dict[str, Any]] = []
+    patterns = [
+        re.compile(r"(?:за|получив)\s*([+-]?\d+(?:[,.]\d+)?)\s*голод[а]?", re.IGNORECASE),
+    ]
+
+    for pattern in patterns:
+        for match in pattern.finditer(body):
+            value = parse_number(match.group(1))
+            context = sentence_around(body, match.start(), match.end())
+            conditional.append(
+                {
+                    "when": context,
+                    "costs": {
+                        "hunger": value,
+                    },
+                    "raw": match.group(0),
+                    "needs_manual_review": True,
+                }
+            )
+
+    return conditional
+
+
+def trait_costs(cost_text: str, body: str) -> dict[str, Any]:
+    return {
+        "base": parse_trait_base_costs(cost_text),
+        "conditional": parse_trait_conditional_costs(body),
+    }
 
 
 def split_trait_parts(raw_text: str) -> dict[str, Any]:
@@ -172,7 +210,7 @@ def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str
 
     item["name"] = parts["name"] or item["name"]
     item["subcategory"] = "Subtrait" if parts["is_subtrait"] else "Trait"
-    item["costs"] = parse_trait_costs(parts["cost_text"])
+    item["costs"] = trait_costs(parts["cost_text"], parts["body"])
     item["summary"] = summarize_raw_text(parts["body"] or raw_text)
     item["effects"] = [
         {
@@ -183,6 +221,31 @@ def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str
     ]
     item["tags"] = tags
     return item
+
+
+def infer_trait_relationships(items: list[dict[str, Any]]) -> None:
+    current_parent_id: str | None = None
+    for item in items:
+        if item.get("subcategory") == "Trait":
+            current_parent_id = item.get("id")
+            continue
+        if item.get("subcategory") != "Subtrait" or not current_parent_id:
+            continue
+        relationships = item.setdefault("relationships", [])
+        if not any(
+            relationship.get("type") == "subtrait_of"
+            and relationship.get("target") == current_parent_id
+            for relationship in relationships
+            if isinstance(relationship, dict)
+        ):
+            relationships.append(
+                {
+                    "type": "subtrait_of",
+                    "target": current_parent_id,
+                    "inferred": True,
+                    "needs_manual_review": True,
+                }
+            )
 
 
 def candidate_to_rule_object(candidate: dict[str, Any]) -> dict[str, Any]:
@@ -252,6 +315,8 @@ def build_draft_containers(layer1: dict[str, Any]) -> tuple[dict[str, dict[str, 
         containers[CATEGORY_TO_FILE[category_hint]]["items"].append(
             candidate_to_rule_object(candidate)
         )
+
+    infer_trait_relationships(containers["traits.json"]["items"])
 
     return containers, skipped
 
