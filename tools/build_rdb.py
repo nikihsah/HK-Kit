@@ -54,8 +54,7 @@ FILE_TO_CATEGORY = {
 
 def slugify(value: str, fallback: str = "entry") -> str:
     value = value.lower()
-    value = value.replace("ё", "е")
-    value = re.sub(r"[^a-z0-9а-я]+", "-", value, flags=re.IGNORECASE)
+    value = re.sub(r"[^a-z0-9]+", "-", value, flags=re.IGNORECASE)
     value = re.sub(r"-+", "-", value).strip("-")
     return value or fallback
 

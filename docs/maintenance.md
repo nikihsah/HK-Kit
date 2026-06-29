@@ -69,3 +69,22 @@ Before moving any draft object into `HK-RDB/data/`, verify:
 - relationships;
 - source pages;
 - whether `needs_manual_review` can be set to `false`.
+
+## Local Draft Review
+
+Use:
+
+```bash
+python tools/review_drafts.py --draft-root "sources/layer2/<pdf-name>.rdb-draft"
+```
+
+The generated review manifest is a working file under `sources/reviews/`.
+
+Review decisions should be conservative:
+
+- `pending` - not reviewed yet;
+- `accepted` - ready for final normalization/promotion;
+- `needs_changes` - source is relevant but object needs edits;
+- `rejected` - candidate should not become HK-RDB.
+
+Do not treat `accepted` as final until schema validation and source verification pass.

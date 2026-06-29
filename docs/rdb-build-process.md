@@ -107,6 +107,31 @@ Layer 2 output is still not final HK-RDB. It is an HK-RDB-shaped review workspac
 - unknown candidates are skipped and listed in the draft manifest;
 - draft files must not be copied into `HK-RDB/data/` until reviewed.
 
+## Review Manifests
+
+Create a local review manifest:
+
+```bash
+python tools/review_drafts.py --draft-root "sources/layer2/<pdf-name>.rdb-draft"
+```
+
+By default, output is written to:
+
+```text
+sources/reviews/<pdf-name>.review.json
+```
+
+Review manifests are ignored by Git.
+
+Each entry starts with:
+
+- `decision: pending`;
+- checklist fields set to `false`;
+- source page reference;
+- recommended next action.
+
+An object may be promoted into final HK-RDB only after maintainer review.
+
 ## Layer 3: Validation
 
 Run:

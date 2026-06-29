@@ -33,3 +33,11 @@ Layer 2 contains HK-RDB-shaped draft files generated from Layer 1 candidates.
 Layer 2 drafts are still maintainer-only. They may match the HK-RDB schema shape, but every generated item must be treated as unreviewed until a maintainer verifies the source, category, summary, requirements, effects, and relationships.
 
 Generated files under `sources/layer2/` are ignored by default.
+
+## Reviews
+
+`sources/reviews/` contains local review manifests for Layer 2 drafts.
+
+Review manifests track maintainer decisions such as pending, accepted, rejected, and needs changes.
+
+They are ignored by default because they are working files, not final HK-RDB data.
