@@ -86,6 +86,27 @@ Convert candidates into schema-compliant HK-RDB objects:
 - source;
 - manual review flag.
 
+Generate local drafts:
+
+```bash
+python tools/build_rdb.py --layer1 "sources/layer1/<pdf-name>.layer1.json"
+```
+
+By default, output is written to:
+
+```text
+sources/layer2/<pdf-name>.rdb-draft/data/
+```
+
+Generated Layer 2 files are ignored by Git.
+
+Layer 2 output is still not final HK-RDB. It is an HK-RDB-shaped review workspace:
+
+- every generated object has `needs_manual_review: true`;
+- every generated object receives `layer2-draft` and `needs-review` tags;
+- unknown candidates are skipped and listed in the draft manifest;
+- draft files must not be copied into `HK-RDB/data/` until reviewed.
+
 ## Layer 3: Validation
 
 Run:

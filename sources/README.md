@@ -25,3 +25,11 @@ Layer 1 contains rule candidates extracted from Layer 0.
 Layer 1 is also maintainer-only. It is a review queue, not HK-RDB.
 
 Generated files under `sources/layer1/` are ignored by default.
+
+## Layer 2
+
+Layer 2 contains HK-RDB-shaped draft files generated from Layer 1 candidates.
+
+Layer 2 drafts are still maintainer-only. They may match the HK-RDB schema shape, but every generated item must be treated as unreviewed until a maintainer verifies the source, category, summary, requirements, effects, and relationships.
+
+Generated files under `sources/layer2/` are ignored by default.
