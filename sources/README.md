@@ -41,3 +41,11 @@ Generated files under `sources/layer2/` are ignored by default.
 Review manifests track maintainer decisions such as pending, accepted, rejected, and needs changes.
 
 They are ignored by default because they are working files, not final HK-RDB data.
+
+## Promoted Snapshots
+
+`sources/promoted/` contains local HK-RDB-shaped snapshots built only from accepted review entries.
+
+Promoted snapshots are still not final database commits. They are used for validation and inspection before the project owner decides to update `HK-RDB/data/`.
+
+Generated files under `sources/promoted/` are ignored by default.

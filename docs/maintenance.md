@@ -88,3 +88,21 @@ Review decisions should be conservative:
 - `rejected` - candidate should not become HK-RDB.
 
 Do not treat `accepted` as final until schema validation and source verification pass.
+
+## Local Promotion Snapshot
+
+Use:
+
+```bash
+python tools/promote_reviewed.py \
+  --draft-root "sources/layer2/<pdf-name>.rdb-draft" \
+  --review "sources/reviews/<pdf-name>.review.json"
+```
+
+The generated snapshot goes under `sources/promoted/` and remains ignored by Git.
+
+Promotion does not write to `HK-RDB/data/`.
+
+Only accepted entries with all review checks completed are promoted.
+
+The final copy into `HK-RDB/data/` should happen only after explicit project-owner approval.

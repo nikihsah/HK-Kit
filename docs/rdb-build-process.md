@@ -132,6 +132,33 @@ Each entry starts with:
 
 An object may be promoted into final HK-RDB only after maintainer review.
 
+## Promoted Snapshots
+
+Create a local promoted snapshot:
+
+```bash
+python tools/promote_reviewed.py \
+  --draft-root "sources/layer2/<pdf-name>.rdb-draft" \
+  --review "sources/reviews/<pdf-name>.review.json"
+```
+
+By default, output is written to:
+
+```text
+sources/promoted/<pdf-name>.promotion/HK-RDB/data/
+```
+
+Promoted snapshots are ignored by Git.
+
+Only review entries are promoted when:
+
+- `decision` is `accepted`;
+- every required review check is `true`;
+- `issues` is empty;
+- the matching draft object exists.
+
+The promoted snapshot is useful for validation. It is not automatically final HK-RDB.
+
 ## Layer 3: Validation
 
 Run:
