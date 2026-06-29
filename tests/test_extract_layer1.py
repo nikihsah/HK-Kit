@@ -5,9 +5,12 @@ from pathlib import Path
 
 from tools.extract_layer1 import (
     build_candidates,
+    choose_category_hint,
     default_output_path,
     guess_category,
+    page_category_hint,
     split_page_into_blocks,
+    split_rule_list_blocks,
 )
 
 
@@ -16,9 +19,71 @@ class TestExtractLayer1(unittest.TestCase):
         text = "First rule block.\n\nSecond rule block."
         self.assertEqual(split_page_into_blocks(text), ["First rule block.", "Second rule block."])
 
+    def test_split_rule_list_blocks_detects_title_cost_entries(self) -> None:
+        text = "\n".join(
+            [
+                "Раздражающие Щетинки",
+                "+3 Голод, +0.5 Привлекательность",
+                "Описание первой черты.",
+                "Природный Снаряд",
+                "+4 Голод",
+                "Описание второй черты.",
+            ]
+        )
+
+        blocks = split_rule_list_blocks(text)
+
+        self.assertEqual(len(blocks), 2)
+        self.assertTrue(blocks[0].startswith("Раздражающие Щетинки"))
+        self.assertTrue(blocks[1].startswith("Природный Снаряд"))
+
+    def test_split_rule_list_blocks_detects_split_cost_lines(self) -> None:
+        text = "\n".join(
+            [
+                "Ядовитый Укус",
+                "+3",
+                "Голод, +0.5 Жуть или Привлекательность",
+                "Описание укуса.",
+                "Книжный Червь",
+                "+1 Голод",
+                "Описание червя.",
+            ]
+        )
+
+        blocks = split_rule_list_blocks(text)
+
+        self.assertEqual(len(blocks), 2)
+        self.assertTrue(blocks[0].startswith("Ядовитый Укус"))
+        self.assertTrue(blocks[1].startswith("Книжный Червь"))
+
+    def test_split_rule_list_blocks_detects_bullet_subtraits(self) -> None:
+        text = "\n".join(
+            [
+                "Полет",
+                "+4 Голод",
+                "Описание полета.",
+                "● Воздушный",
+                "Описание подчерты.",
+            ]
+        )
+
+        blocks = split_rule_list_blocks(text)
+
+        self.assertEqual(len(blocks), 2)
+        self.assertTrue(blocks[1].startswith("● Воздушный"))
+
     def test_guess_category_is_conservative(self) -> None:
         self.assertEqual(guess_category("Эта черта дает необычную особенность."), "traits")
         self.assertEqual(guess_category("Completely unrelated text."), "unknown")
+
+    def test_page_category_hint_routes_traits_section(self) -> None:
+        self.assertEqual(page_category_hint(21), ("traits", "traits_section_page_range"))
+        self.assertEqual(page_category_hint(99), (None, None))
+
+    def test_choose_category_hint_prefers_page_context(self) -> None:
+        category, source = choose_category_hint("еда, отдых, путешествие", 21)
+        self.assertEqual(category, "traits")
+        self.assertEqual(source, "traits_section_page_range")
 
     def test_build_candidates_marks_layer1_as_maintainer_only(self) -> None:
         layer0 = {
@@ -46,6 +111,7 @@ class TestExtractLayer1(unittest.TestCase):
         self.assertEqual(document["candidates"][0]["status"], "needs_review")
         self.assertEqual(document["candidates"][0]["source"]["page_start"], 1)
         self.assertEqual(document["candidates"][1]["category_hint"], "traits")
+        self.assertEqual(document["candidates"][1]["category_hint_source"], "keyword")
 
     def test_default_output_path_replaces_layer0_suffix(self) -> None:
         output = default_output_path(Path("book.layer0.json"), Path("sources/layer1"))

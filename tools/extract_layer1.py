@@ -35,6 +35,15 @@ CATEGORY_HINTS = [
     ("glossary", ["термин", "словарь"]),
 ]
 
+PAGE_CATEGORY_HINTS = [
+    {
+        "page_start": 13,
+        "page_end": 28,
+        "category_hint": "traits",
+        "reason": "traits_section_page_range",
+    },
+]
+
 
 def slugify(value: str, fallback: str) -> str:
     value = value.lower()
@@ -50,10 +59,70 @@ def normalize_block_text(text: str) -> str:
     return text.strip()
 
 
+def is_cost_window(text: str) -> bool:
+    return bool(
+        re.search(
+            r"^\s*[+-]?\d+(?:[.,]\d+)?\s*(?:[А-Яа-яЁё]+\s*){0,3}(Голод|Жуть|Жути|Привлекательность|Обоим)",
+            text,
+        )
+    )
+
+
+def is_bullet_start(line: str) -> bool:
+    return line.strip().startswith(("●", "- "))
+
+
+def is_probable_title(line: str) -> bool:
+    stripped = line.strip()
+    if not stripped or len(stripped) > 90:
+        return False
+    if stripped.endswith((".", ",", ";", ":")):
+        return False
+    if re.match(r"^[+-]?\d", stripped):
+        return False
+    return True
+
+
+def rule_list_start_indices(lines: list[str]) -> list[int]:
+    starts: list[int] = []
+    for index, line in enumerate(lines):
+        stripped = line.strip()
+        if not stripped:
+            continue
+        if is_bullet_start(stripped):
+            starts.append(index)
+            continue
+        if not is_probable_title(stripped):
+            continue
+        cost_window = " ".join(lines[index + 1 : index + 3])
+        if is_cost_window(cost_window):
+            starts.append(index)
+    return starts
+
+
+def split_rule_list_blocks(text: str) -> list[str]:
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    starts = rule_list_start_indices(lines)
+    if len(starts) < 2:
+        return []
+
+    blocks: list[str] = []
+    for position, start in enumerate(starts):
+        end = starts[position + 1] if position + 1 < len(starts) else len(lines)
+        block = "\n".join(lines[start:end]).strip()
+        if block:
+            blocks.append(block)
+    return blocks
+
+
 def split_page_into_blocks(text: str) -> list[str]:
     text = normalize_block_text(text)
     if not text:
         return []
+
+    rule_blocks = split_rule_list_blocks(text)
+    if rule_blocks:
+        return rule_blocks
 
     blocks = [block.strip() for block in re.split(r"\n\s*\n", text) if block.strip()]
     if len(blocks) > 1:
@@ -92,6 +161,21 @@ def guess_category(text: str) -> str:
     return sorted(scores.items(), key=lambda item: (-item[1], item[0]))[0][0]
 
 
+def page_category_hint(page: int) -> tuple[str | None, str | None]:
+    for hint in PAGE_CATEGORY_HINTS:
+        if hint["page_start"] <= page <= hint["page_end"]:
+            return hint["category_hint"], hint["reason"]
+    return None, None
+
+
+def choose_category_hint(text: str, page: int) -> tuple[str, str]:
+    page_hint, reason = page_category_hint(page)
+    if page_hint:
+        return page_hint, reason or "page_range"
+    keyword_hint = guess_category(text)
+    return keyword_hint, "keyword"
+
+
 def candidate_title(text: str, max_len: int = 80) -> str:
     first_line = next((line.strip() for line in text.splitlines() if line.strip()), "")
     first_line = re.sub(r"\s+", " ", first_line)
@@ -114,13 +198,14 @@ def build_candidates(layer0: dict[str, Any], min_chars: int = 40) -> dict[str, A
         for block_index, block in enumerate(split_page_into_blocks(text), start=1):
             if len(block) < min_chars:
                 continue
-            category = guess_category(block)
+            category, category_hint_source = choose_category_hint(block, page_number)
             candidate_id = f"l1.p{page_number:03d}.b{block_index:03d}.{slugify(category, 'unknown')}"
             candidates.append(
                 {
                     "id": candidate_id,
                     "status": "needs_review",
                     "category_hint": category,
+                    "category_hint_source": category_hint_source,
                     "title_hint": candidate_title(block),
                     "raw_text": block,
                     "source": {
