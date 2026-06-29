@@ -40,6 +40,32 @@ Split extracted text into candidate rule objects.
 
 Do not normalize aggressively yet.
 
+Run locally after Layer 0 exists:
+
+```bash
+python tools/extract_layer1.py --layer0 "sources/layer0/<pdf-name>.layer0.json"
+```
+
+By default, output is written to:
+
+```text
+sources/layer1/<pdf-name>.layer1.json
+```
+
+Generated Layer 1 files are ignored by Git.
+
+Layer 1 candidates are not final rules. They preserve raw text and source references while adding conservative review metadata:
+
+- candidate ID;
+- `needs_review` status;
+- category hint;
+- title hint;
+- raw text;
+- page reference;
+- review notes.
+
+The category hint is only a hint. Maintainers must review it before building HK-RDB.
+
 ## Layer 2: Normalized Rule Objects
 
 Convert candidates into schema-compliant HK-RDB objects:

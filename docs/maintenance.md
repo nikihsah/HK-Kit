@@ -32,3 +32,15 @@ python tools/extract_layer0.py --pdf "<path-to-rulebook.pdf>"
 ```
 
 The generated file is maintainer-only. It is not HK-RDB and must not be used during MODE CREATE.
+
+## Local Layer 1 Candidate Extraction
+
+Use:
+
+```bash
+python tools/extract_layer1.py --layer0 "sources/layer0/<pdf-name>.layer0.json"
+```
+
+The generated file is a review queue. It is not HK-RDB and must not be used during MODE CREATE.
+
+Layer 1 candidates may be noisy. A candidate becomes HK-RDB only after maintainer review, normalization, schema validation, and source verification.
