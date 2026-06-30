@@ -51,12 +51,116 @@ FILE_TO_CATEGORY = {
     "glossary.json": "Glossary",
 }
 
+RU_TOKEN_MAP = {
+    "активный": "active",
+    "блокирующие": "blocking",
+    "большой": "big",
+    "быстрый": "fast",
+    "выделений": "secretions",
+    "выделения": "secretions",
+    "выстрел": "shot",
+    "выстрелы": "shots",
+    "глаза": "eyes",
+    "глаз": "eye",
+    "жало": "sting",
+    "желудок": "stomach",
+    "жидкости": "fluids",
+    "защитный": "defensive",
+    "зрение": "vision",
+    "калечащий": "crippling",
+    "камуфляж": "camouflage",
+    "клешни": "claws",
+    "когти": "claws",
+    "книжный": "book",
+    "клубок": "curl",
+    "кровь": "blood",
+    "ли": "",
+    "линька": "molt",
+    "малый": "minor",
+    "мелкий": "minor",
+    "метка": "mark",
+    "недостаток": "flaw",
+    "огромные": "huge",
+    "один": "one",
+    "ослепительный": "dazzling",
+    "ослепляющий": "blinding",
+    "острые": "sharp",
+    "острый": "sharp",
+    "панцирь": "shell",
+    "песнь": "song",
+    "полет": "flight",
+    "полёт": "flight",
+    "природные": "natural",
+    "природный": "natural",
+    "руки": "arms",
+    "светящийся": "glowing",
+    "снаряд": "projectile",
+    "спрей": "spray",
+    "тяжелый": "heavy",
+    "тяжёлый": "heavy",
+    "укус": "bite",
+    "хвост": "tail",
+    "щетинки": "bristles",
+    "ядовитый": "venomous",
+}
+
 
 def slugify(value: str, fallback: str = "entry") -> str:
     value = value.lower()
     value = re.sub(r"[^a-z0-9]+", "-", value, flags=re.IGNORECASE)
     value = re.sub(r"-+", "-", value).strip("-")
     return value or fallback
+
+
+def transliterate_ru_token(token: str) -> str:
+    token = token.lower().replace("ё", "е")
+    if token in RU_TOKEN_MAP:
+        return RU_TOKEN_MAP[token]
+    table = str.maketrans(
+        {
+            "а": "a",
+            "б": "b",
+            "в": "v",
+            "г": "g",
+            "д": "d",
+            "е": "e",
+            "ж": "zh",
+            "з": "z",
+            "и": "i",
+            "й": "y",
+            "к": "k",
+            "л": "l",
+            "м": "m",
+            "н": "n",
+            "о": "o",
+            "п": "p",
+            "р": "r",
+            "с": "s",
+            "т": "t",
+            "у": "u",
+            "ф": "f",
+            "х": "kh",
+            "ц": "ts",
+            "ч": "ch",
+            "ш": "sh",
+            "щ": "shch",
+            "ы": "y",
+            "э": "e",
+            "ю": "yu",
+            "я": "ya",
+            "ь": "",
+            "ъ": "",
+        }
+    )
+    return token.translate(table)
+
+
+def stable_name_slug(name: str, fallback: str = "entry") -> str:
+    cleaned = name.lower().replace("ё", "е")
+    tokens = re.findall(r"[a-z0-9а-я]+", cleaned, flags=re.IGNORECASE)
+    normalized = [transliterate_ru_token(token) for token in tokens]
+    normalized = [token for token in normalized if token]
+    return slugify("-".join(normalized), fallback)
 
 
 def stable_rule_id(category_hint: str, candidate: dict[str, Any]) -> str:
@@ -223,14 +327,36 @@ def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str
     return item
 
 
+def unique_id(base_id: str, used_ids: set[str]) -> str:
+    candidate = base_id
+    counter = 2
+    while candidate in used_ids:
+        candidate = f"{base_id}-{counter}"
+        counter += 1
+    used_ids.add(candidate)
+    return candidate
+
+
 def infer_trait_relationships(items: list[dict[str, Any]]) -> None:
     current_parent_id: str | None = None
+    current_parent_slug: str | None = None
+    used_ids: set[str] = set()
     for item in items:
+        original_id = item.get("id")
+        if original_id:
+            item.setdefault("draft_id", original_id)
+
         if item.get("subcategory") == "Trait":
+            base_id = f"traits.{stable_name_slug(item.get('name', ''), 'trait')}"
+            item["id"] = unique_id(base_id, used_ids)
             current_parent_id = item.get("id")
+            current_parent_slug = current_parent_id.removeprefix("traits.")
             continue
         if item.get("subcategory") != "Subtrait" or not current_parent_id:
             continue
+        subtrait_slug = stable_name_slug(item.get("name", ""), "subtrait")
+        base_id = f"traits.{current_parent_slug}.{subtrait_slug}" if current_parent_slug else f"traits.{subtrait_slug}"
+        item["id"] = unique_id(base_id, used_ids)
         relationships = item.setdefault("relationships", [])
         if not any(
             relationship.get("type") == "subtrait_of"

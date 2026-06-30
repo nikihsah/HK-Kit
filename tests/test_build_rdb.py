@@ -12,6 +12,7 @@ from tools.build_rdb import (
     parse_trait_conditional_costs,
     split_trait_parts,
     stable_rule_id,
+    stable_name_slug,
     trait_costs,
     write_drafts,
 )
@@ -38,6 +39,10 @@ def sample_candidate(category_hint: str = "traits") -> dict:
 
 
 class TestBuildRdb(unittest.TestCase):
+    def test_stable_name_slug_uses_known_trait_terms(self) -> None:
+        self.assertEqual(stable_name_slug("Природный Снаряд"), "natural-projectile")
+        self.assertEqual(stable_name_slug("Жидкости"), "fluids")
+
     def test_parse_trait_costs_extracts_hunger_and_social_costs(self) -> None:
         costs = parse_trait_base_costs("+3 Голод, +0.5 Жуть или Привлекательность")
 
@@ -138,6 +143,10 @@ class TestBuildRdb(unittest.TestCase):
 
         infer_trait_relationships([parent, child])
 
+        self.assertEqual(parent["id"], "traits.natural-projectile")
+        self.assertEqual(child["id"], "traits.natural-projectile.fluids")
+        self.assertEqual(parent["draft_id"], "traits.p001.b001.candidate")
+        self.assertEqual(child["draft_id"], "traits.p001.b001.candidate")
         self.assertEqual(child["relationships"][0]["type"], "subtrait_of")
         self.assertEqual(child["relationships"][0]["target"], parent["id"])
         self.assertTrue(child["relationships"][0]["needs_manual_review"])
