@@ -1247,6 +1247,179 @@ def normalize_path_rule_object(item: dict[str, Any], raw_text: str) -> dict[str,
     return item
 
 
+EXAMPLE_SKILL_SETS = {
+    "Солдат",
+    "Жрец",
+    "Знать",
+    "Фермер",
+    "Охотник",
+    "Фокусник",
+    "Бандит",
+}
+
+SAMPLE_SKILL_NAMES = {
+    "Этичность",
+    "Интуиция",
+    "Медицина",
+    "Уход за снаряжением",
+    "Уход за оружием",
+    "Атлетика",
+    "Готовка",
+    "Выживание",
+    "Обман",
+    "Восприятие",
+}
+
+
+def compact_wrapped_text(lines: list[str]) -> str:
+    text = " ".join(line.strip() for line in lines if line.strip())
+    text = re.sub(r"\s+", " ", text)
+    text = text.replace(" - ", "")
+    text = text.replace("- ", "")
+    return text.strip()
+
+
+def extract_example_skill_sets(raw_text: str) -> list[dict[str, Any]]:
+    lines = [line.strip() for line in raw_text.splitlines() if line.strip()]
+    sets: list[dict[str, Any]] = []
+    index = 0
+    while index < len(lines):
+        name = lines[index]
+        if name in EXAMPLE_SKILL_SETS and index + 4 < len(lines):
+            skills = lines[index + 1 : index + 5]
+            sets.append(
+                {
+                    "name": name,
+                    "skills": skills,
+                    "source": "example",
+                    "needs_manual_review": True,
+                }
+            )
+            index += 5
+            continue
+        index += 1
+    return sets
+
+
+def normalized_skill_heading(lines: list[str], index: int) -> tuple[str | None, int]:
+    line = lines[index].strip()
+    if index + 1 < len(lines):
+        two_line = f"{line} {lines[index + 1].strip()}"
+        if two_line in SAMPLE_SKILL_NAMES:
+            return two_line, index + 2
+    if line in SAMPLE_SKILL_NAMES:
+        return line, index + 1
+    return None, index
+
+
+def extract_named_text_examples(raw_text: str, names: set[str]) -> list[dict[str, Any]]:
+    lines: list[str] = []
+    for raw_line in raw_text.splitlines():
+        line = raw_line.strip()
+        if not line:
+            continue
+        split_inline = False
+        for name in sorted(names, key=len, reverse=True):
+            if line.startswith(f"{name} "):
+                lines.append(name)
+                lines.append(line[len(name) :].strip())
+                split_inline = True
+                break
+        if not split_inline:
+            lines.append(line)
+    examples: list[dict[str, Any]] = []
+    index = 0
+    while index < len(lines):
+        name, body_start = normalized_skill_heading(lines, index)
+        if not name or name not in names:
+            index += 1
+            continue
+        body: list[str] = []
+        cursor = body_start
+        while cursor < len(lines):
+            next_name, _next_start = normalized_skill_heading(lines, cursor)
+            if next_name and next_name in names:
+                break
+            if lines[cursor] in {
+                "Раскрытие Тайны и",
+                "Сложность задачи",
+                "Шкала Сложности",
+                "Пример мастерства",
+                "Примеры Умения",
+                "Примеры навыков",
+            }:
+                break
+            body.append(lines[cursor])
+            cursor += 1
+        examples.append(
+            {
+                "name": name,
+                "text": compact_wrapped_text(body),
+                "needs_manual_review": True,
+            }
+        )
+        index = cursor
+    return examples
+
+
+def normalize_skill_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
+    item["draft_id"] = item["id"]
+    item["type"] = "skill-rules"
+    item["tags"] = sorted(set(item["tags"] + ["skills", "character-creation"]))
+
+    if "Пример мастерства" in raw_text:
+        item["id"] = "skills.mastery-and-difficulty"
+        item["subcategory"] = "Skill Mastery And Difficulty"
+        item["name"] = "Мастерство и сложность задач"
+        item["modifiers"] = {
+            "mastery_examples": extract_named_text_examples(raw_text, SAMPLE_SKILL_NAMES),
+            "alternate_rank_2_option": {
+                "type": "learn_secret_or_art_instead_of_skill_rank",
+                "source_text": "Когда жук достигнет второго Ранга, вместо него он может изучить одну Тайну или Искусство.",
+                "needs_manual_review": True,
+            },
+            "difficulty_scale": [
+                {"label": "Простая задача", "successes": 1, "check": "4+", "needs_manual_review": True},
+                {"label": "Обычная задача", "successes": 1, "needs_manual_review": True},
+                {"label": "Сложная задача", "successes": 2, "needs_manual_review": True},
+                {"label": "Путь боли", "successes": 3, "needs_manual_review": True},
+            ],
+        }
+        item["effects"] = [
+            {
+                "type": "skill_mastery_examples_and_task_difficulty",
+                "text": raw_text,
+                "needs_manual_review": True,
+            }
+        ]
+    else:
+        item["id"] = "skills.overview"
+        item["subcategory"] = "Skill Rules"
+        item["name"] = "Умения"
+        item["modifiers"] = {
+            "skill_slots_per_skill_set": 4,
+            "rank_max": 3,
+            "duplicate_skill_rank_cap": 3,
+            "example_skill_sets": extract_example_skill_sets(raw_text),
+            "sample_skill_descriptions": extract_named_text_examples(
+                raw_text.split("Примеры навыков", 1)[1]
+                if "Примеры навыков" in raw_text
+                else "",
+                SAMPLE_SKILL_NAMES,
+            ),
+        }
+        item["effects"] = [
+            {
+                "type": "skill_set_rules",
+                "text": raw_text,
+                "needs_manual_review": True,
+            }
+        ]
+
+    item["summary"] = summarize_raw_text(raw_text)
+    return item
+
+
 def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
     parts = split_trait_parts(raw_text)
     tags = list(item["tags"])
@@ -1507,6 +1680,8 @@ def candidate_to_rule_object(candidate: dict[str, Any]) -> dict[str, Any]:
         item = normalize_template_rule_object(item, raw_text)
     elif category_hint == "paths":
         item = normalize_path_rule_object(item, raw_text)
+    elif category_hint == "skills":
+        item = normalize_skill_rule_object(item, raw_text)
 
     return item
 

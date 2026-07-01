@@ -101,6 +101,8 @@ class TestExtractLayer1(unittest.TestCase):
         self.assertEqual(page_category_hint(12), ("traits", "traits_section_page_range"))
         self.assertEqual(page_category_hint(21), ("traits", "traits_section_page_range"))
         self.assertEqual(page_category_hint(32), ("paths", "paths_section_page_range"))
+        self.assertEqual(page_category_hint(46), ("skills", "skills_section_page_range"))
+        self.assertEqual(page_category_hint(47), ("skills", "skills_section_page_range"))
         self.assertEqual(page_category_hint(99), (None, None))
 
     def test_choose_category_hint_prefers_template_page_context(self) -> None:
@@ -128,6 +130,27 @@ class TestExtractLayer1(unittest.TestCase):
         self.assertEqual(document["candidate_count"], 1)
         self.assertEqual(document["candidates"][0]["category_hint"], "paths")
         self.assertIn("Очень длинное описание", document["candidates"][0]["raw_text"])
+
+    def test_build_candidates_keeps_skill_pages_whole(self) -> None:
+        layer0 = {
+            "artifact": "HK-RDB Layer 0",
+            "mode_create_allowed": False,
+            "book": "Test Book",
+            "source": {"pdf_name": "test.pdf", "pdf_sha256": "abc123"},
+            "page_count": 1,
+            "pages": [
+                {
+                    "page": 46,
+                    "text": "4.Умения\nСолдат\nАтлетика\nТактика\n" + ("Описание. " * 120),
+                }
+            ],
+        }
+
+        document = build_candidates(layer0, min_chars=10)
+
+        self.assertEqual(document["candidate_count"], 1)
+        self.assertEqual(document["candidates"][0]["category_hint"], "skills")
+        self.assertIn("Солдат", document["candidates"][0]["raw_text"])
 
     def test_choose_category_hint_prefers_page_context(self) -> None:
         category, source = choose_category_hint("еда, отдых, путешествие", 21)

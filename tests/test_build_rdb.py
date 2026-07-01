@@ -488,6 +488,69 @@ class TestBuildRdb(unittest.TestCase):
         self.assertEqual(rank_entries[0]["rank_title"], "Воин с гвоздём")
         self.assertIn("Пробитие защиты", rank_entries[0]["ability_names"])
 
+    def test_candidate_to_rule_object_normalizes_skill_overview(self) -> None:
+        candidate = sample_candidate("skills")
+        candidate["raw_text"] = (
+            "4.Умения\n"
+            "Умение включает в себя четыре разных навыка. Ранг 3 - максимальный.\n"
+            "Солдат\n"
+            "Уход за снаряжением\n"
+            "Атлетика\n"
+            "Тактика\n"
+            "Знания (военные)\n"
+            "Жрец\n"
+            "Медицина\n"
+            "Убеждение\n"
+            "Ритуалы\n"
+            "Знания (богословие)\n"
+            "Примеры навыков\n"
+            "Этичность\n"
+            "Игрок пытается произвести хорошее впечатление.\n"
+            "Интуиция\n"
+            "Игрок пытается оценить поведение другого жука.\n"
+        )
+        candidate["title_hint"] = "4.Умения"
+
+        item = candidate_to_rule_object(candidate)
+
+        self.assertEqual(item["id"], "skills.overview")
+        self.assertEqual(item["type"], "skill-rules")
+        self.assertEqual(item["modifiers"]["skill_slots_per_skill_set"], 4)
+        self.assertEqual(item["modifiers"]["rank_max"], 3)
+        self.assertEqual(item["modifiers"]["example_skill_sets"][0]["name"], "Солдат")
+        self.assertEqual(
+            item["modifiers"]["example_skill_sets"][0]["skills"],
+            ["Уход за снаряжением", "Атлетика", "Тактика", "Знания (военные)"],
+        )
+        self.assertEqual(item["modifiers"]["sample_skill_descriptions"][0]["name"], "Этичность")
+
+    def test_candidate_to_rule_object_normalizes_skill_mastery(self) -> None:
+        candidate = sample_candidate("skills")
+        candidate["raw_text"] = (
+            "Пример мастерства\n"
+            "Этичность\n"
+            "Один раз за сцену, если неудачная социальная проверка влияет на положение жука, она не учитывается.\n"
+            "Медицина\n"
+            "За 1 Выносливость игрок может кинуть проверку Медицины.\n"
+            "Раскрытие Тайны и\n"
+            "практика Искусства\n"
+            "Когда жук достигнет второго Ранга, вместо него он может изучить одну Тайну или Искусство.\n"
+            "Сложность задачи\n"
+            "Шкала Сложности\n"
+        )
+        candidate["title_hint"] = "Пример мастерства"
+
+        item = candidate_to_rule_object(candidate)
+
+        self.assertEqual(item["id"], "skills.mastery-and-difficulty")
+        self.assertEqual(item["subcategory"], "Skill Mastery And Difficulty")
+        self.assertEqual(item["modifiers"]["mastery_examples"][0]["name"], "Этичность")
+        self.assertEqual(
+            item["modifiers"]["alternate_rank_2_option"]["type"],
+            "learn_secret_or_art_instead_of_skill_rank",
+        )
+        self.assertEqual(item["modifiers"]["difficulty_scale"][0]["label"], "Простая задача")
+
     def test_candidate_to_rule_object_normalizes_traits(self) -> None:
         candidate = sample_candidate("traits")
         candidate["raw_text"] = "Раздражающие Щетинки\n+3 Голод, +0.5 Привлекательность\nОписание."
