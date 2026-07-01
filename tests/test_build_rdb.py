@@ -841,6 +841,63 @@ class TestBuildRdb(unittest.TestCase):
         self.assertEqual(items[0]["modifiers"]["stats"]["reusable"], "Нет")
         self.assertEqual(items[1]["costs"]["geo"], 50)
 
+    def test_build_draft_containers_expands_combat_rule_sections(self) -> None:
+        candidate = sample_candidate("combat-rules")
+        candidate["source"]["page_start"] = 117
+        candidate["source"]["page_end"] = 117
+        candidate["raw_text"] = (
+            "10. Сражение\n"
+            "Порядок Инициативы\n"
+            "Инициатива определяется Грацией.\n"
+            "Клетки и Движение\n"
+            "Жук может переместиться на количество клеток, равное его Скорости.\n"
+            "Атака\n"
+            "Атака требует траты хотя бы 1 Выносливости.\n"
+        )
+        layer1 = {
+            "artifact": "HK-RDB Layer 1",
+            "mode_create_allowed": False,
+            "candidates": [candidate],
+        }
+
+        containers, skipped = build_draft_containers(layer1)
+        items = containers["combat-rules.json"]["items"]
+
+        self.assertEqual(skipped, [])
+        self.assertEqual([item["id"] for item in items], [
+            "combat-rules.initiative",
+            "combat-rules.movement-grid",
+            "combat-rules.attack",
+        ])
+        self.assertEqual(items[0]["type"], "combat-rule")
+        self.assertIn("stamina", items[2]["tags"])
+        self.assertEqual(items[2]["modifiers"]["rule_slug"], "attack")
+
+    def test_combat_stamina_tax_glossary_entry_gets_distinct_id(self) -> None:
+        candidate = sample_candidate("combat-rules")
+        candidate["source"]["page_start"] = 120
+        candidate["source"]["page_end"] = 120
+        candidate["raw_text"] = (
+            "Потраченная Выносливость\n"
+            "Выносливость, потраченная на действие.\n"
+            "Налог Выносливости\n"
+            "Потраченная на действие Выносливость, которая его не усиливает.\n"
+        )
+        layer1 = {
+            "artifact": "HK-RDB Layer 1",
+            "mode_create_allowed": False,
+            "candidates": [candidate],
+        }
+
+        containers, skipped = build_draft_containers(layer1)
+        items = containers["combat-rules.json"]["items"]
+
+        self.assertEqual(skipped, [])
+        self.assertEqual([item["id"] for item in items], [
+            "combat-rules.spent-stamina",
+            "combat-rules.stamina-tax-definition",
+        ])
+
     def test_magic_secret_uses_page_path_hint_when_header_is_missing(self) -> None:
         candidate = sample_candidate("magic")
         candidate["source"]["page_start"] = 63

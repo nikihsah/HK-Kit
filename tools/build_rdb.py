@@ -2389,6 +2389,184 @@ def equipment_rule_objects_from_candidate(candidate: dict[str, Any]) -> list[dic
     return objects
 
 
+COMBAT_RULE_HEADINGS = {
+    "10. Сражение": ("overview", "Сражение"),
+    "Порядок Инициативы": ("initiative", "Порядок Инициативы"),
+    "Клетки и Движение": ("movement-grid", "Клетки и Движение"),
+    "Клетки": ("spaces", "Клетки"),
+    "Сжимание": ("squeezing", "Сжимание"),
+    "Действия": ("actions", "Действия"),
+    "Атака": ("attack", "Атака"),
+    "Площадь эффекта": ("area-effects", "Площадь эффекта"),
+    "Конусы": ("cones", "Конусы"),
+    "Налог Выносливости": ("stamina-tax", "Налог Выносливости"),
+    "Провоцированные атаки": ("provoked-attacks", "Провоцированные атаки"),
+    "Отступление": ("withdraw", "Отступление"),
+    "Захват": ("grapple", "Захват"),
+    "Рывок и Прыжок": ("dash-jump", "Рывок и Прыжок"),
+    "Удар с отскоком": ("pogo-strike", "Удар с отскоком"),
+    "Действия Навыков": ("skill-actions", "Действия Навыков"),
+    "Использование действий Навыков": ("skill-action-examples", "Использование действий Навыков"),
+    "Малые Действия": ("minor-actions", "Малые Действия"),
+    "Отсроченные ходы": ("delayed-turns", "Отсроченные ходы"),
+    "Подготовка": ("prepared-actions", "Подготовка"),
+    "Защита": ("defense", "Защита"),
+    "Парирование": ("parry", "Парирование"),
+    "Уклонение": ("dodge", "Уклонение"),
+    "Глоссарий Выносливости": ("stamina-glossary", "Глоссарий Выносливости"),
+    "Потраченная Выносливость": ("spent-stamina", "Потраченная Выносливость"),
+    "Вложенная Выносливость": ("invested-stamina", "Вложенная Выносливость"),
+    "Урон и Состояния": ("damage-and-conditions", "Урон и Состояния"),
+    "Вычисление вероятного урона": ("probable-damage", "Вычисление вероятного урона"),
+    "Понижение урона (ПУ)": ("damage-reduction", "Понижение урона"),
+    "Впитывание урона": ("damage-absorption", "Впитывание урона"),
+    "Магический урон": ("magic-damage", "Магический урон"),
+    "Природный урон": ("natural-damage", "Природный урон"),
+    "Урон по Выносливости и Душе": ("stamina-and-soul-damage", "Урон по Выносливости и Душе"),
+    "Несмертельный урон": ("nonlethal-damage", "Несмертельный урон"),
+    "Дисбаланс": ("imbalance", "Дисбаланс"),
+    "Врата Смерти": ("death-gates", "Врата Смерти"),
+    "Потеря сознания": ("unconsciousness", "Потеря сознания"),
+    "Удушение": ("suffocation", "Удушение"),
+    "Отложенный урон (ОУ)": ("delayed-damage", "Отложенный урон"),
+    "Эффект состояния": ("status-effect", "Эффект состояния"),
+    "Износ": ("wear", "Износ"),
+    "Износ природного оружия": ("natural-weapon-wear", "Износ природного оружия"),
+    "Невидимые атаки": ("invisible-attacks", "Невидимые атаки"),
+    "Укрытие": ("cover", "Укрытие"),
+    "Пересеченная местность": ("difficult-terrain", "Пересеченная местность"),
+    "Фокусировка/Концентрация": ("focus-concentration", "Фокусировка/Концентрация"),
+    "Фокусировка Души": ("soul-focus", "Фокусировка Души"),
+    "Фокусировка Заклинания": ("spell-focus", "Фокусировка Заклинания"),
+    "Фокусировка Припасов": ("supplies-focus", "Фокусировка Припасов"),
+}
+
+
+def split_combat_rule_entries(raw_text: str) -> list[dict[str, Any]]:
+    lines = [re.sub(r"\s+", " ", line).strip() for line in raw_text.splitlines() if line.strip()]
+    starts: list[tuple[int, str, str]] = []
+    for index, line in enumerate(lines):
+        if line in COMBAT_RULE_HEADINGS:
+            slug, title = COMBAT_RULE_HEADINGS[line]
+            starts.append((index, slug, title))
+
+    if not starts:
+        return []
+
+    entries: list[dict[str, Any]] = []
+    for position, (start, slug, title) in enumerate(starts):
+        end = starts[position + 1][0] if position + 1 < len(starts) else len(lines)
+        entry_lines = lines[start:end]
+        body = "\n".join(entry_lines[1:]).strip()
+        if not body:
+            continue
+        entries.append(
+            {
+                "slug": slug,
+                "name": title,
+                "body": body,
+                "raw_text": "\n".join(entry_lines).strip(),
+            }
+        )
+    return entries
+
+
+def infer_combat_rule_tags(entry_slug: str, text: str) -> list[str]:
+    tags = ["combat", "combat-rules", "character-creation"]
+    groups = {
+        "movement": ["movement-grid", "spaces", "squeezing", "dash-jump", "pogo-strike", "difficult-terrain"],
+        "action-economy": ["actions", "minor-actions", "delayed-turns", "prepared-actions", "stamina-tax"],
+        "attack": ["attack", "area-effects", "cones", "provoked-attacks", "grapple"],
+        "defense": ["defense", "parry", "dodge", "cover", "invisible-attacks"],
+        "damage": [
+            "damage-and-conditions",
+            "probable-damage",
+            "damage-reduction",
+            "damage-absorption",
+            "magic-damage",
+            "natural-damage",
+            "stamina-and-soul-damage",
+            "nonlethal-damage",
+            "delayed-damage",
+        ],
+        "conditions": ["imbalance", "death-gates", "unconsciousness", "suffocation", "status-effect", "wear"],
+        "focus": ["focus-concentration", "soul-focus", "spell-focus", "supplies-focus"],
+    }
+    for tag, slugs in groups.items():
+        if entry_slug in slugs:
+            tags.append(tag)
+    if "Вынослив" in text:
+        tags.append("stamina")
+    if "Душ" in text:
+        tags.append("soul")
+    return sorted(set(tags))
+
+
+def normalize_combat_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
+    entries = split_combat_rule_entries(raw_text)
+    if not entries:
+        item["draft_id"] = item["id"]
+        item["id"] = f"combat-rules.rules.p{item['source']['page_start']:03d}"
+        item["type"] = "combat-rule"
+        item["subcategory"] = "combat-rules"
+        item["summary"] = summarize_raw_text(raw_text)
+        item["effects"] = [
+            {
+                "type": "unparsed_combat_rule_text",
+                "text": raw_text,
+                "needs_manual_review": True,
+            }
+        ]
+        item["tags"] = sorted(set(item["tags"] + ["combat", "combat-rules", "character-creation"]))
+        return item
+
+    entry = entries[0]
+    entry_slug = entry["slug"]
+    if entry_slug == "stamina-tax" and int(item["source"]["page_start"]) == 120:
+        entry_slug = "stamina-tax-definition"
+    item["draft_id"] = item["id"]
+    item["id"] = f"combat-rules.{entry_slug}"
+    item["type"] = "combat-rule"
+    item["subcategory"] = entry_slug
+    item["name"] = entry["name"]
+    item["raw_text"] = entry["raw_text"]
+    item["summary"] = summarize_raw_text(entry["body"] or entry["raw_text"])
+    item["costs"] = {}
+    item["requirements"] = []
+    item["modifiers"] = {
+        "rule_slug": entry_slug,
+        "needs_manual_review": True,
+    }
+    item["effects"] = [
+        {
+            "type": "unparsed_combat_rule_text",
+            "text": entry["body"],
+            "needs_manual_review": True,
+        }
+    ]
+    item["tags"] = infer_combat_rule_tags(entry_slug, entry["raw_text"])
+    return item
+
+
+def combat_rule_objects_from_candidate(candidate: dict[str, Any]) -> list[dict[str, Any]]:
+    raw_text = candidate.get("raw_text", "")
+    entries = split_combat_rule_entries(raw_text)
+    if not entries:
+        return [candidate_to_rule_object(candidate)]
+
+    objects: list[dict[str, Any]] = []
+    for index, entry in enumerate(entries, start=1):
+        split_candidate = dict(candidate)
+        split_candidate["raw_text"] = entry["raw_text"]
+        split_candidate["title_hint"] = entry["name"]
+        split_candidate["source"] = dict(candidate.get("source", {}))
+        split_candidate["source"]["layer0_block"] = (
+            int(split_candidate["source"].get("layer0_block", 0)) * 100 + index
+        )
+        objects.append(candidate_to_rule_object(split_candidate))
+    return objects
+
+
 def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
     parts = split_trait_parts(raw_text)
     tags = list(item["tags"])
@@ -2667,6 +2845,8 @@ def candidate_to_rule_object(candidate: dict[str, Any]) -> dict[str, Any]:
         item = normalize_charm_rule_object(item, raw_text)
     elif category_hint == "equipment":
         item = normalize_equipment_rule_object(item, raw_text)
+    elif category_hint == "combat-rules":
+        item = normalize_combat_rule_object(item, raw_text)
 
     return item
 
@@ -2719,6 +2899,10 @@ def build_draft_containers(layer1: dict[str, Any]) -> tuple[dict[str, dict[str, 
         elif category_hint == "equipment":
             containers[CATEGORY_TO_FILE[category_hint]]["items"].extend(
                 equipment_rule_objects_from_candidate(candidate)
+            )
+        elif category_hint == "combat-rules":
+            containers[CATEGORY_TO_FILE[category_hint]]["items"].extend(
+                combat_rule_objects_from_candidate(candidate)
             )
         else:
             containers[CATEGORY_TO_FILE[category_hint]]["items"].append(
