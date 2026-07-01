@@ -128,7 +128,8 @@
         "page_end": 48
       },
       "needs_manual_review": false,
-      "draft_id": "advancement.p048.b001.5"
+      "draft_id": "advancement.p048.b001.5",
+      "parsing_status": "structured"
     }
   ],
   "release_metadata": {

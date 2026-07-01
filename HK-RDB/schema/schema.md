@@ -31,6 +31,11 @@ Every rule object must contain:
 - `tags`
 - `source`
 - `needs_manual_review`
+- `parsing_status`: `structured`, `raw_text_authoritative`, `manual_review_required`, or `blocked`
+
+`raw_text_authoritative` means the preserved rule text is authoritative while the
+machine-readable effect structure is incomplete. `blocked` objects cannot be used
+in a final build.
 
 Draft-derived objects may also retain optional `draft_id` for maintenance traceability.
 

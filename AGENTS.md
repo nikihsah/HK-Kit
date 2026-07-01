@@ -1,92 +1,42 @@
 # AGENTS.md
 
-## Operational Entry Point
+HK-Kit is an LLM-native framework for creating characters for The Unofficial Hollow Knight RPG. Version 1 supports only `MODE CREATE` and always preserves `Player Vision First`.
 
-You are using HK-Kit, an LLM-native framework for creating characters for The Unofficial Hollow Knight RPG.
+## Runtime MODE CREATE
 
-HK-Kit is currently focused only on:
+For an ordinary character-creation request, read in this order:
 
-```text
-MODE CREATE
-```
+1. `AGENTS.md`
+2. `HK-CAS/runtime-create.md`
+3. `HK-RDB/data/index.json`
+4. `HK-RDB/data/manifest.json`
+5. `HK-RDB/data/validation.json`
+6. only the HK-CAS and HK-RDB files required by the current stage
 
-Do not run unsupported modes.
+Do not require architecture or maintainer documents during normal runtime.
 
-## Required Reading Order
-
-Before designing, implementing, or using HK-Kit, read these files in this exact order:
-
-1. `CODEX_BOOTSTRAP.md` - why this project exists.
-2. `CAS_EVOLUTION.md` - what failures shaped HK-CAS and why the architecture must not be simplified casually.
-3. `PROJECT_SPEC.md` - what v1.0 must build.
-
-After those files, read only the additional files required for the current task.
-
-## Core Principle
-
-Always preserve:
-
-```text
-Player Vision First
-```
-
-Optimization must begin only after the player's intent, fantasy, desired playstyle, and constraints are understood.
-
-Questions are correct behavior when the concept is ambiguous.
-
-## Rules Source Policy
-
-During MODE CREATE:
-
-- use HK-RDB as the only rules source;
-- do not read the original PDF rulebook;
-- do not invent missing mechanics;
-- stop if required rules are missing, invalid, or incomplete.
-
-If HK-RDB is incomplete for an operation, say:
+HK-RDB is the only runtime rules source. Never read the PDF, invent a mechanic, or silently fill a data gap. If required rules are missing, invalid, blocked, or insufficient to prove legality, stop and say:
 
 ```text
 The HK-RDB is incomplete for this operation. Update the database before continuing.
 ```
 
-## Required MODE CREATE Behavior
+Follow every state and contract in `runtime-create.md`. Candidate Registry and Project Journal are separate. Candidates must be concrete HK-RDB objects with valid stable IDs.
 
-MODE CREATE must follow HK-CAS and must not skip states.
+During MODE CREATE, unless the user directly requests it, do not generate images; create documents, presentations, or spreadsheets; run unrelated code; alter calendars; send email; perform external actions; switch to an architecture audit; or propose repository refactoring mid-creation.
 
-The model must:
+Record non-blocking framework issues in Deferred Runtime Findings and continue. Report them after character creation. Stop immediately only for a rules violation, insufficient data, or inability to prove build legality.
 
-- start with repository initialization;
-- validate HK-RDB availability before using rules;
-- perform Intent Lock, Vision Lock, and Constraint Lock before optimization;
-- ask clarifying questions when player fantasy affects mechanics;
-- maintain Candidate Registry;
-- maintain Project Journal;
-- optimize only from Candidate Registry;
-- explain major decisions;
-- perform final audit before output.
+## Maintenance and Development
 
-## Candidate Registry
+Before designing or changing HK-Kit itself, read in this exact order:
 
-Candidate Registry stores mechanical candidates.
+1. `CODEX_BOOTSTRAP.md`
+2. `CAS_EVOLUTION.md`
+3. `PROJECT_SPEC.md`
 
-It must preserve concrete options, statuses, reasons, dependencies, conflicts, and source references.
-
-Do not compress Candidate Registry away.
-
-## Project Journal
-
-Project Journal is separate from Candidate Registry.
-
-It stores compact project evolution: player answers, priority shifts, unresolved weaknesses, open questions, and resolved conflicts.
-
-## Maintenance Note
-
-The PDF rulebook may be used only by maintainers rebuilding HK-RDB.
-
-The operational flow is:
+Then read the task-relevant architecture, schema, tools, and tests. Maintainers rebuilding HK-RDB may use the PDF; MODE CREATE may not. Preserve the flow:
 
 ```text
 PDF -> HK-RDB -> HK-CAS -> Character
 ```
-
-The repository should teach future AI models how to work without additional explanation from the user.

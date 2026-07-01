@@ -15,6 +15,7 @@ It stores concrete mechanical candidates. It is the only input allowed for optim
   "reason": "",
   "dependencies": [],
   "conflicts": [],
+  "source_file": "",
   "source_reference": {}
 }
 ```
@@ -29,6 +30,9 @@ It stores concrete mechanical candidates. It is the only input allowed for optim
 ## Rules
 
 - Store concrete options, not vague categories.
+- Entries such as “defensive trait”, “suitable path”, “magic enhancement”, or
+  “melee weapon” are invalid without a concrete HK-RDB object.
+- No valid stable ID in HK-RDB means no candidate.
 - Record why each candidate was classified.
 - Preserve dependencies and conflicts.
 - Do not compress the registry away.

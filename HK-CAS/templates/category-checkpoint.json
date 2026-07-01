@@ -1,0 +1,16 @@
+{
+  "category": "",
+  "source_file": "",
+  "expected_count": 0,
+  "analyzed_count": 0,
+  "analyzed_ids": [],
+  "skipped_ids": [],
+  "skip_reasons": {},
+  "candidate_ids": [],
+  "registry_entries_are_concrete": false,
+  "unresolved_dependencies": [],
+  "unresolved_questions": [],
+  "validation_warnings": [],
+  "critical_validation_errors": [],
+  "complete": false
+}

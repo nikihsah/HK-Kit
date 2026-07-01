@@ -18,6 +18,7 @@
     "travel-rest-rules.json",
     "social-rules.json",
     "glossary.json",
+    "manifest.json",
     "validation.json",
     "version.json"
   ],

@@ -37,7 +37,8 @@
         "page_end": 88
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p088.b001.9"
+      "draft_id": "equipment.p088.b001.9",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.gvozd",
@@ -85,7 +86,8 @@
         "page_end": 89
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p089.b101.candidate"
+      "draft_id": "equipment.p089.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.velikiy-gvozd-gvozd",
@@ -132,7 +134,8 @@
         "page_end": 89
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p089.b102.candidate"
+      "draft_id": "equipment.p089.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.igla",
@@ -179,7 +182,8 @@
         "page_end": 89
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p089.b103.candidate"
+      "draft_id": "equipment.p089.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.shtopalnaya-igla-igla",
@@ -227,7 +231,8 @@
         "page_end": 89
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p089.b104.candidate"
+      "draft_id": "equipment.p089.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.shpilka",
@@ -274,7 +279,8 @@
         "page_end": 89
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p089.b105.candidate"
+      "draft_id": "equipment.p089.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.bulavka-igla",
@@ -321,7 +327,8 @@
         "page_end": 89
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p089.b106.candidate"
+      "draft_id": "equipment.p089.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.knopka-igla",
@@ -368,7 +375,8 @@
         "page_end": 89
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p089.b107.candidate"
+      "draft_id": "equipment.p089.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.kol-gvozd",
@@ -415,7 +423,8 @@
         "page_end": 89
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p089.b108.candidate"
+      "draft_id": "equipment.p089.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.pero-kryuk",
@@ -462,7 +471,8 @@
         "page_end": 89
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p089.b109.candidate"
+      "draft_id": "equipment.p089.b109.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.kryuk",
@@ -509,7 +519,8 @@
         "page_end": 90
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p090.b101.candidate"
+      "draft_id": "equipment.p090.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.velikiy-kryuk",
@@ -556,7 +567,8 @@
         "page_end": 90
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p090.b102.candidate"
+      "draft_id": "equipment.p090.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.vilka-igla",
@@ -604,7 +616,8 @@
         "page_end": 90
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p090.b103.candidate"
+      "draft_id": "equipment.p090.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.khlyst-igla",
@@ -652,7 +665,8 @@
         "page_end": 90
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p090.b104.candidate"
+      "draft_id": "equipment.p090.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.bumerang-kryuk",
@@ -699,7 +713,8 @@
         "page_end": 90
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p090.b105.candidate"
+      "draft_id": "equipment.p090.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.vint-gvozd",
@@ -746,7 +761,8 @@
         "page_end": 90
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p090.b106.candidate"
+      "draft_id": "equipment.p090.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.klyk",
@@ -793,7 +809,8 @@
         "page_end": 90
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p090.b107.candidate"
+      "draft_id": "equipment.p090.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.ultraklyk",
@@ -840,7 +857,8 @@
         "page_end": 90
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p090.b108.candidate"
+      "draft_id": "equipment.p090.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.bolt",
@@ -887,7 +905,8 @@
         "page_end": 90
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p090.b109.candidate"
+      "draft_id": "equipment.p090.b109.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.metatelnyy-bolt-klyk",
@@ -934,7 +953,8 @@
         "page_end": 91
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p091.b101.candidate"
+      "draft_id": "equipment.p091.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.kolokolchik-klyk",
@@ -981,7 +1001,8 @@
         "page_end": 91
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p091.b102.candidate"
+      "draft_id": "equipment.p091.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.velikiy-kolokol-klyk",
@@ -1028,7 +1049,8 @@
         "page_end": 91
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p091.b103.candidate"
+      "draft_id": "equipment.p091.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.prashcha",
@@ -1076,7 +1098,8 @@
         "page_end": 91
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p091.b104.candidate"
+      "draft_id": "equipment.p091.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.rogatka",
@@ -1124,7 +1147,8 @@
         "page_end": 91
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p091.b105.candidate"
+      "draft_id": "equipment.p091.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.prashchepulta-klyk",
@@ -1172,7 +1196,8 @@
         "page_end": 91
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p091.b106.candidate"
+      "draft_id": "equipment.p091.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.polunozhnitsy-gvozd",
@@ -1219,7 +1244,8 @@
         "page_end": 91
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p091.b107.candidate"
+      "draft_id": "equipment.p091.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.nozhnitsy-igla",
@@ -1266,7 +1292,8 @@
         "page_end": 91
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p091.b108.candidate"
+      "draft_id": "equipment.p091.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.posokh-igla",
@@ -1313,7 +1340,8 @@
         "page_end": 91
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p091.b109.candidate"
+      "draft_id": "equipment.p091.b109.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.paryashchiy-prutik-igla",
@@ -1361,7 +1389,8 @@
         "page_end": 91
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p091.b110.candidate"
+      "draft_id": "equipment.p091.b110.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.perchatka-s-kogtyami",
@@ -1408,7 +1437,8 @@
         "page_end": 91
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p091.b111.candidate"
+      "draft_id": "equipment.p091.b111.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon.set",
@@ -1456,7 +1486,8 @@
         "page_end": 92
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p092.b101.candidate"
+      "draft_id": "equipment.p092.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon-modification.iznoshennoe",
@@ -1503,7 +1534,8 @@
         "page_end": 93
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p093.b101.candidate"
+      "draft_id": "equipment.p093.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon-modification.nityanoe",
@@ -1550,7 +1582,8 @@
         "page_end": 93
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p093.b102.candidate"
+      "draft_id": "equipment.p093.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon-modification.udlinennoe",
@@ -1601,7 +1634,8 @@
         "page_end": 93
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p093.b103.candidate"
+      "draft_id": "equipment.p093.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon-modification.tyazheloe",
@@ -1648,7 +1682,8 @@
         "page_end": 93
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p093.b104.candidate"
+      "draft_id": "equipment.p093.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon-modification.oblegchennoe",
@@ -1695,7 +1730,8 @@
         "page_end": 93
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p093.b105.candidate"
+      "draft_id": "equipment.p093.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon-modification.izyashchnoe",
@@ -1742,7 +1778,8 @@
         "page_end": 93
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p093.b106.candidate"
+      "draft_id": "equipment.p093.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon-modification.obmanka",
@@ -1789,7 +1826,8 @@
         "page_end": 93
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p093.b107.candidate"
+      "draft_id": "equipment.p093.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon-modification.universalnoe",
@@ -1836,7 +1874,8 @@
         "page_end": 93
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p093.b108.candidate"
+      "draft_id": "equipment.p093.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon-modification.pipetka",
@@ -1883,7 +1922,8 @@
         "page_end": 93
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p093.b109.candidate"
+      "draft_id": "equipment.p093.b109.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon-modification.charodeyskoe",
@@ -1930,7 +1970,8 @@
         "page_end": 93
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p093.b110.candidate"
+      "draft_id": "equipment.p093.b110.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon-modification.lezvie",
@@ -1977,7 +2018,8 @@
         "page_end": 93
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p093.b111.candidate"
+      "draft_id": "equipment.p093.b111.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon-modification.sbalansirovannoe",
@@ -2024,7 +2066,8 @@
         "page_end": 93
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p093.b112.candidate"
+      "draft_id": "equipment.p093.b112.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon-modification.vykovannoe-v-grezakh",
@@ -2071,7 +2114,8 @@
         "page_end": 93
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p093.b113.candidate"
+      "draft_id": "equipment.p093.b113.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon-modification.ubiytsa-zverey",
@@ -2118,7 +2162,8 @@
         "page_end": 93
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p093.b114.candidate"
+      "draft_id": "equipment.p093.b114.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon-modification.zhestokoe",
@@ -2165,7 +2210,8 @@
         "page_end": 94
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p094.b101.candidate"
+      "draft_id": "equipment.p094.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon-modification.myasnitskoe",
@@ -2212,7 +2258,8 @@
         "page_end": 94
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p094.b102.candidate"
+      "draft_id": "equipment.p094.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.weapon-upgrade.uluchshenie-oruzhiya",
@@ -2255,7 +2302,8 @@
         "page_end": 94
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p094.b103.candidate"
+      "draft_id": "equipment.p094.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.shield.shchity-shchit-knopka",
@@ -2300,7 +2348,8 @@
         "page_end": 95
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p095.b101.candidate"
+      "draft_id": "equipment.p095.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.shield.shchit-monetka",
@@ -2345,7 +2394,8 @@
         "page_end": 95
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p095.b102.candidate"
+      "draft_id": "equipment.p095.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.shield.shchit-krylo",
@@ -2390,7 +2440,8 @@
         "page_end": 95
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p095.b103.candidate"
+      "draft_id": "equipment.p095.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.shield.pantsirnyy-shchit",
@@ -2435,7 +2486,8 @@
         "page_end": 95
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p095.b104.candidate"
+      "draft_id": "equipment.p095.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.shield-modification.iznoshennyy",
@@ -2482,7 +2534,8 @@
         "page_end": 96
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p096.b101.candidate"
+      "draft_id": "equipment.p096.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.shield-modification.oblegchennyy",
@@ -2529,7 +2582,8 @@
         "page_end": 96
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p096.b102.candidate"
+      "draft_id": "equipment.p096.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.shield-modification.ukreplennyy",
@@ -2576,7 +2630,8 @@
         "page_end": 96
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p096.b103.candidate"
+      "draft_id": "equipment.p096.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.shield-modification.shipovannyy",
@@ -2623,7 +2678,8 @@
         "page_end": 96
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p096.b104.candidate"
+      "draft_id": "equipment.p096.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.shield-modification.obmanka",
@@ -2670,7 +2726,8 @@
         "page_end": 96
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p096.b105.candidate"
+      "draft_id": "equipment.p096.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.shield-modification.praktichnyy",
@@ -2717,7 +2774,8 @@
         "page_end": 96
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p096.b106.candidate"
+      "draft_id": "equipment.p096.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.shield-modification.sbalansirovannyy",
@@ -2764,7 +2822,8 @@
         "page_end": 96
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p096.b107.candidate"
+      "draft_id": "equipment.p096.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.shield-modification.otrazhayushchiy",
@@ -2811,7 +2870,8 @@
         "page_end": 96
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p096.b108.candidate"
+      "draft_id": "equipment.p096.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.armor.bronya-bronya-maksimalnaya-prochnost-ponizhenie-urona-ves-tsena-legkaya-bronya-5",
@@ -2856,7 +2916,8 @@
         "page_end": 97
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p097.b101.5"
+      "draft_id": "equipment.p097.b101.5",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.armor.srednyaya-bronya",
@@ -2902,7 +2963,8 @@
         "page_end": 97
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p097.b102.candidate"
+      "draft_id": "equipment.p097.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.armor.tyazhelaya-bronya",
@@ -2948,7 +3010,8 @@
         "page_end": 97
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p097.b103.candidate"
+      "draft_id": "equipment.p097.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.armor-modification.razbitaya",
@@ -2995,7 +3058,8 @@
         "page_end": 98
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p098.b101.candidate"
+      "draft_id": "equipment.p098.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.armor-modification.s-sedlom",
@@ -3042,7 +3106,8 @@
         "page_end": 98
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p098.b102.candidate"
+      "draft_id": "equipment.p098.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.armor-modification.nadezhnaya",
@@ -3089,7 +3154,8 @@
         "page_end": 98
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p098.b103.candidate"
+      "draft_id": "equipment.p098.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.armor-modification.steganaya",
@@ -3145,7 +3211,8 @@
         "page_end": 98
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p098.b104.candidate"
+      "draft_id": "equipment.p098.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.armor-modification.utyazhelennaya",
@@ -3201,7 +3268,8 @@
         "page_end": 98
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p098.b105.candidate"
+      "draft_id": "equipment.p098.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.armor-modification.shipovannaya",
@@ -3257,7 +3325,8 @@
         "page_end": 98
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p098.b106.candidate"
+      "draft_id": "equipment.p098.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.armor-modification.ustoychivaya-k",
@@ -3304,7 +3373,8 @@
         "page_end": 98
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p098.b107.candidate"
+      "draft_id": "equipment.p098.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.armor-modification.blestyashchaya",
@@ -3351,7 +3421,8 @@
         "page_end": 98
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p098.b108.candidate"
+      "draft_id": "equipment.p098.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.magic-focus.magicheskaya-fokusirovka-talisman-0r",
@@ -3395,7 +3466,8 @@
         "page_end": 99
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p099.b101.0"
+      "draft_id": "equipment.p099.b101.0",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.magic-focus.palochka",
@@ -3443,7 +3515,8 @@
         "page_end": 99
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p099.b102.candidate"
+      "draft_id": "equipment.p099.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.magic-focus.skipetr",
@@ -3491,7 +3564,8 @@
         "page_end": 99
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p099.b103.candidate"
+      "draft_id": "equipment.p099.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.magic-focus.posokh",
@@ -3539,7 +3613,8 @@
         "page_end": 99
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p099.b104.candidate"
+      "draft_id": "equipment.p099.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.equipment-rules.pripasy-i-retsepty",
@@ -3579,7 +3654,8 @@
         "page_end": 100
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p100.b101.candidate"
+      "draft_id": "equipment.p100.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.equipment-rules.ispolzovanie-pripasov",
@@ -3619,7 +3695,8 @@
         "page_end": 100
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p100.b102.candidate"
+      "draft_id": "equipment.p100.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.equipment-rules.poisk-pripasov",
@@ -3659,7 +3736,8 @@
         "page_end": 100
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p100.b103.candidate"
+      "draft_id": "equipment.p100.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.equipment-rules.ves-edy",
@@ -3699,7 +3777,8 @@
         "page_end": 100
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p100.b104.candidate"
+      "draft_id": "equipment.p100.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.equipment-rules.priem-pishchi",
@@ -3739,7 +3818,8 @@
         "page_end": 100
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p100.b105.candidate"
+      "draft_id": "equipment.p100.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.equipment-rules.razdelyvanie",
@@ -3779,7 +3859,8 @@
         "page_end": 100
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p100.b106.candidate"
+      "draft_id": "equipment.p100.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.food.syrye-rasteniya",
@@ -3825,7 +3906,8 @@
         "page_end": 100
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p100.b107.candidate"
+      "draft_id": "equipment.p100.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.food.syroe-myaso",
@@ -3871,7 +3953,8 @@
         "page_end": 100
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p100.b108.candidate"
+      "draft_id": "equipment.p100.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.food.syrye-griby",
@@ -3917,7 +4000,8 @@
         "page_end": 100
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p100.b109.candidate"
+      "draft_id": "equipment.p100.b109.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.food.paek-s-rasteniyami",
@@ -3963,7 +4047,8 @@
         "page_end": 100
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p100.b110.candidate"
+      "draft_id": "equipment.p100.b110.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.food.paek-s-myasom",
@@ -4009,7 +4094,8 @@
         "page_end": 100
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p100.b111.candidate"
+      "draft_id": "equipment.p100.b111.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.food.paek-s-gribami",
@@ -4055,7 +4141,8 @@
         "page_end": 100
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p100.b112.candidate"
+      "draft_id": "equipment.p100.b112.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.potion.osobaya-eda-nektar",
@@ -4100,7 +4187,8 @@
         "page_end": 101
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p101.b101.candidate"
+      "draft_id": "equipment.p101.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.potion.ambroziya",
@@ -4145,7 +4233,8 @@
         "page_end": 101
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p101.b102.candidate"
+      "draft_id": "equipment.p101.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.potion.alkogolnye-napitki-alkogolnye-napitki-schitayutsya-zelyami-iz-za-nalichiya-u-nikh-kreposti-ekstrakt-semyanki",
@@ -4189,7 +4278,8 @@
         "page_end": 101
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p101.b103.candidate"
+      "draft_id": "equipment.p101.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.potion.svyashchennaya-voda",
@@ -4233,7 +4323,8 @@
         "page_end": 101
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p101.b104.candidate"
+      "draft_id": "equipment.p101.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.potion.filtrovannyy-sok",
@@ -4277,7 +4368,8 @@
         "page_end": 101
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p101.b105.candidate"
+      "draft_id": "equipment.p101.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.potion.vetryanaya-myata",
@@ -4321,7 +4413,8 @@
         "page_end": 101
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p101.b106.candidate"
+      "draft_id": "equipment.p101.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.potion.oktopamin",
@@ -4365,7 +4458,8 @@
         "page_end": 102
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p102.b101.candidate"
+      "draft_id": "equipment.p102.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.potion.pauchiy-bite",
@@ -4409,7 +4503,8 @@
         "page_end": 102
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p102.b102.candidate"
+      "draft_id": "equipment.p102.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.potion.poroshok-iz-korney-aysveyn",
@@ -4453,7 +4548,8 @@
         "page_end": 102
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p102.b103.candidate"
+      "draft_id": "equipment.p102.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.potion.gigazhuk",
@@ -4497,7 +4593,8 @@
         "page_end": 102
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p102.b104.candidate"
+      "draft_id": "equipment.p102.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.potion.krovyanaya-sol",
@@ -4541,7 +4638,8 @@
         "page_end": 102
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p102.b105.candidate"
+      "draft_id": "equipment.p102.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.potion.svetopyl",
@@ -4585,7 +4683,8 @@
         "page_end": 102
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p102.b106.candidate"
+      "draft_id": "equipment.p102.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.potion.tarakane-molochko",
@@ -4629,7 +4728,8 @@
         "page_end": 102
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p102.b107.candidate"
+      "draft_id": "equipment.p102.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.potion.mutagen",
@@ -4673,7 +4773,8 @@
         "page_end": 102
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p102.b108.candidate"
+      "draft_id": "equipment.p102.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.potion.obyatya-vdovy",
@@ -4717,7 +4818,8 @@
         "page_end": 102
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p102.b109.candidate"
+      "draft_id": "equipment.p102.b109.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.alcohol.alkogolnye-napitki-braga",
@@ -4761,7 +4863,8 @@
         "page_end": 103
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p103.b101.candidate"
+      "draft_id": "equipment.p103.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.alcohol.travyanoe-vino",
@@ -4804,7 +4907,8 @@
         "page_end": 103
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p103.b102.candidate"
+      "draft_id": "equipment.p103.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.alcohol.zhuche-pivo",
@@ -4848,7 +4952,8 @@
         "page_end": 103
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p103.b103.candidate"
+      "draft_id": "equipment.p103.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.alcohol.gribnoy-el",
@@ -4892,7 +4997,8 @@
         "page_end": 103
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p103.b104.candidate"
+      "draft_id": "equipment.p103.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.alcohol.zolotoy-viski",
@@ -4936,7 +5042,8 @@
         "page_end": 103
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p103.b105.candidate"
+      "draft_id": "equipment.p103.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.alcohol.medovukha",
@@ -4980,7 +5087,8 @@
         "page_end": 103
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p103.b106.candidate"
+      "draft_id": "equipment.p103.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.alcohol.yantarnyy-brendi",
@@ -5024,7 +5132,8 @@
         "page_end": 103
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p103.b107.candidate"
+      "draft_id": "equipment.p103.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.alcohol.solnechnyy-sidr",
@@ -5068,7 +5177,8 @@
         "page_end": 103
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p103.b108.candidate"
+      "draft_id": "equipment.p103.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.flask.s-vodoy",
@@ -5112,7 +5222,8 @@
         "page_end": 104
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p104.b101.candidate"
+      "draft_id": "equipment.p104.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.flask.s-krovyu",
@@ -5156,7 +5267,8 @@
         "page_end": 104
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p104.b102.candidate"
+      "draft_id": "equipment.p104.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.flask.s-toksinom",
@@ -5200,7 +5312,8 @@
         "page_end": 104
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p104.b103.candidate"
+      "draft_id": "equipment.p104.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.flask.s-zhirom",
@@ -5244,7 +5357,8 @@
         "page_end": 104
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p104.b104.candidate"
+      "draft_id": "equipment.p104.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.flask.goryuchaya",
@@ -5288,7 +5402,8 @@
         "page_end": 105
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p105.b101.candidate"
+      "draft_id": "equipment.p105.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.flask.s-dymom",
@@ -5332,7 +5447,8 @@
         "page_end": 105
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p105.b102.candidate"
+      "draft_id": "equipment.p105.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.flask.rzhavilnaya",
@@ -5376,7 +5492,8 @@
         "page_end": 105
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p105.b103.candidate"
+      "draft_id": "equipment.p105.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.flask.feromonnaya",
@@ -5420,7 +5537,8 @@
         "page_end": 105
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p105.b104.candidate"
+      "draft_id": "equipment.p105.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.flask.s-pyltsoy",
@@ -5464,7 +5582,8 @@
         "page_end": 105
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p105.b105.candidate"
+      "draft_id": "equipment.p105.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.flask.kislotnaya",
@@ -5508,7 +5627,8 @@
         "page_end": 105
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p105.b106.candidate"
+      "draft_id": "equipment.p105.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.flask.vzryvnaya",
@@ -5552,7 +5672,8 @@
         "page_end": 105
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p105.b107.candidate"
+      "draft_id": "equipment.p105.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.flask.s-cheshuykami",
@@ -5596,7 +5717,8 @@
         "page_end": 105
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p105.b108.candidate"
+      "draft_id": "equipment.p105.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.flask.s-kleem",
@@ -5640,7 +5762,8 @@
         "page_end": 105
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p105.b109.candidate"
+      "draft_id": "equipment.p105.b109.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.flask.zaryazhennaya",
@@ -5684,7 +5807,8 @@
         "page_end": 106
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p106.b101.candidate"
+      "draft_id": "equipment.p106.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.flask.bolotnaya",
@@ -5728,7 +5852,8 @@
         "page_end": 106
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p106.b102.candidate"
+      "draft_id": "equipment.p106.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.flask.s-zhivokrovyu",
@@ -5772,7 +5897,8 @@
         "page_end": 106
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p106.b103.candidate"
+      "draft_id": "equipment.p106.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.flask.bite-vdovy",
@@ -5816,7 +5942,8 @@
         "page_end": 106
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p106.b104.candidate"
+      "draft_id": "equipment.p106.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.flask.yadovitaya-zhelch",
@@ -5860,7 +5987,8 @@
         "page_end": 106
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p106.b105.candidate"
+      "draft_id": "equipment.p106.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.flask.mstitelnaya-dusha",
@@ -5904,7 +6032,8 @@
         "page_end": 106
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p106.b106.candidate"
+      "draft_id": "equipment.p106.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.flask.shtorm-v-butylke",
@@ -5948,7 +6077,8 @@
         "page_end": 106
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p106.b107.candidate"
+      "draft_id": "equipment.p106.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.flask.filosofskoe-yaytso",
@@ -5992,7 +6122,8 @@
         "page_end": 106
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p106.b108.candidate"
+      "draft_id": "equipment.p106.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.poison.smertelnyy-yad",
@@ -6036,7 +6167,8 @@
         "page_end": 107
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p107.b101.candidate"
+      "draft_id": "equipment.p107.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.poison.myatnaya-dymka",
@@ -6080,7 +6212,8 @@
         "page_end": 107
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p107.b102.candidate"
+      "draft_id": "equipment.p107.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.poison.gubka",
@@ -6124,7 +6257,8 @@
         "page_end": 107
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p107.b103.candidate"
+      "draft_id": "equipment.p107.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.poison.kamnestan",
@@ -6168,7 +6302,8 @@
         "page_end": 107
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p107.b104.candidate"
+      "draft_id": "equipment.p107.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.poison.yantarnik",
@@ -6212,7 +6347,8 @@
         "page_end": 107
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p107.b105.candidate"
+      "draft_id": "equipment.p107.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.poison.mutnosok",
@@ -6256,7 +6392,8 @@
         "page_end": 107
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p107.b106.candidate"
+      "draft_id": "equipment.p107.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.poison.vertigo",
@@ -6300,7 +6437,8 @@
         "page_end": 108
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p108.b101.candidate"
+      "draft_id": "equipment.p108.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.poison.zimniy-tsvet",
@@ -6344,7 +6482,8 @@
         "page_end": 108
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p108.b102.candidate"
+      "draft_id": "equipment.p108.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.poison.plakun",
@@ -6388,7 +6527,8 @@
         "page_end": 108
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p108.b103.candidate"
+      "draft_id": "equipment.p108.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.poison.yad-orkhidei",
@@ -6432,7 +6572,8 @@
         "page_end": 108
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p108.b104.candidate"
+      "draft_id": "equipment.p108.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.poison.mark-smerti",
@@ -6476,7 +6617,8 @@
         "page_end": 108
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p108.b105.candidate"
+      "draft_id": "equipment.p108.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.poison.krakh",
@@ -6520,7 +6662,8 @@
         "page_end": 108
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p108.b106.candidate"
+      "draft_id": "equipment.p108.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.trap.chelyust-pozhiratelya-gluptsov",
@@ -6565,7 +6708,8 @@
         "page_end": 109
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p109.b101.candidate"
+      "draft_id": "equipment.p109.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.trap.projectile-mshistika",
@@ -6610,7 +6754,8 @@
         "page_end": 109
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p109.b102.candidate"
+      "draft_id": "equipment.p109.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.trap.vsplyvayushchaya-mina",
@@ -6656,7 +6801,8 @@
         "page_end": 109
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p109.b103.candidate"
+      "draft_id": "equipment.p109.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.trap.shipy",
@@ -6701,7 +6847,8 @@
         "page_end": 109
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p109.b104.candidate"
+      "draft_id": "equipment.p109.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.trap.pauchi-silki",
@@ -6746,7 +6893,8 @@
         "page_end": 110
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p110.b101.candidate"
+      "draft_id": "equipment.p110.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.trap.v-pauchi-silki-mozhno-pomestit-shumyashchie-predmety-chtoby-sozdat-prostuyu-sistemu-signalizatsii-kolyuchaya-pautina",
@@ -6792,7 +6940,8 @@
         "page_end": 110
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p110.b102.candidate"
+      "draft_id": "equipment.p110.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.trap.padenie-bombardira",
@@ -6838,7 +6987,8 @@
         "page_end": 110
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p110.b103.candidate"
+      "draft_id": "equipment.p110.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.trap.malysh-muravlev",
@@ -6883,7 +7033,8 @@
         "page_end": 110
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p110.b104.candidate"
+      "draft_id": "equipment.p110.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.trap.udar-saranchi",
@@ -6928,7 +7079,8 @@
         "page_end": 110
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p110.b105.candidate"
+      "draft_id": "equipment.p110.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.trap.zavodnoy-zvonokryl",
@@ -6973,7 +7125,8 @@
         "page_end": 111
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p111.b101.candidate"
+      "draft_id": "equipment.p111.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.trap.zavodnoy-plevun",
@@ -7018,7 +7171,8 @@
         "page_end": 111
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p111.b102.candidate"
+      "draft_id": "equipment.p111.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.trap.gigantskiy-pozhiratel-gluptsov",
@@ -7063,7 +7217,8 @@
         "page_end": 111
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p111.b103.candidate"
+      "draft_id": "equipment.p111.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.trap.totem",
@@ -7109,7 +7264,8 @@
         "page_end": 111
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p111.b104.candidate"
+      "draft_id": "equipment.p111.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.tool.kirka-dobycha-raskopki-bolt-metatelnyy-bolt",
@@ -7153,7 +7309,8 @@
         "page_end": 112
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p112.b101.candidate"
+      "draft_id": "equipment.p112.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.tool.lom-ispytaniya-moshchi-vskrytie-yashchika-klyk-kryuk",
@@ -7197,7 +7354,8 @@
         "page_end": 112
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p112.b102.candidate"
+      "draft_id": "equipment.p112.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.tool.kamuflyazhnyy-plashch-skrytnost-set",
@@ -7241,7 +7399,8 @@
         "page_end": 112
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p112.b103.candidate"
+      "draft_id": "equipment.p112.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.tool.udochka-rybalka-podtsepka-predmeta-posokh-khlyst",
@@ -7285,7 +7444,8 @@
         "page_end": 112
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p112.b104.candidate"
+      "draft_id": "equipment.p112.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.tool.kniga-navyk-znaniya-tolko-instrument",
@@ -7329,7 +7489,8 @@
         "page_end": 112
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p112.b105.candidate"
+      "draft_id": "equipment.p112.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.tool.nabor-vora-vskrytie-zamkov-obezvrezhivanie-lovushek-tolko-instrument",
@@ -7373,7 +7534,8 @@
         "page_end": 112
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p112.b106.candidate"
+      "draft_id": "equipment.p112.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.tool.molot-i-kryuki-skalolazanie-bolt",
@@ -7417,7 +7579,8 @@
         "page_end": 112
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p112.b107.candidate"
+      "draft_id": "equipment.p112.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.tool.pila-stroitelstvo-vyrubka-rasteniy-kryuk-otpornyy-kryuk",
@@ -7461,7 +7624,8 @@
         "page_end": 112
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p112.b108.candidate"
+      "draft_id": "equipment.p112.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.tool.pribory-dlya-izmereniya-stroitelstvo-ustanovka-lovushek-tolko-instrument",
@@ -7505,7 +7669,8 @@
         "page_end": 112
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p112.b109.candidate"
+      "draft_id": "equipment.p112.b109.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.treasure.patrontash",
@@ -7549,7 +7714,8 @@
         "page_end": 113
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p113.b101.candidate"
+      "draft_id": "equipment.p113.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.treasure.patrontash-rasshiryaet-kolichestvo-yacheek-poyasa-na-1-za-kazhdye-50-geo-potrachennykh-na-patrontash-naryadnaya-odezhda",
@@ -7593,7 +7759,8 @@
         "page_end": 113
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p113.b102.1-50"
+      "draft_id": "equipment.p113.b102.1-50",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.treasure.sukhaya-solominka",
@@ -7637,7 +7804,8 @@
         "page_end": 113
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p113.b103.candidate"
+      "draft_id": "equipment.p113.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.treasure.1-kletka-nitki",
@@ -7681,7 +7849,8 @@
         "page_end": 113
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p113.b104.1"
+      "draft_id": "equipment.p113.b104.1",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.treasure.1-kletka-leski",
@@ -7725,7 +7894,8 @@
         "page_end": 113
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p113.b105.1"
+      "draft_id": "equipment.p113.b105.1",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.treasure.1-kletka-zapala-dlya-sklyanki",
@@ -7769,7 +7939,8 @@
         "page_end": 113
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p113.b106.1"
+      "draft_id": "equipment.p113.b106.1",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.treasure.spichka",
@@ -7813,7 +7984,8 @@
         "page_end": 113
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p113.b107.candidate"
+      "draft_id": "equipment.p113.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.treasure.list-osinoy-bumagi",
@@ -7857,7 +8029,8 @@
         "page_end": 113
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p113.b108.candidate"
+      "draft_id": "equipment.p113.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.treasure.flakon-chernil",
@@ -7901,7 +8074,8 @@
         "page_end": 113
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p113.b109.candidate"
+      "draft_id": "equipment.p113.b109.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.treasure.travyanoy-balzam",
@@ -7945,7 +8119,8 @@
         "page_end": 113
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p113.b110.candidate"
+      "draft_id": "equipment.p113.b110.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.treasure.binty-pokrytye-pyltsoy",
@@ -7989,7 +8164,8 @@
         "page_end": 114
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p114.b101.candidate"
+      "draft_id": "equipment.p114.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.treasure.loskutnaya-zaplatka",
@@ -8033,7 +8209,8 @@
         "page_end": 114
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p114.b102.candidate"
+      "draft_id": "equipment.p114.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.treasure.zaplatka-dlya-broni",
@@ -8077,7 +8254,8 @@
         "page_end": 114
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p114.b103.candidate"
+      "draft_id": "equipment.p114.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.treasure.remontnyy-vosk",
@@ -8121,7 +8299,8 @@
         "page_end": 114
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p114.b104.candidate"
+      "draft_id": "equipment.p114.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.treasure.brus-pantsirnogo-dreva",
@@ -8165,7 +8344,8 @@
         "page_end": 114
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p114.b105.candidate"
+      "draft_id": "equipment.p114.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.treasure.kusok-rudy",
@@ -8209,7 +8389,8 @@
         "page_end": 114
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p114.b106.candidate"
+      "draft_id": "equipment.p114.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.treasure.kusok-blednoy-rudy",
@@ -8253,7 +8434,8 @@
         "page_end": 114
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p114.b107.candidate"
+      "draft_id": "equipment.p114.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.belt-item.podsumok",
@@ -8297,7 +8479,8 @@
         "page_end": 115
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p115.b101.candidate"
+      "draft_id": "equipment.p115.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.belt-item.sedlo",
@@ -8341,7 +8524,8 @@
         "page_end": 115
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p115.b102.candidate"
+      "draft_id": "equipment.p115.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.belt-item.svetokamen",
@@ -8385,7 +8569,8 @@
         "page_end": 115
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p115.b103.candidate"
+      "draft_id": "equipment.p115.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.belt-item.lampochka-svetomukhi",
@@ -8429,7 +8614,8 @@
         "page_end": 115
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p115.b104.candidate"
+      "draft_id": "equipment.p115.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.belt-item.svetomushiy-fonar",
@@ -8473,7 +8659,8 @@
         "page_end": 115
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p115.b105.candidate"
+      "draft_id": "equipment.p115.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.belt-item.lovets-snov",
@@ -8517,7 +8704,8 @@
         "page_end": 115
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p115.b106.candidate"
+      "draft_id": "equipment.p115.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.belt-item.salnik",
@@ -8561,7 +8749,8 @@
         "page_end": 115
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p115.b107.candidate"
+      "draft_id": "equipment.p115.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "equipment.belt-item.svyashchennyy-yantar-ili-kristalnoe-serdtse",
@@ -8605,7 +8794,8 @@
         "page_end": 116
       },
       "needs_manual_review": false,
-      "draft_id": "equipment.p116.b101.candidate"
+      "draft_id": "equipment.p116.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     }
   ],
   "release_metadata": {

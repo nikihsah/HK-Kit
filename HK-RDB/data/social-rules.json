@@ -38,7 +38,8 @@
         "page_end": 125
       },
       "needs_manual_review": false,
-      "draft_id": "social-rules.p125.b101.candidate"
+      "draft_id": "social-rules.p125.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "social-rules.charm",
@@ -82,7 +83,8 @@
         "page_end": 125
       },
       "needs_manual_review": false,
-      "draft_id": "social-rules.p125.b102.candidate"
+      "draft_id": "social-rules.p125.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "social-rules.intimidation",
@@ -126,7 +128,8 @@
         "page_end": 125
       },
       "needs_manual_review": false,
-      "draft_id": "social-rules.p125.b103.candidate"
+      "draft_id": "social-rules.p125.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "social-rules.deception",
@@ -175,7 +178,8 @@
         "page_end": 125
       },
       "needs_manual_review": false,
-      "draft_id": "social-rules.p125.b104.candidate"
+      "draft_id": "social-rules.p125.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "social-rules.persuasion",
@@ -219,7 +223,8 @@
         "page_end": 125
       },
       "needs_manual_review": false,
-      "draft_id": "social-rules.p125.b105.candidate"
+      "draft_id": "social-rules.p125.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "social-rules.impression",
@@ -269,7 +274,8 @@
         "page_end": 125
       },
       "needs_manual_review": false,
-      "draft_id": "social-rules.p125.b106.candidate"
+      "draft_id": "social-rules.p125.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     }
   ],
   "release_metadata": {

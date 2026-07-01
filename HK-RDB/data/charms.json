@@ -39,7 +39,8 @@
         "page_end": 74
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p074.b001.8"
+      "draft_id": "charms.p074.b001.8",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.death.rzhavye-klinki",
@@ -80,7 +81,8 @@
         "page_end": 75
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p075.b101.candidate"
+      "draft_id": "charms.p075.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.death.kolokolnyy-zvon",
@@ -121,7 +123,8 @@
         "page_end": 75
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p075.b102.candidate"
+      "draft_id": "charms.p075.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.death.maska-poshchady",
@@ -162,7 +165,8 @@
         "page_end": 75
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p075.b103.candidate"
+      "draft_id": "charms.p075.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.death.bezmolvnoe-bremya",
@@ -203,7 +207,8 @@
         "page_end": 75
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p075.b104.candidate"
+      "draft_id": "charms.p075.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.lovkiy-instinkt",
@@ -244,7 +249,8 @@
         "page_end": 76
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p076.b101.candidate"
+      "draft_id": "charms.p076.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.yantarnaya-chasha",
@@ -285,7 +291,8 @@
         "page_end": 76
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p076.b102.candidate"
+      "draft_id": "charms.p076.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.shell-baldra",
@@ -326,7 +333,8 @@
         "page_end": 76
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p076.b103.candidate"
+      "draft_id": "charms.p076.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.otnyatoe-serdtse",
@@ -367,7 +375,8 @@
         "page_end": 76
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p076.b104.candidate"
+      "draft_id": "charms.p076.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.dykhanie-nochi",
@@ -408,7 +417,8 @@
         "page_end": 76
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p076.b105.candidate"
+      "draft_id": "charms.p076.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.tryukach",
@@ -449,7 +459,8 @@
         "page_end": 76
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p076.b106.candidate"
+      "draft_id": "charms.p076.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.snayperskiy-priem",
@@ -490,7 +501,8 @@
         "page_end": 76
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p076.b107.candidate"
+      "draft_id": "charms.p076.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.glubokaya-fokusirovka",
@@ -531,7 +543,8 @@
         "page_end": 76
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p076.b108.candidate"
+      "draft_id": "charms.p076.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.siyayushchaya-dusha",
@@ -572,7 +585,8 @@
         "page_end": 76
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p076.b109.candidate"
+      "draft_id": "charms.p076.b109.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.blagoslovenie-imperatora",
@@ -613,7 +627,8 @@
         "page_end": 76
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p076.b110.candidate"
+      "draft_id": "charms.p076.b110.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.pavshiy-zashchitnik",
@@ -654,7 +669,8 @@
         "page_end": 77
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p077.b101.candidate"
+      "draft_id": "charms.p077.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.pervyy-kamen",
@@ -695,7 +711,8 @@
         "page_end": 77
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p077.b102.candidate"
+      "draft_id": "charms.p077.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.serdtse-ochaga",
@@ -736,7 +753,8 @@
         "page_end": 77
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p077.b103.candidate"
+      "draft_id": "charms.p077.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.zagrebushchiy-roy",
@@ -777,7 +795,8 @@
         "page_end": 77
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p077.b104.candidate"
+      "draft_id": "charms.p077.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.blestyashchaya-dusha",
@@ -818,7 +837,8 @@
         "page_end": 77
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p077.b105.candidate"
+      "draft_id": "charms.p077.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.yadro-slavy",
@@ -859,7 +879,8 @@
         "page_end": 77
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p077.b106.candidate"
+      "draft_id": "charms.p077.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.serdtse-slavy",
@@ -900,7 +921,8 @@
         "page_end": 77
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p077.b107.candidate"
+      "draft_id": "charms.p077.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.pylayushchee-chrevo",
@@ -941,7 +963,8 @@
         "page_end": 77
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p077.b108.candidate"
+      "draft_id": "charms.p077.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.velikaya-zhadnost",
@@ -982,7 +1005,8 @@
         "page_end": 77
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p077.b109.candidate"
+      "draft_id": "charms.p077.b109.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.velikoe-serdtse",
@@ -1023,7 +1047,8 @@
         "page_end": 77
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p077.b110.candidate"
+      "draft_id": "charms.p077.b110.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.velikaya-sila",
@@ -1064,7 +1089,8 @@
         "page_end": 78
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p078.b101.candidate"
+      "draft_id": "charms.p078.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.blagoslovenie-eretika",
@@ -1105,7 +1131,8 @@
         "page_end": 78
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p078.b102.candidate"
+      "draft_id": "charms.p078.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.spryatannaya-strekoza",
@@ -1146,7 +1173,8 @@
         "page_end": 78
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p078.b103.candidate"
+      "draft_id": "charms.p078.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.blood-ulya",
@@ -1187,7 +1215,8 @@
         "page_end": 78
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p078.b104.candidate"
+      "draft_id": "charms.p078.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.terpenie-okhotnika",
@@ -1228,7 +1257,8 @@
         "page_end": 78
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p078.b105.candidate"
+      "draft_id": "charms.p078.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.yadro-zhivokrovi",
@@ -1269,7 +1299,8 @@
         "page_end": 78
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p078.b106.candidate"
+      "draft_id": "charms.p078.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.serdtse-zhivokrovi",
@@ -1310,7 +1341,8 @@
         "page_end": 78
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p078.b107.candidate"
+      "draft_id": "charms.p078.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.legkiy-shag",
@@ -1351,7 +1383,8 @@
         "page_end": 78
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p078.b108.candidate"
+      "draft_id": "charms.p078.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.shirokie-karmany",
@@ -1392,7 +1425,8 @@
         "page_end": 78
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p078.b109.candidate"
+      "draft_id": "charms.p078.b109.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.mark-soyuznika",
@@ -1433,7 +1467,8 @@
         "page_end": 78
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p078.b110.candidate"
+      "draft_id": "charms.p078.b110.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.misticheskiy-potok-oblik-unn",
@@ -1474,7 +1509,8 @@
         "page_end": 78
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p078.b111.candidate"
+      "draft_id": "charms.p078.b111.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.bystrye-chary",
@@ -1515,7 +1551,8 @@
         "page_end": 79
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p079.b101.candidate"
+      "draft_id": "charms.p079.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.bystraya-fokusirovka",
@@ -1556,7 +1593,8 @@
         "page_end": 79
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p079.b102.candidate"
+      "draft_id": "charms.p079.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.vozvrashchayushchiy-roy",
@@ -1597,7 +1635,8 @@
         "page_end": 79
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p079.b103.candidate"
+      "draft_id": "charms.p079.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.zapasnoe-snaryazhenie",
@@ -1638,7 +1677,8 @@
         "page_end": 79
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p079.b104.candidate"
+      "draft_id": "charms.p079.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.vooruzhenie-dukha",
@@ -1679,7 +1719,8 @@
         "page_end": 79
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p079.b105.candidate"
+      "draft_id": "charms.p079.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.sporovyy-grib",
@@ -1720,7 +1761,8 @@
         "page_end": 79
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p079.b106.candidate"
+      "draft_id": "charms.p079.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.lovkach",
@@ -1761,7 +1803,8 @@
         "page_end": 79
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p079.b107.candidate"
+      "draft_id": "charms.p079.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.krepkiy-shell",
@@ -1802,7 +1845,8 @@
         "page_end": 79
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p079.b108.candidate"
+      "draft_id": "charms.p079.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.zvezdnoe-siyanie",
@@ -1843,7 +1887,8 @@
         "page_end": 79
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p079.b109.candidate"
+      "draft_id": "charms.p079.b109.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.gerb-sultana-gerb-zashchitnika",
@@ -1884,7 +1929,8 @@
         "page_end": 79
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p079.b110.candidate"
+      "draft_id": "charms.p079.b110.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.nagrada-vyzhivshego-song-gusenichek",
@@ -1925,7 +1971,8 @@
         "page_end": 80
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p080.b101.candidate"
+      "draft_id": "charms.p080.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.volya-vyzhivshego-bespechnaya-melodiya",
@@ -1966,7 +2013,8 @@
         "page_end": 80
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p080.b102.candidate"
+      "draft_id": "charms.p080.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.kolyuchki-stradaniy",
@@ -2007,7 +2055,8 @@
         "page_end": 80
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p080.b103.candidate"
+      "draft_id": "charms.p080.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.tannyy-eye",
@@ -2048,7 +2097,8 @@
         "page_end": 80
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p080.b104.candidate"
+      "draft_id": "charms.p080.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.iskazhennye-pesochnye-chasy",
@@ -2089,7 +2139,8 @@
         "page_end": 80
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p080.b105.candidate"
+      "draft_id": "charms.p080.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.kapriznyy-kompass",
@@ -2130,7 +2181,8 @@
         "page_end": 80
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p080.b106.candidate"
+      "draft_id": "charms.p080.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.song-tkacha",
@@ -2171,7 +2223,8 @@
         "page_end": 80
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p080.b107.candidate"
+      "draft_id": "charms.p080.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.general.vrashchayushchayasya-shesternya",
@@ -2212,7 +2265,8 @@
         "page_end": 81
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p081.b101.candidate"
+      "draft_id": "charms.p081.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.social.vypirayushchaya-moshch",
@@ -2253,7 +2307,8 @@
         "page_end": 81
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p081.b102.candidate"
+      "draft_id": "charms.p081.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.social.yazyk-temnogo-okhotnika",
@@ -2294,7 +2349,8 @@
         "page_end": 81
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p081.b103.candidate"
+      "draft_id": "charms.p081.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.social.mrachnoe-oko",
@@ -2335,7 +2391,8 @@
         "page_end": 81
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p081.b104.candidate"
+      "draft_id": "charms.p081.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.social.oko-iskatelya-koroley",
@@ -2376,7 +2433,8 @@
         "page_end": 81
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p081.b105.candidate"
+      "draft_id": "charms.p081.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.social.vzor-slavy",
@@ -2417,7 +2475,8 @@
         "page_end": 81
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p081.b106.candidate"
+      "draft_id": "charms.p081.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.social.mark-khishchnika",
@@ -2458,7 +2517,8 @@
         "page_end": 81
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p081.b107.candidate"
+      "draft_id": "charms.p081.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.social.dubovyy-lotos",
@@ -2499,7 +2559,8 @@
         "page_end": 81
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p081.b108.candidate"
+      "draft_id": "charms.p081.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.social.potseluy-parazita",
@@ -2540,7 +2601,8 @@
         "page_end": 81
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p081.b109.candidate"
+      "draft_id": "charms.p081.b109.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.social.gratsiya-lepestka",
@@ -2581,7 +2643,8 @@
         "page_end": 81
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p081.b110.candidate"
+      "draft_id": "charms.p081.b110.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.social.rzhavaya-korona",
@@ -2622,7 +2685,8 @@
         "page_end": 81
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p081.b111.candidate"
+      "draft_id": "charms.p081.b111.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.social.obshchaya-dusha",
@@ -2663,7 +2727,8 @@
         "page_end": 82
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p082.b101.candidate"
+      "draft_id": "charms.p082.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.combat.drevnyaya-sila",
@@ -2704,7 +2769,8 @@
         "page_end": 82
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p082.b102.candidate"
+      "draft_id": "charms.p082.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.combat.khrabryy-gvozd-elegiya-kukolki",
@@ -2745,7 +2811,8 @@
         "page_end": 82
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p082.b103.candidate"
+      "draft_id": "charms.p082.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.combat.radost-myasnika",
@@ -2786,7 +2853,8 @@
         "page_end": 82
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p082.b104.candidate"
+      "draft_id": "charms.p082.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.combat.kradushchiysya-pauk",
@@ -2827,7 +2895,8 @@
         "page_end": 82
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p082.b105.candidate"
+      "draft_id": "charms.p082.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.combat.vnimanie-duelyanta",
@@ -2868,7 +2937,8 @@
         "page_end": 82
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p082.b106.candidate"
+      "draft_id": "charms.p082.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.combat.yarost-pavshego",
@@ -2909,7 +2979,8 @@
         "page_end": 82
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p082.b107.candidate"
+      "draft_id": "charms.p082.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.combat.heavy-vypad",
@@ -2950,7 +3021,8 @@
         "page_end": 82
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p082.b108.candidate"
+      "draft_id": "charms.p082.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.combat.slava-okhotnika",
@@ -2991,7 +3063,8 @@
         "page_end": 82
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p082.b109.candidate"
+      "draft_id": "charms.p082.b109.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.combat.otdacha",
@@ -3032,7 +3105,8 @@
         "page_end": 83
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p083.b101.candidate"
+      "draft_id": "charms.p083.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.combat.doblest-ulana-mark-gordosti",
@@ -3073,7 +3147,8 @@
         "page_end": 83
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p083.b102.candidate"
+      "draft_id": "charms.p083.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.combat.dlinnyy-gvozd",
@@ -3114,7 +3189,8 @@
         "page_end": 83
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p083.b103.candidate"
+      "draft_id": "charms.p083.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.combat.fast-udar",
@@ -3155,7 +3231,8 @@
         "page_end": 83
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p083.b104.candidate"
+      "draft_id": "charms.p083.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.combat.shkval-dikarya",
@@ -3196,7 +3273,8 @@
         "page_end": 83
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p083.b105.candidate"
+      "draft_id": "charms.p083.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.combat.doblest-dikarya",
@@ -3237,7 +3315,8 @@
         "page_end": 83
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p083.b106.candidate"
+      "draft_id": "charms.p083.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.combat.tenevoy-gvozd",
@@ -3278,7 +3357,8 @@
         "page_end": 83
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p083.b107.candidate"
+      "draft_id": "charms.p083.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.combat.dan-ubiytse",
@@ -3319,7 +3399,8 @@
         "page_end": 83
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p083.b108.candidate"
+      "draft_id": "charms.p083.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.combat.udar-dushi",
@@ -3360,7 +3441,8 @@
         "page_end": 83
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p083.b109.candidate"
+      "draft_id": "charms.p083.b109.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.combat.zashchita-tirana",
@@ -3401,7 +3483,8 @@
         "page_end": 83
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p083.b110.candidate"
+      "draft_id": "charms.p083.b110.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.combat.prygayushchiy-kon",
@@ -3442,7 +3525,8 @@
         "page_end": 84
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p084.b101.candidate"
+      "draft_id": "charms.p084.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.tool-mastery.oreol-mastera",
@@ -3483,7 +3567,8 @@
         "page_end": 84
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p084.b102.candidate"
+      "draft_id": "charms.p084.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.tool-mastery.dukh-mastera",
@@ -3524,7 +3609,8 @@
         "page_end": 84
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p084.b103.candidate"
+      "draft_id": "charms.p084.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.tool-mastery.fokusirovka-mastera",
@@ -3565,7 +3651,8 @@
         "page_end": 84
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p084.b104.candidate"
+      "draft_id": "charms.p084.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.magic.tyanushchaya-dusha",
@@ -3606,7 +3693,8 @@
         "page_end": 84
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p084.b105.candidate"
+      "draft_id": "charms.p084.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.magic.shamanskiy-kamen",
@@ -3647,7 +3735,8 @@
         "page_end": 84
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p084.b106.candidate"
+      "draft_id": "charms.p084.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.magic.lovets-dush",
@@ -3688,7 +3777,8 @@
         "page_end": 84
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p084.b107.candidate"
+      "draft_id": "charms.p084.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.magic.pozhiratel-dush",
@@ -3729,7 +3819,8 @@
         "page_end": 84
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p084.b108.candidate"
+      "draft_id": "charms.p084.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.magic.prizma-dushi-termognezdo",
@@ -3770,7 +3861,8 @@
         "page_end": 84
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p084.b109.candidate"
+      "draft_id": "charms.p084.b109.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.magic.sifon-dushi",
@@ -3811,7 +3903,8 @@
         "page_end": 85
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p085.b101.candidate"
+      "draft_id": "charms.p085.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.magic.vyzhiganie-dushi",
@@ -3852,7 +3945,8 @@
         "page_end": 85
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p085.b102.candidate"
+      "draft_id": "charms.p085.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.magic.iskatel-dush",
@@ -3893,7 +3987,8 @@
         "page_end": 85
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p085.b103.candidate"
+      "draft_id": "charms.p085.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.magic.iskazhatel-zaklinaniy",
@@ -3934,7 +4029,8 @@
         "page_end": 85
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p085.b104.candidate"
+      "draft_id": "charms.p085.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.magic.klinok-dushi",
@@ -3975,7 +4071,8 @@
         "page_end": 85
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p085.b105.candidate"
+      "draft_id": "charms.p085.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.magic.zhestokoe-vosstanovlenie",
@@ -4016,7 +4113,8 @@
         "page_end": 85
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p085.b106.candidate"
+      "draft_id": "charms.p085.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.path.probuzhdennyy-gvozd",
@@ -4069,7 +4167,8 @@
         "page_end": 85
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p085.b107.candidate"
+      "draft_id": "charms.p085.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.path.tleyushchaya-khvatka",
@@ -4122,7 +4221,8 @@
         "page_end": 85
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p085.b108.candidate"
+      "draft_id": "charms.p085.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.path.shchit-grez",
@@ -4175,7 +4275,8 @@
         "page_end": 85
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p085.b109.candidate"
+      "draft_id": "charms.p085.b109.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.path.melodiya-grez",
@@ -4228,7 +4329,8 @@
         "page_end": 85
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p085.b110.candidate"
+      "draft_id": "charms.p085.b110.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.path.povelitel-grez",
@@ -4281,7 +4383,8 @@
         "page_end": 85
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p085.b111.candidate"
+      "draft_id": "charms.p085.b111.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.path.otpechatok-ploti",
@@ -4334,7 +4437,8 @@
         "page_end": 86
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p086.b101.candidate"
+      "draft_id": "charms.p086.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.path.shipy-sadovnika",
@@ -4387,7 +4491,8 @@
         "page_end": 86
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p086.b102.candidate"
+      "draft_id": "charms.p086.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.path.sokrytoe-plamya",
@@ -4440,7 +4545,8 @@
         "page_end": 86
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p086.b103.candidate"
+      "draft_id": "charms.p086.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.path.obeshchanie-okhotnika",
@@ -4493,7 +4599,8 @@
         "page_end": 86
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p086.b104.candidate"
+      "draft_id": "charms.p086.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.path.massovoe-istselenie",
@@ -4546,7 +4653,8 @@
         "page_end": 86
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p086.b105.candidate"
+      "draft_id": "charms.p086.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.path.znak-tirana",
@@ -4599,7 +4707,8 @@
         "page_end": 86
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p086.b106.candidate"
+      "draft_id": "charms.p086.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.path.dar-svyatogo",
@@ -4652,7 +4761,8 @@
         "page_end": 86
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p086.b107.candidate"
+      "draft_id": "charms.p086.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.path.dolg-slugi",
@@ -4705,7 +4815,8 @@
         "page_end": 86
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p086.b108.candidate"
+      "draft_id": "charms.p086.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.path.ostraya-ten",
@@ -4758,7 +4869,8 @@
         "page_end": 87
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p087.b101.candidate"
+      "draft_id": "charms.p087.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.path.klinok-dushi",
@@ -4811,7 +4923,8 @@
         "page_end": 87
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p087.b102.candidate"
+      "draft_id": "charms.p087.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.path.obdiranie-dushi",
@@ -4864,7 +4977,8 @@
         "page_end": 87
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p087.b103.candidate"
+      "draft_id": "charms.p087.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.path.poryv-dushi",
@@ -4917,7 +5031,8 @@
         "page_end": 87
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p087.b104.candidate"
+      "draft_id": "charms.p087.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.path.nositel-dushi",
@@ -4970,7 +5085,8 @@
         "page_end": 87
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p087.b105.candidate"
+      "draft_id": "charms.p087.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "charms.path.struny-neduga",
@@ -5023,7 +5139,8 @@
         "page_end": 87
       },
       "needs_manual_review": false,
-      "draft_id": "charms.p087.b106.candidate"
+      "draft_id": "charms.p087.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     }
   ],
   "release_metadata": {

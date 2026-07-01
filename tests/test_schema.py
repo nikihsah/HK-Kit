@@ -21,6 +21,7 @@ class TestSchema(unittest.TestCase):
         required = set(schema["$defs"]["ruleObject"]["required"])
         self.assertIn("raw_text", required)
         self.assertIn("source", required)
+        self.assertIn("parsing_status", required)
 
 
 if __name__ == "__main__":

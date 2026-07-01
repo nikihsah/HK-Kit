@@ -1,8 +1,10 @@
 # Optimization
 
-Optimization begins only after Candidate Registry exists for every required category.
+Optimization begins only after Candidate Registry exists for every required category
+and every category checkpoint is valid with `complete: true`.
 
 If the registry is missing required categories, stop.
+If any checkpoint is missing, invalid, or incomplete, stop.
 
 ## Goals
 

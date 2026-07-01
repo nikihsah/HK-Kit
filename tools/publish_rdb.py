@@ -14,10 +14,11 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-from tools.validate_rdb import REQUIRED_FILES, validate_rdb
+from tools.generate_manifest import write_manifest
+from tools.validate_rdb import REQUIRED_FILES, RULE_FILES, contains_unparsed_effect, validate_rdb
 
 
-RULE_DATA_FILES = [name for name in REQUIRED_FILES if name not in {"validation.json", "version.json"}]
+RULE_DATA_FILES = RULE_FILES
 
 
 def load_json(path: Path) -> Any:
@@ -58,6 +59,10 @@ def build_release_snapshot(
             "rdb_version": version,
             "published_at": generated_at,
         }
+        for item in container["items"]:
+            item["parsing_status"] = (
+                "raw_text_authoritative" if contains_unparsed_effect(item) else "structured"
+            )
         item_count += len(container["items"])
         (data_dir / file_name).write_text(
             json.dumps(container, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
@@ -75,22 +80,6 @@ def build_release_snapshot(
             "missing_rules_behavior": "fail_loudly",
         },
     }
-    validation = {
-        "category": "Validation",
-        "file": "validation.json",
-        "complete": True,
-        "items": [],
-        "validated_at": generated_at,
-        "rdb_version": version,
-        "item_count": item_count,
-        "checks": [
-            "required_files",
-            "required_fields",
-            "unique_ids",
-            "relationship_targets",
-            "review_completion",
-        ],
-    }
     version_data = {
         "category": "Version",
         "file": "version.json",
@@ -103,12 +92,14 @@ def build_release_snapshot(
     }
     for file_name, value in (
         ("index.json", index),
-        ("validation.json", validation),
         ("version.json", version_data),
     ):
         (data_dir / file_name).write_text(
             json.dumps(value, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
         )
+
+    write_manifest(data_dir)
+    validate_rdb(output_root, write_report=True)
 
     result = validate_rdb(output_root)
     if not result.mode_create_ready:

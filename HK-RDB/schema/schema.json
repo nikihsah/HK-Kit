@@ -77,7 +77,8 @@
         "relationships",
         "tags",
         "source",
-        "needs_manual_review"
+        "needs_manual_review",
+        "parsing_status"
       ],
       "additionalProperties": false,
       "properties": {
@@ -157,6 +158,15 @@
         },
         "needs_manual_review": {
           "type": "boolean"
+        },
+        "parsing_status": {
+          "type": "string",
+          "enum": [
+            "structured",
+            "raw_text_authoritative",
+            "manual_review_required",
+            "blocked"
+          ]
         }
       }
     }

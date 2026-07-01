@@ -43,7 +43,8 @@
         "page_start": 6,
         "page_end": 6
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.rerolls",
@@ -85,7 +86,8 @@
         "page_start": 6,
         "page_end": 6
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.characteristic-checks",
@@ -127,7 +129,8 @@
         "page_start": 7,
         "page_end": 7
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.standard-checks",
@@ -169,7 +172,8 @@
         "page_start": 7,
         "page_end": 7
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.saving-checks",
@@ -211,7 +215,8 @@
         "page_start": 7,
         "page_end": 7
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.rule-of-flavor",
@@ -253,7 +258,8 @@
         "page_start": 7,
         "page_end": 7
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.specific-beats-general",
@@ -295,7 +301,8 @@
         "page_start": 7,
         "page_end": 7
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.characteristics",
@@ -337,7 +344,8 @@
         "page_start": 8,
         "page_end": 8
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.power",
@@ -379,7 +387,8 @@
         "page_start": 8,
         "page_end": 8
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.load",
@@ -421,7 +430,8 @@
         "page_start": 8,
         "page_end": 8
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.light-items",
@@ -463,7 +473,8 @@
         "page_start": 8,
         "page_end": 8
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.grace",
@@ -505,7 +516,8 @@
         "page_start": 8,
         "page_end": 8
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.maneuverability",
@@ -547,7 +559,8 @@
         "page_start": 8,
         "page_end": 8
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.shell",
@@ -589,7 +602,8 @@
         "page_start": 8,
         "page_end": 8
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.belt-size",
@@ -631,7 +645,8 @@
         "page_start": 9,
         "page_end": 9
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.insight",
@@ -673,7 +688,8 @@
         "page_start": 9,
         "page_end": 9
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.technique-slots",
@@ -715,7 +731,8 @@
         "page_start": 9,
         "page_end": 9
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.hunger-and-satiety",
@@ -757,7 +774,8 @@
         "page_start": 9,
         "page_end": 9
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.dread-and-appeal",
@@ -799,7 +817,8 @@
         "page_start": 9,
         "page_end": 9
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.speed",
@@ -841,7 +860,8 @@
         "page_start": 9,
         "page_end": 9
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.weight",
@@ -883,7 +903,8 @@
         "page_start": 9,
         "page_end": 9
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.marks",
@@ -925,7 +946,8 @@
         "page_start": 10,
         "page_end": 10
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.absorption",
@@ -967,7 +989,8 @@
         "page_start": 10,
         "page_end": 10
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.size",
@@ -1009,7 +1032,8 @@
         "page_start": 10,
         "page_end": 10
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.resource-pools",
@@ -1051,7 +1075,8 @@
         "page_start": 10,
         "page_end": 10
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.heart",
@@ -1093,7 +1118,8 @@
         "page_start": 10,
         "page_end": 10
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.soul",
@@ -1135,7 +1161,8 @@
         "page_start": 10,
         "page_end": 10
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.stamina",
@@ -1177,7 +1204,8 @@
         "page_start": 10,
         "page_end": 10
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.supplies",
@@ -1219,7 +1247,8 @@
         "page_start": 10,
         "page_end": 10
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.lifeblood-and-glory",
@@ -1261,7 +1290,8 @@
         "page_start": 10,
         "page_end": 10
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.initiative",
@@ -1303,7 +1333,8 @@
         "page_start": 117,
         "page_end": 117
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.movement-grid",
@@ -1346,7 +1377,8 @@
         "page_start": 117,
         "page_end": 117
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.spaces",
@@ -1389,7 +1421,8 @@
         "page_start": 117,
         "page_end": 117
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.squeezing",
@@ -1432,7 +1465,8 @@
         "page_start": 117,
         "page_end": 117
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.attack",
@@ -1476,7 +1510,8 @@
         "page_start": 117,
         "page_end": 117
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.area-effects",
@@ -1519,7 +1554,8 @@
         "page_start": 117,
         "page_end": 117
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.cones",
@@ -1562,7 +1598,8 @@
         "page_start": 117,
         "page_end": 117
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.stamina-tax",
@@ -1606,7 +1643,8 @@
         "page_start": 118,
         "page_end": 118
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.provoked-attacks",
@@ -1650,7 +1688,8 @@
         "page_start": 118,
         "page_end": 118
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.withdraw",
@@ -1693,7 +1732,8 @@
         "page_start": 118,
         "page_end": 118
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.grapple",
@@ -1737,7 +1777,8 @@
         "page_start": 118,
         "page_end": 118
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.dash-jump",
@@ -1781,7 +1822,8 @@
         "page_start": 118,
         "page_end": 118
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.pogo-strike",
@@ -1824,7 +1866,8 @@
         "page_start": 118,
         "page_end": 118
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.skill-actions",
@@ -1867,7 +1910,8 @@
         "page_start": 119,
         "page_end": 119
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.skill-action-examples",
@@ -1909,7 +1953,8 @@
         "page_start": 119,
         "page_end": 119
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.minor-actions",
@@ -1953,7 +1998,8 @@
         "page_start": 119,
         "page_end": 119
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.delayed-turns",
@@ -1997,7 +2043,8 @@
         "page_start": 119,
         "page_end": 119
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.prepared-actions",
@@ -2041,7 +2088,8 @@
         "page_start": 119,
         "page_end": 119
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.defense",
@@ -2085,7 +2133,8 @@
         "page_start": 119,
         "page_end": 119
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.parry",
@@ -2129,7 +2178,8 @@
         "page_start": 119,
         "page_end": 119
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.dodge",
@@ -2173,7 +2223,8 @@
         "page_start": 120,
         "page_end": 120
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.spent-stamina",
@@ -2216,7 +2267,8 @@
         "page_start": 120,
         "page_end": 120
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.stamina-tax-definition",
@@ -2259,7 +2311,8 @@
         "page_start": 120,
         "page_end": 120
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.invested-stamina",
@@ -2302,7 +2355,8 @@
         "page_start": 120,
         "page_end": 120
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.probable-damage",
@@ -2346,7 +2400,8 @@
         "page_start": 120,
         "page_end": 120
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.damage-reduction",
@@ -2389,7 +2444,8 @@
         "page_start": 120,
         "page_end": 120
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.damage-absorption",
@@ -2432,7 +2488,8 @@
         "page_start": 120,
         "page_end": 120
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.magic-damage",
@@ -2475,7 +2532,8 @@
         "page_start": 120,
         "page_end": 120
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.natural-damage",
@@ -2518,7 +2576,8 @@
         "page_start": 120,
         "page_end": 120
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.stamina-and-soul-damage",
@@ -2563,7 +2622,8 @@
         "page_start": 120,
         "page_end": 120
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.nonlethal-damage",
@@ -2606,7 +2666,8 @@
         "page_start": 120,
         "page_end": 120
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.imbalance",
@@ -2650,7 +2711,8 @@
         "page_start": 120,
         "page_end": 120
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.death-gates",
@@ -2694,7 +2756,8 @@
         "page_start": 121,
         "page_end": 121
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.unconsciousness",
@@ -2738,7 +2801,8 @@
         "page_start": 121,
         "page_end": 121
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.suffocation",
@@ -2782,7 +2846,8 @@
         "page_start": 121,
         "page_end": 121
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.delayed-damage",
@@ -2826,7 +2891,8 @@
         "page_start": 121,
         "page_end": 121
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.status-effect",
@@ -2870,7 +2936,8 @@
         "page_start": 121,
         "page_end": 121
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.wear",
@@ -2913,7 +2980,8 @@
         "page_start": 121,
         "page_end": 121
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.natural-weapon-wear",
@@ -2955,7 +3023,8 @@
         "page_start": 122,
         "page_end": 122
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.invisible-attacks",
@@ -2998,7 +3067,8 @@
         "page_start": 122,
         "page_end": 122
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.cover",
@@ -3041,7 +3111,8 @@
         "page_start": 122,
         "page_end": 122
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.difficult-terrain",
@@ -3084,7 +3155,8 @@
         "page_start": 122,
         "page_end": 122
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.focus-concentration",
@@ -3129,7 +3201,8 @@
         "page_start": 122,
         "page_end": 122
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.soul-focus",
@@ -3173,7 +3246,8 @@
         "page_start": 122,
         "page_end": 122
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.spell-focus",
@@ -3217,7 +3291,8 @@
         "page_start": 122,
         "page_end": 122
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.combat-rules.supplies-focus",
@@ -3260,7 +3335,8 @@
         "page_start": 122,
         "page_end": 122
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.travel-rest-rules.time",
@@ -3303,7 +3379,8 @@
         "page_start": 123,
         "page_end": 123
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.travel-rest-rules.scenes",
@@ -3346,7 +3423,8 @@
         "page_start": 123,
         "page_end": 123
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.travel-rest-rules.rest",
@@ -3389,7 +3467,8 @@
         "page_start": 123,
         "page_end": 123
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.travel-rest-rules.break",
@@ -3432,7 +3511,8 @@
         "page_start": 123,
         "page_end": 123
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.travel-rest-rules.camp-actions",
@@ -3474,7 +3554,8 @@
         "page_start": 123,
         "page_end": 123
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.travel-rest-rules.sleep",
@@ -3517,7 +3598,8 @@
         "page_start": 123,
         "page_end": 123
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.travel-rest-rules.care",
@@ -3560,7 +3642,8 @@
         "page_start": 123,
         "page_end": 123
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.travel-rest-rules.crafting",
@@ -3604,7 +3687,8 @@
         "page_start": 123,
         "page_end": 123
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.travel-rest-rules.research",
@@ -3648,7 +3732,8 @@
         "page_start": 124,
         "page_end": 124
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.travel-rest-rules.practice",
@@ -3691,7 +3776,8 @@
         "page_start": 124,
         "page_end": 124
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.travel-rest-rules.training",
@@ -3734,7 +3820,8 @@
         "page_start": 124,
         "page_end": 124
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.travel-rest-rules.environmental-hazards",
@@ -3777,7 +3864,8 @@
         "page_start": 124,
         "page_end": 124
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.travel-rest-rules.falling-damage",
@@ -3820,7 +3908,8 @@
         "page_start": 124,
         "page_end": 124
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.social-rules.overview",
@@ -3862,7 +3951,8 @@
         "page_start": 125,
         "page_end": 125
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.social-rules.charm",
@@ -3904,7 +3994,8 @@
         "page_start": 125,
         "page_end": 125
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.social-rules.intimidation",
@@ -3946,7 +4037,8 @@
         "page_start": 125,
         "page_end": 125
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.social-rules.deception",
@@ -3989,7 +4081,8 @@
         "page_start": 125,
         "page_end": 125
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.social-rules.persuasion",
@@ -4031,7 +4124,8 @@
         "page_start": 125,
         "page_end": 125
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.social-rules.impression",
@@ -4073,7 +4167,8 @@
         "page_start": 125,
         "page_end": 125
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     },
     {
       "id": "glossary.paths.dust.shells",
@@ -4116,7 +4211,8 @@
         "page_start": 45,
         "page_end": 45
       },
-      "needs_manual_review": false
+      "needs_manual_review": false,
+      "parsing_status": "structured"
     }
   ],
   "release_metadata": {

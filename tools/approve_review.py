@@ -20,7 +20,12 @@ from tools.validate_rdb import RULE_REQUIRED_FIELDS
 
 
 def verification_errors(item: dict[str, Any], known_ids: set[str]) -> list[str]:
-    errors = [f"missing_{field}" for field in RULE_REQUIRED_FIELDS if field not in item]
+    # parsing_status is assigned at release publication, after maintainer review.
+    errors = [
+        f"missing_{field}"
+        for field in RULE_REQUIRED_FIELDS
+        if field != "parsing_status" and field not in item
+    ]
     for field in ("id", "name", "raw_text", "summary", "category", "subcategory"):
         if not str(item.get(field, "")).strip():
             errors.append(f"empty_{field}")

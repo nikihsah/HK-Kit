@@ -154,7 +154,8 @@
         "page_end": 46
       },
       "needs_manual_review": false,
-      "draft_id": "skills.p046.b001.4"
+      "draft_id": "skills.p046.b001.4",
+      "parsing_status": "structured"
     },
     {
       "id": "skills.mastery-and-difficulty",
@@ -258,7 +259,8 @@
         "page_end": 47
       },
       "needs_manual_review": false,
-      "draft_id": "skills.p047.b001.candidate"
+      "draft_id": "skills.p047.b001.candidate",
+      "parsing_status": "structured"
     }
   ],
   "release_metadata": {

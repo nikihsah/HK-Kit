@@ -38,7 +38,8 @@
         "page_end": 117
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p117.b101.candidate"
+      "draft_id": "combat-rules.p117.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.movement-grid",
@@ -76,7 +77,8 @@
         "page_end": 117
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p117.b102.candidate"
+      "draft_id": "combat-rules.p117.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.spaces",
@@ -114,7 +116,8 @@
         "page_end": 117
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p117.b103.candidate"
+      "draft_id": "combat-rules.p117.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.squeezing",
@@ -152,7 +155,8 @@
         "page_end": 117
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p117.b104.candidate"
+      "draft_id": "combat-rules.p117.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.attack",
@@ -191,7 +195,8 @@
         "page_end": 117
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p117.b105.candidate"
+      "draft_id": "combat-rules.p117.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.area-effects",
@@ -229,7 +234,8 @@
         "page_end": 117
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p117.b106.candidate"
+      "draft_id": "combat-rules.p117.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.cones",
@@ -267,7 +273,8 @@
         "page_end": 117
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p117.b107.candidate"
+      "draft_id": "combat-rules.p117.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.stamina-tax",
@@ -306,7 +313,8 @@
         "page_end": 118
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p118.b101.candidate"
+      "draft_id": "combat-rules.p118.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.provoked-attacks",
@@ -345,7 +353,8 @@
         "page_end": 118
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p118.b102.candidate"
+      "draft_id": "combat-rules.p118.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.withdraw",
@@ -383,7 +392,8 @@
         "page_end": 118
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p118.b103.candidate"
+      "draft_id": "combat-rules.p118.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.grapple",
@@ -422,7 +432,8 @@
         "page_end": 118
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p118.b104.candidate"
+      "draft_id": "combat-rules.p118.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.dash-jump",
@@ -461,7 +472,8 @@
         "page_end": 118
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p118.b105.candidate"
+      "draft_id": "combat-rules.p118.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.pogo-strike",
@@ -499,7 +511,8 @@
         "page_end": 118
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p118.b106.candidate"
+      "draft_id": "combat-rules.p118.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.skill-actions",
@@ -537,7 +550,8 @@
         "page_end": 119
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p119.b101.candidate"
+      "draft_id": "combat-rules.p119.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.skill-action-examples",
@@ -574,7 +588,8 @@
         "page_end": 119
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p119.b102.candidate"
+      "draft_id": "combat-rules.p119.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.minor-actions",
@@ -613,7 +628,8 @@
         "page_end": 119
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p119.b103.candidate"
+      "draft_id": "combat-rules.p119.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.delayed-turns",
@@ -652,7 +668,8 @@
         "page_end": 119
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p119.b104.candidate"
+      "draft_id": "combat-rules.p119.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.prepared-actions",
@@ -691,7 +708,8 @@
         "page_end": 119
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p119.b105.candidate"
+      "draft_id": "combat-rules.p119.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.defense",
@@ -730,7 +748,8 @@
         "page_end": 119
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p119.b106.candidate"
+      "draft_id": "combat-rules.p119.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.parry",
@@ -769,7 +788,8 @@
         "page_end": 119
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p119.b107.candidate"
+      "draft_id": "combat-rules.p119.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.dodge",
@@ -808,7 +828,8 @@
         "page_end": 120
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p120.b101.candidate"
+      "draft_id": "combat-rules.p120.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.spent-stamina",
@@ -846,7 +867,8 @@
         "page_end": 120
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p120.b102.candidate"
+      "draft_id": "combat-rules.p120.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.stamina-tax-definition",
@@ -884,7 +906,8 @@
         "page_end": 120
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p120.b103.candidate"
+      "draft_id": "combat-rules.p120.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.invested-stamina",
@@ -922,7 +945,8 @@
         "page_end": 120
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p120.b104.candidate"
+      "draft_id": "combat-rules.p120.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.probable-damage",
@@ -961,7 +985,8 @@
         "page_end": 120
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p120.b105.candidate"
+      "draft_id": "combat-rules.p120.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.damage-reduction",
@@ -999,7 +1024,8 @@
         "page_end": 120
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p120.b106.candidate"
+      "draft_id": "combat-rules.p120.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.damage-absorption",
@@ -1037,7 +1063,8 @@
         "page_end": 120
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p120.b107.candidate"
+      "draft_id": "combat-rules.p120.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.magic-damage",
@@ -1075,7 +1102,8 @@
         "page_end": 120
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p120.b108.candidate"
+      "draft_id": "combat-rules.p120.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.natural-damage",
@@ -1113,7 +1141,8 @@
         "page_end": 120
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p120.b109.candidate"
+      "draft_id": "combat-rules.p120.b109.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.stamina-and-soul-damage",
@@ -1153,7 +1182,8 @@
         "page_end": 120
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p120.b110.candidate"
+      "draft_id": "combat-rules.p120.b110.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.nonlethal-damage",
@@ -1191,7 +1221,8 @@
         "page_end": 120
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p120.b111.candidate"
+      "draft_id": "combat-rules.p120.b111.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.imbalance",
@@ -1230,7 +1261,8 @@
         "page_end": 120
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p120.b112.candidate"
+      "draft_id": "combat-rules.p120.b112.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.death-gates",
@@ -1269,7 +1301,8 @@
         "page_end": 121
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p121.b101.candidate"
+      "draft_id": "combat-rules.p121.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.unconsciousness",
@@ -1308,7 +1341,8 @@
         "page_end": 121
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p121.b102.candidate"
+      "draft_id": "combat-rules.p121.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.suffocation",
@@ -1347,7 +1381,8 @@
         "page_end": 121
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p121.b103.candidate"
+      "draft_id": "combat-rules.p121.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.delayed-damage",
@@ -1386,7 +1421,8 @@
         "page_end": 121
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p121.b104.candidate"
+      "draft_id": "combat-rules.p121.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.status-effect",
@@ -1425,7 +1461,8 @@
         "page_end": 121
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p121.b105.candidate"
+      "draft_id": "combat-rules.p121.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.wear",
@@ -1463,7 +1500,8 @@
         "page_end": 121
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p121.b106.candidate"
+      "draft_id": "combat-rules.p121.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.natural-weapon-wear",
@@ -1500,7 +1538,8 @@
         "page_end": 122
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p122.b101.candidate"
+      "draft_id": "combat-rules.p122.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.invisible-attacks",
@@ -1538,7 +1577,8 @@
         "page_end": 122
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p122.b102.candidate"
+      "draft_id": "combat-rules.p122.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.cover",
@@ -1576,7 +1616,8 @@
         "page_end": 122
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p122.b103.candidate"
+      "draft_id": "combat-rules.p122.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.difficult-terrain",
@@ -1614,7 +1655,8 @@
         "page_end": 122
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p122.b104.candidate"
+      "draft_id": "combat-rules.p122.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.focus-concentration",
@@ -1654,7 +1696,8 @@
         "page_end": 122
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p122.b105.candidate"
+      "draft_id": "combat-rules.p122.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.soul-focus",
@@ -1693,7 +1736,8 @@
         "page_end": 122
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p122.b106.candidate"
+      "draft_id": "combat-rules.p122.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.spell-focus",
@@ -1732,7 +1776,8 @@
         "page_end": 122
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p122.b107.candidate"
+      "draft_id": "combat-rules.p122.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-rules.supplies-focus",
@@ -1770,7 +1815,8 @@
         "page_end": 122
       },
       "needs_manual_review": false,
-      "draft_id": "combat-rules.p122.b108.candidate"
+      "draft_id": "combat-rules.p122.b108.candidate",
+      "parsing_status": "raw_text_authoritative"
     }
   ],
   "release_metadata": {

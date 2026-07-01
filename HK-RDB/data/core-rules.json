@@ -43,7 +43,8 @@
         "page_end": 6
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p006.b101.candidate"
+      "draft_id": "core-rules.p006.b101.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.rerolls",
@@ -82,7 +83,8 @@
         "page_end": 6
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p006.b102.candidate"
+      "draft_id": "core-rules.p006.b102.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.characteristic-checks",
@@ -119,7 +121,8 @@
         "page_end": 7
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p007.b101.candidate"
+      "draft_id": "core-rules.p007.b101.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.standard-checks",
@@ -165,7 +168,8 @@
         "page_end": 7
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p007.b102.candidate"
+      "draft_id": "core-rules.p007.b102.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.saving-checks",
@@ -208,7 +212,8 @@
         "page_end": 7
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p007.b103.candidate"
+      "draft_id": "core-rules.p007.b103.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.rule-of-flavor",
@@ -245,7 +250,8 @@
         "page_end": 7
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p007.b104.candidate"
+      "draft_id": "core-rules.p007.b104.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.specific-beats-general",
@@ -282,7 +288,8 @@
         "page_end": 7
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p007.b105.candidate"
+      "draft_id": "core-rules.p007.b105.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.characteristics",
@@ -322,7 +329,8 @@
         "page_end": 8
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p008.b101.candidate"
+      "draft_id": "core-rules.p008.b101.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.power",
@@ -364,7 +372,8 @@
         "page_end": 8
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p008.b102.candidate"
+      "draft_id": "core-rules.p008.b102.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.load",
@@ -410,7 +419,8 @@
         "page_end": 8
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p008.b103.candidate"
+      "draft_id": "core-rules.p008.b103.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.light-items",
@@ -449,7 +459,8 @@
         "page_end": 8
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p008.b104.candidate"
+      "draft_id": "core-rules.p008.b104.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.grace",
@@ -491,7 +502,8 @@
         "page_end": 8
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p008.b105.candidate"
+      "draft_id": "core-rules.p008.b105.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.maneuverability",
@@ -534,7 +546,8 @@
         "page_end": 8
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p008.b106.candidate"
+      "draft_id": "core-rules.p008.b106.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.shell",
@@ -576,7 +589,8 @@
         "page_end": 8
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p008.b107.candidate"
+      "draft_id": "core-rules.p008.b107.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.belt-size",
@@ -620,7 +634,8 @@
         "page_end": 9
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p009.b101.candidate"
+      "draft_id": "core-rules.p009.b101.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.insight",
@@ -666,7 +681,8 @@
         "page_end": 9
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p009.b102.candidate"
+      "draft_id": "core-rules.p009.b102.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.technique-slots",
@@ -709,7 +725,8 @@
         "page_end": 9
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p009.b103.candidate"
+      "draft_id": "core-rules.p009.b103.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.hunger-and-satiety",
@@ -749,7 +766,8 @@
         "page_end": 9
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p009.b104.candidate"
+      "draft_id": "core-rules.p009.b104.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.dread-and-appeal",
@@ -786,7 +804,8 @@
         "page_end": 9
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p009.b105.candidate"
+      "draft_id": "core-rules.p009.b105.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.speed",
@@ -824,7 +843,8 @@
         "page_end": 9
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p009.b106.candidate"
+      "draft_id": "core-rules.p009.b106.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.weight",
@@ -869,7 +889,8 @@
         "page_end": 9
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p009.b107.candidate"
+      "draft_id": "core-rules.p009.b107.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.marks",
@@ -907,7 +928,8 @@
         "page_end": 10
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p010.b101.candidate"
+      "draft_id": "core-rules.p010.b101.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.absorption",
@@ -944,7 +966,8 @@
         "page_end": 10
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p010.b102.candidate"
+      "draft_id": "core-rules.p010.b102.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.size",
@@ -985,7 +1008,8 @@
         "page_end": 10
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p010.b103.candidate"
+      "draft_id": "core-rules.p010.b103.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.resource-pools",
@@ -1022,7 +1046,8 @@
         "page_end": 10
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p010.b104.candidate"
+      "draft_id": "core-rules.p010.b104.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.heart",
@@ -1066,7 +1091,8 @@
         "page_end": 10
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p010.b105.candidate"
+      "draft_id": "core-rules.p010.b105.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.soul",
@@ -1110,7 +1136,8 @@
         "page_end": 10
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p010.b106.candidate"
+      "draft_id": "core-rules.p010.b106.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.stamina",
@@ -1154,7 +1181,8 @@
         "page_end": 10
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p010.b107.candidate"
+      "draft_id": "core-rules.p010.b107.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.supplies",
@@ -1204,7 +1232,8 @@
         "page_end": 10
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p010.b108.candidate"
+      "draft_id": "core-rules.p010.b108.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "core-rules.lifeblood-and-glory",
@@ -1246,7 +1275,8 @@
         "page_end": 10
       },
       "needs_manual_review": false,
-      "draft_id": "core-rules.p010.b109.candidate"
+      "draft_id": "core-rules.p010.b109.candidate",
+      "parsing_status": "structured"
     }
   ],
   "release_metadata": {

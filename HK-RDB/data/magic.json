@@ -40,7 +40,8 @@
         "page_end": 58
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p058.b001.7"
+      "draft_id": "magic.p058.b001.7",
+      "parsing_status": "structured"
     },
     {
       "id": "magic.essence",
@@ -79,7 +80,8 @@
         "page_end": 59
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p059.b001.candidate"
+      "draft_id": "magic.p059.b001.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "magic.spell-modifications",
@@ -120,7 +122,8 @@
         "page_end": 60
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p060.b001.candidate"
+      "draft_id": "magic.p060.b001.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "magic.spell-modifications.advanced-casting",
@@ -161,7 +164,8 @@
         "page_end": 61
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p061.b001.candidate"
+      "draft_id": "magic.p061.b001.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "magic.spire.rasseivanie",
@@ -210,7 +214,8 @@
         "page_end": 62
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p062.b101.candidate"
+      "draft_id": "magic.p062.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.spire.levitatsiya",
@@ -259,7 +264,8 @@
         "page_end": 62
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p062.b102.candidate"
+      "draft_id": "magic.p062.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.spire.raketa",
@@ -308,7 +314,8 @@
         "page_end": 62
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p062.b103.candidate"
+      "draft_id": "magic.p062.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.spire.prigotovlenie",
@@ -357,7 +364,8 @@
         "page_end": 62
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p062.b104.candidate"
+      "draft_id": "magic.p062.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.spire.vizg",
@@ -406,7 +414,8 @@
         "page_end": 62
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p062.b105.candidate"
+      "draft_id": "magic.p062.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.spire.stazis",
@@ -455,7 +464,8 @@
         "page_end": 62
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p062.b106.candidate"
+      "draft_id": "magic.p062.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.spire.podavlenie",
@@ -504,7 +514,8 @@
         "page_end": 63
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p063.b101.candidate"
+      "draft_id": "magic.p063.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.spire.opeka",
@@ -553,7 +564,8 @@
         "page_end": 63
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p063.b102.candidate"
+      "draft_id": "magic.p063.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.spire.bakh",
@@ -602,7 +614,8 @@
         "page_end": 63
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p063.b103.candidate"
+      "draft_id": "magic.p063.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.cloak.tanets-plashcha",
@@ -651,7 +664,8 @@
         "page_end": 63
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p063.b104.candidate"
+      "draft_id": "magic.p063.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.cloak.plashch-klinkov",
@@ -700,7 +714,8 @@
         "page_end": 63
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p063.b105.candidate"
+      "draft_id": "magic.p063.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.cloak.padenie",
@@ -749,7 +764,8 @@
         "page_end": 63
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p063.b106.candidate"
+      "draft_id": "magic.p063.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.cloak.zatemnenie",
@@ -798,7 +814,8 @@
         "page_end": 63
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p063.b107.candidate"
+      "draft_id": "magic.p063.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.cloak.speshka",
@@ -847,7 +864,8 @@
         "page_end": 64
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p064.b101.candidate"
+      "draft_id": "magic.p064.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.cloak.peremeshchenie-domoy",
@@ -896,7 +914,8 @@
         "page_end": 64
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p064.b102.candidate"
+      "draft_id": "magic.p064.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.cloak.teleport",
@@ -945,7 +964,8 @@
         "page_end": 64
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p064.b103.candidate"
+      "draft_id": "magic.p064.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.dreams.krug-sna",
@@ -994,7 +1014,8 @@
         "page_end": 64
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p064.b104.candidate"
+      "draft_id": "magic.p064.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.dreams.maskirovka",
@@ -1043,7 +1064,8 @@
         "page_end": 64
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p064.b105.candidate"
+      "draft_id": "magic.p064.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.dreams.illyuziya",
@@ -1092,7 +1114,8 @@
         "page_end": 64
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p064.b106.candidate"
+      "draft_id": "magic.p064.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.dreams.zerkalnyy-soyuznik",
@@ -1141,7 +1164,8 @@
         "page_end": 65
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p065.b101.candidate"
+      "draft_id": "magic.p065.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.dreams.chtenie-mysley",
@@ -1190,7 +1214,8 @@
         "page_end": 65
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p065.b102.candidate"
+      "draft_id": "magic.p065.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.dreams.polutelesnost",
@@ -1239,7 +1264,8 @@
         "page_end": 65
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p065.b103.candidate"
+      "draft_id": "magic.p065.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.dreams.razgovor-s-grezami",
@@ -1288,7 +1314,8 @@
         "page_end": 65
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p065.b104.candidate"
+      "draft_id": "magic.p065.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.nightmares.kipenie-krovi",
@@ -1337,7 +1364,8 @@
         "page_end": 65
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p065.b105.candidate"
+      "draft_id": "magic.p065.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.dreams.pozhiratel-snov",
@@ -1386,7 +1414,8 @@
         "page_end": 66
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p066.b101.candidate"
+      "draft_id": "magic.p066.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.dreams.vostorg",
@@ -1435,7 +1464,8 @@
         "page_end": 66
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p066.b102.candidate"
+      "draft_id": "magic.p066.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.dreams.ognennyy-shar",
@@ -1484,7 +1514,8 @@
         "page_end": 66
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p066.b103.candidate"
+      "draft_id": "magic.p066.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.dreams.manipulyatsiya",
@@ -1533,7 +1564,8 @@
         "page_end": 66
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p066.b104.candidate"
+      "draft_id": "magic.p066.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.nightmares.marionetka",
@@ -1582,7 +1614,8 @@
         "page_end": 67
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p067.b101.candidate"
+      "draft_id": "magic.p067.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.nightmares.roy",
@@ -1631,7 +1664,8 @@
         "page_end": 67
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p067.b102.candidate"
+      "draft_id": "magic.p067.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.bloom.amrita",
@@ -1680,7 +1714,8 @@
         "page_end": 67
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p067.b103.candidate"
+      "draft_id": "magic.p067.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.bloom.dar-tsveteniya",
@@ -1729,7 +1764,8 @@
         "page_end": 67
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p067.b104.candidate"
+      "draft_id": "magic.p067.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.bloom.spokoystvie",
@@ -1778,7 +1814,8 @@
         "page_end": 68
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p068.b101.candidate"
+      "draft_id": "magic.p068.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.bloom.zaryad",
@@ -1827,7 +1864,8 @@
         "page_end": 68
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p068.b102.candidate"
+      "draft_id": "magic.p068.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.bloom.zaputyvanie",
@@ -1876,7 +1914,8 @@
         "page_end": 68
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p068.b103.candidate"
+      "draft_id": "magic.p068.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.bloom.tselebnaya-pyltsa",
@@ -1925,7 +1964,8 @@
         "page_end": 68
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p068.b104.candidate"
+      "draft_id": "magic.p068.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.bloom.simbioticheskoe-semya",
@@ -1974,7 +2014,8 @@
         "page_end": 68
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p068.b105.candidate"
+      "draft_id": "magic.p068.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.thorn.protivoyadie",
@@ -2023,7 +2064,8 @@
         "page_end": 69
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p069.b101.candidate"
+      "draft_id": "magic.p069.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.thorn.top",
@@ -2072,7 +2114,8 @@
         "page_end": 69
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p069.b102.candidate"
+      "draft_id": "magic.p069.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.thorn.otravlenie",
@@ -2121,7 +2164,8 @@
         "page_end": 69
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p069.b103.candidate"
+      "draft_id": "magic.p069.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.thorn.zarazhenie",
@@ -2170,7 +2214,8 @@
         "page_end": 69
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p069.b104.candidate"
+      "draft_id": "magic.p069.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.thorn.volna-yada",
@@ -2219,7 +2264,8 @@
         "page_end": 69
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p069.b105.candidate"
+      "draft_id": "magic.p069.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.thorn.smog",
@@ -2268,7 +2314,8 @@
         "page_end": 70
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p070.b101.candidate"
+      "draft_id": "magic.p070.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.thorn.polosa-shipov",
@@ -2317,7 +2364,8 @@
         "page_end": 70
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p070.b102.candidate"
+      "draft_id": "magic.p070.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.dust.stiranie",
@@ -2366,7 +2414,8 @@
         "page_end": 70
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p070.b103.candidate"
+      "draft_id": "magic.p070.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.dust.annigilyatsiya",
@@ -2415,7 +2464,8 @@
         "page_end": 70
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p070.b104.candidate"
+      "draft_id": "magic.p070.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.dust.rasslablenie",
@@ -2464,7 +2514,8 @@
         "page_end": 70
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p070.b105.candidate"
+      "draft_id": "magic.p070.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.dust.stiranie-pamyati",
@@ -2513,7 +2564,8 @@
         "page_end": 70
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p070.b106.candidate"
+      "draft_id": "magic.p070.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.dust.peschanaya-burya",
@@ -2562,7 +2614,8 @@
         "page_end": 71
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p071.b101.candidate"
+      "draft_id": "magic.p071.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.dust.golodnoe-bezumie",
@@ -2611,7 +2664,8 @@
         "page_end": 71
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p071.b102.candidate"
+      "draft_id": "magic.p071.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.dust.istoshchenie",
@@ -2660,7 +2714,8 @@
         "page_end": 71
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p071.b103.candidate"
+      "draft_id": "magic.p071.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "magic.rituals.p072",
@@ -2699,7 +2754,8 @@
         "page_end": 72
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p072.b001.candidate"
+      "draft_id": "magic.p072.b001.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "magic.rituals.p073",
@@ -2738,7 +2794,8 @@
         "page_end": 73
       },
       "needs_manual_review": false,
-      "draft_id": "magic.p073.b001.candidate"
+      "draft_id": "magic.p073.b001.candidate",
+      "parsing_status": "structured"
     }
   ],
   "release_metadata": {

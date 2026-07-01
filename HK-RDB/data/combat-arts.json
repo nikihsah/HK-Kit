@@ -45,7 +45,8 @@
         "page_end": 49
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p049.b001.6"
+      "draft_id": "combat-arts.p049.b001.6",
+      "parsing_status": "structured"
     },
     {
       "id": "combat-arts.zamakh",
@@ -86,7 +87,8 @@
         "page_end": 50
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p050.b101.candidate"
+      "draft_id": "combat-arts.p050.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.khvatka-baldra",
@@ -127,7 +129,8 @@
         "page_end": 50
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p050.b102.candidate"
+      "draft_id": "combat-arts.p050.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.berserk",
@@ -168,7 +171,8 @@
         "page_end": 50
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p050.b103.candidate"
+      "draft_id": "combat-arts.p050.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.peredyshka",
@@ -209,7 +213,8 @@
         "page_end": 50
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p050.b104.candidate"
+      "draft_id": "combat-arts.p050.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.tochnyy-udar",
@@ -250,7 +255,8 @@
         "page_end": 50
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p050.b105.candidate"
+      "draft_id": "combat-arts.p050.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.razgrom",
@@ -291,7 +297,8 @@
         "page_end": 50
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p050.b106.candidate"
+      "draft_id": "combat-arts.p050.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.shkval-udachi",
@@ -338,7 +345,8 @@
         "page_end": 51
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p051.b101.candidate"
+      "draft_id": "combat-arts.p051.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.velikiy-zaryad",
@@ -379,7 +387,8 @@
         "page_end": 51
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p051.b102.candidate"
+      "draft_id": "combat-arts.p051.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.vypad",
@@ -426,7 +435,8 @@
         "page_end": 51
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p051.b103.candidate"
+      "draft_id": "combat-arts.p051.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.vzveshennyy-udar",
@@ -473,7 +483,8 @@
         "page_end": 51
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p051.b104.candidate"
+      "draft_id": "combat-arts.p051.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.ralli",
@@ -514,7 +525,8 @@
         "page_end": 51
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p051.b105.candidate"
+      "draft_id": "combat-arts.p051.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.shipy",
@@ -556,7 +568,8 @@
         "page_end": 51
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p051.b106.candidate"
+      "draft_id": "combat-arts.p051.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.oshelomlyayushchiy-udar",
@@ -597,7 +610,8 @@
         "page_end": 51
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p051.b107.candidate"
+      "draft_id": "combat-arts.p051.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.zakhvat-muravlva",
@@ -644,7 +658,8 @@
         "page_end": 52
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p052.b101.candidate"
+      "draft_id": "combat-arts.p052.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.udar-strekozy",
@@ -691,7 +706,8 @@
         "page_end": 52
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p052.b102.candidate"
+      "draft_id": "combat-arts.p052.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.udavka",
@@ -743,7 +759,8 @@
         "page_end": 52
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p052.b103.candidate"
+      "draft_id": "combat-arts.p052.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.khvatka-bogomola",
@@ -790,7 +807,8 @@
         "page_end": 52
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p052.b104.candidate"
+      "draft_id": "combat-arts.p052.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.vzmakh-olenya",
@@ -837,7 +855,8 @@
         "page_end": 52
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p052.b105.candidate"
+      "draft_id": "combat-arts.p052.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.razyashchiy-tsiklon",
@@ -884,7 +903,8 @@
         "page_end": 52
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p052.b106.candidate"
+      "draft_id": "combat-arts.p052.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.likhoy-udar",
@@ -931,7 +951,8 @@
         "page_end": 53
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p053.b101.candidate"
+      "draft_id": "combat-arts.p053.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.velikiy-udar",
@@ -978,7 +999,8 @@
         "page_end": 53
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p053.b102.candidate"
+      "draft_id": "combat-arts.p053.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.kriketnyy-udar",
@@ -1025,7 +1047,8 @@
         "page_end": 53
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p053.b103.candidate"
+      "draft_id": "combat-arts.p053.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.solnechnoe-spletenie",
@@ -1073,7 +1096,8 @@
         "page_end": 53
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p053.b104.candidate"
+      "draft_id": "combat-arts.p053.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.pronzanie",
@@ -1125,7 +1149,8 @@
         "page_end": 53
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p053.b105.candidate"
+      "draft_id": "combat-arts.p053.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.svyazka-udarov",
@@ -1172,7 +1197,8 @@
         "page_end": 53
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p053.b106.candidate"
+      "draft_id": "combat-arts.p053.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.razrushayushchiy-udar",
@@ -1219,7 +1245,8 @@
         "page_end": 53
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p053.b107.candidate"
+      "draft_id": "combat-arts.p053.b107.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.sokrushitelnyy-udar",
@@ -1271,7 +1298,8 @@
         "page_end": 54
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p054.b101.candidate"
+      "draft_id": "combat-arts.p054.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.udarnaya-volna",
@@ -1312,7 +1340,8 @@
         "page_end": 54
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p054.b102.candidate"
+      "draft_id": "combat-arts.p054.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.vsplesk-otchayaniya",
@@ -1359,7 +1388,8 @@
         "page_end": 54
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p054.b103.candidate"
+      "draft_id": "combat-arts.p054.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.udar-pod-dykh",
@@ -1406,7 +1436,8 @@
         "page_end": 54
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p054.b104.candidate"
+      "draft_id": "combat-arts.p054.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.zhivotnyy-instinkt",
@@ -1458,7 +1489,8 @@
         "page_end": 54
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p054.b105.candidate"
+      "draft_id": "combat-arts.p054.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.uporstvo-bogomola",
@@ -1505,7 +1537,8 @@
         "page_end": 55
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p055.b101.candidate"
+      "draft_id": "combat-arts.p055.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.kosa-vetrov",
@@ -1558,7 +1591,8 @@
         "page_end": 55
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p055.b102.candidate"
+      "draft_id": "combat-arts.p055.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.estestvennyy-otbor",
@@ -1610,7 +1644,8 @@
         "page_end": 55
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p055.b103.candidate"
+      "draft_id": "combat-arts.p055.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.bezumstvo-khishchnika",
@@ -1657,7 +1692,8 @@
         "page_end": 55
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p055.b104.candidate"
+      "draft_id": "combat-arts.p055.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.khvatka-khishchnika",
@@ -1704,7 +1740,8 @@
         "page_end": 55
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p055.b105.candidate"
+      "draft_id": "combat-arts.p055.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.podsechka",
@@ -1756,7 +1793,8 @@
         "page_end": 55
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p055.b106.candidate"
+      "draft_id": "combat-arts.p055.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.shot-po-krivoy",
@@ -1804,7 +1842,8 @@
         "page_end": 56
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p056.b101.candidate"
+      "draft_id": "combat-arts.p056.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.razoruzhayushchiy-shot",
@@ -1856,7 +1895,8 @@
         "page_end": 56
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p056.b102.candidate"
+      "draft_id": "combat-arts.p056.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.grad-vystrelov",
@@ -1903,7 +1943,8 @@
         "page_end": 56
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p056.b103.candidate"
+      "draft_id": "combat-arts.p056.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.bystraya-ruka",
@@ -1955,7 +1996,8 @@
         "page_end": 56
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p056.b104.candidate"
+      "draft_id": "combat-arts.p056.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.rassypnoy-shot",
@@ -2003,7 +2045,8 @@
         "page_end": 56
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p056.b105.candidate"
+      "draft_id": "combat-arts.p056.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.pauchiy-shot",
@@ -2055,7 +2098,8 @@
         "page_end": 56
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p056.b106.candidate"
+      "draft_id": "combat-arts.p056.b106.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.brosok-baldra",
@@ -2102,7 +2146,8 @@
         "page_end": 57
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p057.b101.candidate"
+      "draft_id": "combat-arts.p057.b101.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.oleniy-udar",
@@ -2150,7 +2195,8 @@
         "page_end": 57
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p057.b102.candidate"
+      "draft_id": "combat-arts.p057.b102.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.pauchiy-gambit",
@@ -2207,7 +2253,8 @@
         "page_end": 57
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p057.b103.candidate"
+      "draft_id": "combat-arts.p057.b103.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.parirovanie-skorpiona",
@@ -2264,7 +2311,8 @@
         "page_end": 57
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p057.b104.candidate"
+      "draft_id": "combat-arts.p057.b104.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "combat-arts.uklonenie-aspida",
@@ -2316,7 +2364,8 @@
         "page_end": 57
       },
       "needs_manual_review": false,
-      "draft_id": "combat-arts.p057.b105.candidate"
+      "draft_id": "combat-arts.p057.b105.candidate",
+      "parsing_status": "raw_text_authoritative"
     }
   ],
   "release_metadata": {

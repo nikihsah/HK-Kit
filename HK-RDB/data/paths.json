@@ -41,7 +41,8 @@
         "page_end": 29
       },
       "needs_manual_review": false,
-      "draft_id": "paths.p029.b001.3"
+      "draft_id": "paths.p029.b001.3",
+      "parsing_status": "structured"
     },
     {
       "id": "paths.nail",
@@ -136,7 +137,8 @@
         "page_end": 30
       },
       "needs_manual_review": false,
-      "draft_id": "paths.p030.b001.29"
+      "draft_id": "paths.p030.b001.29",
+      "parsing_status": "structured"
     },
     {
       "id": "paths.needle",
@@ -233,7 +235,8 @@
         "page_end": 31
       },
       "needs_manual_review": false,
-      "draft_id": "paths.p031.b001.candidate"
+      "draft_id": "paths.p031.b001.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "paths.fang",
@@ -328,7 +331,8 @@
         "page_end": 32
       },
       "needs_manual_review": false,
-      "draft_id": "paths.p032.b001.candidate"
+      "draft_id": "paths.p032.b001.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "paths.hook",
@@ -433,7 +437,8 @@
         "page_end": 33
       },
       "needs_manual_review": false,
-      "draft_id": "paths.p033.b001.candidate"
+      "draft_id": "paths.p033.b001.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "paths.maw",
@@ -528,7 +533,8 @@
         "page_end": 34
       },
       "needs_manual_review": false,
-      "draft_id": "paths.p034.b001.candidate"
+      "draft_id": "paths.p034.b001.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "paths.shell",
@@ -627,7 +633,8 @@
         "page_end": 35
       },
       "needs_manual_review": false,
-      "draft_id": "paths.p035.b001.candidate"
+      "draft_id": "paths.p035.b001.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "paths.sling",
@@ -724,7 +731,8 @@
         "page_end": 36
       },
       "needs_manual_review": false,
-      "draft_id": "paths.p036.b001.candidate"
+      "draft_id": "paths.p036.b001.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "paths.vial",
@@ -821,7 +829,8 @@
         "page_end": 37
       },
       "needs_manual_review": false,
-      "draft_id": "paths.p037.b001.candidate"
+      "draft_id": "paths.p037.b001.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "paths.spire",
@@ -920,7 +929,8 @@
         "page_end": 38
       },
       "needs_manual_review": false,
-      "draft_id": "paths.p038.b001.candidate"
+      "draft_id": "paths.p038.b001.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "paths.cloak",
@@ -1015,7 +1025,8 @@
         "page_end": 39
       },
       "needs_manual_review": false,
-      "draft_id": "paths.p039.b001.candidate"
+      "draft_id": "paths.p039.b001.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "paths.dreams",
@@ -1112,7 +1123,8 @@
         "page_end": 40
       },
       "needs_manual_review": false,
-      "draft_id": "paths.p040.b001.candidate"
+      "draft_id": "paths.p040.b001.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "paths.nightmares",
@@ -1209,7 +1221,8 @@
         "page_end": 41
       },
       "needs_manual_review": false,
-      "draft_id": "paths.p041.b001.candidate"
+      "draft_id": "paths.p041.b001.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "paths.bloom",
@@ -1310,7 +1323,8 @@
         "page_end": 42
       },
       "needs_manual_review": false,
-      "draft_id": "paths.p042.b001.candidate"
+      "draft_id": "paths.p042.b001.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "paths.thorn",
@@ -1409,7 +1423,8 @@
         "page_end": 43
       },
       "needs_manual_review": false,
-      "draft_id": "paths.p043.b001.candidate"
+      "draft_id": "paths.p043.b001.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "paths.dust",
@@ -1508,7 +1523,8 @@
         "page_end": 44
       },
       "needs_manual_review": false,
-      "draft_id": "paths.p044.b001.candidate"
+      "draft_id": "paths.p044.b001.candidate",
+      "parsing_status": "structured"
     },
     {
       "id": "paths.dust.shells",
@@ -1576,7 +1592,8 @@
         "page_end": 45
       },
       "needs_manual_review": false,
-      "draft_id": "paths.p045.b001.candidate"
+      "draft_id": "paths.p045.b001.candidate",
+      "parsing_status": "structured"
     }
   ],
   "release_metadata": {

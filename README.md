@@ -1,91 +1,46 @@
 # HK-Kit
 
-HK-Kit is an LLM-native knowledge pack and character design framework for The Unofficial Hollow Knight RPG.
-
-It exists so a user can give an AI model a repository link, select `MODE CREATE`, provide a character concept, and receive a rules-valid character built through a controlled design pipeline.
-
-HK-Kit is not a character builder application. Its main purpose is to teach an AI model what to do and where to get information.
+HK-Kit is an LLM-native framework for creating rules-valid characters for The Unofficial Hollow Knight RPG.
 
 ## Quick Start
 
-Give an AI model this repository and write:
+Give an AI model this repository and write only:
 
 ```text
-Repository:
-https://github.com/nikihsah/HK-Kit
-
 MODE CREATE
 
 Concept:
 <your character concept>
 ```
 
-The model must initialize from `AGENTS.md`.
+You do not need to know or supply HK-CAS internals. The model initializes through `AGENTS.md` and uses the short `HK-CAS/runtime-create.md` route itself. It may ask focused questions when your fantasy creates a real choice.
 
-## Current Scope
+HK-RDB is the only rules source during character creation; the original PDF is maintainer-only. If required rules are missing or cannot prove legality, HK-Kit fails loudly instead of inventing an answer.
 
-Supported mode:
+`MODE CREATE` is the only supported v1 mode. Runtime files guide character creation; architecture, build tools, and source-processing documents are for repository maintenance and are not required for ordinary play.
+
+## Информация для пользователя
+
+HK-Kit помогает превратить обычное описание персонажа в готового и легального героя для The Unofficial Hollow Knight RPG. Пользователю не нужно разбираться во внутреннем устройстве HK-CAS, самостоятельно просматривать базу правил или заранее выбирать механики.
+
+Достаточно написать:
 
 ```text
 MODE CREATE
+
+Концепт:
+Маленький жук-разведчик, который носит чужой панцирь и побеждает хитростью, а не силой.
 ```
 
-Unsupported modes such as REVIEW, OPTIMIZE, and EXPLAIN are future work.
+Сначала ИИ уточнит только те детали, которые действительно влияют на персонажа: цель игры, желаемый стиль, обязательные элементы образа и ограничения. Например, он может спросить, должен ли чужой панцирь давать механическую защиту или оставаться частью внешности.
 
-## Core Rule
+После этого ИИ:
 
-HK-Kit follows:
+- изучит все необходимые варианты из HK-RDB;
+- подберёт конкретные легальные механики под задумку;
+- соберёт полный лист персонажа;
+- опишет его боевой и небоевой стиль игры;
+- объяснит ключевые решения;
+- проведёт итоговую проверку правил и зависимостей.
 
-```text
-Player Vision First
-```
-
-HK-CAS is not only an optimizer. It is a character interpretation system.
-
-The model should ask questions when the player's fantasy is unclear. Questions are correct behavior.
-
-Good questions:
-
-- What should feel more important: reckless speed or safe mobility?
-- Is the shell mostly visual, or should it affect tactics?
-- Should the character feel like a predator, survivor, trickster, scout, or duelist?
-- Is magic acceptable if it fits the concept, or should the character stay physical?
-- What should never happen in this build?
-
-Bad questions:
-
-- What trait do you want?
-- Which weapon should I pick?
-- Do you want the strongest option?
-
-After Vision Lock, questions should become rarer. The model asks only when multiple options remain equally valid and the difference is about player fantasy, not rules efficiency.
-
-## Rules Source
-
-During character creation, the model must use only `HK-RDB`.
-
-The original PDF rulebook is a maintenance source only. It must not be used during `MODE CREATE`.
-
-## Repository Map
-
-- `AGENTS.md` - operational entry point for AI models.
-- `CODEX_BOOTSTRAP.md` - why HK-Kit exists.
-- `CAS_EVOLUTION.md` - why HK-CAS has its current architecture.
-- `PROJECT_SPEC.md` - v1.0 source of truth.
-- `HK-CAS/` - character design pipeline.
-- `HK-RDB/` - normalized rules database.
-- `examples/` - MODE CREATE examples.
-- `docs/` - architecture and maintenance notes.
-- `tools/` - maintainer tools.
-- `tests/` - validation tests.
-
-## HK-RDB Status
-
-HK-RDB v1.0.0 contains the normalized rules database required for `MODE CREATE`.
-Run `python tools/validate_rdb.py` before using a modified database.
-
-If a future change makes HK-RDB incomplete, MODE CREATE must stop with:
-
-```text
-The HK-RDB is incomplete for this operation. Update the database before continuing.
-```
+Если в HK-RDB недостаточно данных для доказуемо легальной сборки, ИИ остановится и прямо сообщит об этом, а не станет придумывать отсутствующие правила.

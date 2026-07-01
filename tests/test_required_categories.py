@@ -24,6 +24,7 @@ REQUIRED_FILES = [
     "travel-rest-rules.json",
     "social-rules.json",
     "glossary.json",
+    "manifest.json",
     "validation.json",
     "version.json",
 ]
@@ -39,8 +40,8 @@ class TestRequiredCategories(unittest.TestCase):
         index = json.loads((DATA / "index.json").read_text(encoding="utf-8"))
         self.assertEqual(index["required_files"], REQUIRED_FILES)
 
-    def test_release_files_are_marked_complete(self) -> None:
-        for file_name in REQUIRED_FILES:
+    def test_release_containers_are_marked_complete(self) -> None:
+        for file_name in [name for name in REQUIRED_FILES if name != "manifest.json"]:
             data = json.loads((DATA / file_name).read_text(encoding="utf-8"))
             with self.subTest(file=file_name):
                 self.assertIs(data["complete"], True)

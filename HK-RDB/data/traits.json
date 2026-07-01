@@ -48,7 +48,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p012.b001.candidate"
+      "draft_id": "traits.p012.b001.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.drobyashchie-chelyusti.huge-chelyusti",
@@ -99,7 +100,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p012.b002.candidate"
+      "draft_id": "traits.p012.b002.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.ekzoticheskiy-yad",
@@ -140,7 +142,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p012.b003.candidate"
+      "draft_id": "traits.p012.b003.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.rog",
@@ -186,7 +189,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p012.b004.candidate"
+      "draft_id": "traits.p012.b004.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.razdrazhayushchie-bristles",
@@ -237,7 +241,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p013.b001.candidate"
+      "draft_id": "traits.p013.b001.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.natural-projectile",
@@ -317,7 +322,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p013.b002.candidate"
+      "draft_id": "traits.p013.b002.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.natural-projectile.crippling-shot",
@@ -363,7 +369,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p013.b003.candidate"
+      "draft_id": "traits.p013.b003.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.natural-projectile.fluids",
@@ -418,7 +425,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p013.b004.candidate"
+      "draft_id": "traits.p013.b004.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.natural-projectile.heavy-shot",
@@ -464,7 +472,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p013.b005.candidate"
+      "draft_id": "traits.p013.b005.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.natural-projectile.blinding-shot",
@@ -510,7 +519,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p013.b006.candidate"
+      "draft_id": "traits.p013.b006.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.natural-projectile.spray",
@@ -565,7 +575,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p013.b007.candidate"
+      "draft_id": "traits.p013.b007.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.natural-secretions",
@@ -624,7 +635,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p013.b008.candidate"
+      "draft_id": "traits.p013.b008.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.natural-secretions.sled-secretions",
@@ -694,7 +706,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p014.b001.candidate"
+      "draft_id": "traits.p014.b001.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.natural-instrument",
@@ -735,7 +748,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p014.b002.candidate"
+      "draft_id": "traits.p014.b002.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.claws",
@@ -803,7 +817,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p014.b003.candidate"
+      "draft_id": "traits.p014.b003.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.claws.huge-claws",
@@ -854,7 +869,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p014.b004.candidate"
+      "draft_id": "traits.p014.b004.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.arms-kosy",
@@ -900,7 +916,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p015.b001.candidate"
+      "draft_id": "traits.p015.b001.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.sharp-claws",
@@ -941,7 +958,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p015.b002.candidate"
+      "draft_id": "traits.p015.b002.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.sharp-khobotok",
@@ -1001,7 +1019,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p015.b003.candidate"
+      "draft_id": "traits.p015.b003.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.udar",
@@ -1048,7 +1067,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p015.b004.candidate"
+      "draft_id": "traits.p015.b004.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.shipastyy",
@@ -1095,7 +1115,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p015.b005.candidate"
+      "draft_id": "traits.p015.b005.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.sting",
@@ -1142,7 +1163,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p015.b006.candidate"
+      "draft_id": "traits.p015.b006.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.sting.tsepkiy-tail",
@@ -1192,7 +1214,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p016.b001.candidate"
+      "draft_id": "traits.p016.b001.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.shchupaltse",
@@ -1257,7 +1280,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p016.b002.candidate"
+      "draft_id": "traits.p016.b002.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.venomous-bite",
@@ -1332,7 +1356,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p016.b003.candidate"
+      "draft_id": "traits.p016.b003.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.book-cherv",
@@ -1382,7 +1407,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p016.b004.candidate"
+      "draft_id": "traits.p016.b004.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.zhuk-tyagach",
@@ -1432,7 +1458,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p016.b005.candidate"
+      "draft_id": "traits.p016.b005.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.heavy-shell",
@@ -1482,7 +1509,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p016.b006.candidate"
+      "draft_id": "traits.p016.b006.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.neuklyuzhiy",
@@ -1541,7 +1569,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p016.b007.candidate"
+      "draft_id": "traits.p016.b007.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.skontsentrirovannaya-moshch",
@@ -1591,7 +1620,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p016.b008.candidate"
+      "draft_id": "traits.p016.b008.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.mechtatel",
@@ -1642,7 +1672,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p016.b009.candidate"
+      "draft_id": "traits.p016.b009.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.dazzling",
@@ -1692,7 +1723,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p017.b001.candidate"
+      "draft_id": "traits.p017.b001.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.tupoy",
@@ -1741,7 +1773,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p017.b002.candidate"
+      "draft_id": "traits.p017.b002.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.khrupkiy",
@@ -1790,7 +1823,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p017.b003.candidate"
+      "draft_id": "traits.p017.b003.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.gratsioznyy",
@@ -1849,7 +1883,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p017.b004.candidate"
+      "draft_id": "traits.p017.b004.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.serdechnyy",
@@ -1899,7 +1934,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p017.b005.candidate"
+      "draft_id": "traits.p017.b005.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.nemoshchnyy",
@@ -1940,7 +1976,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p017.b006.candidate"
+      "draft_id": "traits.p017.b006.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.pronitsatelnyy",
@@ -1998,7 +2035,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p017.b007.candidate"
+      "draft_id": "traits.p017.b007.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.uvlechennyy",
@@ -2048,7 +2086,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p017.b008.candidate"
+      "draft_id": "traits.p017.b008.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.moguchiy",
@@ -2107,7 +2146,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p017.b009.candidate"
+      "draft_id": "traits.p017.b009.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.uchenyy",
@@ -2157,7 +2197,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p017.b010.candidate"
+      "draft_id": "traits.p017.b010.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.medlennyy",
@@ -2215,7 +2256,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p017.b011.candidate"
+      "draft_id": "traits.p017.b011.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.tonkaya-gratsiya",
@@ -2265,7 +2307,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p017.b012.candidate"
+      "draft_id": "traits.p017.b012.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.zhutkiy",
@@ -2315,7 +2358,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p017.b013.candidate"
+      "draft_id": "traits.p017.b013.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.krepkiy",
@@ -2373,7 +2417,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p017.b014.candidate"
+      "draft_id": "traits.p017.b014.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.fast",
@@ -2431,7 +2476,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p017.b015.candidate"
+      "draft_id": "traits.p017.b015.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.slabyy",
@@ -2490,7 +2536,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p018.b001.candidate"
+      "draft_id": "traits.p018.b001.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.tsivilizovannyy",
@@ -2541,7 +2588,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p018.b002.candidate"
+      "draft_id": "traits.p018.b002.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.podlyy",
@@ -2600,7 +2648,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p018.b003.candidate"
+      "draft_id": "traits.p018.b003.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.obezdolennyy",
@@ -2642,7 +2691,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p018.b004.candidate"
+      "draft_id": "traits.p018.b004.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.dikiy",
@@ -2705,7 +2755,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p018.b005.candidate"
+      "draft_id": "traits.p018.b005.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.instrumentolog",
@@ -2755,7 +2806,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p018.b006.candidate"
+      "draft_id": "traits.p018.b006.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.kollektivnyy-razum",
@@ -2819,7 +2871,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p019.b001.candidate"
+      "draft_id": "traits.p019.b001.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.izbalovannyy",
@@ -2861,7 +2914,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p019.b002.candidate"
+      "draft_id": "traits.p019.b002.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.fobiya",
@@ -2912,7 +2966,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p019.b003.candidate"
+      "draft_id": "traits.p019.b003.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.otvazhnyy",
@@ -2954,7 +3009,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p019.b004.candidate"
+      "draft_id": "traits.p019.b004.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.talant",
@@ -3017,7 +3073,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p019.b005.candidate"
+      "draft_id": "traits.p019.b005.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.chuzherodnoe-telo",
@@ -3058,7 +3115,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p019.b006.candidate"
+      "draft_id": "traits.p019.b006.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.avtovarka",
@@ -3099,7 +3157,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p019.b007.candidate"
+      "draft_id": "traits.p019.b007.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.blood-drevnikh",
@@ -3149,7 +3208,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p019.b008.candidate"
+      "draft_id": "traits.p019.b008.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.blood-drevnikh.pervobytnyy-ikhor",
@@ -3198,7 +3258,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p020.b001.candidate"
+      "draft_id": "traits.p020.b001.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.krovosos",
@@ -3285,7 +3346,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p020.b002.candidate"
+      "draft_id": "traits.p020.b002.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.plotoyadnyy",
@@ -3327,7 +3389,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p020.b003.candidate"
+      "draft_id": "traits.p020.b003.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.pozhiratel",
@@ -3368,7 +3431,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p020.b004.candidate"
+      "draft_id": "traits.p020.b004.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.travoyadnyy",
@@ -3410,7 +3474,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p020.b005.candidate"
+      "draft_id": "traits.p020.b005.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.spyachka",
@@ -3451,7 +3516,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p020.b006.candidate"
+      "draft_id": "traits.p020.b006.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.skrytaya-krasota",
@@ -3498,7 +3564,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p020.b007.candidate"
+      "draft_id": "traits.p020.b007.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.skrytaya-ugroza",
@@ -3545,7 +3612,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p020.b008.candidate"
+      "draft_id": "traits.p020.b008.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.big-stomach",
@@ -3606,7 +3674,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p021.b001.candidate"
+      "draft_id": "traits.p021.b001.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.glowing",
@@ -3653,7 +3722,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p021.b002.candidate"
+      "draft_id": "traits.p021.b002.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.minor-flaw",
@@ -3714,7 +3784,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p021.b003.candidate"
+      "draft_id": "traits.p021.b003.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.minor-flaw.one-eye-1-k-proverkam-na",
@@ -3760,7 +3831,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p021.b004.1"
+      "draft_id": "traits.p021.b004.1",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.minor-flaw.neumekha-1-k-proverkam-na",
@@ -3806,7 +3878,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p021.b006.1"
+      "draft_id": "traits.p021.b006.1",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.molt",
@@ -3858,7 +3931,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p021.b007.candidate"
+      "draft_id": "traits.p021.b007.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.molt.sbros-khvosta",
@@ -3907,7 +3981,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p021.b008.candidate"
+      "draft_id": "traits.p021.b008.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.molt.bystraya-molt",
@@ -3956,7 +4031,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p021.b009.candidate"
+      "draft_id": "traits.p021.b009.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.osmoticheskaya-pomoshch",
@@ -4011,7 +4087,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p021.b010.candidate"
+      "draft_id": "traits.p021.b010.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.feromony",
@@ -4059,7 +4136,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p021.b011.candidate"
+      "draft_id": "traits.p021.b011.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.perevarivanie",
@@ -4106,7 +4184,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p022.b001.candidate"
+      "draft_id": "traits.p022.b001.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.padalshchik",
@@ -4157,7 +4236,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p022.b002.candidate"
+      "draft_id": "traits.p022.b002.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.shelkopryad",
@@ -4205,7 +4285,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p022.b003.candidate"
+      "draft_id": "traits.p022.b003.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.trait",
@@ -4253,7 +4334,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p022.b004.candidate"
+      "draft_id": "traits.p022.b004.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.song",
@@ -4294,7 +4376,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p022.b005.candidate"
+      "draft_id": "traits.p022.b005.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.oblako-zlovoniya",
@@ -4345,7 +4428,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p022.b006.candidate"
+      "draft_id": "traits.p022.b006.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.slepoy",
@@ -4386,7 +4470,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p023.b001.candidate"
+      "draft_id": "traits.p023.b001.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.fasetochnoe-vision",
@@ -4436,7 +4521,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p023.b002.candidate"
+      "draft_id": "traits.p023.b002.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.temnoe-vision",
@@ -4478,7 +4564,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p023.b003.candidate"
+      "draft_id": "traits.p023.b003.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.blizorukiy",
@@ -4519,7 +4606,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p023.b004.candidate"
+      "draft_id": "traits.p023.b004.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.chute",
@@ -4560,7 +4648,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p023.b005.candidate"
+      "draft_id": "traits.p023.b005.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.chuvstvo-vibratsii",
@@ -4601,7 +4690,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p023.b006.candidate"
+      "draft_id": "traits.p023.b006.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.besplotnyy",
@@ -4649,7 +4739,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p023.b007.candidate"
+      "draft_id": "traits.p023.b007.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.blednyy-pukh",
@@ -4715,7 +4806,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p024.b001.candidate"
+      "draft_id": "traits.p024.b001.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.rodstvennye-dushi",
@@ -4756,7 +4848,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p024.b002.candidate"
+      "draft_id": "traits.p024.b002.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.spiralnaya-mark",
@@ -4797,7 +4890,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p024.b003.candidate"
+      "draft_id": "traits.p024.b003.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.bezrukiy",
@@ -4838,7 +4932,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p024.b004.candidate"
+      "draft_id": "traits.p024.b004.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.akrobat",
@@ -4879,7 +4974,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p024.b005.candidate"
+      "draft_id": "traits.p024.b005.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.akrobat.razvertyvanie",
@@ -4935,7 +5031,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p024.b006.candidate"
+      "draft_id": "traits.p024.b006.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.bolshe-ruk",
@@ -4976,7 +5073,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p024.b007.candidate"
+      "draft_id": "traits.p024.b007.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.bolshe-nog",
@@ -5034,7 +5132,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p024.b008.candidate"
+      "draft_id": "traits.p024.b008.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.bolshe-nog.polipod",
@@ -5083,7 +5182,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p024.b009.candidate"
+      "draft_id": "traits.p024.b009.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.krokha",
@@ -5155,7 +5255,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p025.b001.candidate"
+      "draft_id": "traits.p025.b001.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.beznogiy",
@@ -5196,7 +5297,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p025.b002.candidate"
+      "draft_id": "traits.p025.b002.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.beznogiy.tail-plavnik",
@@ -5245,7 +5347,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p025.b003.candidate"
+      "draft_id": "traits.p025.b003.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.prirodnoe-sedlo",
@@ -5286,7 +5389,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p025.b004.candidate"
+      "draft_id": "traits.p025.b004.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.odna-ruka",
@@ -5335,7 +5439,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p025.b005.candidate"
+      "draft_id": "traits.p025.b005.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.myagkoe-telo",
@@ -5405,7 +5510,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p025.b006.candidate"
+      "draft_id": "traits.p025.b006.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.myagkoe-telo.vneshniy-shell",
@@ -5470,7 +5576,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p025.b007.candidate"
+      "draft_id": "traits.p025.b007.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.myagkoe-telo.vneshniy-shell.skryaga",
@@ -5519,7 +5626,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 2,
-      "draft_id": "traits.p025.b008.candidate"
+      "draft_id": "traits.p025.b008.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.myagkoe-telo.vneshniy-shell.pokhititel-pantsirya",
@@ -5565,7 +5673,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 2,
-      "draft_id": "traits.p026.b001.candidate"
+      "draft_id": "traits.p026.b001.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.myagkoe-telo.regeneratsiya",
@@ -5630,7 +5739,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p026.b002.candidate"
+      "draft_id": "traits.p026.b002.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.uyazvimost",
@@ -5671,7 +5781,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p026.b003.candidate"
+      "draft_id": "traits.p026.b003.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.karabkayushchiysya",
@@ -5720,7 +5831,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p026.b004.candidate"
+      "draft_id": "traits.p026.b004.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.prygayushchiy",
@@ -5775,7 +5887,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p026.b005.candidate"
+      "draft_id": "traits.p026.b005.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.prygayushchiy.naletchik",
@@ -5824,7 +5937,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p026.b006.candidate"
+      "draft_id": "traits.p026.b006.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.minor-flight",
@@ -5872,7 +5986,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p026.b007.candidate"
+      "draft_id": "traits.p026.b007.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.minor-flight.nadkrylya",
@@ -5930,7 +6045,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p027.b001.candidate"
+      "draft_id": "traits.p027.b001.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.minor-flight.flight",
@@ -5979,7 +6095,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p027.b002.candidate"
+      "draft_id": "traits.p027.b002.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.minor-flight.vozdushnyy",
@@ -6042,7 +6159,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p027.b003.candidate"
+      "draft_id": "traits.p027.b003.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.plavanie",
@@ -6091,7 +6209,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p027.b004.candidate"
+      "draft_id": "traits.p027.b004.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.tunnelnyy-zmey",
@@ -6132,7 +6251,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p027.b005.candidate"
+      "draft_id": "traits.p027.b005.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.vodomerka",
@@ -6173,7 +6293,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p027.b006.candidate"
+      "draft_id": "traits.p027.b006.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.dykhanie-pod-vodoy",
@@ -6222,7 +6343,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p027.b007.candidate"
+      "draft_id": "traits.p027.b007.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.blocking-arms",
@@ -6276,7 +6398,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p027.b008.candidate"
+      "draft_id": "traits.p027.b008.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.blocking-arms.arms-pantsiri",
@@ -6325,7 +6448,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p027.b009.candidate"
+      "draft_id": "traits.p027.b009.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.camouflage",
@@ -6375,7 +6499,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p027.b010.candidate"
+      "draft_id": "traits.p027.b010.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.camouflage.active-camouflage",
@@ -6424,7 +6549,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p027.b011.candidate"
+      "draft_id": "traits.p027.b011.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.defensive-curl",
@@ -6465,7 +6591,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p028.b001.candidate"
+      "draft_id": "traits.p028.b001.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.defensive-curl.katyashchiysya-ryvok",
@@ -6514,7 +6641,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p028.b002.candidate"
+      "draft_id": "traits.p028.b002.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.vneshniy-sloy",
@@ -6561,7 +6689,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p028.b003.candidate"
+      "draft_id": "traits.p028.b003.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.mimikriya",
@@ -6608,7 +6737,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p028.b004.candidate"
+      "draft_id": "traits.p028.b004.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.venomous",
@@ -6655,7 +6785,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p028.b005.candidate"
+      "draft_id": "traits.p028.b005.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.venomous.toksichnaya-blood",
@@ -6704,7 +6835,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 1,
-      "draft_id": "traits.p028.b006.candidate"
+      "draft_id": "traits.p028.b006.candidate",
+      "parsing_status": "raw_text_authoritative"
     },
     {
       "id": "traits.ustoychivyy",
@@ -6745,7 +6877,8 @@
       },
       "needs_manual_review": false,
       "subtrait_depth": 0,
-      "draft_id": "traits.p028.b007.candidate"
+      "draft_id": "traits.p028.b007.candidate",
+      "parsing_status": "raw_text_authoritative"
     }
   ],
   "release_metadata": {

@@ -6,9 +6,14 @@ It is not a rules database and must not contain game mechanics. It defines how a
 
 All mechanics must come from `HK-RDB`.
 
-## Required Reading
+## Runtime Reading
 
-For `MODE CREATE`, read these files in order:
+For ordinary `MODE CREATE`, read `runtime-create.md`; it routes the model to
+only the stage-relevant files below.
+
+## Maintainer Reference
+
+When developing or auditing HK-CAS, read these files in order:
 
 1. `00-overview.md`
 2. `01-modes.md`
