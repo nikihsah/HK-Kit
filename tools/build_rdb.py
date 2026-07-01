@@ -779,6 +779,194 @@ def extract_trait_roll_modifiers(body: str) -> list[dict[str, Any]]:
     return unique
 
 
+def normalize_resource_name(value: str) -> str | None:
+    normalized = value.casefold()
+    if normalized.startswith("выносливост"):
+        return "stamina"
+    if normalized.startswith("душ"):
+        if "слав" in normalized:
+            return "glory_soul"
+        return "soul"
+    if normalized.startswith("сытост"):
+        return "satiety"
+    if normalized.startswith("серд"):
+        return "heart"
+    if normalized.startswith("прочност"):
+        return "durability"
+    return None
+
+
+def extract_trait_resource_usage_hints(body: str) -> list[dict[str, Any]]:
+    normalized = re.sub(r"\s+", " ", body).strip()
+    hints: list[dict[str, Any]] = []
+
+    numeric_cost = re.compile(
+        r"(?:потратить|потратив|тратя|за)\s+(\d+)\s+"
+        r"(?:единиц[уы]?\s+|очк[ао]?\s+)?"
+        r"(Выносливост\w*|Душ\w*|Сытост\w*)",
+        re.IGNORECASE,
+    )
+    for match in numeric_cost.finditer(normalized):
+        resource = normalize_resource_name(match.group(2))
+        if resource:
+            context = sentence_around(normalized, match.start(), match.end())
+            hints.append(
+                {
+                    "type": "resource_cost",
+                    "resource": resource,
+                    "amount": int(match.group(1)),
+                    "context": context,
+                    "needs_manual_review": True,
+                }
+            )
+
+    variable_cost = re.compile(
+        r"(?:потратить|потратив)\s+(Выносливост\w*|Душ\w*|Сытост\w*)\s*,?\s*"
+        r"равн\w+\s+([^.,]+)",
+        re.IGNORECASE,
+    )
+    for match in variable_cost.finditer(normalized):
+        resource = normalize_resource_name(match.group(1))
+        if resource:
+            context = sentence_around(normalized, match.start(), match.end())
+            hints.append(
+                {
+                    "type": "resource_cost",
+                    "resource": resource,
+                    "amount_expression": match.group(2).strip(),
+                    "context": context,
+                    "needs_manual_review": True,
+                }
+            )
+
+    resource_change = re.compile(
+        r"(?P<verb>получает|восстанавливает|восстанавливают|исцеляет|теряет)\s+"
+        r"(?P<amount>\d+)\s+(?:единиц[уы]?\s+|очк[ао]?\s+|дополнительн\w+\s+)?"
+        r"(?P<resource>Сытост\w*|Душ\w*(?:\s+Славы)?|Серд\w*|Прочност\w*)",
+        re.IGNORECASE,
+    )
+    for match in resource_change.finditer(normalized):
+        resource = normalize_resource_name(match.group("resource"))
+        if not resource:
+            continue
+        verb = match.group("verb").casefold()
+        hint_type = "resource_loss" if verb == "теряет" else "resource_restore"
+        if verb == "получает":
+            hint_type = "resource_gain"
+        context = sentence_around(normalized, match.start(), match.end())
+        clause_start = max(
+            normalized.rfind(".", 0, match.start()),
+            normalized.rfind(",", 0, match.start()),
+        )
+        local_subject = normalized[clause_start + 1 : match.start()]
+        subject = "target" if re.search(r"жертва", local_subject, re.IGNORECASE) else "self"
+        hints.append(
+            {
+                "type": hint_type,
+                "resource": resource,
+                "amount": int(match.group("amount")),
+                "subject": subject,
+                "conditional": modifier_is_conditional(context),
+                "context": context,
+                "needs_manual_review": True,
+            }
+        )
+
+    extra_heart = re.finditer(
+        r"восстанавлива\w+\s+дополнительн\w+\s+Сердце", normalized, re.IGNORECASE
+    )
+    for match in extra_heart:
+        context = sentence_around(normalized, match.start(), match.end())
+        hints.append(
+            {
+                "type": "resource_restore",
+                "resource": "heart",
+                "amount": 1,
+                "timing": "per_rest" if re.search(r"кажд\w+\s+отдых", context, re.IGNORECASE) else None,
+                "context": context,
+                "needs_manual_review": True,
+            }
+        )
+
+    usage_patterns = [
+        (r"один\s+раз\s+за\s+ход", "turn"),
+        (r"первый\s+раз\s+за\s+ход", "turn"),
+        (r"один\s+раз\s+за\s+раунд", "round"),
+        (r"один\s+раз\s+за\s+способност\w*", "ability"),
+    ]
+    for pattern, period in usage_patterns:
+        for match in re.finditer(pattern, normalized, re.IGNORECASE):
+            context = sentence_around(normalized, match.start(), match.end())
+            hints.append(
+                {
+                    "type": "usage_limit",
+                    "max_uses": 1,
+                    "period": period,
+                    "context": context,
+                    "needs_manual_review": True,
+                }
+            )
+
+    timing_patterns = [
+        (r"после\s+отдыха", "after_rest"),
+        (r"во\s+время\s+отдыха", "during_rest"),
+        (r"кажд\w+\s+отдых", "per_rest"),
+        (r"за\s+каждый\s+Отдых", "per_rest"),
+    ]
+    for pattern, timing in timing_patterns:
+        for match in re.finditer(pattern, normalized, re.IGNORECASE):
+            context = sentence_around(normalized, match.start(), match.end())
+            hints.append(
+                {
+                    "type": "timing",
+                    "value": timing,
+                    "context": context,
+                    "needs_manual_review": True,
+                }
+            )
+
+    capacity = re.finditer(
+        r"до\s+(\d+)\s+дополнительн\w+\s+Сытост\w*", normalized, re.IGNORECASE
+    )
+    for match in capacity:
+        context = sentence_around(normalized, match.start(), match.end())
+        hints.append(
+            {
+                "type": "resource_capacity",
+                "resource": "satiety",
+                "additional": int(match.group(1)),
+                "context": context,
+                "needs_manual_review": True,
+            }
+        )
+
+    exchange = re.search(
+        r"(\d+)\s+Сытост\w*\s+за\s+кажд\w+\s+потраченн\w+\s+Выносливост\w*",
+        normalized,
+        re.IGNORECASE,
+    )
+    if exchange:
+        context = sentence_around(normalized, exchange.start(), exchange.end())
+        hints.append(
+            {
+                "type": "resource_exchange",
+                "from": {"resource": "satiety", "amount": int(exchange.group(1))},
+                "to": {"resource": "stamina", "amount": 1},
+                "context": context,
+                "needs_manual_review": True,
+            }
+        )
+
+    unique: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for hint in hints:
+        key = json.dumps(hint, ensure_ascii=False, sort_keys=True)
+        if key not in seen:
+            unique.append(hint)
+            seen.add(key)
+    return unique
+
+
 def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
     parts = split_trait_parts(raw_text)
     tags = list(item["tags"])
@@ -798,7 +986,9 @@ def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str
             "text": parts["body"] or raw_text,
             "needs_manual_review": True,
         }
-    ] + extract_trait_effect_hints(parts["body"] or raw_text)
+    ] + extract_trait_effect_hints(parts["body"] or raw_text) + extract_trait_resource_usage_hints(
+        parts["body"] or raw_text
+    )
     item["modifiers"] = {
         "entries": extract_trait_modifiers(parts["body"] or raw_text)
         + extract_trait_roll_modifiers(parts["body"] or raw_text),

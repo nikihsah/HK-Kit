@@ -10,6 +10,7 @@ from tools.build_rdb import (
     extract_trait_effect_hints,
     extract_trait_modifiers,
     extract_trait_roll_modifiers,
+    extract_trait_resource_usage_hints,
     extract_trait_repeatability_hints,
     infer_trait_constraints,
     infer_trait_relationships,
@@ -253,6 +254,61 @@ class TestBuildRdb(unittest.TestCase):
         )
 
         self.assertEqual(entries[0]["type"], "roll_not_required")
+
+    def test_resource_hints_parse_numeric_stamina_cost(self) -> None:
+        hints = extract_trait_resource_usage_hints(
+            "Для этого нужно потратить 1 Выносливость."
+        )
+
+        self.assertEqual(hints[0]["type"], "resource_cost")
+        self.assertEqual(hints[0]["resource"], "stamina")
+        self.assertEqual(hints[0]["amount"], 1)
+
+    def test_resource_hints_parse_gain_and_target_loss(self) -> None:
+        hints = extract_trait_resource_usage_hints(
+            "При успехе жук получает 5 Сытости, а жертва теряет 10 Сытости."
+        )
+        by_type = {hint["type"]: hint for hint in hints}
+
+        self.assertEqual(by_type["resource_gain"]["subject"], "self")
+        self.assertEqual(by_type["resource_gain"]["amount"], 5)
+        self.assertEqual(by_type["resource_loss"]["subject"], "target")
+        self.assertEqual(by_type["resource_loss"]["amount"], 10)
+
+    def test_resource_hints_parse_capacity_and_exchange(self) -> None:
+        hints = extract_trait_resource_usage_hints(
+            "Жук хранит до 20 дополнительной Сытости. Этот Запас можно потратить вместо "
+            "Выносливости по курсу 10 Сытости за каждую потраченную Выносливость."
+        )
+        by_type = {hint["type"]: hint for hint in hints}
+
+        self.assertEqual(by_type["resource_capacity"]["additional"], 20)
+        self.assertEqual(by_type["resource_exchange"]["from"]["amount"], 10)
+        self.assertEqual(by_type["resource_exchange"]["to"]["amount"], 1)
+
+    def test_resource_hints_parse_round_limit_and_cost(self) -> None:
+        hints = extract_trait_resource_usage_hints(
+            "Один раз за раунд, за 3 единицы Выносливости, жук может прыгнуть."
+        )
+        by_type = {hint["type"]: hint for hint in hints}
+
+        self.assertEqual(by_type["usage_limit"]["period"], "round")
+        self.assertEqual(by_type["resource_cost"]["amount"], 3)
+
+    def test_resource_hints_parse_rest_restore(self) -> None:
+        hints = extract_trait_resource_usage_hints("После отдыха жук восстанавливает 1 душу.")
+        by_type = {hint["type"]: hint for hint in hints}
+
+        self.assertEqual(by_type["resource_restore"]["resource"], "soul")
+        self.assertEqual(by_type["resource_restore"]["amount"], 1)
+        self.assertEqual(by_type["timing"]["value"], "after_rest")
+
+    def test_resource_hints_distinguish_glory_soul(self) -> None:
+        hints = extract_trait_resource_usage_hints(
+            "Если количество Душ максимально, он вместо этого получает 1 Душу Славы."
+        )
+
+        self.assertEqual(hints[0]["resource"], "glory_soul")
 
     def test_candidate_to_rule_object_normalizes_traits(self) -> None:
         candidate = sample_candidate("traits")
