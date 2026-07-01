@@ -633,6 +633,152 @@ def extract_trait_modifiers(body: str) -> list[dict[str, Any]]:
     return unique
 
 
+def parse_count_word(value: str) -> int:
+    normalized = value.strip().casefold()
+    words = {
+        "один": 1,
+        "одна": 1,
+        "два": 2,
+        "две": 2,
+        "три": 3,
+    }
+    return words.get(normalized, int(normalized) if normalized.isdigit() else 0)
+
+
+def roll_modifier_entry(
+    *, modifier_type: str, value: int, target: str, context: str
+) -> dict[str, Any]:
+    return {
+        "type": modifier_type,
+        "value": value,
+        "target": re.sub(r"\s+", " ", target).strip(" .,"),
+        "conditional": modifier_is_conditional(context),
+        "context": context,
+        "needs_manual_review": True,
+    }
+
+
+def extract_trait_roll_modifiers(body: str) -> list[dict[str, Any]]:
+    normalized = re.sub(r"\s+", " ", body).strip()
+    entries: list[dict[str, Any]] = []
+
+    dice_pattern = re.compile(
+        r"(?P<value>[+-]\d+)\s+(?:бонус\s+)?кубик(?:а|ов)?\s+"
+        r"(?:к|ко|на)\s+(?P<target>[^.,]+)",
+        re.IGNORECASE,
+    )
+    for match in dice_pattern.finditer(normalized):
+        value = int(match.group("value"))
+        context = sentence_around(normalized, match.start(), match.end())
+        entries.append(
+            roll_modifier_entry(
+                modifier_type="dice_bonus" if value > 0 else "dice_penalty",
+                value=value,
+                target=match.group("target"),
+                context=context,
+            )
+        )
+
+    bare_penalty = re.compile(
+        r"(?:со\s+)?штраф(?:ом)?\s+(-\d+)\s+кубик(?:а|ов)?\b(?!\s+(?:к|ко|на))",
+        re.IGNORECASE,
+    )
+    for match in bare_penalty.finditer(normalized):
+        context = sentence_around(normalized, match.start(), match.end())
+        entries.append(
+            roll_modifier_entry(
+                modifier_type="dice_penalty",
+                value=int(match.group(1)),
+                target="use_context",
+                context=context,
+            )
+        )
+
+    hit_bonus = re.compile(
+        r"(?P<value>[+-]\d+)\s+кубик(?:а|ов)?,?\s+чтобы\s+(?P<target>[^.]+)",
+        re.IGNORECASE,
+    )
+    for match in hit_bonus.finditer(normalized):
+        value = int(match.group("value"))
+        context = sentence_around(normalized, match.start(), match.end())
+        entries.append(
+            roll_modifier_entry(
+                modifier_type="dice_bonus" if value > 0 else "dice_penalty",
+                value=value,
+                target=match.group("target"),
+                context=context,
+            )
+        )
+
+    reroll_patterns = [
+        re.compile(
+            r"(?P<value>[+-]\d+)\s+переброс(?:а|ов)?\s+(?:к|ко|на)\s+(?P<target>[^.,]+)",
+            re.IGNORECASE,
+        ),
+        re.compile(
+            r"(?P<value>[+-]\d+)\s+(?:к\s+)?(?:повторн\w+\s+брос(?:ок|ка)|перебросу)\s+"
+            r"(?:к|ко|на)\s+(?P<target>[^.,]+)",
+            re.IGNORECASE,
+        ),
+    ]
+    for pattern in reroll_patterns:
+        for match in pattern.finditer(normalized):
+            context = sentence_around(normalized, match.start(), match.end())
+            entries.append(
+                roll_modifier_entry(
+                    modifier_type="reroll_bonus",
+                    value=int(match.group("value")),
+                    target=match.group("target"),
+                    context=context,
+                )
+            )
+
+    automatic_success = re.compile(
+        r"(?P<count>один|одна|два|две|три|\d+)\s+(?:из\s+[^.]{0,35}\s+)?"
+        r"кубик(?:а|ов)?\s+автоматически\s+"
+        r"(?:становится|становятся|считается|считаются)\s+успешн\w*",
+        re.IGNORECASE,
+    )
+    for match in automatic_success.finditer(normalized):
+        context = sentence_around(normalized, match.start(), match.end())
+        entries.append(
+            {
+                "type": "automatic_success",
+                "count": parse_count_word(match.group("count")),
+                "target": "roll_described_in_context",
+                "conditional": modifier_is_conditional(context),
+                "context": context,
+                "needs_manual_review": True,
+            }
+        )
+
+    no_roll = re.finditer(
+        r"не\s+(?:должен|нужно)\s+(?:бросать|кидать)\s+кубик[^.]*",
+        normalized,
+        re.IGNORECASE,
+    )
+    for match in no_roll:
+        context = sentence_around(normalized, match.start(), match.end())
+        entries.append(
+            {
+                "type": "roll_not_required",
+                "target": match.group(0).strip(),
+                "conditional": modifier_is_conditional(context),
+                "context": context,
+                "needs_manual_review": True,
+            }
+        )
+
+    unique: list[dict[str, Any]] = []
+    seen: set[str] = set()
+    for entry in entries:
+        key = json.dumps(entry, ensure_ascii=False, sort_keys=True)
+        if key not in seen:
+            unique.append(entry)
+            seen.add(key)
+    return unique
+
+
 def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
     parts = split_trait_parts(raw_text)
     tags = list(item["tags"])
@@ -654,7 +800,8 @@ def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str
         }
     ] + extract_trait_effect_hints(parts["body"] or raw_text)
     item["modifiers"] = {
-        "entries": extract_trait_modifiers(parts["body"] or raw_text),
+        "entries": extract_trait_modifiers(parts["body"] or raw_text)
+        + extract_trait_roll_modifiers(parts["body"] or raw_text),
     }
     item["tags"] = tags
     return item

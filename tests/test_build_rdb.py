@@ -9,6 +9,7 @@ from tools.build_rdb import (
     candidate_to_rule_object,
     extract_trait_effect_hints,
     extract_trait_modifiers,
+    extract_trait_roll_modifiers,
     extract_trait_repeatability_hints,
     infer_trait_constraints,
     infer_trait_relationships,
@@ -212,6 +213,46 @@ class TestBuildRdb(unittest.TestCase):
         )
 
         self.assertTrue(modifiers[0]["conditional"])
+
+    def test_roll_modifiers_parse_dice_penalty(self) -> None:
+        entries = extract_trait_roll_modifiers("Он имеет штраф -2 кубика к проверкам Инициативы.")
+
+        self.assertEqual(len(entries), 1)
+        self.assertEqual(entries[0]["type"], "dice_penalty")
+        self.assertEqual(entries[0]["value"], -2)
+        self.assertEqual(entries[0]["target"], "проверкам Инициативы")
+
+    def test_roll_modifiers_parse_dice_bonus(self) -> None:
+        entries = extract_trait_roll_modifiers("Он имеет +2 бонус кубика к проверкам Инициативы.")
+
+        self.assertEqual(entries[0]["type"], "dice_bonus")
+        self.assertEqual(entries[0]["value"], 2)
+
+    def test_roll_modifiers_parse_reroll_bonus(self) -> None:
+        entries = extract_trait_roll_modifiers("У них есть +2 переброса к проверкам захвата.")
+
+        self.assertEqual(entries[0]["type"], "reroll_bonus")
+        self.assertEqual(entries[0]["value"], 2)
+        self.assertEqual(entries[0]["target"], "проверкам захвата")
+
+    def test_roll_modifiers_parse_automatic_success(self) -> None:
+        talent = extract_trait_roll_modifiers(
+            "Один из этих кубиков автоматически становится успешным и не выбрасывается."
+        )
+        scavenger = extract_trait_roll_modifiers(
+            "Два из брошенных кубиков автоматически считаются успешными."
+        )
+
+        self.assertEqual(talent[0]["type"], "automatic_success")
+        self.assertEqual(talent[0]["count"], 1)
+        self.assertEqual(scavenger[0]["count"], 2)
+
+    def test_roll_modifiers_parse_roll_not_required(self) -> None:
+        entries = extract_trait_roll_modifiers(
+            "Жук не должен бросать кубик, чтобы карабкаться по обычной поверхности."
+        )
+
+        self.assertEqual(entries[0]["type"], "roll_not_required")
 
     def test_candidate_to_rule_object_normalizes_traits(self) -> None:
         candidate = sample_candidate("traits")
