@@ -898,6 +898,38 @@ class TestBuildRdb(unittest.TestCase):
             "combat-rules.stamina-tax-definition",
         ])
 
+    def test_build_draft_containers_expands_travel_rest_sections(self) -> None:
+        candidate = sample_candidate("travel-rest-rules")
+        candidate["source"]["page_start"] = 123
+        candidate["source"]["page_end"] = 123
+        candidate["raw_text"] = (
+            "11.ВРЕМЯ, ОТДЫХ И ПУТЕШЕСТВИЕ\n"
+            "Время\n"
+            "Время отслеживается через сцены и отдых.\n"
+            "Отдых\n"
+            "Когда жуки останавливаются, они уходят на отдых.\n"
+            "Ремесло\n"
+            "Жук может совершить подходящую проверку Навыка.\n"
+        )
+        layer1 = {
+            "artifact": "HK-RDB Layer 1",
+            "mode_create_allowed": False,
+            "candidates": [candidate],
+        }
+
+        containers, skipped = build_draft_containers(layer1)
+        items = containers["travel-rest-rules.json"]["items"]
+
+        self.assertEqual(skipped, [])
+        self.assertEqual([item["id"] for item in items], [
+            "travel-rest-rules.time",
+            "travel-rest-rules.rest",
+            "travel-rest-rules.crafting",
+        ])
+        self.assertEqual(items[0]["type"], "travel-rest-rule")
+        self.assertIn("rest", items[1]["tags"])
+        self.assertIn("downtime", items[2]["tags"])
+
     def test_magic_secret_uses_page_path_hint_when_header_is_missing(self) -> None:
         candidate = sample_candidate("magic")
         candidate["source"]["page_start"] = 63

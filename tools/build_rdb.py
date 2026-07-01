@@ -2567,6 +2567,132 @@ def combat_rule_objects_from_candidate(candidate: dict[str, Any]) -> list[dict[s
     return objects
 
 
+TRAVEL_REST_RULE_HEADINGS = {
+    "11.ВРЕМЯ, ОТДЫХ И ПУТЕШЕСТВИЕ": ("overview", "Время, отдых и путешествие"),
+    "Время": ("time", "Время"),
+    "Сцены": ("scenes", "Сцены"),
+    "Отдых": ("rest", "Отдых"),
+    "Перерыв": ("break", "Перерыв"),
+    "Действия Лагеря": ("camp-actions", "Действия Лагеря"),
+    "Сон": ("sleep", "Сон"),
+    "Уход": ("care", "Уход"),
+    "Ремесло": ("crafting", "Ремесло"),
+    "Исследование": ("research", "Исследование"),
+    "Практика": ("practice", "Практика"),
+    "Тренировка": ("training", "Тренировка"),
+    "Опасности Окружения": ("environmental-hazards", "Опасности Окружения"),
+    "Урон от падения?": ("falling-damage", "Урон от падения"),
+}
+
+
+def split_travel_rest_rule_entries(raw_text: str) -> list[dict[str, Any]]:
+    lines = [re.sub(r"\s+", " ", line).strip() for line in raw_text.splitlines() if line.strip()]
+    starts: list[tuple[int, str, str]] = []
+    for index, line in enumerate(lines):
+        if line in TRAVEL_REST_RULE_HEADINGS:
+            slug, title = TRAVEL_REST_RULE_HEADINGS[line]
+            starts.append((index, slug, title))
+
+    entries: list[dict[str, Any]] = []
+    for position, (start, slug, title) in enumerate(starts):
+        end = starts[position + 1][0] if position + 1 < len(starts) else len(lines)
+        entry_lines = lines[start:end]
+        body = "\n".join(entry_lines[1:]).strip()
+        if not body or re.fullmatch(r"\d{2,3}", body):
+            continue
+        entries.append(
+            {
+                "slug": slug,
+                "name": title,
+                "body": body,
+                "raw_text": "\n".join(entry_lines).strip(),
+            }
+        )
+    return entries
+
+
+def infer_travel_rest_rule_tags(entry_slug: str, text: str) -> list[str]:
+    tags = ["travel-rest-rules", "character-creation"]
+    groups = {
+        "time": ["time", "scenes"],
+        "rest": ["rest", "break", "camp-actions", "sleep", "care"],
+        "camp-action": ["sleep", "care", "crafting", "research", "practice", "training"],
+        "downtime": ["crafting", "research", "practice", "training"],
+        "travel": ["environmental-hazards", "falling-damage"],
+        "hazards": ["environmental-hazards", "falling-damage"],
+    }
+    for tag, slugs in groups.items():
+        if entry_slug in slugs:
+            tags.append(tag)
+    if "Голод" in text or "Сытость" in text:
+        tags.append("hunger")
+    if "Отдых" in text or "отдых" in text:
+        tags.append("rest")
+    return sorted(set(tags))
+
+
+def normalize_travel_rest_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
+    entries = split_travel_rest_rule_entries(raw_text)
+    if not entries:
+        item["draft_id"] = item["id"]
+        item["id"] = f"travel-rest-rules.rules.p{item['source']['page_start']:03d}"
+        item["type"] = "travel-rest-rule"
+        item["subcategory"] = "travel-rest-rules"
+        item["summary"] = summarize_raw_text(raw_text)
+        item["effects"] = [
+            {
+                "type": "unparsed_travel_rest_rule_text",
+                "text": raw_text,
+                "needs_manual_review": True,
+            }
+        ]
+        item["tags"] = sorted(set(item["tags"] + ["travel-rest-rules", "character-creation"]))
+        return item
+
+    entry = entries[0]
+    item["draft_id"] = item["id"]
+    item["id"] = f"travel-rest-rules.{entry['slug']}"
+    item["type"] = "travel-rest-rule"
+    item["subcategory"] = entry["slug"]
+    item["name"] = entry["name"]
+    item["raw_text"] = entry["raw_text"]
+    item["summary"] = summarize_raw_text(entry["body"] or entry["raw_text"])
+    item["costs"] = {}
+    item["requirements"] = []
+    item["modifiers"] = {
+        "rule_slug": entry["slug"],
+        "needs_manual_review": True,
+    }
+    item["effects"] = [
+        {
+            "type": "unparsed_travel_rest_rule_text",
+            "text": entry["body"],
+            "needs_manual_review": True,
+        }
+    ]
+    item["tags"] = infer_travel_rest_rule_tags(entry["slug"], entry["raw_text"])
+    return item
+
+
+def travel_rest_rule_objects_from_candidate(candidate: dict[str, Any]) -> list[dict[str, Any]]:
+    raw_text = candidate.get("raw_text", "")
+    entries = split_travel_rest_rule_entries(raw_text)
+    if not entries:
+        return [candidate_to_rule_object(candidate)]
+
+    objects: list[dict[str, Any]] = []
+    for index, entry in enumerate(entries, start=1):
+        split_candidate = dict(candidate)
+        split_candidate["raw_text"] = entry["raw_text"]
+        split_candidate["title_hint"] = entry["name"]
+        split_candidate["source"] = dict(candidate.get("source", {}))
+        split_candidate["source"]["layer0_block"] = (
+            int(split_candidate["source"].get("layer0_block", 0)) * 100 + index
+        )
+        objects.append(candidate_to_rule_object(split_candidate))
+    return objects
+
+
 def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
     parts = split_trait_parts(raw_text)
     tags = list(item["tags"])
@@ -2847,6 +2973,8 @@ def candidate_to_rule_object(candidate: dict[str, Any]) -> dict[str, Any]:
         item = normalize_equipment_rule_object(item, raw_text)
     elif category_hint == "combat-rules":
         item = normalize_combat_rule_object(item, raw_text)
+    elif category_hint == "travel-rest-rules":
+        item = normalize_travel_rest_rule_object(item, raw_text)
 
     return item
 
@@ -2903,6 +3031,10 @@ def build_draft_containers(layer1: dict[str, Any]) -> tuple[dict[str, dict[str, 
         elif category_hint == "combat-rules":
             containers[CATEGORY_TO_FILE[category_hint]]["items"].extend(
                 combat_rule_objects_from_candidate(candidate)
+            )
+        elif category_hint == "travel-rest-rules":
+            containers[CATEGORY_TO_FILE[category_hint]]["items"].extend(
+                travel_rest_rule_objects_from_candidate(candidate)
             )
         else:
             containers[CATEGORY_TO_FILE[category_hint]]["items"].append(
