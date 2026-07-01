@@ -441,6 +441,53 @@ class TestBuildRdb(unittest.TestCase):
         self.assertEqual(containers["templates.json"]["items"][2]["id"], "templates.large-bug")
         self.assertEqual(containers["templates.json"]["items"][2]["modifiers"]["speed"], 5)
 
+    def test_candidate_to_rule_object_normalizes_path_overview(self) -> None:
+        candidate = sample_candidate("paths")
+        candidate["raw_text"] = (
+            "3.Пути\n"
+            "Новый жук начинает с Рангом 1 в выбранном Пути. Максимальным является Ранг 3. "
+            "Жук получает дополнительную Метку, а также увеличивает Душу при Мистическом пути; "
+            "Выносливость при Военном."
+        )
+        candidate["title_hint"] = "3.Пути"
+
+        item = candidate_to_rule_object(candidate)
+
+        self.assertEqual(item["id"], "paths.overview")
+        self.assertEqual(item["type"], "path-rules")
+        self.assertEqual(item["modifiers"]["starting_rank"], 1)
+        self.assertEqual(item["modifiers"]["rank_max"], 3)
+        self.assertEqual(item["modifiers"]["martial_rank_resource_increase"], "stamina")
+        self.assertEqual(item["modifiers"]["mystic_rank_resource_increase"], "soul")
+
+    def test_candidate_to_rule_object_normalizes_path_rank_entries(self) -> None:
+        candidate = sample_candidate("paths")
+        candidate["raw_text"] = (
+            "Военные Пути\n"
+            "Гвоздь\n"
+            "Ранг 1 - Воин с гвоздём\n"
+            "Пробитие защиты\n"
+            "Четвёрки считаются за успех.\n"
+            "Ранг 2 - Мастер гвоздя\n"
+            "Боевая стойка\n"
+            "Провоцирует атаку.\n"
+            "Ранг 3 - Гуру гвоздя\n"
+            "Военный мастер\n"
+            "Может использовать дополнительное Искусство за ход.\n"
+        )
+        candidate["title_hint"] = "Гвоздь"
+
+        item = candidate_to_rule_object(candidate)
+        rank_entries = item["modifiers"]["rank_entries"]
+
+        self.assertEqual(item["id"], "paths.nail")
+        self.assertEqual(item["type"], "path")
+        self.assertEqual(item["subcategory"], "Martial Path")
+        self.assertEqual(item["modifiers"]["rank_max"], 3)
+        self.assertEqual([entry["rank"] for entry in rank_entries], [1, 2, 3])
+        self.assertEqual(rank_entries[0]["rank_title"], "Воин с гвоздём")
+        self.assertIn("Пробитие защиты", rank_entries[0]["ability_names"])
+
     def test_candidate_to_rule_object_normalizes_traits(self) -> None:
         candidate = sample_candidate("traits")
         candidate["raw_text"] = "Раздражающие Щетинки\n+3 Голод, +0.5 Привлекательность\nОписание."

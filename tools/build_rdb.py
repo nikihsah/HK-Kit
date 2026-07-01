@@ -1116,6 +1116,137 @@ def template_rule_objects_from_candidate(candidate: dict[str, Any]) -> list[dict
     return objects
 
 
+MARTIAL_PATHS = {
+    "Гвоздь": "nail",
+    "Игла": "needle",
+    "Клык": "fang",
+    "Крюк": "hook",
+    "Чрево": "maw",
+    "Ракушка": "shell",
+    "Праща": "sling",
+    "Склянка": "vial",
+}
+
+MYSTIC_PATHS = {
+    "Шпиль": "spire",
+    "Плащ": "cloak",
+    "Грёзы": "dreams",
+    "Кошмары": "nightmares",
+    "Цветение": "bloom",
+    "Шип": "thorn",
+    "Пыль": "dust",
+}
+
+PATH_SLUGS = {**MARTIAL_PATHS, **MYSTIC_PATHS}
+
+
+def extract_path_name(raw_text: str) -> str | None:
+    lines = [line.strip() for line in raw_text.splitlines() if line.strip()]
+    for line in lines[:8]:
+        cleaned = re.sub(r"^\d+\s*", "", line).strip()
+        if cleaned in PATH_SLUGS:
+            return cleaned
+    for name in PATH_SLUGS:
+        if re.search(rf"(^|\n)\s*{re.escape(name)}\s*(\n|$)", raw_text, re.IGNORECASE):
+            return name
+    return None
+
+
+def path_family(path_name: str | None, raw_text: str) -> str | None:
+    if path_name in MARTIAL_PATHS:
+        return "Martial Path"
+    if path_name in MYSTIC_PATHS:
+        return "Mystic Path"
+    if "Военные Пути" in raw_text or "Военные пути" in raw_text:
+        return "Martial Path"
+    if "Мистические Пути" in raw_text:
+        return "Mystic Path"
+    return None
+
+
+def extract_path_rank_entries(raw_text: str) -> list[dict[str, Any]]:
+    normalized = re.sub(r"[ \t]+", " ", raw_text).strip()
+    pattern = re.compile(
+        r"Ранг\s*(?P<rank>[123])\s*[-–]?\s*(?P<title>[^\n]+)",
+        re.IGNORECASE,
+    )
+    matches = list(pattern.finditer(normalized))
+    entries: list[dict[str, Any]] = []
+    for index, match in enumerate(matches):
+        rank = int(match.group("rank"))
+        end = matches[index + 1].start() if index + 1 < len(matches) else len(normalized)
+        body = normalized[match.end() : end].strip()
+        ability_names = []
+        for line in body.splitlines():
+            candidate = line.strip()
+            if not candidate or len(candidate) > 70:
+                continue
+            if candidate.endswith((".", ",", ";", ":")):
+                continue
+            if re.search(r"\d", candidate):
+                continue
+            ability_names.append(candidate)
+        entries.append(
+            {
+                "rank": rank,
+                "rank_title": match.group("title").strip(),
+                "ability_names": ability_names[:6],
+                "text": body,
+                "needs_manual_review": True,
+            }
+        )
+    return entries
+
+
+def normalize_path_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
+    name = extract_path_name(raw_text)
+    family = path_family(name, raw_text)
+    item["draft_id"] = item["id"]
+
+    if name:
+        item["id"] = f"paths.{PATH_SLUGS[name]}"
+        item["type"] = "path"
+        item["subcategory"] = family or "Path"
+        item["name"] = name
+        item["tags"] = sorted(set(item["tags"] + ["path", "character-creation"]))
+        item["modifiers"] = {
+            "family": family,
+            "rank_max": 3,
+            "rank_entries": extract_path_rank_entries(raw_text),
+        }
+        item["effects"] = [
+            {
+                "type": "path_rank_features",
+                "rank_entries": extract_path_rank_entries(raw_text),
+                "needs_manual_review": True,
+            }
+        ]
+    else:
+        item["id"] = "paths.overview"
+        item["type"] = "path-rules"
+        item["subcategory"] = "Path Overview"
+        item["name"] = "Пути"
+        item["tags"] = sorted(set(item["tags"] + ["path-rules", "character-creation"]))
+        item["modifiers"] = {
+            "starting_rank": 1,
+            "rank_max": 3,
+            "rank_up_grants_mark": True,
+            "martial_rank_resource_increase": "stamina",
+            "mystic_rank_resource_increase": "soul",
+            "resource_cap": 7,
+        }
+        item["effects"] = [
+            {
+                "type": "path_advancement_rules",
+                "text": raw_text,
+                "needs_manual_review": True,
+            }
+        ]
+
+    item["summary"] = summarize_raw_text(raw_text)
+    return item
+
+
 def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
     parts = split_trait_parts(raw_text)
     tags = list(item["tags"])
@@ -1374,6 +1505,8 @@ def candidate_to_rule_object(candidate: dict[str, Any]) -> dict[str, Any]:
         item = normalize_trait_rule_object(item, raw_text)
     elif category_hint == "templates":
         item = normalize_template_rule_object(item, raw_text)
+    elif category_hint == "paths":
+        item = normalize_path_rule_object(item, raw_text)
 
     return item
 

@@ -22,7 +22,7 @@ DEFAULT_OUTPUT_DIR = Path("sources") / "layer1"
 CATEGORY_HINTS = [
     ("templates", ["шаблон", "архетип"]),
     ("traits", ["черта", "подчерта", "особенность"]),
-    ("paths", ["путь", "пути"]),
+    ("paths", ["военные пути", "мистические пути"]),
     ("skills", ["навык", "навыки"]),
     ("advancement", ["развитие", "опыт", "уровень"]),
     ("combat-arts", ["боевое искусство", "техника", "прием", "приём"]),
@@ -47,6 +47,12 @@ PAGE_CATEGORY_HINTS = [
         "page_end": 28,
         "category_hint": "traits",
         "reason": "traits_section_page_range",
+    },
+    {
+        "page_start": 29,
+        "page_end": 44,
+        "category_hint": "paths",
+        "reason": "paths_section_page_range",
     },
 ]
 
@@ -201,7 +207,9 @@ def build_candidates(layer0: dict[str, Any], min_chars: int = 40) -> dict[str, A
         text = page.get("text", "")
         if not isinstance(page_number, int) or not isinstance(text, str):
             continue
-        for block_index, block in enumerate(split_page_into_blocks(text), start=1):
+        page_hint, _page_reason = page_category_hint(page_number)
+        blocks = [normalize_block_text(text)] if page_hint == "paths" else split_page_into_blocks(text)
+        for block_index, block in enumerate(blocks, start=1):
             if len(block) < min_chars:
                 continue
             category, category_hint_source = choose_category_hint(block, page_number)
