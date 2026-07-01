@@ -20,6 +20,7 @@ from typing import Iterable
 
 DEFAULT_OUTPUT_DIR = Path("sources") / "layer0"
 DEFAULT_BOOK_NAME = "The Unofficial Hollow Knight RPG - RUS"
+TWO_COLUMN_PAGE_NUMBERS = {65}
 
 
 def normalize_text(text: str) -> str:
@@ -89,7 +90,34 @@ def extract_pdf_texts(pdf_path: Path) -> list[str]:
         ) from exc
 
     reader = PdfReader(str(pdf_path))
-    return [page.extract_text() or "" for page in reader.pages]
+    page_texts = [page.extract_text() or "" for page in reader.pages]
+
+    if TWO_COLUMN_PAGE_NUMBERS:
+        try:
+            import pdfplumber
+        except ImportError as exc:  # pragma: no cover - depends on local runtime
+            raise SystemExit(
+                "Missing dependency: pdfplumber. It is required for known two-column pages."
+            ) from exc
+
+        with pdfplumber.open(str(pdf_path)) as document:
+            for page_number in TWO_COLUMN_PAGE_NUMBERS:
+                if page_number > len(document.pages):
+                    continue
+                page = document.pages[page_number - 1]
+                gutter = 5
+                left = page.crop((0, 0, page.width / 2 - gutter, page.height))
+                right = page.crop((page.width / 2 + gutter, 0, page.width, page.height))
+                page_texts[page_number - 1] = "\n".join(
+                    part
+                    for part in (
+                        left.extract_text(x_tolerance=2, y_tolerance=3),
+                        right.extract_text(x_tolerance=2, y_tolerance=3),
+                    )
+                    if part
+                )
+
+    return page_texts
 
 
 def write_layer0(document: dict, output_path: Path) -> None:

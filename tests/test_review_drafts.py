@@ -48,6 +48,27 @@ class TestReviewDrafts(unittest.TestCase):
         self.assertEqual(set(entry["checks"]), set(REVIEW_CHECKS))
         self.assertTrue(all(value is False for value in entry["checks"].values()))
 
+    def test_fallback_rule_is_high_priority_blocker(self) -> None:
+        item = sample_item()
+        item["id"] = "equipment.rules.p093"
+
+        entry = build_review_entry("equipment.json", item)
+
+        self.assertEqual(entry["priority"], "high")
+        self.assertEqual(entry["recommended_next_action"], "normalize_fallback_object")
+        self.assertIn("fallback_rule_object_requires_normalization", entry["issues"])
+
+    def test_glossary_entry_is_derived_low_priority(self) -> None:
+        item = sample_item()
+        item["id"] = "glossary.power"
+        item["relationships"] = [{"type": "defined_by", "target": "core-rules.power"}]
+
+        entry = build_review_entry("glossary.json", item)
+
+        self.assertEqual(entry["review_scope"], "derived")
+        self.assertEqual(entry["priority"], "low")
+        self.assertEqual(entry["recommended_next_action"], "review_canonical_rule")
+
     def test_build_review_manifest_counts_entries(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             draft_root = Path(tmp) / "book.rdb-draft"

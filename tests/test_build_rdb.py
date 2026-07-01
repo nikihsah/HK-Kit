@@ -47,6 +47,19 @@ def sample_candidate(category_hint: str = "traits") -> dict:
 
 
 class TestBuildRdb(unittest.TestCase):
+    def test_magic_split_handles_wrapped_difficulty_value(self) -> None:
+        from tools.build_rdb import split_magic_entries
+
+        entries = split_magic_entries(
+            "Зеркальный союзник\nСложность:\nДальность:\nКасание\n2\n"
+            "Длительность: Краткая\nТекст эффекта.",
+            "dreams",
+        )
+
+        self.assertEqual(len(entries), 1)
+        self.assertEqual(entries[0]["name"], "Зеркальный союзник")
+        self.assertEqual(entries[0]["difficulty"], 2)
+
     def test_dust_shells_are_linked_to_dust_path(self) -> None:
         candidate = sample_candidate("paths")
         candidate["raw_text"] = (

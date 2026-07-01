@@ -1745,7 +1745,13 @@ def split_magic_entries(raw_text: str, path_hint: str | None = None) -> list[dic
         if line.casefold() in MAGIC_PATHS_CASEFOLD:
             current_path = MAGIC_PATHS_CASEFOLD[line.casefold()]
             continue
-        if index + 1 < len(lines) and re.match(r"^Сложност[ьиmъ]*:?\s*\d+", lines[index + 1], re.IGNORECASE):
+        complexity_line = lines[index + 1] if index + 1 < len(lines) else ""
+        complexity_match = re.match(r"^Сложнос[^:]*:\s*(\d+)?", complexity_line, re.IGNORECASE)
+        nearby_standalone_value = any(
+            re.fullmatch(r"[1-3]", value)
+            for value in lines[index + 2 : index + 8]
+        )
+        if complexity_match and (complexity_match.group(1) or nearby_standalone_value):
             if not line.startswith(("Тайна", "Дальность", "Длительность", "Стоимость", "Требования")):
                 starts.append((index, line, current_path))
 
@@ -1754,7 +1760,15 @@ def split_magic_entries(raw_text: str, path_hint: str | None = None) -> list[dic
         end = starts[position + 1][0] if position + 1 < len(starts) else len(lines)
         entry_lines = lines[start:end]
         text = "\n".join(entry_lines)
-        difficulty = re.search(r"Сложност[ьиmъ]*:?\s*(\d+)", text, re.IGNORECASE)
+        difficulty = re.search(r"Сложнос[^:]*:\s*(\d+)", text, re.IGNORECASE)
+        difficulty_value = int(difficulty.group(1)) if difficulty else None
+        if difficulty_value is None:
+            metadata_lines = entry_lines[1:8]
+            standalone_difficulty = next(
+                (int(line) for line in metadata_lines if re.fullmatch(r"[1-3]", line)),
+                None,
+            )
+            difficulty_value = standalone_difficulty
         range_match = re.search(r"Дал[аьъ]ност[ьиmъ]*\s*(?:[АБAB])?:?\s*([^\n]+)", text, re.IGNORECASE)
         duration = re.search(r"Дл[иu]тел[ьиmъ]*ност[ьиmъ]*:?\s*([^\n]+)", text, re.IGNORECASE)
         body_start = 1
@@ -1766,7 +1780,7 @@ def split_magic_entries(raw_text: str, path_hint: str | None = None) -> list[dic
             {
                 "name": name,
                 "path": path,
-                "difficulty": int(difficulty.group(1)) if difficulty else None,
+                "difficulty": difficulty_value,
                 "range": range_match.group(1).strip() if range_match else None,
                 "duration": duration.group(1).strip() if duration else None,
                 "body": "\n".join(entry_lines[body_start:]).strip(),

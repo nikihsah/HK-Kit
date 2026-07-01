@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import json
+from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -49,7 +50,21 @@ def iter_draft_files(draft_root: Path) -> list[Path]:
     return sorted(data_dir.glob("*.json"))
 
 
-def review_priority(item: dict[str, Any]) -> str:
+def automatic_review_issues(file_name: str, item: dict[str, Any]) -> list[str]:
+    issues = []
+    item_id = item.get("id", "")
+    if ".rules.p" in item_id:
+        issues.append("fallback_rule_object_requires_normalization")
+    if not item.get("relationships") and file_name == "glossary.json":
+        issues.append("derived_glossary_entry_missing_canonical_relationship")
+    return issues
+
+
+def review_priority(file_name: str, item: dict[str, Any]) -> str:
+    if automatic_review_issues(file_name, item):
+        return "high"
+    if file_name == "glossary.json":
+        return "low"
     raw_len = len(item.get("raw_text", ""))
     if raw_len > 3000:
         return "high"
@@ -59,19 +74,28 @@ def review_priority(item: dict[str, Any]) -> str:
 
 
 def build_review_entry(file_name: str, item: dict[str, Any]) -> dict[str, Any]:
+    issues = automatic_review_issues(file_name, item)
+    derived = file_name == "glossary.json"
     return {
         "id": item.get("id", ""),
         "file": file_name,
         "decision": "pending",
-        "priority": review_priority(item),
+        "priority": review_priority(file_name, item),
+        "review_scope": "derived" if derived else "canonical",
         "name": item.get("name", ""),
         "category": item.get("category", ""),
         "subcategory": item.get("subcategory", ""),
         "source": item.get("source", {}),
         "checks": {check: False for check in REVIEW_CHECKS},
-        "issues": [],
+        "issues": issues,
         "review_notes": [],
-        "recommended_next_action": "review_against_source_text",
+        "recommended_next_action": (
+            "normalize_fallback_object"
+            if issues
+            else "review_canonical_rule"
+            if derived
+            else "review_against_source_text"
+        ),
     }
 
 
@@ -91,6 +115,10 @@ def build_review_manifest(draft_root: Path) -> dict[str, Any]:
             if isinstance(page, int):
                 source_pages.setdefault(path.name, []).append(page)
 
+    scope_counts = Counter(entry["review_scope"] for entry in entries)
+    priority_counts = Counter(entry["priority"] for entry in entries)
+    issue_counts = Counter(issue for entry in entries for issue in entry["issues"])
+
     return {
         "artifact": "HK-RDB Draft Review Manifest",
         "mode_create_allowed": False,
@@ -103,6 +131,9 @@ def build_review_manifest(draft_root: Path) -> dict[str, Any]:
         },
         "summary": {
             "entry_count": len(entries),
+            "review_scope_counts": dict(sorted(scope_counts.items())),
+            "priority_counts": dict(sorted(priority_counts.items())),
+            "automatic_issue_counts": dict(sorted(issue_counts.items())),
             "file_counts": file_counts,
             "page_ranges": {
                 file_name: {

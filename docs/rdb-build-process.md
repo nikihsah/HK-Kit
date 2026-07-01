@@ -22,6 +22,11 @@ sources/layer0/<pdf-name>.layer0.json
 
 Generated Layer 0 files are ignored by Git because they may contain large portions of the source rulebook.
 
+Known two-column pages are extracted column by column with `pdfplumber` so
+adjacent rule cards do not become interleaved. The page list is explicit in
+`tools/extract_layer0.py`; add a page only after visual PDF inspection confirms
+a layout extraction problem.
+
 Do not commit Layer 0 output unless redistribution is explicitly approved.
 
 Layer 0 records are page records, not rules. They preserve:
@@ -141,6 +146,11 @@ Each entry starts with:
 - checklist fields set to `false`;
 - source page reference;
 - recommended next action.
+
+The manifest separates canonical objects from derived glossary entries.
+Fallback IDs such as `equipment.rules.p093` are automatic high-priority
+blockers and must be normalized before promotion. Derived glossary entries are
+reviewed through the canonical objects referenced by `defined_by`.
 
 An object may be promoted into final HK-RDB only after maintainer review.
 

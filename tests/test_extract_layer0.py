@@ -8,6 +8,11 @@ from tools.extract_layer0 import build_layer0_document, default_output_path, nor
 
 
 class TestExtractLayer0(unittest.TestCase):
+    def test_known_two_column_page_number_is_tracked(self) -> None:
+        from tools.extract_layer0 import TWO_COLUMN_PAGE_NUMBERS
+
+        self.assertIn(65, TWO_COLUMN_PAGE_NUMBERS)
+
     def test_normalize_text_preserves_content_but_cleans_spacing(self) -> None:
         text = "Line one  \r\n\r\n\r\nLine two\t\n"
         self.assertEqual(normalize_text(text), "Line one\n\nLine two")
