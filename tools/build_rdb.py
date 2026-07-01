@@ -1514,6 +1514,167 @@ def normalize_advancement_rule_object(item: dict[str, Any], raw_text: str) -> di
     return item
 
 
+COMBAT_ART_TYPES = {
+    "Обычное": "normal",
+    "Усиление": "boost",
+    "Реакция": "reaction",
+    "Уникальное": "unique",
+    "Особое": "special",
+}
+
+
+def split_combat_art_entries(raw_text: str) -> list[dict[str, Any]]:
+    lines = [line.strip() for line in raw_text.splitlines() if line.strip()]
+    title_pattern = re.compile(
+        r"^(?P<name>[А-ЯЁA-Z][^-\n]{2,80})\s+-\s+"
+        r"(?P<type>Обычное|Усиление|Реакция|Уникальное|Особое)"
+        r"(?:\s+или\s+(?P<alt_type>Реакция|Особое|Обычное|Усиление|Уникальное))?$",
+        re.IGNORECASE,
+    )
+    starts: list[tuple[int, re.Match[str]]] = []
+    for index, line in enumerate(lines):
+        match = title_pattern.match(line)
+        if match:
+            starts.append((index, match))
+
+    entries: list[dict[str, Any]] = []
+    for position, (start, match) in enumerate(starts):
+        end = starts[position + 1][0] if position + 1 < len(starts) else len(lines)
+        entry_lines = lines[start:end]
+        cost_line = entry_lines[1] if len(entry_lines) > 1 else ""
+        body_start = 2
+        if (
+            len(entry_lines) > 2
+            and " - " in cost_line
+            and re.match(r"^[а-яё]", entry_lines[2])
+            and len(entry_lines[2]) <= 40
+        ):
+            cost_line = f"{cost_line} {entry_lines[2]}"
+            body_start = 3
+        body_lines = entry_lines[body_start:] if len(entry_lines) > body_start else []
+        entries.append(
+            {
+                "name": match.group("name").strip(),
+                "art_types": [
+                    COMBAT_ART_TYPES.get(match.group("type"), match.group("type").casefold())
+                ]
+                + (
+                    [COMBAT_ART_TYPES.get(match.group("alt_type"), match.group("alt_type").casefold())]
+                    if match.group("alt_type")
+                    else []
+                ),
+                "cost_line": cost_line,
+                "body": "\n".join(body_lines).strip(),
+                "raw_text": "\n".join(entry_lines).strip(),
+            }
+        )
+    return entries
+
+
+def parse_combat_art_costs(cost_line: str) -> dict[str, Any]:
+    costs: dict[str, Any] = {"raw": cost_line}
+    stamina = re.search(r"(\d+|X)\s+Выносливост\w*", cost_line, re.IGNORECASE)
+    if stamina:
+        value = stamina.group(1)
+        costs["stamina"] = value if value == "X" else int(value)
+    soul = re.search(r"(\d+|X)\s+Душ\w*", cost_line, re.IGNORECASE)
+    if soul:
+        value = soul.group(1)
+        costs["soul"] = value if value == "X" else int(value)
+    if "Концентрация" in cost_line:
+        costs["focus"] = True
+    return costs
+
+
+def parse_combat_art_requirements(cost_line: str) -> list[dict[str, Any]]:
+    if " - " not in cost_line:
+        return []
+    requirement_text = cost_line.split(" - ", 1)[1].strip()
+    values = [part.strip() for part in re.split(r",|\s+и\s+", requirement_text) if part.strip()]
+    return [
+        {
+            "type": "weapon_or_condition",
+            "value": value,
+            "needs_manual_review": True,
+        }
+        for value in values
+    ]
+
+
+def normalize_combat_art_overview(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
+    item["draft_id"] = item["id"]
+    item["id"] = "combat-arts.overview"
+    item["type"] = "combat-art-rules"
+    item["subcategory"] = "Combat Art Rules"
+    item["name"] = "Боевые Искусства"
+    item["tags"] = sorted(set(item["tags"] + ["combat-arts", "character-creation"]))
+    item["modifiers"] = {
+        "prepared_in_technique_slots": True,
+        "normally_one_art_per_turn": True,
+        "types": sorted(set(COMBAT_ART_TYPES.values())),
+        "needs_manual_review": True,
+    }
+    item["effects"] = [
+        {
+            "type": "combat_art_usage_rules",
+            "text": raw_text,
+            "needs_manual_review": True,
+        }
+    ]
+    item["summary"] = summarize_raw_text(raw_text)
+    return item
+
+
+def normalize_combat_art_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
+    entries = split_combat_art_entries(raw_text)
+    if not entries:
+        return normalize_combat_art_overview(item, raw_text)
+    entry = entries[0]
+    item["draft_id"] = item["id"]
+    item["id"] = f"combat-arts.{stable_name_slug(entry['name'], 'art')}"
+    item["type"] = "combat-art"
+    item["subcategory"] = "Combat Art"
+    item["name"] = entry["name"]
+    item["raw_text"] = entry["raw_text"]
+    item["summary"] = summarize_raw_text(entry["body"] or entry["raw_text"])
+    item["costs"] = parse_combat_art_costs(entry["cost_line"])
+    item["requirements"] = parse_combat_art_requirements(entry["cost_line"])
+    item["modifiers"] = {
+        "art_types": entry["art_types"],
+        "cost_line": entry["cost_line"],
+    }
+    item["effects"] = [
+        {
+            "type": "unparsed_combat_art_effect",
+            "text": entry["body"],
+            "needs_manual_review": True,
+        }
+    ]
+    item["tags"] = sorted(set(item["tags"] + ["combat-art", "character-creation"]))
+    return item
+
+
+def combat_art_rule_objects_from_candidate(candidate: dict[str, Any]) -> list[dict[str, Any]]:
+    raw_text = candidate.get("raw_text", "")
+    if "6. Боевые Искусства" in raw_text:
+        return [candidate_to_rule_object(candidate)]
+    entries = split_combat_art_entries(raw_text)
+    if not entries:
+        return [candidate_to_rule_object(candidate)]
+
+    objects: list[dict[str, Any]] = []
+    for index, entry in enumerate(entries, start=1):
+        split_candidate = dict(candidate)
+        split_candidate["raw_text"] = entry["raw_text"]
+        split_candidate["title_hint"] = entry["name"]
+        split_candidate["source"] = dict(candidate.get("source", {}))
+        split_candidate["source"]["layer0_block"] = (
+            int(split_candidate["source"].get("layer0_block", 0)) * 100 + index
+        )
+        objects.append(candidate_to_rule_object(split_candidate))
+    return objects
+
+
 def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
     parts = split_trait_parts(raw_text)
     tags = list(item["tags"])
@@ -1778,6 +1939,8 @@ def candidate_to_rule_object(candidate: dict[str, Any]) -> dict[str, Any]:
         item = normalize_skill_rule_object(item, raw_text)
     elif category_hint == "advancement":
         item = normalize_advancement_rule_object(item, raw_text)
+    elif category_hint == "combat-arts":
+        item = normalize_combat_art_rule_object(item, raw_text)
 
     return item
 
@@ -1814,6 +1977,10 @@ def build_draft_containers(layer1: dict[str, Any]) -> tuple[dict[str, dict[str, 
         if category_hint == "templates":
             containers[CATEGORY_TO_FILE[category_hint]]["items"].extend(
                 template_rule_objects_from_candidate(candidate)
+            )
+        elif category_hint == "combat-arts":
+            containers[CATEGORY_TO_FILE[category_hint]]["items"].extend(
+                combat_art_rule_objects_from_candidate(candidate)
             )
         else:
             containers[CATEGORY_TO_FILE[category_hint]]["items"].append(

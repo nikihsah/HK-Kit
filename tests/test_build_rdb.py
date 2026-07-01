@@ -588,6 +588,68 @@ class TestBuildRdb(unittest.TestCase):
             "increase_main_characteristic",
         )
 
+    def test_candidate_to_rule_object_normalizes_combat_art_overview(self) -> None:
+        candidate = sample_candidate("combat-arts")
+        candidate["raw_text"] = (
+            "6. Боевые Искусства\n"
+            "Жук может применить одно Искусство за ход.\n"
+            "Искусства бывают следующих типов:\n"
+            "Обычные Боевые Искусства\n"
+            "Искусства Усиления\n"
+        )
+        candidate["title_hint"] = "6. Боевые Искусства"
+
+        item = candidate_to_rule_object(candidate)
+
+        self.assertEqual(item["id"], "combat-arts.overview")
+        self.assertEqual(item["type"], "combat-art-rules")
+        self.assertTrue(item["modifiers"]["normally_one_art_per_turn"])
+        self.assertIn("boost", item["modifiers"]["types"])
+
+    def test_build_draft_containers_expands_combat_arts(self) -> None:
+        candidate = sample_candidate("combat-arts")
+        candidate["raw_text"] = (
+            "Замах - Усиление\n"
+            "1 Выносливость\n"
+            "Жук получает штраф -1 к урону от следующей атаки.\n"
+            "Выпад - Обычное\n"
+            "3 Выносливости - Оружие ближнего боя\n"
+            "Жук перемещается на 2 клетки по прямой.\n"
+        )
+        candidate["title_hint"] = "Обычные Боевые Искусства"
+        layer1 = {
+            "artifact": "HK-RDB Layer 1",
+            "mode_create_allowed": False,
+            "candidates": [candidate],
+        }
+
+        containers, skipped = build_draft_containers(layer1)
+        items = containers["combat-arts.json"]["items"]
+
+        self.assertEqual(skipped, [])
+        self.assertEqual(len(items), 2)
+        self.assertEqual(items[0]["id"], "combat-arts.zamakh")
+        self.assertEqual(items[0]["costs"]["stamina"], 1)
+        self.assertEqual(items[0]["modifiers"]["art_types"], ["boost"])
+        self.assertEqual(items[1]["requirements"][0]["value"], "Оружие ближнего боя")
+
+    def test_combat_art_cost_requirements_join_wrapped_lines(self) -> None:
+        candidate = sample_candidate("combat-arts")
+        candidate["raw_text"] = (
+            "Быстрая Рука - Уникальное\n"
+            "3 Выносливости - Праща, оружие ближнего\n"
+            "боя с досягаемостью\n"
+            "Жук крайне проворен.\n"
+        )
+        candidate["title_hint"] = "Быстрая Рука"
+
+        item = candidate_to_rule_object(candidate)
+
+        self.assertEqual(
+            [requirement["value"] for requirement in item["requirements"]],
+            ["Праща", "оружие ближнего боя с досягаемостью"],
+        )
+
     def test_candidate_to_rule_object_normalizes_traits(self) -> None:
         candidate = sample_candidate("traits")
         candidate["raw_text"] = "Раздражающие Щетинки\n+3 Голод, +0.5 Привлекательность\nОписание."
