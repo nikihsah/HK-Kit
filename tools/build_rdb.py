@@ -365,20 +365,99 @@ def extract_trait_effect_hints(body: str) -> list[dict[str, Any]]:
             }
         )
 
-    repeatable = re.search(
-        r"(?:можно брать|может быть взят[ао]?|может быть взята|взята)\s+[^.]{0,50}(?:несколько|множество)\s+раз",
+    hints.extend(extract_trait_repeatability_hints(normalized))
+
+    return hints
+
+
+def extract_trait_repeatability_hints(body: str) -> list[dict[str, Any]]:
+    normalized = re.sub(r"\s+", " ", body).strip()
+    hints: list[dict[str, Any]] = []
+
+    activation = re.search(
+        r"активир\w*\s+(?:эту\s+)?способност\w*\s+несколько\s+раз",
         normalized,
         re.IGNORECASE,
     )
-    if repeatable:
-        hints.append(
-            {
-                "type": "repeatable",
-                "value": True,
-                "context": sentence_around(normalized, repeatable.start(), repeatable.end()),
-                "needs_manual_review": True,
-            }
+    if activation:
+        context = sentence_around(normalized, activation.start(), activation.end())
+        activation_hint: dict[str, Any] = {
+            "type": "repeatable_activation",
+            "allowed": True,
+            "context": context,
+            "needs_manual_review": True,
+        }
+        stamina_cost = re.search(
+            r"тратя\s+(\d+)\s+выносливост\w*\s+за\s+каждое\s+использование",
+            context,
+            re.IGNORECASE,
         )
+        if stamina_cost:
+            activation_hint["cost_per_use"] = {
+                "stamina": int(stamina_cost.group(1)),
+            }
+        hints.append(activation_hint)
+
+    unlimited = re.search(
+        r"(?:черту\s+можно\s+использовать|можно\s+брать|может\s+быть\s+взят[ао]?)\s+"
+        r"(?:[^.]{0,45})?(?:несколько|множество)\s+раз",
+        normalized,
+        re.IGNORECASE,
+    )
+    twice = re.search(
+        r"(?:эту\s+)?черту\s+можно\s+взять\s+дважды|можно\s+взять\s+дважды",
+        normalized,
+        re.IGNORECASE,
+    )
+
+    selection_match = unlimited or twice
+    if selection_match:
+        selection: dict[str, Any] = {
+            "type": "repeatable_selection",
+            "allowed": True,
+            "max": None if unlimited else 2,
+            "constraints": [],
+            "context": sentence_around(
+                normalized, selection_match.start(), selection_match.end()
+            ),
+            "needs_manual_review": True,
+        }
+
+        if re.search(r"разн\w*\s+Подчерт", normalized, re.IGNORECASE):
+            selection["constraints"].append(
+                {
+                    "type": "different_subtraits_per_copy",
+                    "value": True,
+                }
+            )
+        if re.search(r"не\s+может\s+иметь\s+несколько\s+Подчерт", normalized, re.IGNORECASE):
+            selection["constraints"].append(
+                {
+                    "type": "max_subtraits_per_copy",
+                    "value": 1,
+                }
+            )
+        if re.search(
+            r"не\s+более\s+одного\s+раза\s+для\s+одного\s+и\s+того\s+же\s+навыка",
+            normalized,
+            re.IGNORECASE,
+        ):
+            selection["constraints"].append(
+                {
+                    "type": "unique_by",
+                    "field": "skill",
+                }
+            )
+        if re.search(r"как\s+подчерт\w*\s+сам\w*\s+себя", normalized, re.IGNORECASE):
+            self_subtrait: dict[str, Any] = {
+                "type": "self_subtrait_allowed",
+                "value": True,
+            }
+            if re.search(r"дважды\s*,?\s+как\s+подчерт", normalized, re.IGNORECASE):
+                self_subtrait["max"] = 2
+            selection["constraints"].append(self_subtrait)
+
+        hints.append(selection)
 
     return hints
 

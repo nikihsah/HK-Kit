@@ -8,6 +8,7 @@ from tools.build_rdb import (
     build_draft_containers,
     candidate_to_rule_object,
     extract_trait_effect_hints,
+    extract_trait_repeatability_hints,
     infer_trait_relationships,
     parse_trait_base_costs,
     parse_trait_conditional_costs,
@@ -116,7 +117,55 @@ class TestBuildRdb(unittest.TestCase):
         self.assertEqual(by_type["damage"]["amount"], 2)
         self.assertEqual(by_type["range"]["cells"], 4)
         self.assertEqual(by_type["weapon_type"]["value"], "Праща")
-        self.assertTrue(by_type["repeatable"]["value"])
+        self.assertTrue(by_type["repeatable_selection"]["allowed"])
+
+    def test_repeatable_selection_twice_sets_max_two(self) -> None:
+        hints = extract_trait_repeatability_hints("Эту черту можно взять дважды.")
+
+        self.assertEqual(hints[0]["type"], "repeatable_selection")
+        self.assertEqual(hints[0]["max"], 2)
+
+    def test_natural_projectile_repeatability_preserves_subtrait_constraints(self) -> None:
+        hints = extract_trait_repeatability_hints(
+            "Эта Черта не может иметь несколько Подчерт, но может быть взята несколько раз "
+            "с разными Подчертами на каждом из них."
+        )
+        selection = hints[0]
+        constraints = {constraint["type"]: constraint for constraint in selection["constraints"]}
+
+        self.assertIsNone(selection["max"])
+        self.assertEqual(constraints["max_subtraits_per_copy"]["value"], 1)
+        self.assertTrue(constraints["different_subtraits_per_copy"]["value"])
+
+    def test_talent_repeatability_is_unique_by_skill(self) -> None:
+        hints = extract_trait_repeatability_hints(
+            "Эту Черту можно использовать несколько раз, но не более одного раза для одного "
+            "и того же навыка."
+        )
+        constraints = hints[0]["constraints"]
+
+        self.assertIn({"type": "unique_by", "field": "skill"}, constraints)
+
+    def test_minor_flaw_repeatability_tracks_self_subtrait_limit(self) -> None:
+        hints = extract_trait_repeatability_hints(
+            "Может быть взята множество раз и дважды, как подчерта самой себя."
+        )
+        selection = hints[0]
+
+        self.assertIsNone(selection["max"])
+        self.assertIn(
+            {"type": "self_subtrait_allowed", "value": True, "max": 2},
+            selection["constraints"],
+        )
+
+    def test_repeatable_activation_is_not_selection(self) -> None:
+        hints = extract_trait_repeatability_hints(
+            "Жук может активировать эту способность несколько раз, тратя 1 Выносливость "
+            "за каждое использование."
+        )
+
+        self.assertEqual([hint["type"] for hint in hints], ["repeatable_activation"])
+        self.assertEqual(hints[0]["cost_per_use"]["stamina"], 1)
 
     def test_extract_trait_effect_hints_accepts_infinitive_damage(self) -> None:
         hints = extract_trait_effect_hints("Щупальце может нанести 1 урон.")
