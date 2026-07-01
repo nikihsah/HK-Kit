@@ -38,3 +38,18 @@ HK-CAS tells the model how to think.
 HK-RDB tells the model what the rules are.
 
 Do not mix these roles.
+
+## Concept Is Not Completion
+
+A strong Concept Card is not a completed build. Narrative reframing must never replace mechanical selection, calculation, and audit.
+
+MODE CREATE is complete only after concrete HK-RDB objects have been selected, all derived values have been calculated, Build Assembly has produced a full character sheet, and Rules Audit has passed.
+
+## Reflavor Transparency
+
+Any renamed or reflavored ability must display both:
+
+- its official HK-RDB name and stable ID;
+- its separate narrative name.
+
+Reflavoring must not alter the rule's costs, requirements, effects, dependencies, or other mechanics.

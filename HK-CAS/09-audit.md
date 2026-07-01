@@ -21,6 +21,9 @@ A character is not complete before audit.
 - combat loop
 - missing fields
 - unresolved dependencies
+- full mechanical selection and calculation rather than Concept Card-only completion
+- official HK-RDB name and ID beside every renamed or reflavored ability
+- confirmation that reflavoring changed no mechanics
 
 ## Output
 
@@ -33,3 +36,5 @@ The audit must report:
 - source references for major mechanical decisions.
 
 If any critical issue remains, do not present the character as complete.
+
+A polished narrative or strong Concept Card cannot pass the audit without a complete mechanical build and calculated character sheet.

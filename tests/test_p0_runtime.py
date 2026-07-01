@@ -103,6 +103,28 @@ class TestP0Runtime(unittest.TestCase):
         self.assertIn("up to three skills", optimization)
         self.assertIn("`Hunger budget optimization` is mandatory", optimization)
 
+    def test_concept_card_cannot_replace_completed_build(self) -> None:
+        overview = (ROOT / "HK-CAS" / "00-overview.md").read_text(encoding="utf-8")
+        runtime = (ROOT / "HK-CAS" / "runtime-create.md").read_text(encoding="utf-8")
+        for document in (overview, runtime):
+            self.assertIn("A strong Concept Card is not a completed build", document)
+            self.assertIn("mechanical selection, calculation", document)
+
+    def test_reflavor_keeps_official_name_and_id(self) -> None:
+        overview = (ROOT / "HK-CAS" / "00-overview.md").read_text(encoding="utf-8")
+        runtime = (ROOT / "HK-CAS" / "runtime-create.md").read_text(encoding="utf-8")
+        for document in (overview, runtime):
+            self.assertIn("official HK-RDB name", document)
+            self.assertIn("stable ID", document)
+            self.assertIn("narrative name", document)
+
+    def test_readme_quick_start_contains_strict_user_prompt(self) -> None:
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        self.assertIn("Используй репозиторий как обязательную инструкцию", readme)
+        self.assertIn("MODE: CREATE", readme)
+        self.assertIn("OUTPUT MODE: USER", readme)
+        self.assertIn("MODE CREATE должен завершиться полноценным рассчитанным чарником", readme)
+
     def test_runtime_does_not_require_maintainer_docs(self) -> None:
         runtime = (ROOT / "HK-CAS" / "runtime-create.md").read_text(encoding="utf-8")
         self.assertIn("Do not read `CODEX_BOOTSTRAP.md`", runtime)
