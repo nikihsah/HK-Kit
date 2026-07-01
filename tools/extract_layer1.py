@@ -37,6 +37,18 @@ CATEGORY_HINTS = [
 
 PAGE_CATEGORY_HINTS = [
     {
+        "page_start": 1,
+        "page_end": 5,
+        "category_hint": "non-rules",
+        "reason": "front_matter_non_rules",
+    },
+    {
+        "page_start": 6,
+        "page_end": 6,
+        "category_hint": "core-rules",
+        "reason": "dice_core_rules_page",
+    },
+    {
         "page_start": 7,
         "page_end": 10,
         "category_hint": "core-rules",
@@ -59,6 +71,12 @@ PAGE_CATEGORY_HINTS = [
         "page_end": 44,
         "category_hint": "paths",
         "reason": "paths_section_page_range",
+    },
+    {
+        "page_start": 45,
+        "page_end": 45,
+        "category_hint": "paths",
+        "reason": "dust_path_shells_continuation_page",
     },
     {
         "page_start": 46,
@@ -113,6 +131,12 @@ PAGE_CATEGORY_HINTS = [
         "page_end": 125,
         "category_hint": "social-rules",
         "reason": "social_rules_section_page_range",
+    },
+    {
+        "page_start": 126,
+        "page_end": 126,
+        "category_hint": "non-rules",
+        "reason": "gm_external_resources_non_rules",
     },
 ]
 
@@ -244,8 +268,6 @@ def choose_category_hint(text: str, page: int) -> tuple[str, str]:
     page_hint, reason = page_category_hint(page)
     if page_hint:
         return page_hint, reason or "page_range"
-    if page <= 5:
-        return "unknown", "front_matter"
     keyword_hint = guess_category(text)
     return keyword_hint, "keyword"
 
@@ -272,7 +294,7 @@ def build_candidates(layer0: dict[str, Any], min_chars: int = 40) -> dict[str, A
         page_hint, _page_reason = page_category_hint(page_number)
         blocks = (
             [normalize_block_text(text)]
-            if page_hint in {"core-rules", "paths", "skills", "advancement", "combat-arts", "magic", "charms", "equipment", "combat-rules", "travel-rest-rules", "social-rules"}
+            if page_hint in {"non-rules", "core-rules", "paths", "skills", "advancement", "combat-arts", "magic", "charms", "equipment", "combat-rules", "travel-rest-rules", "social-rules"}
             else split_page_into_blocks(text)
         )
         for block_index, block in enumerate(blocks, start=1):

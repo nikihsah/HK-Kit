@@ -1199,6 +1199,39 @@ def extract_path_rank_entries(raw_text: str) -> list[dict[str, Any]]:
 
 
 def normalize_path_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
+    if re.search(r"(^|\n)\s*Оболочки\s*(\n|$)", raw_text):
+        item["draft_id"] = item["id"]
+        item["id"] = "paths.dust.shells"
+        item["type"] = "path-companion-rules"
+        item["subcategory"] = "Mystic Path Companion"
+        item["name"] = "Оболочки"
+        item["requirements"] = [{"type": "created_by_path_feature", "path_id": "paths.dust"}]
+        item["relationships"] = [{"type": "part_of", "target": "paths.dust"}]
+        item["modifiers"] = {
+            "inherits_traits_from_corpse": True,
+            "loses": ["knowledge", "spells", "arts", "paths", "skills", "marks", "speech"],
+            "speed_modifier": -2,
+            "speed_minimum": 1,
+            "dread_modifier": 2,
+            "insight": 0,
+            "heart": None,
+            "stamina": 3,
+            "soul": 2,
+            "absorption": 10,
+            "damage_applies_to": "shell",
+            "destroyed_at_shell": 0,
+            "creator_only_soul_recovery": True,
+            "needs_manual_review": True,
+        }
+        item["effects"] = [
+            {"type": "dust_shell_companion_rules", "text": raw_text, "needs_manual_review": True}
+        ]
+        item["tags"] = sorted(
+            set(item["tags"] + ["path", "dust", "companion", "glossary-term"])
+        )
+        item["summary"] = summarize_raw_text(raw_text)
+        return item
+
     name = extract_path_name(raw_text)
     family = path_family(name, raw_text)
     item["draft_id"] = item["id"]
@@ -2824,6 +2857,8 @@ def social_rule_objects_from_candidate(candidate: dict[str, Any]) -> list[dict[s
 
 
 CORE_RULE_HEADINGS = {
+    "Как работают броски костей": ("dice-rolls", "Как работают броски костей"),
+    "Повторные броски": ("rerolls", "Повторные броски"),
     "Проверки Характеристик": ("characteristic-checks", "Проверки Характеристик"),
     "Обычные броски": ("standard-checks", "Обычные броски"),
     "Спасброски": ("saving-checks", "Спасброски"),
@@ -2857,6 +2892,8 @@ CORE_RULE_HEADINGS = {
 
 
 CORE_RULE_MECHANICS = {
+    "dice-rolls": {"die": "d6", "success_faces": [5, 6]},
+    "rerolls": {"keep": "best_result", "fractional_characteristic_grants_rerolls": True},
     "characteristics": {"maximum": 7, "fractional_step": 0.5, "fractional_effect": "reroll_one_failed_die"},
     "standard-checks": {"dice_pool": ["main_characteristic", "highest_applicable_skill_rank"]},
     "saving-checks": {"success_condition": "successes_greater_than_or_equal_to_opposing_successes"},
@@ -3004,6 +3041,12 @@ def populate_glossary_container(containers: dict[str, dict[str, Any]]) -> None:
     for source_file in GLOSSARY_SOURCE_FILES:
         for source_item in containers[source_file]["items"]:
             entries.append(glossary_entry_from_rule(source_item, source_file))
+    for source_file, container in containers.items():
+        if source_file in GLOSSARY_SOURCE_FILES or source_file == "glossary.json":
+            continue
+        for source_item in container["items"]:
+            if "glossary-term" in source_item.get("tags", []):
+                entries.append(glossary_entry_from_rule(source_item, source_file))
     containers["glossary.json"]["items"] = entries
 
 
@@ -3322,7 +3365,11 @@ def build_draft_containers(layer1: dict[str, Any]) -> tuple[dict[str, dict[str, 
                 {
                     "id": candidate.get("id"),
                     "category_hint": category_hint,
-                    "reason": "unknown_or_unsupported_category_hint",
+                    "reason": (
+                        "non_rule_content"
+                        if category_hint == "non-rules"
+                        else "unknown_or_unsupported_category_hint"
+                    ),
                 }
             )
             continue

@@ -97,11 +97,14 @@ class TestExtractLayer1(unittest.TestCase):
         self.assertEqual(guess_category("Completely unrelated text."), "unknown")
 
     def test_page_category_hint_routes_traits_section(self) -> None:
+        self.assertEqual(page_category_hint(1), ("non-rules", "front_matter_non_rules"))
+        self.assertEqual(page_category_hint(6), ("core-rules", "dice_core_rules_page"))
         self.assertEqual(page_category_hint(7), ("core-rules", "core_rules_section_page_range"))
         self.assertEqual(page_category_hint(10), ("core-rules", "core_rules_section_page_range"))
         self.assertEqual(page_category_hint(11), ("templates", "templates_table_page_range"))
         self.assertEqual(page_category_hint(12), ("traits", "traits_section_page_range"))
         self.assertEqual(page_category_hint(21), ("traits", "traits_section_page_range"))
+        self.assertEqual(page_category_hint(45), ("paths", "dust_path_shells_continuation_page"))
         self.assertEqual(page_category_hint(32), ("paths", "paths_section_page_range"))
         self.assertEqual(page_category_hint(46), ("skills", "skills_section_page_range"))
         self.assertEqual(page_category_hint(47), ("skills", "skills_section_page_range"))
@@ -119,17 +122,17 @@ class TestExtractLayer1(unittest.TestCase):
         self.assertEqual(page_category_hint(123), ("travel-rest-rules", "travel_rest_rules_section_page_range"))
         self.assertEqual(page_category_hint(124), ("travel-rest-rules", "travel_rest_rules_section_page_range"))
         self.assertEqual(page_category_hint(125), ("social-rules", "social_rules_section_page_range"))
-        self.assertEqual(page_category_hint(126), (None, None))
+        self.assertEqual(page_category_hint(126), ("non-rules", "gm_external_resources_non_rules"))
 
     def test_choose_category_hint_prefers_template_page_context(self) -> None:
         category, source = choose_category_hint("Душа и магия рядом с таблицей шаблонов", 11)
         self.assertEqual(category, "templates")
         self.assertEqual(source, "templates_table_page_range")
 
-    def test_choose_category_hint_keeps_front_matter_unknown(self) -> None:
+    def test_choose_category_hint_marks_front_matter_as_non_rules(self) -> None:
         category, source = choose_category_hint("Оглавление Боевые Искусства Амулеты", 4)
-        self.assertEqual(category, "unknown")
-        self.assertEqual(source, "front_matter")
+        self.assertEqual(category, "non-rules")
+        self.assertEqual(source, "front_matter_non_rules")
 
     def test_build_candidates_keeps_path_pages_whole(self) -> None:
         layer0 = {
@@ -365,7 +368,7 @@ class TestExtractLayer1(unittest.TestCase):
             "page_count": 1,
             "pages": [
                 {
-                    "page": 6,
+                    "page": 127,
                     "text": "Черта панциря.\n\nЭта черта помогает описать защиту персонажа.",
                 }
             ],
@@ -377,7 +380,7 @@ class TestExtractLayer1(unittest.TestCase):
         self.assertFalse(document["mode_create_allowed"])
         self.assertEqual(document["candidate_count"], 2)
         self.assertEqual(document["candidates"][0]["status"], "needs_review")
-        self.assertEqual(document["candidates"][0]["source"]["page_start"], 6)
+        self.assertEqual(document["candidates"][0]["source"]["page_start"], 127)
         self.assertEqual(document["candidates"][1]["category_hint"], "traits")
         self.assertEqual(document["candidates"][1]["category_hint_source"], "keyword")
 

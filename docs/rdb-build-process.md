@@ -100,6 +100,11 @@ sources/layer2/<pdf-name>.rdb-draft/data/
 
 Generated Layer 2 files are ignored by Git.
 
+Layer 1 marks covers, credits, tables of contents, introductory prose, and
+external GM resource pages as `non-rules`. The builder records these candidates
+in the manifest with reason `non_rule_content`; they are intentionally excluded
+from HK-RDB rather than left as unresolved rule candidates.
+
 `glossary.json` is a derived term index. The builder creates its entries from
 canonical objects in `core-rules.json`, `combat-rules.json`,
 `travel-rest-rules.json`, and `social-rules.json`. Each glossary entry points

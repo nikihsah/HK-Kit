@@ -47,6 +47,19 @@ def sample_candidate(category_hint: str = "traits") -> dict:
 
 
 class TestBuildRdb(unittest.TestCase):
+    def test_dust_shells_are_linked_to_dust_path(self) -> None:
+        candidate = sample_candidate("paths")
+        candidate["raw_text"] = (
+            "Оболочки\nОболочка имеет те же Черты, что и при жизни. "
+            "У неё на 2 Скорости меньше, 2 Жути, 0 Проницательности, "
+            "3 Выносливости, 2 Души и Поглощение 10."
+        )
+        item = candidate_to_rule_object(candidate)
+
+        self.assertEqual(item["id"], "paths.dust.shells")
+        self.assertEqual(item["relationships"], [{"type": "part_of", "target": "paths.dust"}])
+        self.assertEqual(item["modifiers"]["absorption"], 10)
+
     def test_core_rules_are_split_into_atomic_objects(self) -> None:
         candidate = sample_candidate("core-rules")
         candidate["raw_text"] = (
@@ -67,6 +80,19 @@ class TestBuildRdb(unittest.TestCase):
         self.assertEqual(items[1]["relationships"], [
             {"type": "uses", "target": "core-rules.characteristics"}
         ])
+
+    def test_dice_rules_capture_success_faces_and_rerolls(self) -> None:
+        candidate = sample_candidate("core-rules")
+        candidate["raw_text"] = (
+            "Как работают броски костей\nБросаются шестигранные кубики; 5 и 6 являются успехами.\n"
+            "Повторные броски\nПосле проверки можно перебросить кости и оставить лучший результат."
+        )
+        containers, _ = build_draft_containers({"candidates": [candidate]})
+        items = containers["core-rules.json"]["items"]
+
+        self.assertEqual(items[0]["modifiers"]["die"], "d6")
+        self.assertEqual(items[0]["modifiers"]["success_faces"], [5, 6])
+        self.assertEqual(items[1]["modifiers"]["keep"], "best_result")
 
     def test_glossary_indexes_canonical_rules_with_valid_relationships(self) -> None:
         candidate = sample_candidate("core-rules")
