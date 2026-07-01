@@ -930,6 +930,50 @@ class TestBuildRdb(unittest.TestCase):
         self.assertIn("rest", items[1]["tags"])
         self.assertIn("downtime", items[2]["tags"])
 
+    def test_build_draft_containers_expands_social_rules(self) -> None:
+        candidate = sample_candidate("social-rules")
+        candidate["source"]["page_start"] = 125
+        candidate["source"]["page_end"] = 125
+        candidate["raw_text"] = (
+            "12. ОБЩЕНИЕ\n"
+            "Общение использует характеристику и подходящий навык.\n"
+            "Очарование\n"
+            "Сложите Привлекательность и ранг подходящего навыка, например Этичности.\n"
+            "Запугивание\n"
+            "Сложите Жуть и ранг Запугивания.\n"
+            "Обман\n"
+            "Сложите Проницательность и ранг Обмана. Цель противостоит Проницательностью или Интуицией.\n"
+            "Убеждение\n"
+            "Сложите Проницательность и ранг Убеждения.\n"
+            "Впечатление\n"
+            "Выберите Силу, Проницательность, Панцирь, Грацию, Жуть или Привлекательность и добавьте Впечатление или Исполнение.\n"
+        )
+        layer1 = {
+            "artifact": "HK-RDB Layer 1",
+            "mode_create_allowed": False,
+            "candidates": [candidate],
+        }
+
+        containers, skipped = build_draft_containers(layer1)
+        items = containers["social-rules.json"]["items"]
+
+        self.assertEqual(skipped, [])
+        self.assertEqual([item["id"] for item in items], [
+            "social-rules.overview",
+            "social-rules.charm",
+            "social-rules.intimidation",
+            "social-rules.deception",
+            "social-rules.persuasion",
+            "social-rules.impression",
+        ])
+        self.assertEqual(items[1]["modifiers"]["characteristics"], ["appeal"])
+        self.assertTrue(items[3]["modifiers"]["opposed"])
+        self.assertEqual(items[3]["modifiers"]["opposed_by"], ["insight", "Интуиция"])
+        self.assertEqual(
+            items[5]["modifiers"]["characteristic_options"],
+            ["power", "insight", "shell", "grace", "dread", "appeal"],
+        )
+
     def test_magic_secret_uses_page_path_hint_when_header_is_missing(self) -> None:
         candidate = sample_candidate("magic")
         candidate["source"]["page_start"] = 63

@@ -2693,6 +2693,136 @@ def travel_rest_rule_objects_from_candidate(candidate: dict[str, Any]) -> list[d
     return objects
 
 
+SOCIAL_RULE_HEADINGS = {
+    "12. ОБЩЕНИЕ": ("overview", "Общение"),
+    "Очарование": ("charm", "Очарование"),
+    "Запугивание": ("intimidation", "Запугивание"),
+    "Обман": ("deception", "Обман"),
+    "Убеждение": ("persuasion", "Убеждение"),
+    "Впечатление": ("impression", "Впечатление"),
+}
+
+SOCIAL_RULE_MECHANICS = {
+    "charm": {
+        "characteristics": ["appeal"],
+        "skill_examples": ["Этичность"],
+        "opposed": False,
+    },
+    "intimidation": {
+        "characteristics": ["dread"],
+        "skill_examples": ["Запугивание"],
+        "opposed": False,
+    },
+    "deception": {
+        "characteristics": ["insight"],
+        "skill_examples": ["Обман"],
+        "opposed": True,
+        "opposed_by": ["insight", "Интуиция"],
+    },
+    "persuasion": {
+        "characteristics": ["insight"],
+        "skill_examples": ["Убеждение"],
+        "opposed": False,
+    },
+    "impression": {
+        "characteristic_options": ["power", "insight", "shell", "grace", "dread", "appeal"],
+        "skill_examples": ["Впечатление", "Исполнение"],
+        "opposed": False,
+    },
+}
+
+
+def split_social_rule_entries(raw_text: str) -> list[dict[str, Any]]:
+    lines = [re.sub(r"\s+", " ", line).strip() for line in raw_text.splitlines() if line.strip()]
+    starts: list[tuple[int, str, str]] = []
+    for index, line in enumerate(lines):
+        if line in SOCIAL_RULE_HEADINGS:
+            slug, title = SOCIAL_RULE_HEADINGS[line]
+            starts.append((index, slug, title))
+
+    entries: list[dict[str, Any]] = []
+    for position, (start, slug, title) in enumerate(starts):
+        end = starts[position + 1][0] if position + 1 < len(starts) else len(lines)
+        entry_lines = lines[start:end]
+        body = "\n".join(entry_lines[1:]).strip()
+        if not body or re.fullmatch(r"\d{2,3}", body):
+            continue
+        entries.append(
+            {
+                "slug": slug,
+                "name": title,
+                "body": body,
+                "raw_text": "\n".join(entry_lines).strip(),
+            }
+        )
+    return entries
+
+
+def normalize_social_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
+    entries = split_social_rule_entries(raw_text)
+    if not entries:
+        item["draft_id"] = item["id"]
+        item["id"] = f"social-rules.rules.p{item['source']['page_start']:03d}"
+        item["type"] = "social-rule"
+        item["subcategory"] = "social-rules"
+        item["effects"] = [
+            {
+                "type": "unparsed_social_rule_text",
+                "text": raw_text,
+                "needs_manual_review": True,
+            }
+        ]
+        item["tags"] = sorted(set(item["tags"] + ["social", "social-rules", "character-creation"]))
+        return item
+
+    entry = entries[0]
+    item["draft_id"] = item["id"]
+    item["id"] = f"social-rules.{entry['slug']}"
+    item["type"] = "social-rule"
+    item["subcategory"] = entry["slug"]
+    item["name"] = entry["name"]
+    item["raw_text"] = entry["raw_text"]
+    item["summary"] = summarize_raw_text(entry["body"])
+    item["costs"] = {}
+    item["requirements"] = []
+    item["modifiers"] = {
+        "rule_slug": entry["slug"],
+        **SOCIAL_RULE_MECHANICS.get(entry["slug"], {}),
+        "needs_manual_review": True,
+    }
+    item["effects"] = [
+        {
+            "type": "unparsed_social_rule_text",
+            "text": entry["body"],
+            "needs_manual_review": True,
+        }
+    ]
+    tags = ["social", "social-rules", "character-creation"]
+    if entry["slug"] == "deception":
+        tags.append("opposed-check")
+    item["tags"] = sorted(set(tags))
+    return item
+
+
+def social_rule_objects_from_candidate(candidate: dict[str, Any]) -> list[dict[str, Any]]:
+    raw_text = candidate.get("raw_text", "")
+    entries = split_social_rule_entries(raw_text)
+    if not entries:
+        return [candidate_to_rule_object(candidate)]
+
+    objects: list[dict[str, Any]] = []
+    for index, entry in enumerate(entries, start=1):
+        split_candidate = dict(candidate)
+        split_candidate["raw_text"] = entry["raw_text"]
+        split_candidate["title_hint"] = entry["name"]
+        split_candidate["source"] = dict(candidate.get("source", {}))
+        split_candidate["source"]["layer0_block"] = (
+            int(split_candidate["source"].get("layer0_block", 0)) * 100 + index
+        )
+        objects.append(candidate_to_rule_object(split_candidate))
+    return objects
+
+
 def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
     parts = split_trait_parts(raw_text)
     tags = list(item["tags"])
@@ -2975,6 +3105,8 @@ def candidate_to_rule_object(candidate: dict[str, Any]) -> dict[str, Any]:
         item = normalize_combat_rule_object(item, raw_text)
     elif category_hint == "travel-rest-rules":
         item = normalize_travel_rest_rule_object(item, raw_text)
+    elif category_hint == "social-rules":
+        item = normalize_social_rule_object(item, raw_text)
 
     return item
 
@@ -3035,6 +3167,10 @@ def build_draft_containers(layer1: dict[str, Any]) -> tuple[dict[str, dict[str, 
         elif category_hint == "travel-rest-rules":
             containers[CATEGORY_TO_FILE[category_hint]]["items"].extend(
                 travel_rest_rule_objects_from_candidate(candidate)
+            )
+        elif category_hint == "social-rules":
+            containers[CATEGORY_TO_FILE[category_hint]]["items"].extend(
+                social_rule_objects_from_candidate(candidate)
             )
         else:
             containers[CATEGORY_TO_FILE[category_hint]]["items"].append(
