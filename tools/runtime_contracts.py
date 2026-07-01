@@ -41,3 +41,41 @@ def checkpoint_is_complete(checkpoint: dict[str, Any], known_ids: set[str]) -> b
 
 def optimization_allowed(checkpoints: list[dict[str, Any]], known_ids: set[str]) -> bool:
     return bool(checkpoints) and all(checkpoint_is_complete(item, known_ids) for item in checkpoints)
+
+
+def hunger_ledger_errors(ledger: dict[str, Any], known_ids: set[str]) -> list[str]:
+    errors: list[str] = []
+    base = ledger.get("base_hunger", {})
+    adjustments = ledger.get("adjustments", [])
+    if base.get("source_id") not in known_ids:
+        errors.append("base Hunger source is not in HK-RDB")
+    if any(item.get("id") not in known_ids for item in adjustments):
+        errors.append("Hunger adjustment source is not in HK-RDB")
+    values = [item.get("value") for item in adjustments]
+    if any(not isinstance(value, (int, float)) for value in values):
+        errors.append("every Hunger adjustment requires a numeric value")
+        return errors
+    positive = sum(value for value in values if value > 0)
+    negative = sum(value for value in values if value < 0)
+    other = sum(value for value in values if value == 0)
+    if ledger.get("positive_adjustments_total") != positive:
+        errors.append("positive adjustment total is incorrect")
+    if ledger.get("negative_adjustments_total") != negative:
+        errors.append("negative adjustment total is incorrect")
+    if ledger.get("other_adjustments_total") != other:
+        errors.append("other adjustment total is incorrect")
+    if isinstance(base.get("value"), (int, float)):
+        expected_final = base["value"] + positive + negative + other
+        if ledger.get("final_hunger") != expected_final:
+            errors.append("final Hunger is incorrect")
+    if isinstance(ledger.get("maximum_hunger"), (int, float)) and isinstance(ledger.get("final_hunger"), (int, float)):
+        expected_unused = ledger["maximum_hunger"] - ledger["final_hunger"]
+        if ledger.get("unused_hunger") != expected_unused:
+            errors.append("unused Hunger is incorrect")
+    if not ledger.get("candidate_search_completed"):
+        errors.append("Hunger candidate search is incomplete")
+    if ledger.get("unused_hunger", 0) > 0 and not str(ledger.get("unused_hunger_explanation", "")).strip():
+        errors.append("unused Hunger requires an explanation")
+    if ledger.get("audit_status") != "pass":
+        errors.append("Hunger ledger audit has not passed")
+    return errors

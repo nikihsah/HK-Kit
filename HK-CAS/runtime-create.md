@@ -23,8 +23,8 @@ Until all three Locks are complete, do not name or recommend HK-RDB mechanical o
 7. Element Cards: for every analyzed object record its ID, rules summary, requirements, effects, costs, dependencies, conflicts, and fit.
 8. Candidate Registry and Project Journal update.
 9. Category Checkpoint. A category with `complete: false` blocks the next category.
-10. Cross-Category Optimization only after every required category checkpoint is valid and complete.
-11. Build Assembly.
+10. Cross-Category Optimization only after every required category checkpoint is valid and complete; complete the Hunger Budget Ledger and compare all relevant skill candidates rather than stopping at the first fit.
+11. Build Assembly, including every materially useful and legal selection supported by the locked vision.
 12. Rules Audit and Final Character Output.
 
 ## Runtime contracts
@@ -38,6 +38,8 @@ Until all three Locks are complete, do not name or recommend HK-RDB mechanical o
 - A visual or narrative detail is not a mechanical requirement without player confirmation.
 - A desired characteristic is not automatically valid for an action. Verify the actual characteristic used by the HK-RDB mechanic. “Melee through Insight” triggers a search for a legal rule path; it does not make ordinary attacks use Insight.
 - Conclusions require concrete HK-RDB objects and rules.
+- Hunger maximization is forbidden as a standalone goal; Hunger budget optimization is mandatory. Maintain `templates/hunger-budget-ledger.yaml`, analyze meaningful uses of remaining budget, and explain every unused point.
+- Do not stop at one suitable skill. Analyze the complete Skills category and, when legal and conceptually useful, select up to three skills. If fewer are selected, explain why the remaining slots should not be filled.
 
 ## Scope guard
 

@@ -8,11 +8,13 @@ A character is not complete before audit.
 - characteristic values
 - resource values
 - hunger limit
+- Hunger Budget Ledger arithmetic, sources, candidate-search completion, and unused-budget explanation
 - trait count
 - subtrait parent requirements
 - load
 - path requirements
 - skill rank
+- complete Skills-category analysis and justification when fewer than three skills are selected
 - arts and techniques
 - charms and marks
 - equipment

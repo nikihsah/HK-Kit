@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 from tools.generate_manifest import build_manifest
-from tools.runtime_contracts import checkpoint_is_complete, optimization_allowed, validate_candidate_registry
+from tools.runtime_contracts import checkpoint_is_complete, hunger_ledger_errors, optimization_allowed, validate_candidate_registry
 from tools.validate_rdb import RULE_FILES, validate_rdb
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -76,6 +76,32 @@ class TestP0Runtime(unittest.TestCase):
         self.assertFalse(optimization_allowed([checkpoint], self.known_ids))
         checkpoint.update({"skipped_ids": ["skipped.id"], "skip_reasons": {"skipped.id": "not applicable"}})
         self.assertTrue(checkpoint_is_complete(checkpoint, self.known_ids))
+
+    def test_hunger_ledger_requires_sources_math_and_unused_explanation(self) -> None:
+        source_id = next(iter(self.known_ids))
+        ledger = {
+            "base_hunger": {"value": 4, "source_id": source_id, "source_file": "templates.json"},
+            "adjustments": [{"id": source_id, "name": "x", "category": "Traits", "value": 2, "source_file": "traits.json", "reason_selected": "vision fit"}],
+            "positive_adjustments_total": 2,
+            "negative_adjustments_total": 0,
+            "other_adjustments_total": 0,
+            "final_hunger": 6,
+            "maximum_hunger": 10,
+            "unused_hunger": 4,
+            "candidate_search_completed": True,
+            "optimization_status": "complete",
+            "unused_hunger_explanation": "No remaining candidate materially supports the locked vision.",
+            "audit_status": "pass",
+        }
+        self.assertEqual(hunger_ledger_errors(ledger, self.known_ids), [])
+        ledger["unused_hunger_explanation"] = ""
+        self.assertIn("unused Hunger requires an explanation", hunger_ledger_errors(ledger, self.known_ids))
+
+    def test_optimization_documents_up_to_three_skills(self) -> None:
+        optimization = (ROOT / "HK-CAS" / "08-optimization.md").read_text(encoding="utf-8")
+        self.assertIn("Do not stop after finding the first suitable skill", optimization)
+        self.assertIn("up to three skills", optimization)
+        self.assertIn("`Hunger budget optimization` is mandatory", optimization)
 
     def test_runtime_does_not_require_maintainer_docs(self) -> None:
         runtime = (ROOT / "HK-CAS" / "runtime-create.md").read_text(encoding="utf-8")

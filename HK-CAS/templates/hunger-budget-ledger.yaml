@@ -1,0 +1,27 @@
+hunger_budget_ledger:
+  base_hunger:
+    value: null
+    source_id: ""
+    source_file: ""
+
+  adjustments: []
+  # Each adjustment entry must contain:
+  # - id: ""
+  #   name: ""
+  #   category: ""
+  #   value: null
+  #   source_file: ""
+  #   reason_selected: ""
+
+  positive_adjustments_total: null
+  negative_adjustments_total: null
+  other_adjustments_total: null
+
+  final_hunger: null
+  maximum_hunger: null
+  unused_hunger: null
+
+  candidate_search_completed: false
+  optimization_status: "pending"
+  unused_hunger_explanation: ""
+  audit_status: "pending"

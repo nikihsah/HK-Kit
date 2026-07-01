@@ -18,6 +18,19 @@ HK-CAS exists because direct prompt-based character creation failed in repeated 
 - Fail Loudly On Missing Rules
 - Audit Before Final Output
 
+## Hunger Budget Optimization
+
+Hunger is a build budget that must be analyzed during Cross-Category Optimization and Build Assembly.
+
+The goal is not to mechanically reach maximum Hunger. The model must:
+
+1. select every legal trait and subtrait that materially supports the locked character vision;
+2. avoid leaving a significant useful budget unanalyzed;
+3. reject weak, useless, duplicative, or conceptually alien mechanics added only to fill the limit;
+4. explicitly explain every remaining unused Hunger point.
+
+`Hunger maximization` is forbidden as a goal by itself. `Hunger budget optimization` is mandatory in MODE CREATE.
+
 ## Boundary
 
 HK-CAS tells the model how to think.
