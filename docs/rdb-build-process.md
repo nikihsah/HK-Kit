@@ -100,6 +100,13 @@ sources/layer2/<pdf-name>.rdb-draft/data/
 
 Generated Layer 2 files are ignored by Git.
 
+`glossary.json` is a derived term index. The builder creates its entries from
+canonical objects in `core-rules.json`, `combat-rules.json`,
+`travel-rest-rules.json`, and `social-rules.json`. Each glossary entry points
+back to its canonical object with a `defined_by` relationship and preserves the
+same book page reference. Do not maintain glossary mechanics as a separate
+source of truth.
+
 Layer 2 output is still not final HK-RDB. It is an HK-RDB-shaped review workspace:
 
 - every generated object has `needs_manual_review: true`;

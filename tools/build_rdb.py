@@ -2929,7 +2929,7 @@ def normalize_core_rule_object(item: dict[str, Any], raw_text: str) -> dict[str,
         "costs": {},
         "requirements": [],
         "relationships": [
-            {"type": relation_type, "target_id": target_id}
+            {"type": relation_type, "target": target_id}
             for relation_type, target_id in CORE_RULE_RELATIONSHIPS.get(slug, [])
         ],
         "effects": [{"type": "rule_text", "text": entry["body"], "needs_manual_review": True}],
@@ -2952,6 +2952,59 @@ def core_rule_objects_from_candidate(candidate: dict[str, Any]) -> list[dict[str
         split_candidate["source"]["layer0_block"] = int(split_candidate["source"].get("layer0_block", 0)) * 100 + index
         objects.append(candidate_to_rule_object(split_candidate))
     return objects
+
+
+GLOSSARY_SOURCE_FILES = (
+    "core-rules.json",
+    "combat-rules.json",
+    "travel-rest-rules.json",
+    "social-rules.json",
+)
+
+
+def glossary_entry_from_rule(source_item: dict[str, Any], source_file: str) -> dict[str, Any]:
+    namespace = source_file.removesuffix(".json")
+    source_slug = source_item["id"].split(".", 1)[-1]
+    glossary_id = (
+        f"glossary.{source_slug}"
+        if source_file == "core-rules.json"
+        else f"glossary.{namespace}.{source_slug}"
+    )
+    return {
+        "id": glossary_id,
+        "type": "glossary-entry",
+        "category": FILE_TO_CATEGORY["glossary.json"],
+        "subcategory": namespace,
+        "name": source_item["name"],
+        "raw_text": source_item["raw_text"],
+        "summary": source_item["summary"],
+        "costs": {},
+        "requirements": [],
+        "effects": [
+            {
+                "type": "definition_reference",
+                "canonical_rule_id": source_item["id"],
+            }
+        ],
+        "modifiers": {
+            "canonical_rule_id": source_item["id"],
+            "source_file": source_file,
+        },
+        "relationships": [
+            {"type": "defined_by", "target": source_item["id"]}
+        ],
+        "tags": sorted(set(source_item.get("tags", [])) | {"glossary", "term-index"}),
+        "source": dict(source_item["source"]),
+        "needs_manual_review": source_item.get("needs_manual_review", True),
+    }
+
+
+def populate_glossary_container(containers: dict[str, dict[str, Any]]) -> None:
+    entries = []
+    for source_file in GLOSSARY_SOURCE_FILES:
+        for source_item in containers[source_file]["items"]:
+            entries.append(glossary_entry_from_rule(source_item, source_file))
+    containers["glossary.json"]["items"] = entries
 
 
 def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
@@ -3316,6 +3369,7 @@ def build_draft_containers(layer1: dict[str, Any]) -> tuple[dict[str, dict[str, 
 
     infer_trait_relationships(containers["traits.json"]["items"])
     infer_trait_constraints(containers["traits.json"]["items"])
+    populate_glossary_container(containers)
 
     return containers, skipped
 

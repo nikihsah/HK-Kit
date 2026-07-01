@@ -65,7 +65,20 @@ class TestBuildRdb(unittest.TestCase):
             "main_characteristic", "highest_applicable_skill_rank"
         ])
         self.assertEqual(items[1]["relationships"], [
-            {"type": "uses", "target_id": "core-rules.characteristics"}
+            {"type": "uses", "target": "core-rules.characteristics"}
+        ])
+
+    def test_glossary_indexes_canonical_rules_with_valid_relationships(self) -> None:
+        candidate = sample_candidate("core-rules")
+        candidate["raw_text"] = "Мощь\nСила и физическая подготовленность жука."
+        containers, _ = build_draft_containers({"candidates": [candidate]})
+        entries = containers["glossary.json"]["items"]
+
+        self.assertEqual(len(entries), 1)
+        self.assertEqual(entries[0]["id"], "glossary.power")
+        self.assertEqual(entries[0]["modifiers"]["canonical_rule_id"], "core-rules.power")
+        self.assertEqual(entries[0]["relationships"], [
+            {"type": "defined_by", "target": "core-rules.power"}
         ])
 
     def test_stable_name_slug_uses_known_trait_terms(self) -> None:
