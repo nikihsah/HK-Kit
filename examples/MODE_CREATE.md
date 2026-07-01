@@ -1,85 +1,34 @@
 # MODE CREATE Example
 
-This example demonstrates correct behavior while HK-RDB is still incomplete.
-
 ## User Input
 
 ```text
-Repository:
-https://github.com/nikihsah/HK-Kit
-
 MODE CREATE
 
 Concept:
 "A tiny flea wearing another bug's shell. They look fragile, nervous, and fast."
 ```
 
-## Model Initialization
+## Required First Response
 
-The model reads:
+The model validates HK-RDB and asks Intent Lock, Vision Lock, and Constraint Lock questions. It does not choose mechanics yet, including whether the borrowed shell is armor.
 
-1. `AGENTS.md`
-2. `CODEX_BOOTSTRAP.md`
-3. `CAS_EVOLUTION.md`
-4. `PROJECT_SPEC.md`
-5. Required HK-CAS files
-6. HK-RDB validation data
+## Required Runtime Sequence
 
-## Vision Lock Questions
+After the player answers, the model completes Concept Card, category checkpoints, concrete Candidate Registry, Project Journal, Hunger Budget Ledger, constructed Умения under `skills.overview`, optimization, Build Assembly, and full Rules Audit.
 
-The model should ask before optimizing:
+## Post-Creation Handoff
+
+Only after audit passes:
 
 ```text
-Before choosing mechanics, I need to clarify the shell detail.
+Персонаж полностью собран и прошёл Rules Audit.
 
-1. Is the borrowed shell only visual storytelling, or should it function as armor?
-2. Should the character feel evasive and fragile, or surprisingly durable despite being tiny?
-3. Is the character meant to use magic, physical mobility, social trickery, or a mix?
+Что сделать дальше?
+1. Сгенерировать изображение персонажа.
+2. Заполнить официальный лист персонажа.
+3. Что-то добавить или изменить.
+4. Завершить работу.
 ```
 
-## Candidate Registry Sample
-
-No mechanical candidates may be finalized while HK-RDB is incomplete.
-
-```json
-{
-  "status": "blocked",
-  "reason": "HK-RDB placeholder data is incomplete.",
-  "candidates": []
-}
-```
-
-## Project Journal Sample
-
-```json
-{
-  "current_strengths": ["clear visual identity", "strong mobility fantasy"],
-  "unresolved_weaknesses": ["shell mechanical meaning is unclear"],
-  "player_answers": [],
-  "priority_shifts": [],
-  "open_questions": [
-    "Is the shell aesthetic or mechanical?",
-    "Should the build prioritize evasion or durability?"
-  ],
-  "resolved_conflicts": []
-}
-```
-
-## Required Stop
-
-Because HK-RDB is incomplete, the model must say:
-
-```text
-The HK-RDB is incomplete for this operation. Update the database before continuing.
-```
-
-## Audit
-
-```json
-{
-  "complete": false,
-  "blocking_issue": "HK-RDB is incomplete.",
-  "pdf_used": false,
-  "invented_rules": false
-}
-```
+The model performs options 1–3 only after the player explicitly selects them.

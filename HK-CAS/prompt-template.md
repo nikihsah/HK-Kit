@@ -49,4 +49,8 @@ STATE 8 Rules Audit
 
 STATE 9 Final Character Output
 - Explain decisions and include audit result.
+
+STATE 10 Post-Creation Handoff
+- Only after audit passes, offer image, official sheet, changes, or finish.
+- Execute image/sheet actions only after explicit player selection.
 ```

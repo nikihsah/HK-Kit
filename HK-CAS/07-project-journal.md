@@ -12,6 +12,8 @@ It is separate from Candidate Registry.
 - priority shifts
 - open questions
 - resolved conflicts
+- explicit player decisions to leave Hunger unused
+- post-creation change requests and audit invalidations
 
 ## Does Not Store
 

@@ -14,7 +14,8 @@ A character is not complete before audit.
 - load
 - path requirements
 - skill rank
-- complete Skills-category analysis and justification when fewer than three skills are selected
+- all Skill Ranks available at the locked milestone are assigned under `skills.md`
+- every Skill instance contains exactly four distinct skills and preserves overlap/rank-cap calculations
 - arts and techniques
 - every Secret matches the selected Mystic Path by exact HK-RDB ID
 - every Combat Art has a selected Martial Path and satisfies its weapon/condition requirements
@@ -40,3 +41,5 @@ The audit must report:
 If any critical issue remains, do not present the character as complete.
 
 A polished narrative or strong Concept Card cannot pass the audit without a complete mechanical build and calculated character sheet.
+
+After a passing audit, continue to `10-post-creation-handoff.md`. A mechanical change invalidates this audit.

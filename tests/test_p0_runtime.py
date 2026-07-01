@@ -6,9 +6,12 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from pypdf import PdfReader
+
 
 from tools.generate_manifest import build_manifest
-from tools.runtime_contracts import checkpoint_is_complete, hunger_ledger_errors, optimization_allowed, path_affinity_errors, validate_candidate_registry
+from tools.fill_character_sheet import TEMPLATE, fill_sheet
+from tools.runtime_contracts import aggregate_skill_ranks, available_skill_ranks, checkpoint_is_complete, hunger_ledger_errors, optimization_allowed, path_affinity_errors, post_creation_errors, skill_instance_errors, skill_rank_assignment_errors, validate_candidate_registry
 from tools.validate_rdb import RULE_FILES, validate_rdb
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -139,10 +142,119 @@ class TestP0Runtime(unittest.TestCase):
         self.assertIn("Hunger second pass is incomplete", errors)
         self.assertIn("affordable Hunger candidates lack explicit dispositions", errors)
 
-    def test_optimization_documents_up_to_three_skills(self) -> None:
+    def test_useful_remaining_hunger_blocks_until_player_choice(self) -> None:
+        source_id = next(iter(self.known_ids))
+        ledger = {
+            "base_hunger": {"value": 4, "source_id": source_id, "source_file": "templates.json"},
+            "adjustments": [], "positive_adjustments_total": 0, "negative_adjustments_total": 0,
+            "other_adjustments_total": 0, "final_hunger": 4, "maximum_hunger": 20, "unused_hunger": 16,
+            "candidate_search_completed": True, "second_pass_required": True, "second_pass_completed": True,
+            "affordable_candidate_ids": [source_id], "selected_after_second_pass": [],
+            "rejected_after_second_pass": [{"id": source_id, "reason": "player choice pending"}],
+            "unused_hunger_explanation": "Useful option remains.", "suitable_options_remaining": True,
+            "player_choice_required": True, "player_choice_resolved": False,
+            "player_choice": None, "player_approved_underutilization": False, "audit_status": "pass",
+        }
+        self.assertIn("Hunger player choice is unresolved", hunger_ledger_errors(ledger, self.known_ids))
+        ledger.update({"player_choice_resolved": True, "player_choice": "leave-unused", "player_approved_underutilization": True})
+        self.assertEqual(hunger_ledger_errors(ledger, self.known_ids), [])
+
+    def test_custom_skill_instance_has_four_distinct_skills_and_rule_link(self) -> None:
+        instance = {
+            "record_type": "character_skill_instance", "local_id": "character-skill.01",
+            "rule_id": "skills.overview", "source_file": "HK-RDB/data/skills.json",
+            "name": "Следопыт руин", "represents": "прошлое исследователя",
+            "skills": ["Выживание", "Восприятие", "Атлетика", "Знания (руины)"],
+            "origin": "custom", "source_example": None, "rank": 1,
+            "concept_fit": "поддерживает разведку", "player_confirmed": True,
+        }
+        self.assertEqual(skill_instance_errors(instance), [])
+        self.assertEqual(validate_candidate_registry([instance], self.known_ids), [])
+        duplicate = {**instance, "skills": ["Выживание"] * 4}
+        self.assertIn("must contain exactly four distinct skills", skill_instance_errors(duplicate))
+
+    def test_multiple_skill_examples_coexist_and_overlaps_sum_with_cap(self) -> None:
+        base = {
+            "record_type": "character_skill_instance", "rule_id": "skills.overview",
+            "source_file": "HK-RDB/data/skills.json", "represents": "background",
+            "origin": "example", "source_example": None, "rank": 1,
+            "concept_fit": "fit", "player_confirmed": True,
+        }
+        hunter = {**base, "local_id": "character-skill.01", "name": "Охотник", "skills": ["Выживание", "Восприятие", "Воровство", "Знания (природа)"]}
+        soldier = {**base, "local_id": "character-skill.02", "name": "Солдат", "skills": ["Уход", "Атлетика", "Тактика", "Выживание"]}
+        self.assertEqual(skill_rank_assignment_errors([hunter, soldier], 2), [])
+        self.assertEqual(aggregate_skill_ranks([hunter, soldier], 3)["Выживание"], 2)
+        ranked = [{**hunter, "rank": 2}, {**soldier, "rank": 2}]
+        self.assertEqual(aggregate_skill_ranks(ranked, 3)["Выживание"], 3)
+
+    def test_available_skill_ranks_come_from_locked_milestone(self) -> None:
+        advancement = json.loads((DATA / "advancement.json").read_text(encoding="utf-8"))["items"][0]
+        table = advancement["modifiers"]["milestone_table"]
+        self.assertEqual(available_skill_ranks(table, 0), 1)
+        self.assertEqual(available_skill_ranks(table, 2), 2)
+        self.assertEqual(available_skill_ranks(table, 4), 3)
+
+    def test_post_creation_menu_and_change_invalidation(self) -> None:
+        state = {
+            "character_version": 1, "audit_status": "fail", "menu_available": True,
+            "selected_actions": [], "filled_sheet": {"status": "not_created", "character_version": None},
+        }
+        self.assertIn("post-creation menu requires a passing latest audit", post_creation_errors(state))
+        state.update({"audit_status": "pass", "menu_available": True})
+        self.assertEqual(post_creation_errors(state), [])
+        state.update({"mechanical_change_pending": True})
+        self.assertIn("mechanical change must invalidate the previous audit", post_creation_errors(state))
+        state.update({"audit_status": "invalidated", "menu_available": False, "filled_sheet": {"status": "stale", "character_version": 1}})
+        self.assertEqual(post_creation_errors(state), [])
+
+    def test_filled_sheet_becomes_stale_after_character_version_change(self) -> None:
+        state = {
+            "character_version": 2, "audit_status": "pass", "menu_available": True,
+            "selected_actions": [],
+            "filled_sheet": {"status": "current", "character_version": 1, "path": "old.pdf"},
+        }
+        self.assertIn("filled character sheet is stale", post_creation_errors(state))
+
+    def test_post_creation_document_has_four_action_loop_after_audit(self) -> None:
+        handoff = (ROOT / "HK-CAS" / "10-post-creation-handoff.md").read_text(encoding="utf-8")
+        self.assertIn("Enter this state only", handoff)
+        for phrase in ("Generate a character image", "Fill the official character-sheet template", "Add or change something", "Finish without additional actions"):
+            self.assertIn(phrase, handoff)
+        self.assertIn("show this menu again only after the new audit passes", handoff)
+
+    def test_external_post_creation_action_requires_selection(self) -> None:
+        state = {
+            "character_version": 1, "audit_status": "pass", "menu_available": True,
+            "selected_actions": [], "external_action_performed": True,
+            "filled_sheet": {"status": "not_created", "character_version": None},
+        }
+        self.assertIn("external action requires explicit player selection", post_creation_errors(state))
+        state.update({"selected_actions": ["finish"], "external_action_performed": False, "finished": True})
+        self.assertEqual(post_creation_errors(state), [])
+
+    def test_official_pdf_template_is_copied_and_filler_preserves_it(self) -> None:
+        before = hashlib.sha256(TEMPLATE.read_bytes()).hexdigest()
+        data = {
+            "audit_status": "pass", "character_version": 1, "name": "Тестовый Жук", "player": "Игрок",
+            "characteristics": {}, "resources": {}, "paths": [], "traits": [], "charms": [],
+            "equipment": [], "techniques": [], "weapons": [], "skill_instances": [], "notes": [],
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            output = Path(tmp) / "filled.pdf"
+            fill_sheet(data, output)
+            self.assertEqual(len(PdfReader(str(output)).pages), 3)
+        self.assertEqual(hashlib.sha256(TEMPLATE.read_bytes()).hexdigest(), before)
+
+    def test_pdf_filler_rejects_unaudited_character(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaisesRegex(ValueError, "Rules Audit"):
+                fill_sheet({"audit_status": "invalidated", "name": "x"}, Path(tmp) / "x.pdf")
+
+    def test_optimization_uses_milestone_skill_ranks_not_fixed_three(self) -> None:
         optimization = (ROOT / "HK-CAS" / "08-optimization.md").read_text(encoding="utf-8")
-        self.assertIn("Do not stop after finding the first suitable skill", optimization)
-        self.assertIn("up to three skills", optimization)
+        self.assertIn("Do not stop after the first suitable example", optimization)
+        self.assertIn("do not assume a universal maximum of three instances", optimization)
+        self.assertIn("example, adapted-example, and custom", optimization)
         self.assertIn("Constrained Hunger maximization is mandatory", optimization)
 
     def test_concept_card_cannot_replace_completed_build(self) -> None:

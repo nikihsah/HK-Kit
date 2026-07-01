@@ -1,0 +1,49 @@
+{
+  "audit_status": "pass",
+  "character_version": 1,
+  "name": "Тестовый Жук",
+  "player": "HK-Kit QA",
+  "milestone": 2,
+  "size": "Средний",
+  "characteristics": {
+    "power": 3,
+    "insight": 4,
+    "shell": 3,
+    "grace": 3
+  },
+  "resources": {
+    "heart": {"current": 7, "maximum": 7},
+    "soul": {"current": 4, "maximum": 4},
+    "stamina": {"current": 3, "maximum": 3}
+  },
+  "social": {"appeal": 1, "dread": 1},
+  "speed": 6,
+  "maneuver": 3,
+  "satiety": {"current": 18, "maximum": 18},
+  "description": "Проверочный персонаж для визуальной валидации официального листа.",
+  "paths": [{"name": "Грёзы", "rank": 2}],
+  "traits": [
+    {"id": "traits.book-worm", "name": "Книжный Червь"},
+    {"id": "traits.insightful", "name": "Проницательный"}
+  ],
+  "charms": [{"id": "charms.general.test", "name": "Проверочный амулет"}],
+  "equipment": [{"name": "Верёвка", "weight": 1}, {"name": "Фонарь", "weight": 1}],
+  "techniques": [{"id": "magic.dreams.illyuziya", "name": "Иллюзия"}],
+  "weapons": [{"name": "Гвоздь грёз", "damage": 3, "weight": 0}],
+  "armor": {"name": "Лёгкий панцирь", "weight": 1},
+  "currency": 50,
+  "load": {"current": 3, "maximum": 5},
+  "skill_instances": [
+    {
+      "name": "Исследователь снов",
+      "rank": 1,
+      "skills": ["Восприятие", "Интуиция", "Знания (грёзы)", "Выживание"]
+    },
+    {
+      "name": "Архивист",
+      "rank": 1,
+      "skills": ["Этичность", "Обман", "Знания (история)", "Уход за снаряжением"]
+    }
+  ],
+  "notes": ["Визуальный QA fixture; не является игровым примером."]
+}

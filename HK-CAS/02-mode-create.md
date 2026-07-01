@@ -20,6 +20,7 @@ No state may be skipped.
 12. STATE 7 - Build Assembly
 13. STATE 8 - Rules Audit
 14. STATE 9 - Final Character Output
+15. STATE 10 - Post-Creation Handoff (only after a passing Rules Audit)
 
 ## Stop Conditions
 

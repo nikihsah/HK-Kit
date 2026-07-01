@@ -29,9 +29,15 @@ Optimization is incomplete while the ledger has `candidate_search_completed: fal
 
 ## Skill selection breadth
 
-Do not stop after finding the first suitable skill. Analyze the full Skills category and compare all concept-relevant candidates. A legal build may include up to three skills; select every materially useful skill, up to that limit, when supported by the locked vision and HK-RDB. Selecting fewer than three is valid, but the Project Journal or final explanation must state why additional skills would be redundant, weak, illegal, or outside the concept.
+Follow `skills.md`. Determine available Skill Ranks from the locked milestone and `advancement.progression`; do not assume a universal maximum of three instances. Assign every available rank. Multiple example sets may coexist, and adapted or custom instances are valid under `skills.overview`.
 
-Skill selection must still cite the governing HK-RDB rules. This instruction expands search breadth; it does not authorize inventing skills or bypassing rank, cost, or dependency rules.
+Do not stop after the first suitable example. For each rank that may create a new instance, compare example, adapted-example, and custom options. Skill construction never authorizes invented mechanical effects: each instance remains governed by `skills.overview`.
+
+## Unused Hunger player gate
+
+After the second Hunger pass, if at least one affordable, legal, useful, non-duplicative, vision-compatible trait or package remains, Build Assembly is blocked. Present a compact player choice: useful package A, useful package B when available, or intentionally leave the budget unused.
+
+Only explicit player confirmation may authorize unused budget while a suitable option remains. Record the amount, rejected candidate IDs/reasons, and confirmation in both Hunger Budget Ledger and Project Journal. If no suitable option exists, continue only with ledger evidence that the complete second pass found none.
 
 ## Inputs
 

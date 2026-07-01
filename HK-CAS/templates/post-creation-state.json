@@ -1,0 +1,14 @@
+{
+  "character_version": 1,
+  "audit_status": "pass | invalidated | fail",
+  "audit_version": 1,
+  "menu_available": false,
+  "selected_actions": [],
+  "filled_sheet": {
+    "path": null,
+    "character_version": null,
+    "status": "not_created | current | stale"
+  },
+  "image_status": "not_requested | requested | generated | specification_only",
+  "finished": false
+}

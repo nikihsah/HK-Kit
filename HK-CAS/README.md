@@ -25,5 +25,8 @@ When developing or auditing HK-CAS, read these files in order:
 8. `07-project-journal.md`
 9. `08-optimization.md`
 10. `09-audit.md`
+11. `10-post-creation-handoff.md`
+
+Use `skills.md` for constructed Умения and `character-sheet.md` for the official PDF template workflow.
 
 Use `prompt-template.md` only as an operational checklist.

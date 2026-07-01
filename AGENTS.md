@@ -43,11 +43,11 @@ HK-RDB is the only runtime rules source. Never read the PDF, invent a mechanic, 
 The HK-RDB is incomplete for this operation. Update the database before continuing.
 ```
 
-Follow every state and contract in `runtime-create.md`. Candidate Registry and Project Journal are separate. Candidates must be concrete HK-RDB objects with valid stable IDs.
+Follow every state and contract in `runtime-create.md`. Candidate Registry and Project Journal are separate. Ordinary candidates must be concrete HK-RDB objects with valid stable IDs. Character-local Умения use the narrow created-instance contract in `HK-CAS/skills.md`, retaining `skills.overview` as their governing rule ID.
 
 For an object with `parsing_status: raw_text_authoritative`, read and use its preserved `raw_text` as the authoritative rule. Its structured effects are incomplete and must not replace, shorten, or reinterpret that text.
 
-During MODE CREATE, unless the user directly requests it, do not generate images; create documents, presentations, or spreadsheets; run unrelated code; alter calendars; send email; perform external actions; switch to an architecture audit; or propose repository refactoring mid-creation.
+During the main MODE CREATE build, do not generate or prematurely offer images, documents, presentations, or spreadsheets; run unrelated code; alter calendars; send email; perform external actions; switch to an architecture audit; or propose repository refactoring. After a successful Rules Audit, the Post-Creation Handoff may offer image generation and official-sheet filling, but may execute them only after explicit player selection.
 
 Record non-blocking framework issues in Deferred Runtime Findings and continue. Report them after character creation. Stop immediately only for a rules violation, insufficient data, or inability to prove build legality.
 

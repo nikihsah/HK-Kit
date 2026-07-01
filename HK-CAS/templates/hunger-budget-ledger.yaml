@@ -28,6 +28,10 @@ hunger_budget_ledger:
   selected_after_second_pass: []
   rejected_after_second_pass: []
   player_approved_underutilization: false
+  suitable_options_remaining: false
+  player_choice_required: false
+  player_choice_resolved: false
+  player_choice: null
   optimization_status: "pending"
   unused_hunger_explanation: ""
   audit_status: "pending"

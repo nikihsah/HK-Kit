@@ -1,0 +1,19 @@
+{
+  "multiple_examples": {
+    "instances": ["Охотник", "Солдат"],
+    "expected_compatible": true
+  },
+  "one_example_plus_custom": {
+    "origins": ["example", "custom"],
+    "expected_complete": true
+  },
+  "hunger_player_choice": {
+    "unused_hunger": 4,
+    "suitable_options_remaining": true,
+    "expected_blocked_until_confirmed": true
+  },
+  "post_creation": {
+    "actions": ["image", "character-sheet", "change", "finish"],
+    "requires_audit": "pass"
+  }
+}

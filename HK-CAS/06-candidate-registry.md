@@ -37,3 +37,9 @@ It stores concrete mechanical candidates. It is the only input allowed for optim
 - Preserve dependencies and conflicts.
 - Do not compress the registry away.
 - Do not optimize from memory.
+
+## Narrow exception: created rule instances
+
+Some HK-RDB rules explicitly create character-local instances rather than offering a fixed object list. Умения are governed by `skills.overview` and `skills.md`.
+
+Store them as `record_type: character_skill_instance` with both a local project ID and the governing `rule_id: skills.overview`. The local ID is never an HK-RDB ID. This exception does not permit vague candidates or weaken the stable-ID rule for ordinary mechanical objects.

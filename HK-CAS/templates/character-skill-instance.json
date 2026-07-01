@@ -1,0 +1,19 @@
+{
+  "record_type": "character_skill_instance",
+  "local_id": "character-skill.01",
+  "rule_id": "skills.overview",
+  "source_file": "HK-RDB/data/skills.json",
+  "name": "",
+  "represents": "",
+  "skills": [
+    "",
+    "",
+    "",
+    ""
+  ],
+  "origin": "example | adapted-example | custom",
+  "source_example": null,
+  "rank": 1,
+  "concept_fit": "",
+  "player_confirmed": false
+}

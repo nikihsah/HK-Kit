@@ -23,9 +23,10 @@ Until all three Locks are complete, do not name or recommend HK-RDB mechanical o
 7. Element Cards: for every analyzed object record its ID, rules summary, requirements, effects, costs, dependencies, conflicts, and fit.
 8. Candidate Registry and Project Journal update.
 9. Category Checkpoint. A category with `complete: false` blocks the next category.
-10. Cross-Category Optimization only after every required category checkpoint is valid and complete; complete the Hunger Budget Ledger and compare all relevant skill candidates rather than stopping at the first fit.
+10. Cross-Category Optimization only after every required category checkpoint is valid and complete; complete the Hunger Budget Ledger and construct Умения under `skills.md`.
 11. Build Assembly, including every materially useful and legal selection supported by the locked vision.
 12. Rules Audit and Final Character Output.
+13. Post-Creation Handoff under `10-post-creation-handoff.md`, only after audit passes.
 
 ## Runtime contracts
 
@@ -41,9 +42,11 @@ Until all three Locks are complete, do not name or recommend HK-RDB mechanical o
 - A strong Concept Card is not a completed build. Narrative reframing must never replace mechanical selection, calculation, Build Assembly, or Rules Audit.
 - Every renamed or reflavored ability must show its official HK-RDB name and stable ID alongside its separate narrative name, with an explicit statement that its mechanics are unchanged.
 - Maximize Hunger utilization only among legal, useful, non-redundant mechanics that support the locked vision; never add filler merely to reach the limit. Maintain `templates/hunger-budget-ledger.yaml`. If any Hunger remains, perform a second pass over every affordable compatible trait and subtrait, record concrete IDs and dispositions, and explain every unused point.
-- Do not stop at one suitable skill. Analyze the complete Skills category and, when legal and conceptually useful, select up to three skills. If fewer are selected, explain why the remaining slots should not be filled.
+- Determine available Skill Ranks from the locked milestone and `advancement.progression`; do not assume three. Follow `skills.md`, compare example/adapted/custom instances, and assign every available rank.
 - A selected Secret must require the character's selected `Mystic Path` by exact HK-RDB path ID. A selected Combat Art requires a `Martial Path` and must also satisfy every weapon or condition requirement. A path-family mismatch blocks Build Assembly and fails Rules Audit.
 
 ## Scope guard
 
-Without a direct user request, do not generate images or office artifacts, execute unrelated code, modify calendars, send email, perform external actions, switch to architecture audit, or propose refactoring during character creation. Put non-blocking framework issues in Deferred Runtime Findings, continue, and report them at the end. Stop only when rules/data/legality is blocked.
+During the main build, do not generate or prematurely offer images or office artifacts, execute unrelated code, modify calendars, send email, perform external actions, switch to architecture audit, or propose refactoring. Put non-blocking framework issues in Deferred Runtime Findings, continue, and report them at the end. Stop only when rules/data/legality is blocked.
+
+After a successful Rules Audit, `10-post-creation-handoff.md` explicitly permits offering image generation and official-sheet filling. Performing either action still requires the player's explicit selection.
