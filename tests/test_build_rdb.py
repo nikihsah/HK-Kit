@@ -8,6 +8,7 @@ from tools.build_rdb import (
     build_draft_containers,
     candidate_to_rule_object,
     extract_trait_effect_hints,
+    extract_trait_modifiers,
     extract_trait_repeatability_hints,
     infer_trait_constraints,
     infer_trait_relationships,
@@ -173,6 +174,44 @@ class TestBuildRdb(unittest.TestCase):
         damage = [hint for hint in hints if hint["type"] == "damage"]
 
         self.assertEqual(damage[0]["amount"], 1)
+
+    def test_extract_trait_modifiers_parses_direct_delta(self) -> None:
+        modifiers = extract_trait_modifiers("Этот жук увеличивает его Грацию на 0.5.")
+
+        self.assertEqual(modifiers[0]["type"], "delta")
+        self.assertEqual(modifiers[0]["target"], "grace")
+        self.assertEqual(modifiers[0]["value"], 0.5)
+
+    def test_extract_trait_modifiers_parses_decrease(self) -> None:
+        modifiers = extract_trait_modifiers("Уменьшите его Грацию на 1.")
+
+        self.assertEqual(modifiers[0]["value"], -1)
+
+    def test_extract_trait_modifiers_parses_set_to(self) -> None:
+        modifiers = extract_trait_modifiers("До прибавок увеличьте его Проницательность до 4.")
+
+        self.assertEqual(modifiers[0]["type"], "set_to")
+        self.assertEqual(modifiers[0]["target"], "insight")
+        self.assertEqual(modifiers[0]["value"], 4)
+
+    def test_extract_trait_modifiers_parses_pair_decrease(self) -> None:
+        modifiers = extract_trait_modifiers("Его Проницательность и Душа уменьшаются на 1.")
+        values = {modifier["target"]: modifier["value"] for modifier in modifiers}
+
+        self.assertEqual(values, {"insight": -1, "soul": -1})
+
+    def test_extract_trait_modifiers_parses_heart_max(self) -> None:
+        modifiers = extract_trait_modifiers("Он получает +1 к максимуму Сердца.")
+
+        self.assertEqual(modifiers[0]["target"], "heart_max")
+        self.assertEqual(modifiers[0]["value"], 1)
+
+    def test_extract_trait_modifiers_marks_conditional_context(self) -> None:
+        modifiers = extract_trait_modifiers(
+            "Когда у этого жука 1 Сердце или меньше, его Скорость увеличивается на 2."
+        )
+
+        self.assertTrue(modifiers[0]["conditional"])
 
     def test_candidate_to_rule_object_normalizes_traits(self) -> None:
         candidate = sample_candidate("traits")

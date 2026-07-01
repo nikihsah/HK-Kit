@@ -110,6 +110,32 @@ TRAIT_NAME_ALIASES = {
     "плавания": "плавание",
 }
 
+MODIFIER_TARGETS = {
+    "мощь": "power",
+    "мощи": "power",
+    "мощью": "power",
+    "грация": "grace",
+    "грацию": "grace",
+    "грации": "grace",
+    "панцирь": "shell",
+    "панциря": "shell",
+    "скорость": "speed",
+    "проницательность": "insight",
+    "проницательности": "insight",
+    "душа": "soul",
+    "душу": "soul",
+    "вес": "weight",
+    "веса": "weight",
+    "нагрузка": "load",
+    "нагрузку": "load",
+    "запас сердца": "heart_max",
+    "максимум сердца": "heart_max",
+    "максимальная нагрузка": "load_max",
+    "наземная скорость": "ground_speed",
+    "скорость полета": "flight_speed",
+    "скорость полёта": "flight_speed",
+}
+
 
 def slugify(value: str, fallback: str = "entry") -> str:
     value = value.lower()
@@ -471,6 +497,142 @@ def extract_trait_repeatability_hints(body: str) -> list[dict[str, Any]]:
     return hints
 
 
+def normalize_modifier_target(value: str) -> str | None:
+    normalized = re.sub(r"\s+", " ", value).strip().casefold()
+    return MODIFIER_TARGETS.get(normalized)
+
+
+def modifier_is_conditional(context: str) -> bool:
+    return bool(re.match(r"^(Когда|Пока|Если|Всякий раз)", context, re.IGNORECASE))
+
+
+def modifier_entry(
+    *, modifier_type: str, target: str, value: float | int, context: str
+) -> dict[str, Any]:
+    return {
+        "type": modifier_type,
+        "target": target,
+        "value": value,
+        "conditional": modifier_is_conditional(context),
+        "context": context,
+        "needs_manual_review": True,
+    }
+
+
+def extract_trait_modifiers(body: str) -> list[dict[str, Any]]:
+    normalized = re.sub(r"\s+", " ", body).strip()
+    entries: list[dict[str, Any]] = []
+
+    target_pattern = (
+        r"Проницательность|Мощь|Грацию|Грация|Панцирь|Скорость|Вес|Нагрузку|Нагрузка|"
+        r"Душу|Душа|Запас Сердца|максимальная Нагрузка|Наземная скорость|скорость пол[её]та"
+    )
+
+    verb_first = re.compile(
+        rf"(?P<verb>увеличьте|увеличивает|уменьшите|уменьшает)\s+(?:его\s+)?"
+        rf"(?P<target>{target_pattern})\s+(?P<operator>на|до)\s+"
+        rf"(?P<value>\d+(?:[,.]\d+)?)",
+        re.IGNORECASE,
+    )
+    target_first = re.compile(
+        rf"(?P<target>{target_pattern})(?:\s+этого\s+жука|\s+жука)?\s+"
+        rf"(?P<verb>увеличивается|увеличен|увеличена|уменьшается|уменьшена|снижена)\s+"
+        rf"(?P<operator>на|до)\s+(?P<value>\d+(?:[,.]\d+)?)",
+        re.IGNORECASE,
+    )
+
+    for pattern in [verb_first, target_first]:
+        for match in pattern.finditer(normalized):
+            target = normalize_modifier_target(match.group("target"))
+            if not target:
+                continue
+            value = parse_number(match.group("value"))
+            verb = match.group("verb").casefold()
+            operator = match.group("operator").casefold()
+            if operator == "до":
+                modifier_type = "set_to"
+            else:
+                modifier_type = "delta"
+                if verb.startswith("уменьш") or verb.startswith("сниж"):
+                    value = -abs(value)
+            context = sentence_around(normalized, match.start(), match.end())
+            entries.append(
+                modifier_entry(
+                    modifier_type=modifier_type,
+                    target=target,
+                    value=value,
+                    context=context,
+                )
+            )
+
+    pair_pattern = re.compile(
+        rf"(?P<first>{target_pattern})\s+и\s+(?P<second>{target_pattern})\s+"
+        rf"(?P<verb>увеличиваются|увеличены|уменьшаются|уменьшены)\s+на\s+"
+        rf"(?P<value>\d+(?:[,.]\d+)?)",
+        re.IGNORECASE,
+    )
+    for match in pair_pattern.finditer(normalized):
+        value = parse_number(match.group("value"))
+        if match.group("verb").casefold().startswith("уменьш"):
+            value = -abs(value)
+        context = sentence_around(normalized, match.start(), match.end())
+        for target_text in [match.group("first"), match.group("second")]:
+            target = normalize_modifier_target(target_text)
+            if target:
+                entries.append(
+                    modifier_entry(
+                        modifier_type="delta",
+                        target=target,
+                        value=value,
+                        context=context,
+                    )
+                )
+
+    heart_max = re.finditer(
+        r"получает\s+([+-]\d+(?:[,.]\d+)?)\s+к\s+максимуму\s+Сердца",
+        normalized,
+        re.IGNORECASE,
+    )
+    for match in heart_max:
+        context = sentence_around(normalized, match.start(), match.end())
+        entries.append(
+            modifier_entry(
+                modifier_type="delta",
+                target="heart_max",
+                value=parse_number(match.group(1)),
+                context=context,
+            )
+        )
+
+    equals = re.finditer(
+        rf"(?P<target>{target_pattern})\s+(?:всегда\s+)?считается\s+равной\s+"
+        rf"(?P<value>\d+(?:[,.]\d+)?)",
+        normalized,
+        re.IGNORECASE,
+    )
+    for match in equals:
+        target = normalize_modifier_target(match.group("target"))
+        if target:
+            context = sentence_around(normalized, match.start(), match.end())
+            entries.append(
+                modifier_entry(
+                    modifier_type="set_to",
+                    target=target,
+                    value=parse_number(match.group("value")),
+                    context=context,
+                )
+            )
+
+    unique: list[dict[str, Any]] = []
+    seen: set[tuple[str, str, float | int, str]] = set()
+    for entry in entries:
+        key = (entry["type"], entry["target"], entry["value"], entry["context"])
+        if key not in seen:
+            unique.append(entry)
+            seen.add(key)
+    return unique
+
+
 def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
     parts = split_trait_parts(raw_text)
     tags = list(item["tags"])
@@ -491,6 +653,9 @@ def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str
             "needs_manual_review": True,
         }
     ] + extract_trait_effect_hints(parts["body"] or raw_text)
+    item["modifiers"] = {
+        "entries": extract_trait_modifiers(parts["body"] or raw_text),
+    }
     item["tags"] = tags
     return item
 
