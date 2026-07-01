@@ -1,8 +1,8 @@
 {
   "name": "HK-RDB",
-  "version": "0.1.0",
-  "complete": false,
-  "mode_create_ready": false,
+  "version": "1.0.0",
+  "complete": true,
+  "mode_create_ready": true,
   "required_files": [
     "core-rules.json",
     "templates.json",

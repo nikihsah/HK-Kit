@@ -83,12 +83,15 @@ class TestPromoteReviewed(unittest.TestCase):
         )
 
     def test_promoted_item_removes_draft_flags(self) -> None:
-        item = promoted_item(sample_item())
+        source = sample_item()
+        source["effects"] = [{"type": "effect", "needs_manual_review": True}]
+        item = promoted_item(source)
         self.assertFalse(item["needs_manual_review"])
         self.assertNotIn("layer2-draft", item["tags"])
         self.assertNotIn("needs-review", item["tags"])
         self.assertIn("reviewed", item["tags"])
         self.assertIn("promoted-candidate", item["tags"])
+        self.assertFalse(item["effects"][0]["needs_manual_review"])
 
     def test_build_promoted_snapshot_promotes_only_accepted(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:

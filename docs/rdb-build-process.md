@@ -154,6 +154,16 @@ reviewed through the canonical objects referenced by `defined_by`.
 
 An object may be promoted into final HK-RDB only after maintainer review.
 
+After the owner authorizes a batch approval and the review manifest has no
+automatic issues, run:
+
+```bash
+python tools/approve_review.py \
+  --draft-root "sources/layer2/<pdf-name>.rdb-draft" \
+  --review "sources/reviews/<pdf-name>.review.json" \
+  --owner-approved
+```
+
 ## Promoted Snapshots
 
 Create a local promoted snapshot:
@@ -180,6 +190,19 @@ Only review entries are promoted when:
 - the matching draft object exists.
 
 The promoted snapshot is useful for validation. It is not automatically final HK-RDB.
+
+Build a release snapshot only after promotion reports zero skipped entries:
+
+```bash
+python tools/publish_rdb.py \
+  --promoted-data "sources/promoted/<pdf-name>.promotion/HK-RDB/data" \
+  --out-root "sources/release/HK-RDB-v1.0.0" \
+  --version "1.0.0"
+```
+
+Validate that snapshot before replacing `HK-RDB/data`. Release snapshots remain
+local build artifacts; the reviewed files under `HK-RDB/data` are the committed
+operational rules source.
 
 ## Layer 3: Validation
 

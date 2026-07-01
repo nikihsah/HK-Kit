@@ -1,19 +1,16 @@
 {
   "category": "Validation",
   "file": "validation.json",
-  "complete": false,
+  "complete": true,
   "items": [],
-  "critical_categories": [
-    "core-rules.json",
-    "templates.json",
-    "traits.json",
-    "paths.json",
-    "skills.json",
-    "advancement.json",
-    "combat-arts.json",
-    "magic.json",
-    "charms.json",
-    "equipment.json",
-    "combat-rules.json"
+  "validated_at": "2026-07-01T17:49:47.900611+00:00",
+  "rdb_version": "1.0.0",
+  "item_count": 760,
+  "checks": [
+    "required_files",
+    "required_fields",
+    "unique_ids",
+    "relationship_targets",
+    "review_completion"
   ]
 }

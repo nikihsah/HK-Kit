@@ -1,9 +1,10 @@
 {
   "category": "Version",
   "file": "version.json",
-  "complete": false,
+  "complete": true,
   "items": [],
-  "rdb_version": "0.1.0",
+  "rdb_version": "1.0.0",
   "source_book": "The Unofficial Hollow Knight RPG - RUS v.1.8",
-  "status": "placeholder"
+  "status": "released",
+  "released_at": "2026-07-01T17:49:47.900611+00:00"
 }

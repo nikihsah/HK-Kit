@@ -79,11 +79,12 @@ The original PDF rulebook is a maintenance source only. It must not be used duri
 - `tools/` - maintainer tools.
 - `tests/` - validation tests.
 
-## Current Limitation
+## HK-RDB Status
 
-The initial repository skeleton does not yet contain the full normalized rule database.
+HK-RDB v1.0.0 contains the normalized rules database required for `MODE CREATE`.
+Run `python tools/validate_rdb.py` before using a modified database.
 
-If HK-RDB is incomplete, MODE CREATE must stop with:
+If a future change makes HK-RDB incomplete, MODE CREATE must stop with:
 
 ```text
 The HK-RDB is incomplete for this operation. Update the database before continuing.

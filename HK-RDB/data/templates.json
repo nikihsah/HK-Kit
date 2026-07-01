@@ -1,1 +1,179 @@
-{"category":"Templates","file":"templates.json","complete":false,"items":[]}
+{
+  "category": "Templates",
+  "file": "templates.json",
+  "complete": true,
+  "items": [
+    {
+      "id": "templates.small-bug",
+      "type": "template",
+      "category": "Templates",
+      "subcategory": "Character Template",
+      "name": "Мелкий Жук",
+      "raw_text": "Мелкий Жук\nМощь Проницательность Панцирь Грация\n2 3 3\nСердце Выносливость Душа\n6 3 3\n4\nПривлекательность Жуть\n1.5 1 1\nГолод Скорость\nСтарт: -1\nМаксимум: 15 7",
+      "summary": "Мелкий Жук Мощь Проницательность Панцирь Грация 2 3 3 Сердце Выносливость Душа 6 3 3 4 Привлекательность Жуть 1.5 1 1 Голод Скорость Старт: -1 Максимум: 15 7",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "sets_base_template",
+          "size": "Small",
+          "needs_manual_review": false
+        }
+      ],
+      "modifiers": {
+        "characteristics": {
+          "power": 2,
+          "insight": 3,
+          "shell": 3,
+          "grace": 4
+        },
+        "resources": {
+          "heart": 6,
+          "stamina": 3,
+          "soul": 3
+        },
+        "social": {
+          "appeal": 1.5,
+          "dread": 1,
+          "bonus_to_appeal_or_dread": 1
+        },
+        "hunger": {
+          "start": -1,
+          "maximum": 15
+        },
+        "speed": 7,
+        "size": "Small"
+      },
+      "relationships": [],
+      "tags": [
+        "character-creation",
+        "template",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 11,
+        "page_end": 11
+      },
+      "needs_manual_review": false,
+      "draft_id": "templates.p011.b101.candidate"
+    },
+    {
+      "id": "templates.medium-bug",
+      "type": "template",
+      "category": "Templates",
+      "subcategory": "Character Template",
+      "name": "Средний Жук",
+      "raw_text": "Средний Жук\nМощь Проницательность Панцирь Грация\n3 3 3\nСердце Выносливость Душа\n7 3 3\n3\nПривлекательность Жуть\n1 1 1.5\nГолод Скорость\nСтарт: 4\nМаксимум: 20 6",
+      "summary": "Средний Жук Мощь Проницательность Панцирь Грация 3 3 3 Сердце Выносливость Душа 7 3 3 3 Привлекательность Жуть 1 1 1.5 Голод Скорость Старт: 4 Максимум: 20 6",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "sets_base_template",
+          "size": "Medium",
+          "needs_manual_review": false
+        }
+      ],
+      "modifiers": {
+        "characteristics": {
+          "power": 3,
+          "insight": 3,
+          "shell": 3,
+          "grace": 3
+        },
+        "resources": {
+          "heart": 7,
+          "stamina": 3,
+          "soul": 3
+        },
+        "social": {
+          "appeal": 1,
+          "dread": 1,
+          "bonus_to_appeal_or_dread": 1.5
+        },
+        "hunger": {
+          "start": 4,
+          "maximum": 20
+        },
+        "speed": 6,
+        "size": "Medium"
+      },
+      "relationships": [],
+      "tags": [
+        "character-creation",
+        "template",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 11,
+        "page_end": 11
+      },
+      "needs_manual_review": false,
+      "draft_id": "templates.p011.b102.candidate"
+    },
+    {
+      "id": "templates.large-bug",
+      "type": "template",
+      "category": "Templates",
+      "subcategory": "Character Template",
+      "name": "Большой Жук",
+      "raw_text": "Большой Жук\nМощь Проницательность Панцирь Грация\n4 3 4\nСердце Выносливость Душа\n8 3 3\n2\nПривлекательность Жуть\n1 1.5 1\nГолод Скорость\nСтарт: 9\nМаксимум: 25\nL\n5",
+      "summary": "Большой Жук Мощь Проницательность Панцирь Грация 4 3 4 Сердце Выносливость Душа 8 3 3 2 Привлекательность Жуть 1 1.5 1 Голод Скорость Старт: 9 Максимум: 25 L 5",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "sets_base_template",
+          "size": "Large",
+          "needs_manual_review": false
+        }
+      ],
+      "modifiers": {
+        "characteristics": {
+          "power": 4,
+          "insight": 3,
+          "shell": 4,
+          "grace": 2
+        },
+        "resources": {
+          "heart": 8,
+          "stamina": 3,
+          "soul": 3
+        },
+        "social": {
+          "appeal": 1,
+          "dread": 1.5,
+          "bonus_to_appeal_or_dread": 1
+        },
+        "hunger": {
+          "start": 9,
+          "maximum": 25
+        },
+        "speed": 5,
+        "size": "Large"
+      },
+      "relationships": [],
+      "tags": [
+        "character-creation",
+        "template",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 11,
+        "page_end": 11
+      },
+      "needs_manual_review": false,
+      "draft_id": "templates.p011.b103.candidate"
+    }
+  ],
+  "release_metadata": {
+    "rdb_version": "1.0.0",
+    "published_at": "2026-07-01T17:49:47.900611+00:00"
+  }
+}

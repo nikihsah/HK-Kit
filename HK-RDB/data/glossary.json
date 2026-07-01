@@ -1,1 +1,4126 @@
-{"category":"Glossary","file":"glossary.json","complete":false,"items":[]}
+{
+  "category": "Glossary",
+  "file": "glossary.json",
+  "complete": true,
+  "items": [
+    {
+      "id": "glossary.dice-rolls",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Как работают броски костей",
+      "raw_text": "Как работают броски костей\nСистема The Unofficial Hollow Knight RPG\nоснована на бросках костей. Почти всегда\nтребуются бросать один или несколько\nшестигранных кубиков. В среднем каждому\nигроку потребуются где-то восемь\nшестигранных кубиков, но для некоторых\nбросков может понадобиться намного больше.\nМногие действия для определения успеха\nтребуют бросок, также известный как\n\"проверка\". Бросается некоторое количество\nкубиков, и все, на которых выпало \"5\" или \"6\",\nсчитаются успешными. Количество бросаемых\nкостей и требуемое число успехов\nопределяются типом броска.",
+      "summary": "Система The Unofficial Hollow Knight RPG основана на бросках костей. Почти всегда требуются бросать один или несколько шестигранных кубиков. В среднем каждому игроку потребуются где-то восемь шестигранных кубиков, но для некоторых броско...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.dice-rolls"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.dice-rolls",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.dice-rolls"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "dice-rolls",
+        "glossary",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.rerolls",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Повторные броски",
+      "raw_text": "Повторные броски\nУ совершаемой проверки может быть\nопределённое количество повторных бросков.\nКак только игрок выполнил проверку, он может\nперебросить несколько костей (но не больше\nдозволенного количества) по своему\nусмотрению. Независимо - перекинутая эта\nкость или нет - будет засчитан лучший\nрезультат.\nКроме того, Характеристики с дробным\nзначением (3.5, 4.5, и т.д.) добавляют один\nповторный бросок всем проверкам, для\nкоторых та или иная характеристика\nиспользуется — каждая половинка кости\nстановится повторным броском.\n5",
+      "summary": "У совершаемой проверки может быть определённое количество повторных бросков. Как только игрок выполнил проверку, он может перебросить несколько костей (но не больше дозволенного количества) по своему усмотрению. Независимо - перекинутая...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.rerolls"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.rerolls",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.rerolls"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "rerolls",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 6,
+        "page_end": 6
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.characteristic-checks",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Проверки Характеристик",
+      "raw_text": "Проверки Характеристик\nКогда жук выполняет действие, успех которого\nне гарантирован, Мастер может попросить\nего совершить проверку Характеристики.\nСуществует два типа таких проверок:\nобычные броски и спасброски. Иногда\nпроверки называют по используемой ими\nХарактеристике. Например, \"проверка Мощи\".",
+      "summary": "Когда жук выполняет действие, успех которого не гарантирован, Мастер может попросить его совершить проверку Характеристики. Существует два типа таких проверок: обычные броски и спасброски. Иногда проверки называют по используемой ими Хар...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.characteristic-checks"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.characteristic-checks",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.characteristic-checks"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "characteristic-checks",
+        "core-rule",
+        "glossary",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.standard-checks",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Обычные броски",
+      "raw_text": "Обычные броски\nЖук совершает обычную проверку\nХарактеристики, если выполняемое им действие\nнесёт риск неудачи.\nСначала Мастер решает, какая Главная\nХарактеристика будет использована для\nпроверки. После этого жук бросает число\nкостей, равное значению этой Характеристики, а\nтакже число костей, равное наивысшему Рангу в\nсоответствующем навыке.\nК примеру, жук игрока пытается доплыть до дна\nозера — Мастер просит совершить проверку\nМощи. Игрок спрашивает, можно ли\nиспользовать навык атлетики его жука, и Мастер\nсоглашается, позволяя дополнительно бросить\nколичество костей, равное Рангу жука в умении\n\"Солдат\", которое и даёт навык атлетики. Чем\nлучше навык соответствует проверке/ситуации,\nтем больше больше дополнительных повторных\nбросков он может дать. Например, навык\n\"плавания\" может дать один, а навык \"ныряния\"\n— два повторных броска.",
+      "summary": "Жук совершает обычную проверку Характеристики, если выполняемое им действие несёт риск неудачи. Сначала Мастер решает, какая Главная Характеристика будет использована для проверки. После этого жук бросает число костей, равное значению эт...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.standard-checks"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.standard-checks",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.standard-checks"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "standard-checks",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.saving-checks",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Спасброски",
+      "raw_text": "Спасброски\nКогда жук пытается сопротивляться или\nпомешать действию другого жука, может\nпотребоваться спасбросок характеристики. Они\nочень похожи на обычные броски, но их успех\nсводит на нет успех того, чему\nпротиводействует.\nОдин из примеров применения спасбросков -\nпопытка узнать, врут ли жуку. Для этого жук\nделает бросок проницательности, и если\nуспешных костей оказалось столько же или\nбольше, чем у говорящего, то он узнаёт о\nпопытке обмана.",
+      "summary": "Когда жук пытается сопротивляться или помешать действию другого жука, может потребоваться спасбросок характеристики. Они очень похожи на обычные броски, но их успех сводит на нет успех того, чему противодействует. Один из примеров примен...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.saving-checks"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.saving-checks",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.saving-checks"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "saving-checks",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.rule-of-flavor",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Правило Вкуса",
+      "raw_text": "Правило Вкуса\nЭто игра о причудливых жуках всех форм и\nразмеров. Несмотря на обширные\nвозможности, игроки обязательно захотят\nсоздать персонажа, особенности которого\nвыходят за пределы того, что есть в этой\nкниге. Как бы то ни бы ло, если игрок\nжелает слегка изменить способность, черту\nили что-то в этом роде, что не затрагивает\nосновные механики игры, то мастеру\nследует быть открытым для переговоров.\nУ игрока должна быть возможность создать\nтакого жука, какого он сам желает, и\nмастеру следует помочь ему\nподкорректировать правила, если они\nэтому мешают.",
+      "summary": "Это игра о причудливых жуках всех форм и размеров. Несмотря на обширные возможности, игроки обязательно захотят создать персонажа, особенности которого выходят за пределы того, что есть в этой книге. Как бы то ни бы ло, если игрок желает...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.rule-of-flavor"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.rule-of-flavor",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.rule-of-flavor"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "rule-of-flavor",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.specific-beats-general",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Правило Конкретности",
+      "raw_text": "Правило Конкретности\nКонкретные правила и способности важнее\nобщих. Например, согласно общим\nправилам, жук может добавить свой\nпоказатель панциря к броскам на\nВпитывание урона, но если у него есть\nчерта \"Мягкое тело\", то он не может\nдобавить этот показатель. Конкретная черта\nстоит выше общего правила.\nДобро пожаловать, юные\nкуколки. Меня зовут Лимн,\nя буду вашим учителем на\nэтот вечер. Доставайте\nсвои листочки - мы начнём\nс основ.\nЗаметки Лимна\nНекоторые части этой книги дополнены\nподобного рода заметками, которые\nпоясняют определённые элементы игры,\nа также предоставляют опциональные\nправила.\n6",
+      "summary": "Конкретные правила и способности важнее общих. Например, согласно общим правилам, жук может добавить свой показатель панциря к броскам на Впитывание урона, но если у него есть черта \"Мягкое тело\", то он не может добавить этот показатель....",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.specific-beats-general"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.specific-beats-general",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.specific-beats-general"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "specific-beats-general",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 7,
+        "page_end": 7
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.characteristics",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Главные и Вторичные Характеристики",
+      "raw_text": "Главные и Вторичные Характеристики\nГлавные Характеристики жука определяют\nзначение его Второстепенных Характеристик.\nКаждая Главная Характеристика, а также\nкаждый Запас, за исключением Сердца, не\nможет превышать 7 единиц, это вершина того,\nчего может достичь смертный жук.\nСуществует возможность получить половину\nединицы в значении Главной Характеристики,\nкоторое будет отображаться, как \"х.5\". Вместо\nтого, чтобы давать дополнительную кость,\nполовина единицы позволяет жуку\nперебросить один проваленный бросок кости,\nкогда тот использует эту Характеристику. Два\n\"0.5\" увеличивают значение Характеристики\nдо следующего целого числа.",
+      "summary": "Главные Характеристики жука определяют значение его Второстепенных Характеристик. Каждая Главная Характеристика, а также каждый Запас, за исключением Сердца, не может превышать 7 единиц, это вершина того, чего может достичь смертный жук....",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.characteristics"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.characteristics",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.characteristics"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "characteristics",
+        "core-rule",
+        "glossary",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.power",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Мощь",
+      "raw_text": "Мощь\nСила и физическая подготовленность жука.\nМощь определяет, как эффективно жук\nприменяет оружие и парирует удары. Также\nона используется для проверок,\nвключающих проявления грубой силы,\nподъём значительного веса или атлетику.",
+      "summary": "Сила и физическая подготовленность жука. Мощь определяет, как эффективно жук применяет оружие и парирует удары. Также она используется для проверок, включающих проявления грубой силы, подъём значительного веса или атлетику.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.power"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.power",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.power"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "power",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.load",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Нагрузка",
+      "raw_text": "Нагрузка\nНагрузка жука равна его Мощи, округлённой в\nменьшую сторону. Он может без штрафов\nпереносить Вес, равный его Нагрузке. Жук\nможет нести Вес, в два раза превышающий\nНагрузку, но при этом бросая на одну кость\nменьше при всех проверках Мощи и Грации, а\nтакже тратя на одну единицу Выносливости\nбольше на действия, требующие её. Жук не\nможет переносить Вес больше его удвоенной\nНагрузки.",
+      "summary": "Нагрузка жука равна его Мощи, округлённой в меньшую сторону. Он может без штрафов переносить Вес, равный его Нагрузке. Жук может нести Вес, в два раза превышающий Нагрузку, но при этом бросая на одну кость меньше при всех проверках Мощи...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.load"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.load",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.load"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "load",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.light-items",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Лёгкие Предметы",
+      "raw_text": "Лёгкие Предметы\nПредмет с пометкой \"Лёгкое\" или \"Л\" в\nзначении Веса не нагружает жука. Как\nопциональное правило для Мастеров,\nкоторые не хотят, чтобы их игроки ходили\nс огромным количеством всяких мелких\nбезделушек, Лёгкие предметы могут\nобладать значением Веса в 1/3.",
+      "summary": "Предмет с пометкой \"Лёгкое\" или \"Л\" в значении Веса не нагружает жука. Как опциональное правило для Мастеров, которые не хотят, чтобы их игроки ходили с огромным количеством всяких мелких безделушек, Лёгкие предметы могут обладать значен...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.light-items"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.light-items",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.light-items"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "light-items",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.grace",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Грация",
+      "raw_text": "Грация\nБыстрота и ловкость движений жука.\nГрация определяет эффективность жука в\nбросках на дальнобойное оружия и\nуклонении от опасности. Она используется\nв проверках на ловкость, баланс и\nизящество.",
+      "summary": "Быстрота и ловкость движений жука. Грация определяет эффективность жука в бросках на дальнобойное оружия и уклонении от опасности. Она используется в проверках на ловкость, баланс и изящество.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.grace"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.grace",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.grace"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "grace",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.maneuverability",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Манёвренность",
+      "raw_text": "Манёвренность\nМанёвренность жука равна половине его\nГрации, округлённой в большую сторону.\nКаждый ход он может переместиться на\nколичество клеток в пределах области\nугрозы противника, равное значению\nМанёвренности, не провоцируя атаку. Если\nжук покинет область угрозы, то он всё\nравно провоцирует атаку.",
+      "summary": "Манёвренность жука равна половине его Грации, округлённой в большую сторону. Каждый ход он может переместиться на количество клеток в пределах области угрозы противника, равное значению Манёвренности, не провоцируя атаку. Если жук покине...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.maneuverability"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.maneuverability",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.maneuverability"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "maneuverability",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.shell",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Панцирь",
+      "raw_text": "Панцирь\nТолщина хитина и жёсткость плоти жука\nопределяет сопротивление повреждениям и\nболезням.\nКогда по жуку проходит успешная\nфизическая атака, он может совершить\nбросок Панциря на Впитывание урона.\nТогда он игнорирует урон, равный числу\nуспешно брошенных костей.\n7",
+      "summary": "Толщина хитина и жёсткость плоти жука определяет сопротивление повреждениям и болезням. Когда по жуку проходит успешная физическая атака, он может совершить бросок Панциря на Впитывание урона. Тогда он игнорирует урон, равный числу успеш...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.shell"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.shell",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.shell"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "shell",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 8,
+        "page_end": 8
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.belt-size",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Размер Пояса",
+      "raw_text": "Размер Пояса\nРазмер Пояса жука равен значению его\nПанциря, округлённого в меньшую сторону.\nВ Поясе хранятся различные предметы, к\nкоторым можно получить быстрый доступ\nв\nнапряжённых ситуациях. Жук может взять\nпредмет из Пояса в свободную руку и\nнаоборот, не тратя Скорости.\nПодбор предмета не из Пояса или\nиспользование лежащей неподалёку вещи\nтратит значение Скорости, равное Весу\nпредмета\n(минимум 1).\nВыбрасывание предмета не считается! К\nпримеру, персонаж может выкинуть лопату\nне тратя Скорость, но ему следует помнить,\nчто тогда её способен подобрать другой жук.",
+      "summary": "Размер Пояса жука равен значению его Панциря, округлённого в меньшую сторону. В Поясе хранятся различные предметы, к которым можно получить быстрый доступ в напряжённых ситуациях. Жук может взять предмет из Пояса в свободную руку и наобо...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.belt-size"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.belt-size",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.belt-size"
+        }
+      ],
+      "tags": [
+        "belt-size",
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.insight",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Проницательность",
+      "raw_text": "Проницательность\nНасколько жук внимателен и умён.\nПроницательность используется для многих\nэлементов магии (будет объяснено в главе 7),\nа также для выполнения любой задачи,\nтребующей остроту ума, чувств и отличную\nпамять.",
+      "summary": "Насколько жук внимателен и умён. Проницательность используется для многих элементов магии (будет объяснено в главе 7), а также для выполнения любой задачи, требующей остроту ума, чувств и отличную память.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.insight"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.insight",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.insight"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "insight",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.technique-slots",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Ячейки Техник",
+      "raw_text": "Ячейки Техник\nЯчейки Техник жука используются для\nподготовки его Искусств и Тайн, подобно\nтому, как персонажи в игре могут назначать\nспособности на определённые клавиши.\nКоличество Ячеек Техник жука равно его\nПроницательности, округлённой в меньшую\nсторону.",
+      "summary": "Ячейки Техник жука используются для подготовки его Искусств и Тайн, подобно тому, как персонажи в игре могут назначать способности на определённые клавиши. Количество Ячеек Техник жука равно его Проницательности, округлённой в меньшую ст...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.technique-slots"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.technique-slots",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.technique-slots"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "technique-slots",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.hunger-and-satiety",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Голод и Сытость",
+      "raw_text": "Голод и Сытость\nГолод жука определяется его Размером и\nчертами. Он даёт понять, сколько еды персонаж\nдолжен есть. Сытость определяется Голодом и\nизмеряет насыщение жука. Максимум Сытости\nперсонажа равен его Голоду или 10, смотря что\nвыше.\nКаждый отдых жук теряет Сытость, равную его\nголоду или 10, смотря что выше. С понижением\nСытости на персонажа накладываются\nопределённые эффекты, как показано в таблице\nЭффектов Голода.\nПродолжительные усилия по усмотрению\nМастера также могут тратить Сытость.\nЭффекты Голода\nЗначение\nСытости Эффект\n0 или\nВыше\nСон со значением Сытости 0 или\nвыше полностью восполняет Душу\nжука и восстанавливает по единице\nСердца за каждое действие Сна в\nлагере. Также жук восстанавливается\nот 1 урона всем Характеристикам.\nОт -1\nдо -50\nЖук с таким значением Сытости\nвосстанавливает лишь половину\nсвоей Души, округлённую в большую\nсторону.\nОт - 50\nдо -100\nВдобавок к указанным выше\nэффектам, жук с таким значением\nСытости получает -1 ко всем Главным\nХарактеристикам, но может\nсовершить бросок на поиск еды\nдважды и выбрать лучший результат.\nНиже\n-100\nЖук мёртв, пал от голода и\nистощения.",
+      "summary": "Голод жука определяется его Размером и чертами. Он даёт понять, сколько еды персонаж должен есть. Сытость определяется Голодом и измеряет насыщение жука. Максимум Сытости персонажа равен его Голоду или 10, смотря что выше. Каждый отдых ж...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.hunger-and-satiety"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.hunger-and-satiety",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.hunger-and-satiety"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "hunger-and-satiety",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.dread-and-appeal",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Жуть и Привлекательность",
+      "raw_text": "Жуть и Привлекательность\nЖуть и Привлекательность жука влияют на то,\nкак он социально взаимодействует с другими\nжуками. Это может быть его внешний вид,\nповедение и даже запах.\nНачальные бонусные очки, которые вы можете\nвложить в Жуть и Привлекательность своего\nжука, при желании могут быть разделены\nмежду ними пополам.",
+      "summary": "Жуть и Привлекательность жука влияют на то, как он социально взаимодействует с другими жуками. Это может быть его внешний вид, поведение и даже запах. Начальные бонусные очки, которые вы можете вложить в Жуть и Привлекательность своего ж...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.dread-and-appeal"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.dread-and-appeal",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.dread-and-appeal"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "dread-and-appeal",
+        "glossary",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.speed",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Скорость",
+      "raw_text": "Скорость\nЗначение Скорости жука определяется его\nразмером и чертами. Оно влияет на то, как\nбыстро он двигается. Каждый ход жук может\nпереместиться на число клеток, равное его\nСкорости.",
+      "summary": "Значение Скорости жука определяется его размером и чертами. Оно влияет на то, как быстро он двигается. Каждый ход жук может переместиться на число клеток, равное его Скорости.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.speed"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.speed",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.speed"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "speed",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.weight",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Вес",
+      "raw_text": "Вес\nВес персонажа определяет, насколько другому\nжуку будет тяжело его нести. Вес маленьких\nжуков равен 2, средних — 3, а больших — 4.\nЕсли жук несёт Вес больший, чем его\nсобственный, то выбирается наибольшее из\nдвух чисел.\n8",
+      "summary": "Вес персонажа определяет, насколько другому жуку будет тяжело его нести. Вес маленьких жуков равен 2, средних — 3, а больших — 4. Если жук несёт Вес больший, чем его собственный, то выбирается наибольшее из двух чисел. 8",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.weight"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.weight",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.weight"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "term-index",
+        "weight",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 9,
+        "page_end": 9
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.marks",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Метки",
+      "raw_text": "Метки\nЖуки начинают с 3 меток плюс Ранг их\nПути. Метки используются для надевания\nАмулетов и иногда для управления\nприспешниками.",
+      "summary": "Жуки начинают с 3 меток плюс Ранг их Пути. Метки используются для надевания Амулетов и иногда для управления приспешниками.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.marks"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.marks",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.marks"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "marks",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.absorption",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Поглощение",
+      "raw_text": "Поглощение\nУ некоторых жуков есть очки Поглощения.\nПосле того, как Понижение Урона снизило\nвероятный урон, а часть полученного\nурона была Впитана, применяется\nПоглощение. Оно снижает полученный\nурон на 1 плюс результат деления c\nокруглением в меньшую сторону\nоставшегося урона на значение\nПоглощения. Это относится также к\nэффектам, наносящим урон постепенно, а\nтакже к невпитываемому урону.",
+      "summary": "У некоторых жуков есть очки Поглощения. После того, как Понижение Урона снизило вероятный урон, а часть полученного урона была Впитана, применяется Поглощение. Оно снижает полученный урон на 1 плюс результат деления c округлением в меньш...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.absorption"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.absorption",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.absorption"
+        }
+      ],
+      "tags": [
+        "absorption",
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.size",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Размер",
+      "raw_text": "Размер\nУ каждого жука есть размер. Он может\nбыть Маленьким, Средним и Большим. Это\nопределяется шаблоном жука. Маленькие\nи Средние персонажи занимают одн у\nклетку пространства, а Большие — две\nклетки в виде квадрата 2 на 2.",
+      "summary": "У каждого жука есть размер. Он может быть Маленьким, Средним и Большим. Это определяется шаблоном жука. Маленькие и Средние персонажи занимают одн у клетку пространства, а Большие — две клетки в виде квадрата 2 на 2.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.size"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.size",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.size"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "size",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.resource-pools",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Запасы",
+      "raw_text": "Запасы\nВ отличии от Характеристик, которые во\nвремя боя обычно фиксированы, запасы\nизменяются при совершении действий и\nучёте последствий.",
+      "summary": "В отличии от Характеристик, которые во время боя обычно фиксированы, запасы изменяются при совершении действий и учёте последствий.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.resource-pools"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.resource-pools",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.resource-pools"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "resource-pools",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.heart",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Сердце",
+      "raw_text": "Сердце\nКак много урона жук может получить, прежде\nчем погибнет.\nПолучение урона снижает значение Сердца.\nЕсли значение Сердца доходит до \"0\", жук\nумирает. Особо важные персонажи и жуки,\nконтролируемые игроками, при понижении\nзначения их Сердца до \"0\" могут вместо этого\nступить во Врата Смерти.",
+      "summary": "Как много урона жук может получить, прежде чем погибнет. Получение урона снижает значение Сердца. Если значение Сердца доходит до \"0\", жук умирает. Особо важные персонажи и жуки, контролируемые игроками, при понижении значения их Сердца...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.heart"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.heart",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.heart"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "heart",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.soul",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Душа",
+      "raw_text": "Душа\nЗапас магической силы жука.\nВсе заклинания и некоторые способности\nпотребляют Душу, она также может быть\nиспользована при концентрации для лечения.\nДуша восстанавливается во время отдыха.\nКроме того, можно получить 1 единицу души,\nесли нанести урон врагу в ближнем бою.\nКаждый Ранг Мистического Пути повышает\nмаксимум Души на 1.",
+      "summary": "Запас магической силы жука. Все заклинания и некоторые способности потребляют Душу, она также может быть использована при концентрации для лечения. Душа восстанавливается во время отдыха. Кроме того, можно получить 1 единицу души, если н...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.soul"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.soul",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.soul"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "soul",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.stamina",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Выносливость",
+      "raw_text": "Выносливость\nДаёт понять, насколько жук способен\nвыложиться в каждом раунде боя.\nБольшинство совершаемых в бою действий\nпотребляют минимум 1 единицу\nВыносливости. Также она может быть\nпотрачена на броски атаки и защиты. Жук\nвосстанавливает свою Выносливость в\nначале каждого своего хода.\nКаждый Ранг воинского пути повышает\nмаксимум Выносливости на 1.",
+      "summary": "Даёт понять, насколько жук способен выложиться в каждом раунде боя. Большинство совершаемых в бою действий потребляют минимум 1 единицу Выносливости. Также она может быть потрачена на броски атаки и защиты. Жук восстанавливает свою Вынос...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.stamina"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.stamina",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.stamina"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.supplies",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Припасы",
+      "raw_text": "Припасы\nНекоторые Пути дают доступ к\nдополнительному запасу - Припасам. Он\nобозначает, сколько различных материалов\nизобретательный жук может иметь под\nрукой, когда он собирается быстро что-то\nсоздать по придуманным им рецептам.\nПрипасы можно получить только через\nсоответствующие Пути или через другие\nоткрывающие их источники, а начальный\nмаксимум Припасов равен половине\nПроницательности жука, округлённой в\nбольшую сторону.\nОбычные предметы требуют 1 единицу\nПрипасов, необычные требуют 2, а редкие — 3.\nСозданные предметы распадаются на части или\nтеряют свои свойства после их применения из-\nза своей импровизированной и временной\nприроды.",
+      "summary": "Некоторые Пути дают доступ к дополнительному запасу - Припасам. Он обозначает, сколько различных материалов изобретательный жук может иметь под рукой, когда он собирается быстро что-то создать по придуманным им рецептам. Припасы можно по...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.supplies"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.supplies",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.supplies"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "supplies",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.lifeblood-and-glory",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "core-rules",
+      "name": "Живокровь и Слава",
+      "raw_text": "Приложение: Живокровь и Слава\nОсобые способности и магические эффекты\nмогут дополнительно увеличивать запасы\nжука, которые отслеживаются отдельно от\nосновных и не учитываются в\nмаксимальном их количестве: Сердце\nЖивокрови, Выносливость Славы, Душа\nСлавы и Припасы Славы.\nЭти дополнительные очки исчезают, когда жук\nсовершает Отдых, если не указано иначе.\nСердце Живокрови всегда тратится перед\nосновным, в то время как использование\nобычных запасов или запасов Славы остаётся на\nусмотрение жука.\n9",
+      "summary": "Особые способности и магические эффекты могут дополнительно увеличивать запасы жука, которые отслеживаются отдельно от основных и не учитываются в максимальном их количестве: Сердце Живокрови, Выносливость Славы, Душа Славы и Припасы Сла...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "core-rules.lifeblood-and-glory"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "core-rules.lifeblood-and-glory",
+        "source_file": "core-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "core-rules.lifeblood-and-glory"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "core-rule",
+        "glossary",
+        "lifeblood-and-glory",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 10,
+        "page_end": 10
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.initiative",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Порядок Инициативы",
+      "raw_text": "Порядок Инициативы\nИнициатива определяется Грацией. В отличие от\nбольшинства проверок в этой системе,\nИнициатива отслеживается не успешными и\nпроваленными бросками. Вместо этого вы\nподсчитываете общий результат броска\nИнициативы вашего жука.\nЖук с наивысшим значением Инициативы ходит\nпервым, за ним идут остальные в порядке\nубывания. Если у жука есть повторный бросок на\nИнициативу, то он может перебросить кубик, на\nкотором выпало наименьшее значение, и\nвыбрать лучший из двух результатов.\nВ случае, когда у нескольких жуков одинаковая\nИнициатива, жук игрока ходит первым, потом\nсоюзник, а потом враг.",
+      "summary": "Инициатива определяется Грацией. В отличие от большинства проверок в этой системе, Инициатива отслеживается не успешными и проваленными бросками. Вместо этого вы подсчитываете общий результат броска Инициативы вашего жука. Жук с наивысши...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.initiative"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.initiative",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.initiative"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 117,
+        "page_end": 117
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.movement-grid",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Клетки и Движение",
+      "raw_text": "Клетки и Движение\nСражение происходит на клеточной сетке,\nобычно состоящей из 1-дюймовых клеток. Они\nназываются \"клетками\" или \"квадратами\" и\nявляются безразмерной единицей измерения.\nЖук может переместиться на количество клеток,\nравное его Скорости. Движение по диагонали\nпроисходит таким же образом.",
+      "summary": "Сражение происходит на клеточной сетке, обычно состоящей из 1-дюймовых клеток. Они называются \"клетками\" или \"квадратами\" и являются безразмерной единицей измерения. Жук может переместиться на количество клеток, равное его Скорости. Движ...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.movement-grid"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.movement-grid",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.movement-grid"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "movement",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 117,
+        "page_end": 117
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.spaces",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Клетки",
+      "raw_text": "Клетки\nКаждый жук занимает 1 клетку пространства,\nкроме Больших жуков, которые занимают 4\nклетки, объединённые в одну большую. Но при\nдвижении они всё равно передвигаются только\nна 1 клетку в каком-то направлении.\nДва жука по обоюдному согласию могут,\nсжимаясь, делить занимаемые ими клетки .\nБольшие жуки могут принять в одну из своих\nклеток другого жука Среднего или меньше\nразмера, не сжимаясь.\nЖук может переместиться через клетку другого\nжука, если тот это позволил. Через\nбессознательных жуков и тела обычно можно\nсвободно перемещаться, но только если они не\nособенно крупные или не сложены кучей.\nЖуки могут попытаться пройти через\nпространство враждебно настроенного жука, но\nэто провоцирует атаку.",
+      "summary": "Каждый жук занимает 1 клетку пространства, кроме Больших жуков, которые занимают 4 клетки, объединённые в одну большую. Но при движении они всё равно передвигаются только на 1 клетку в каком-то направлении. Два жука по обоюдному согласию...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.spaces"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.spaces",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.spaces"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "movement",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 117,
+        "page_end": 117
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.squeezing",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Сжимание",
+      "raw_text": "Сжимание\nЖук может сжаться, чтобы принять в свою\nклетку другого жука на один размер меньше. В\nтаком состоянии оба получают штраф -1 на\nброски атаки и защиты, а также через них не\nмогут пройти другие существа.",
+      "summary": "Жук может сжаться, чтобы принять в свою клетку другого жука на один размер меньше. В таком состоянии оба получают штраф -1 на броски атаки и защиты, а также через них не могут пройти другие существа.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.squeezing"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.squeezing",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.squeezing"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "movement",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 117,
+        "page_end": 117
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.attack",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Атака",
+      "raw_text": "Атака\nАтака требует траты хотя бы 1 Выносливости.\nНабор кубиков атаки равен сумме Мощи жука,\nКачества и Выносливости, которая вложена в\nрукопашную атаку.\nДля дистанционных атак вместо Мощи\nиспользуется Грация.",
+      "summary": "Атака требует траты хотя бы 1 Выносливости. Набор кубиков атаки равен сумме Мощи жука, Качества и Выносливости, которая вложена в рукопашную атаку. Для дистанционных атак вместо Мощи используется Грация.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.attack"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.attack",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.attack"
+        }
+      ],
+      "tags": [
+        "attack",
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 117,
+        "page_end": 117
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.area-effects",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Площадь эффекта",
+      "raw_text": "Площадь эффекта\nПлощадные эффекты влияют на много клеток.\nСделайте бросок атаки и определите результат\nдля каждой цели отдельно. Такую атаку нельзя\nпарировать, можно только уклониться.\nНа площадные атаки влияют штрафы от укрытия,\nкоторые основываются на источнике эффекта —\nцентр огненного шара или кончик Конуса.",
+      "summary": "Площадные эффекты влияют на много клеток. Сделайте бросок атаки и определите результат для каждой цели отдельно. Такую атаку нельзя парировать, можно только уклониться. На площадные атаки влияют штрафы от укрытия, которые основываются на...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.area-effects"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.area-effects",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.area-effects"
+        }
+      ],
+      "tags": [
+        "attack",
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 117,
+        "page_end": 117
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.cones",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Конусы",
+      "raw_text": "Конусы\nНекоторые эффекты могут иметь форму\nКонуса, а не стандартной дальности.\nДля определения того, какие клетки задевает\nКонус в прямом и диагональном\nнаправлениях, используйте следующие\nшаблоны:\nКороткий Широкий Длинный Большой\n116",
+      "summary": "Некоторые эффекты могут иметь форму Конуса, а не стандартной дальности. Для определения того, какие клетки задевает Конус в прямом и диагональном направлениях, используйте следующие шаблоны: Короткий Широкий Длинный Большой 116",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.cones"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.cones",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.cones"
+        }
+      ],
+      "tags": [
+        "attack",
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 117,
+        "page_end": 117
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.stamina-tax",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Налог Выносливости",
+      "raw_text": "Налог Выносливости\nКаждая атака повышает стоимость Вынос-\nливости на следующую атаку в том же ходу\nна 1. Эта Выносливость тратится, но она не\nвложена в бросок атаки.\nНалог Выносливости обнуляется в конце хода\nжука.",
+      "summary": "Каждая атака повышает стоимость Вынос- ливости на следующую атаку в том же ходу на 1. Эта Выносливость тратится, но она не вложена в бросок атаки. Налог Выносливости обнуляется в конце хода жука.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.stamina-tax"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.stamina-tax",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.stamina-tax"
+        }
+      ],
+      "tags": [
+        "action-economy",
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 118,
+        "page_end": 118
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.provoked-attacks",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Провоцированные атаки",
+      "raw_text": "Провоцированные атаки\nНе так легко шагать перед лицом\nатакующего! Когда ваш жук перемещается\nчерез клетк\nи, которые прилега ют к другому\nжуку на количество к леток, превышающее\nМанёвренность вашего, то он провоцирует по\nсебе атаку.\nСпровоцированный жук может совершить\nатаку по провоцирующему ценой 1\nВыносливости, которая не вкладывается в\nбросок атаки. Но в него можно вложить\nбольше Выносливости по стандартным\nправилам.\nОдин жук может совершить только одну\nпровоцированную атаку по каждому другому\nжуку в раунд.\nВынужденное перемещение не провоцирует\nатаки, если не указано иначе.",
+      "summary": "Не так легко шагать перед лицом атакующего! Когда ваш жук перемещается через клетк и, которые прилега ют к другому жуку на количество к леток, превышающее Манёвренность вашего, то он провоцирует по себе атаку. Спровоцированный жук может...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.provoked-attacks"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.provoked-attacks",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.provoked-attacks"
+        }
+      ],
+      "tags": [
+        "attack",
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 118,
+        "page_end": 118
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.withdraw",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Отступление",
+      "raw_text": "Отступление\nЖук может потратить 1 Выносливость и\nпереместиться на максимум 2 клетки ценой\nсоответствующего количества Скорости, не\nпровоцируя атаку.\nПосле Отступления жук получает 1 единицу\nДисбаланса.",
+      "summary": "Жук может потратить 1 Выносливость и переместиться на максимум 2 клетки ценой соответствующего количества Скорости, не провоцируя атаку. После Отступления жук получает 1 единицу Дисбаланса.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.withdraw"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.withdraw",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.withdraw"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 118,
+        "page_end": 118
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.grapple",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Захват",
+      "raw_text": "Захват\nЗахват — попытка удержать жука, считаю-\nщаяся атакой. Захват совершается, используя\nКачество Невооружённого Удара или\nКачество оружия, которое даёт бонус к\nзахватам. Оно парное, если используемое\nоружие Лёгкое. Захваты всегда основываются\nна Мощи.\nБроски на захват имеют бонусные кости,\nчисло которых равно количеству\nдополнительных используемых придатков с\nмаксимумом в 2. Цель может защититься.\nЕсли после действия защиты захват\nсохраняет хотя бы один успех, цель\nстановится схваченной.\nСхваченный жук получает штраф -1 на броски\nатаки и защиты и не может перемещаться по\nсвоей воле. В свой ход он может потратить 1\nВыносливость и попытаться вырваться. Для\nэтого можно использовать Мощь или Грацию\nи вложить больше Выносливости, как в атаку.\nСхвативший может воспротивиться этой\nпопытке, используя Мощь плюс все бонусы\nдля захвата от эффектов природного оружия\nи бонус от придатков. При желании он может\nвложить Выносливость.\nСхвативший может совершать со своей\nжертвой любое количество следующих\nдействий:\n● Он может потратить 1 Выносливость, чтобы\nпереместить схваченного на 1 Клетку.\n● Он может понизить кость любого броска\nсхваченного на 1 ценой 1 Выносливости\n● Он может бросить схваченного максимум\nна 3 клетки ценой 1 Выносливости, как\nимпровизированное оружие, если в клетке\nприлёта есть жук.",
+      "summary": "Захват — попытка удержать жука, считаю- щаяся атакой. Захват совершается, используя Качество Невооружённого Удара или Качество оружия, которое даёт бонус к захватам. Оно парное, если используемое оружие Лёгкое. Захваты всегда основываютс...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.grapple"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.grapple",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.grapple"
+        }
+      ],
+      "tags": [
+        "attack",
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 118,
+        "page_end": 118
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.dash-jump",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Рывок и Прыжок",
+      "raw_text": "Рывок и Прыжок\nЖуки ловкие! Любой жук может потратить\n1 Выносливость, что переместиться на 2\nклетки в любом направлении. После\nдвижения он падае т на землю. Движение\nпо земле - Рывок, а движение прямо вверх\nили по диагонали - Прыжок.\nНаходясь в воздухе , жук может потратить\nСкорость, чтобы удлинить Прыжок\nмаксимум на 2 клетки, но прыгать находясь\nв воздухе нельзя, если только у жука нет\nспособности к полёту.",
+      "summary": "Жуки ловкие! Любой жук может потратить 1 Выносливость, что переместиться на 2 клетки в любом направлении. После движения он падае т на землю. Движение по земле - Рывок, а движение прямо вверх или по диагонали - Прыжок. Находясь в воздухе...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.dash-jump"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.dash-jump",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.dash-jump"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "movement",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 118,
+        "page_end": 118
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.pogo-strike",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Удар с отскоком",
+      "raw_text": "Удар с отскоком\nЕсли жук передвигается над целью и\nпопадает в нее рукопашной атакой — или\nесли цель ее парирует — он может\nпереместиться на 1 клетку вверх, не\nпровоцируя атаки. После удара с отскоком\nжук может бесплатно переместиться\nмаксимум на 2 клетки в любом\nнаправлении от клетки, где тот был\nсовершён.\nЕсли удар с отскоком не попал или от него\nуклонились, то жук приземляется, на\nвыбор, либо в клетку цели, либо же в\nприлегающую . Также он получает\nДисбаланс.\n117",
+      "summary": "Если жук передвигается над целью и попадает в нее рукопашной атакой — или если цель ее парирует — он может переместиться на 1 клетку вверх, не провоцируя атаки. После удара с отскоком жук может бесплатно переместиться максимум на 2 клетк...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.pogo-strike"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.pogo-strike",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.pogo-strike"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "movement",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 118,
+        "page_end": 118
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.skill-actions",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Действия Навыков",
+      "raw_text": "Действия Навыков\nВ битве жук может ценой 1 Выносливости\nприменить свой Навык: забраться на стену,\nсовершить скачок, который бы не получилось\nсделать обычным Рывком или Прыжком,\nпопытаться спрятаться от врага — а может и\nнайти прячущегося врага. Это и есть Действие\nНавыка.\nНекоторые пассивные и интуитивные Навыки\nпо типу проверки на Знание, чтобы узнать\nосведомлённость жука игрока о каком-то типе\nсуществ, могут вообще не тратить\nВыносливость.\nНе оставляйте свои\nНавыки без дела в\nпылу битвы!",
+      "summary": "В битве жук может ценой 1 Выносливости применить свой Навык: забраться на стену, совершить скачок, который бы не получилось сделать обычным Рывком или Прыжком, попытаться спрятаться от врага — а может и найти прячущегося врага. Это и ест...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.skill-actions"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.skill-actions",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.skill-actions"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 119,
+        "page_end": 119
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.skill-action-examples",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Использование действий Навыков",
+      "raw_text": "Использование действий Навыков\nВот некоторые примеры Действий и\nсвязанных с ними Навыков, которые\nмогут быть полезны в битве:\n● Остаться незамеченным\n(Скрытность)\n● Искать объекты и спрятавшихся\nпротивников (Внимательность)\n● Заговорить зубы врагу (Убеждение)\n● Отпугнуть врага (Устрашение)\n● Предугадать действия врага (Тактика)\n● Передвинутьтяжёлые объекты\n(Атлетика)\n● Остаться на плаву в воде (Плавание)\nЭто не исчерпывающий список всех\nвозможных Действий Навыков, так что\nвы можете свободно придумать свои.",
+      "summary": "Вот некоторые примеры Действий и связанных с ними Навыков, которые могут быть полезны в битве: ● Остаться незамеченным (Скрытность) ● Искать объекты и спрятавшихся противников (Внимательность) ● Заговорить зубы врагу (Убеждение) ● Отпугн...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.skill-action-examples"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.skill-action-examples",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.skill-action-examples"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 119,
+        "page_end": 119
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.minor-actions",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Малые Действия",
+      "raw_text": "Малые Действия\nНекоторые действия по типу подбора\nоружия или закрытия двери не тратят\nВыносливость. Но они тратят Скорость,\nравную удвоенному весу предмета,\nкоторый жук желает подобрать или\nподвинуть, с минимумом в 1.",
+      "summary": "Некоторые действия по типу подбора оружия или закрытия двери не тратят Выносливость. Но они тратят Скорость, равную удвоенному весу предмета, который жук желает подобрать или подвинуть, с минимумом в 1.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.minor-actions"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.minor-actions",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.minor-actions"
+        }
+      ],
+      "tags": [
+        "action-economy",
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 119,
+        "page_end": 119
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.delayed-turns",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Отсроченные ходы",
+      "raw_text": "Отсроченные ходы\nЕсли жук того желает, он может отложить свой\nход на потом в цепочке Инициативы. Когда\nподходит его новый ход, жук не\nвосстанавливает Выносливость, потраченную\nмежду отсрочкой хода и его наступлением.",
+      "summary": "Если жук того желает, он может отложить свой ход на потом в цепочке Инициативы. Когда подходит его новый ход, жук не восстанавливает Выносливость, потраченную между отсрочкой хода и его наступлением.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.delayed-turns"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.delayed-turns",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.delayed-turns"
+        }
+      ],
+      "tags": [
+        "action-economy",
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 119,
+        "page_end": 119
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.prepared-actions",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Подготовка",
+      "raw_text": "Подготовка\nИногда жуку требуется терпение, но он не\nможет позволить себе отложить ход. В таком\nслучае он может ценой 1 Выносливости\nподготовить действие. Жуку нужно назвать\nусловие, которое спровоцировало бы его. Это\nделается в момент подготовки. Когда\nоговоренное условие происходит, жук\nнезамедлительно вклинивается в ход и\nсовершает подготовленное действие. При этом\nоно всё ещё тратит Выносливость, которую\nпотребляло бы в обычных условиях.",
+      "summary": "Иногда жуку требуется терпение, но он не может позволить себе отложить ход. В таком случае он может ценой 1 Выносливости подготовить действие. Жуку нужно назвать условие, которое спровоцировало бы его. Это делается в момент подготовки. К...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.prepared-actions"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.prepared-actions",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.prepared-actions"
+        }
+      ],
+      "tags": [
+        "action-economy",
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 119,
+        "page_end": 119
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.defense",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Защита",
+      "raw_text": "Защита\nДействие защиты совершается в ответ на атаку\nи потребляет 1 Выносливость. Оно может быть\nиспользовано только когда ваш жук становиться\nцелью атаки. Первая единица Выносливости не\nвложена в атаку, но по желанию ваш жук может\nвложить больше Выносливости в нее. Каждый\nуспешный бросок защиты вычитает один\nуспешный бросок из атаки.\nЕсть два типа проверок защиты: парирование и\nуклонение.",
+      "summary": "Действие защиты совершается в ответ на атаку и потребляет 1 Выносливость. Оно может быть использовано только когда ваш жук становиться целью атаки. Первая единица Выносливости не вложена в атаку, но по желанию ваш жук может вложить больш...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.defense"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.defense",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.defense"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "defense",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 119,
+        "page_end": 119
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.parry",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Парирование",
+      "raw_text": "Парирование\nПарирование — бросок Мощи, совершаемый\nщитом\nили оружием. Этим способом обычно\nнельзя отразить заклинание или площадную\nатаку. К броску добавляется Качество исполь-\nзуемого щита, а парирование дистанционных\nатак имеет штраф -1 кость.\nАтака считается парированной, когда проверка\nзащиты стирает все успешные броски,\nполностью нивелируя атаку. Парирование,\nимеющее хотя бы 1 успех, но не нивелирующее\nатаку, называется частичным.\nПри парировании оружием. каждая допол-\nнительно вложенная Выносливость даёт\n2\nкости вместо 1, но ее максимум равен Качеству\nоружия.\n118",
+      "summary": "Парирование — бросок Мощи, совершаемый щитом или оружием. Этим способом обычно нельзя отразить заклинание или площадную атаку. К броску добавляется Качество исполь- зуемого щита, а парирование дистанционных атак имеет штраф -1 кость. Ата...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.parry"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.parry",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.parry"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "defense",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 119,
+        "page_end": 119
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.dodge",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Уклонение",
+      "raw_text": "Уклонение\nУклонение — проверка Грации, совершаемая,\nчтобы избежать атаки. От заклинаний и атак по\nплощади можно уклониться. Когда жук\nуклоняется, он может переместиться на 1\nклетку, не провоцируя атаки, но получая\nДисбаланс. При уклонении от атак по площади\nэто необходимо. Жук не может уклоняться,\nбудучи обездвиженным.\nЖук уклонится от атаки, если проверка защиты\nубрала все ее успешные броски, полностью\nнивелируя атаку. Уклонение, имеющее хотя бы 1\nуспешный бросок, но не избежавшее атаки,\nназывается частичным уклонением.\nВложенная в уклонение Выносливость даёт\nколичество костей, равное весу оружия\nатакующего.",
+      "summary": "Уклонение — проверка Грации, совершаемая, чтобы избежать атаки. От заклинаний и атак по площади можно уклониться. Когда жук уклоняется, он может переместиться на 1 клетку, не провоцируя атаки, но получая Дисбаланс. При уклонении от атак...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.dodge"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.dodge",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.dodge"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "defense",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 120,
+        "page_end": 120
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.spent-stamina",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Потраченная Выносливость",
+      "raw_text": "Потраченная Выносливость\nВыносливость, потраченная на действие.",
+      "summary": "Выносливость, потраченная на действие.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.spent-stamina"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.spent-stamina",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.spent-stamina"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 120,
+        "page_end": 120
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.stamina-tax-definition",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Налог Выносливости",
+      "raw_text": "Налог Выносливости\nПотраченная на действие Выносливость,\nкоторая его не усиливает. Представляет\nусталость.",
+      "summary": "Потраченная на действие Выносливость, которая его не усиливает. Представляет усталость.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.stamina-tax-definition"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.stamina-tax-definition",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.stamina-tax-definition"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 120,
+        "page_end": 120
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.invested-stamina",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Вложенная Выносливость",
+      "raw_text": "Вложенная Выносливость\nВыносливость, потраченная на совершение\nили усиление действия. Добавляет к броску к6.\nПредставляет усилия.",
+      "summary": "Выносливость, потраченная на совершение или усиление действия. Добавляет к броску к6. Представляет усилия.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.invested-stamina"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.invested-stamina",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.invested-stamina"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 120,
+        "page_end": 120
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.probable-damage",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Вычисление вероятного урона",
+      "raw_text": "Вычисление вероятного урона\nКогда у атаки есть хотя бы 1 успешный бросок,\nона попадает. Подсчитайте все дальнейшие\nуспешные броски и добавьте это число к\nдополнительному вероятному урону по цели.\nОбщий вероятный урон складывается из\nбазового урона и дополнительного. Максимум\nпоследнего равен базовому урону оружия или\nчислу Выносливости, вложенному в атаку, в\nзависимости от того, что выше.",
+      "summary": "Когда у атаки есть хотя бы 1 успешный бросок, она попадает. Подсчитайте все дальнейшие успешные броски и добавьте это число к дополнительному вероятному урону по цели. Общий вероятный урон складывается из базового урона и дополнительного...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.probable-damage"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.probable-damage",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.probable-damage"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "damage",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 120,
+        "page_end": 120
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.damage-reduction",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Понижение урона",
+      "raw_text": "Понижение урона (ПУ)\nНекоторые вещи по типу брони дают\nпонижение урона. Значение ПУ вычитается из\nвероятного урона перед попыткой на\nВпитывание, но не может опустить\nнанесённый урон ниже 1.",
+      "summary": "Некоторые вещи по типу брони дают понижение урона. Значение ПУ вычитается из вероятного урона перед попыткой на Впитывание, но не может опустить нанесённый урон ниже 1.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.damage-reduction"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.damage-reduction",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.damage-reduction"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "damage",
+        "glossary",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 120,
+        "page_end": 120
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.damage-absorption",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Впитывание урона",
+      "raw_text": "Впитывание урона\nКогда вероятный урон атаки высчитан,\nзащищающийся делает проверку Панциря.\nКаждый успешный бросок понижает урон на 1.",
+      "summary": "Когда вероятный урон атаки высчитан, защищающийся делает проверку Панциря. Каждый успешный бросок понижает урон на 1.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.damage-absorption"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.damage-absorption",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.damage-absorption"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "damage",
+        "glossary",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 120,
+        "page_end": 120
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.magic-damage",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Магический урон",
+      "raw_text": "Магический урон\nМагический урон нельзя Впитать, но он все\nещё подвержен ПУ и Поглощению, если не\nуказано иначе.\nСамый распространенный источник\nмагического урона — заклинания. Все они\nнаносят магический урон, если не указано\nиначе.",
+      "summary": "Магический урон нельзя Впитать, но он все ещё подвержен ПУ и Поглощению, если не указано иначе. Самый распространенный источник магического урона — заклинания. Все они наносят магический урон, если не указано иначе.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.magic-damage"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.magic-damage",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.magic-damage"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "damage",
+        "glossary",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 120,
+        "page_end": 120
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.natural-damage",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Природный урон",
+      "raw_text": "Природный урон\nКак и магический урон, природный нельзя\nВпитать, но можно понизить и Поглотить.\nРазница в том, что природный урон\nсвойственен самым разным источникам, по\nтипу смертельной жары и холода, и от него\nможно защититься разными способами.",
+      "summary": "Как и магический урон, природный нельзя Впитать, но можно понизить и Поглотить. Разница в том, что природный урон свойственен самым разным источникам, по типу смертельной жары и холода, и от него можно защититься разными способами.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.natural-damage"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.natural-damage",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.natural-damage"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "damage",
+        "glossary",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 120,
+        "page_end": 120
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.stamina-and-soul-damage",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Урон по Выносливости и Душе",
+      "raw_text": "Урон по Выносливости и Душе\nЭтот урон понижает соответствующий Запас\nцели на количество единиц, равное\nнанесённому урону. Он может быть\nмагическим или природным и обычно\nсоответствует типу атаки, которая его наносит.",
+      "summary": "Этот урон понижает соответствующий Запас цели на количество единиц, равное нанесённому урону. Он может быть магическим или природным и обычно соответствует типу атаки, которая его наносит.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.stamina-and-soul-damage"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.stamina-and-soul-damage",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.stamina-and-soul-damage"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "damage",
+        "glossary",
+        "soul",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 120,
+        "page_end": 120
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.nonlethal-damage",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Несмертельный урон",
+      "raw_text": "Несмертельный урон\nКогда жук совершает атаку рукопашным\nоружием, он может не делать дополнительные\nброски на урон. Такая атака лишь вырубает\nцель, если понизила ее Запас Сердца до 0, не\nубивает и не отправляет к Вратам Смерти.",
+      "summary": "Когда жук совершает атаку рукопашным оружием, он может не делать дополнительные броски на урон. Такая атака лишь вырубает цель, если понизила ее Запас Сердца до 0, не убивает и не отправляет к Вратам Смерти.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.nonlethal-damage"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.nonlethal-damage",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.nonlethal-damage"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "damage",
+        "glossary",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 120,
+        "page_end": 120
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.imbalance",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Дисбаланс",
+      "raw_text": "Дисбаланс\nЗа каждую единицу Дисбаланса жук получает\nна 1 Выносливость меньше в начале своего\nхода. Он может потратить определённое\nколичество Выносливости в свой ход, чтобы\nубрать соответствующий уровень Дисбаланса.\n119",
+      "summary": "За каждую единицу Дисбаланса жук получает на 1 Выносливость меньше в начале своего хода. Он может потратить определённое количество Выносливости в свой ход, чтобы убрать соответствующий уровень Дисбаланса. 119",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.imbalance"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.imbalance",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.imbalance"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "conditions",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 120,
+        "page_end": 120
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.death-gates",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Врата Смерти",
+      "raw_text": "Врата Смерти\nКогда Запас Сердца жука падает до 0, тот\nоказывается у Врат Смерти и\nвосстанавливает всю Выносливость, если\nэто произошло в первый раз с последнего\nОтдыха. Получаемый жуком у Врат Смерти\nурон наносится его Выносливости, которая\nперестаёт восстанавливаться сама по себе.\nКогда Выносливость жука у Врат Смерти\nпадает до 0, тот умирает.\nПосле конца сражения жук у Врат Смерти\nтеряет сознание.",
+      "summary": "Когда Запас Сердца жука падает до 0, тот оказывается у Врат Смерти и восстанавливает всю Выносливость, если это произошло в первый раз с последнего Отдыха. Получаемый жуком у Врат Смерти урон наносится его Выносливости, которая перестаёт...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.death-gates"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.death-gates",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.death-gates"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "conditions",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 121,
+        "page_end": 121
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.unconsciousness",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Потеря сознания",
+      "raw_text": "Потеря сознания\nКогда Сердце жука падает до 0, он может по\nжеланию потерять сознание, что делает его\nменее приоритетной целью, но при этом\nлишает возможности защитить себя. Потеря\nсознания полностью восстанавливает\nВыносливость, даже если жук уже был у Врат\nСмерти с момента последнего Отдыха.\nБессознательный жук не может двигаться\nили предпринимать какие-либо действия\nсвоими силами. Урон по бессознательному\nжуку наносится Выносливости, которая\nперестаёт восстанавливаться сама по себе.\nКогда Выносливость бессознательного\nжука падает до 0, тот умирает.",
+      "summary": "Когда Сердце жука падает до 0, он может по желанию потерять сознание, что делает его менее приоритетной целью, но при этом лишает возможности защитить себя. Потеря сознания полностью восстанавливает Выносливость, даже если жук уже был у...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.unconsciousness"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.unconsciousness",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.unconsciousness"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "conditions",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 121,
+        "page_end": 121
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.suffocation",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Удушение",
+      "raw_text": "Удушение\nКаждый ход удушения понижает\nмаксимум Выносливости жука на 1, а когда\nта падает до 0, наносит урон Сердцу.\nУдушение прекращается, когда жук\nпроводит целый ход в пригодном для\nдыхания окружении.",
+      "summary": "Каждый ход удушения понижает максимум Выносливости жука на 1, а когда та падает до 0, наносит урон Сердцу. Удушение прекращается, когда жук проводит целый ход в пригодном для дыхания окружении.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.suffocation"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.suffocation",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.suffocation"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "conditions",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 121,
+        "page_end": 121
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.delayed-damage",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Отложенный урон",
+      "raw_text": "Отложенный урон (ОУ)\nОтложенный урон — особый эффект. В\nначале своего хода жук, если он\nподвержен ОУ, получает природный урон,\nравный значению отложенного урона,\nкоторое после этого понижается на 1. ОУ\nсам по себе не считается нанесением\nурона, но его эффект — да.\nОУ игнорирует понижение урона, если в\nописании последнего не указано, что оно\nпонижает постепенный урон.\nЖук в свой ход может потратить определён-\nное количество Выносливости, чтобы убрать\nсоответствующее значение ОУ.\nОтложенный урон может быть определённого\nтипа, например, огонь или кровотечение. Если\nне указано иначе, эффекты ОУ одного типа не\nскладываются. Вместо этого используйте тот,\nкоторый имеет большее значение (например,\nу жука есть 2 огненного отложенного урона и\nон получает ещё 3. Теперь у него 3 огненного\nОУ).",
+      "summary": "Отложенный урон — особый эффект. В начале своего хода жук, если он подвержен ОУ, получает природный урон, равный значению отложенного урона, которое после этого понижается на 1. ОУ сам по себе не считается нанесением урона, но его эффект...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.delayed-damage"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.delayed-damage",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.delayed-damage"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "damage",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 121,
+        "page_end": 121
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.status-effect",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Эффект состояния",
+      "raw_text": "Эффект состояния\nЭффект состояния — это эффект, положи-\nтельный или негативный, продолжительность\nкоторого не зависит от сцены или\nдлительности заклинания.\nЭффекты состояния имеют свой Запас и\nтеряют по 1 его единице в конце каждого хода\nцели, которая также может понизить запас\nэффекта тратой соответствующего количества\nВыносливости. Эффект состояния окан-\nчивается, когда его запас опускается до 0.\nЕсли один и тот же эффект состояния\nнакладывается несколько раз, то их запасы\nсуммируются, но эффект не усиливается, если\nне указано иначе.\nЗапас эффекта состояния не может иметь\nбольше 10 очков одновременно, если не\nуказано иначе.",
+      "summary": "Эффект состояния — это эффект, положи- тельный или негативный, продолжительность которого не зависит от сцены или длительности заклинания. Эффекты состояния имеют свой Запас и теряют по 1 его единице в конце каждого хода цели, которая та...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.status-effect"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.status-effect",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.status-effect"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "conditions",
+        "glossary",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 121,
+        "page_end": 121
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.wear",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Износ",
+      "raw_text": "Износ\nИногда оружие получает урон в виде Износа.\nИзнос уничтожает оружие не мгновенно, и\nнекоторое оружие обычный Износ не может\nуничтожить.\nЗа каждый уровень Износа Качество оружия\nпонижается на 1. Если у оружия есть\nМодификация, то первый уровень Износа ее\nубирает.\nЕсли Качество оружия понижено до -1, а\nединственная его Модификация — Изно -\nшенное, то оно уничтожается. Если\nМодификация другая, оно ломается. При\nиспользовании сломанного оружия, оно\nсчитается импровизированным.\n120",
+      "summary": "Иногда оружие получает урон в виде Износа. Износ уничтожает оружие не мгновенно, и некоторое оружие обычный Износ не может уничтожить. За каждый уровень Износа Качество оружия понижается на 1. Если у оружия есть Модификация, то первый ур...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.wear"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.wear",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.wear"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "conditions",
+        "glossary",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 121,
+        "page_end": 121
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.natural-weapon-wear",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Износ природного оружия",
+      "raw_text": "Износ природного оружия\nКогда природное оружие должно\nуничтожиться или сломаться, оно вместо\nэтого повреждается и не может быть\nиспользовано до Отдыха.\nПриродное оружие исцеляет 1 единицу\nИзноса за Отдых, но это число может быть\nув\nеличено проверкой навыка Медицины.",
+      "summary": "Когда природное оружие должно уничтожиться или сломаться, оно вместо этого повреждается и не может быть использовано до Отдыха. Природное оружие исцеляет 1 единицу Износа за Отдых, но это число может быть ув еличено проверкой навыка Меди...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.natural-weapon-wear"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.natural-weapon-wear",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.natural-weapon-wear"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 122,
+        "page_end": 122
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.invisible-attacks",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Невидимые атаки",
+      "raw_text": "Невидимые атаки\nОдин жук невидим для другого, если тот не\nможет его обнаружить. Атака или защита\nпротив невидимого жука имеет штраф -2.\nЕсли жук не знает о невидимом противнике,\nто он не может уклониться или парировать\nего первую атаку.\nНевидимые жуки не провоцируют атаки.",
+      "summary": "Один жук невидим для другого, если тот не может его обнаружить. Атака или защита против невидимого жука имеет штраф -2. Если жук не знает о невидимом противнике, то он не может уклониться или парировать его первую атаку. Невидимые жуки н...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.invisible-attacks"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.invisible-attacks",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.invisible-attacks"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "defense",
+        "glossary",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 122,
+        "page_end": 122
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.cover",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Укрытие",
+      "raw_text": "Укрытие\nЕсли жук становится целью атаки, находясь\nза укрытием, то эта атака имеет штраф -1\nкость за каждую четверть тела жука, которая\nукрыта(это не может уменьшить кости атаки\nдо 0). Если укрыто всё тело, то жук имеет\nполное укрытие и не может быть атакован\nнапрямую.\nВдобавок, если укрытием от атаки\nстановиться повреждаемая цель, и атака\nполностью промахивается (то есть от нее не\nуклонились, ее не\nпарировали, а именно\nпромахивается), бросьте кости, которые\nбыли убраны из атаки штрафом укрытия.\nЕсли бросок успешен, атака попадает по\nукрытию.\nЕсли укрытие уклоняется, то цель атаки\nбольше его не имеет, а кости входят обратно\nв изначальный бросок атаки.",
+      "summary": "Если жук становится целью атаки, находясь за укрытием, то эта атака имеет штраф -1 кость за каждую четверть тела жука, которая укрыта(это не может уменьшить кости атаки до 0). Если укрыто всё тело, то жук имеет полное укрытие и не может...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.cover"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.cover",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.cover"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "defense",
+        "glossary",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 122,
+        "page_end": 122
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.difficult-terrain",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Пересеченная местность",
+      "raw_text": "Пересеченная местность\nПересеченная местность может быть\nсоздана разными эффектами.\nШтрафы пересеченной местности распи-\nсаны в описании эффекта",
+      "summary": "Пересеченная местность может быть создана разными эффектами. Штрафы пересеченной местности распи- саны в описании эффекта",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.difficult-terrain"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.difficult-terrain",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.difficult-terrain"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "glossary",
+        "movement",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 122,
+        "page_end": 122
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.focus-concentration",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Фокусировка/Концентрация",
+      "raw_text": "Фокусировка/Концентрация\nВ бою жук может совершить Действие\nФокусировки — короткий промежуток концентра-\nции, на протяжении которого жук направляет\nэнергию в попытке произвести какой-то эффект.\nДействие Фокусировки заканчивает ход жука.\nЭффект Фокусировки всегда вступает в силу в\nначале следующего хода жука. Если тот потратит\nВыносливость или Душу до начала следующего\nхода, то эффекты Фокусировки и все ресурсы,\nпотраченные на нее, исчезают.",
+      "summary": "В бою жук может совершить Действие Фокусировки — короткий промежуток концентра- ции, на протяжении которого жук направляет энергию в попытке произвести какой-то эффект. Действие Фокусировки заканчивает ход жука. Эффект Фокусировки всегда...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.focus-concentration"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.focus-concentration",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.focus-concentration"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "focus",
+        "glossary",
+        "soul",
+        "stamina",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 122,
+        "page_end": 122
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.soul-focus",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Фокусировка Души",
+      "raw_text": "Фокусировка Души\nЖук может Фокусироваться, чтобы исцелить себя.\nВложите в Фокусировку какое-то количество Души\nи бросьте соответствующее количество кубиков.\nКаждый успешный бросок восстанавливает 1\nСердце. За каждые 3 Души, вложенные в одну\nФокусировку, 1 кость считается автоматически\nуспешно брошенной.\nЖук имеет число повторных бросков на проверку\nФокусировки, равное половине его Проница-\nтельности, округлённой в меньшую сторону.\nФокусировка Искусства\nЖук может совершить Фокусировку, чтобы\nиспользовать Искусство, которое он не\nподготовил и в котором давно не упражнялся.\nПотраченное на концентрацию время позволяет\nему использовать Искусство, даже если жук\nдавно не тренировался.",
+      "summary": "Жук может Фокусироваться, чтобы исцелить себя. Вложите в Фокусировку какое-то количество Души и бросьте соответствующее количество кубиков. Каждый успешный бросок восстанавливает 1 Сердце. За каждые 3 Души, вложенные в одну Фокусировку,...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.soul-focus"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.soul-focus",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.soul-focus"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "focus",
+        "glossary",
+        "soul",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 122,
+        "page_end": 122
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.spell-focus",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Фокусировка Заклинания",
+      "raw_text": "Фокусировка Заклинания\nЖук может Фокусироваться, чтобы упростить\nприменение заклинания, ослабив нагрузку на свою\nДушу. При такой Фокусировке цена следующего\nиспользованного заклинания снижена на Ранг\nжука в Пути заклинания.\nФокусировка Заклинания происходит лишь в\nопасности, поэтому не может быть использована в\nотсутствии последней. Фокусировки Заклинания\nне складываются.",
+      "summary": "Жук может Фокусироваться, чтобы упростить применение заклинания, ослабив нагрузку на свою Душу. При такой Фокусировке цена следующего использованного заклинания снижена на Ранг жука в Пути заклинания. Фокусировка Заклинания происходит ли...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.spell-focus"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.spell-focus",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.spell-focus"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "focus",
+        "glossary",
+        "soul",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 122,
+        "page_end": 122
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.combat-rules.supplies-focus",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "combat-rules",
+      "name": "Фокусировка Припасов",
+      "raw_text": "Фокусировка Припасов\nЖук может Фокусироваться, чтобы восстановить\nПрипасы, собирая новые предметы. После\nсрабатывания Фокусировки жук получает\nПрипасы, число которых равно его Рангу в\nотносящихся к Припасам Путях, но с\nмаксимумом в 4.\nДо Отдыха это можно сделать лишь 1 раз.\n121",
+      "summary": "Жук может Фокусироваться, чтобы восстановить Припасы, собирая новые предметы. После срабатывания Фокусировки жук получает Припасы, число которых равно его Рангу в относящихся к Припасам Путях, но с максимумом в 4. До Отдыха это можно сде...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "combat-rules.supplies-focus"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "combat-rules.supplies-focus",
+        "source_file": "combat-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "combat-rules.supplies-focus"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "combat",
+        "combat-rules",
+        "focus",
+        "glossary",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 122,
+        "page_end": 122
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.travel-rest-rules.time",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "travel-rest-rules",
+      "name": "Время",
+      "raw_text": "Время\nВ жизни Жука следить за временем\nстановится не так важно. Исключительно\nМастер решает, как будет отслеживать время\nв игре. Но эта система не требует сложных\nвычислений в минутах, часах и днях. Вместо\nэтого время отслеживается через сцены и\nотдых.",
+      "summary": "В жизни Жука следить за временем становится не так важно. Исключительно Мастер решает, как будет отслеживать время в игре. Но эта система не требует сложных вычислений в минутах, часах и днях. Вместо этого время отслеживается через сцены...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "travel-rest-rules.time"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "travel-rest-rules.time",
+        "source_file": "travel-rest-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "travel-rest-rules.time"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "glossary",
+        "rest",
+        "term-index",
+        "time",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 123,
+        "page_end": 123
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.travel-rest-rules.scenes",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "travel-rest-rules",
+      "name": "Сцены",
+      "raw_text": "Сцены\nКогда Мастер добавляет, убирает или\nизменяет что-либо на игровом поле, будь это\nотдых, путешествие из одного места в другое,\nили уход игроков из локации, происходит\nсмена сцены.",
+      "summary": "Когда Мастер добавляет, убирает или изменяет что-либо на игровом поле, будь это отдых, путешествие из одного места в другое, или уход игроков из локации, происходит смена сцены.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "travel-rest-rules.scenes"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "travel-rest-rules.scenes",
+        "source_file": "travel-rest-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "travel-rest-rules.scenes"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "glossary",
+        "rest",
+        "term-index",
+        "time",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 123,
+        "page_end": 123
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.travel-rest-rules.rest",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "travel-rest-rules",
+      "name": "Отдых",
+      "raw_text": "Отдых\nКогда жуки останавливаются, чтобы разбить\nлагерь или выспаться в таверне, они уходят\nна отдых. Некоторые эффекты и способности\nизмеряются отдыхом, и Сытость жука\nуменьшается, когда он отдыхает. Отдыхом\nтакже считается момент, когда игроки кидают\nкости переваривания пищи. Решение уйти на\nотдых, когда жуки голодают, может быть\nкритическим, и если не быть слишком\nосторожным, запасы еды могут иссякнуть!",
+      "summary": "Когда жуки останавливаются, чтобы разбить лагерь или выспаться в таверне, они уходят на отдых. Некоторые эффекты и способности измеряются отдыхом, и Сытость жука уменьшается, когда он отдыхает. Отдыхом также считается момент, когда игрок...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "travel-rest-rules.rest"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "travel-rest-rules.rest",
+        "source_file": "travel-rest-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "travel-rest-rules.rest"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "glossary",
+        "hunger",
+        "rest",
+        "term-index",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 123,
+        "page_end": 123
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.travel-rest-rules.break",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "travel-rest-rules",
+      "name": "Перерыв",
+      "raw_text": "Перерыв\nКогда жуки хотят уйти на короткий отдых\nчтобы передохнуть, они могут выбрать тип\nотдыха, который даст одно Действия Лагеря.\nСон во время короткого отдыха не\nвосстанавливает дополнительное Сердце за\nотсутствие голода. Короткий отдых также не\nтратит Голод, в то время как\nПродолжительный отдых тратит. Мастер\nможет сделать ограничение на количество\nперерывов, которые может сделать группа,\nчтобы не обесценить отдых.",
+      "summary": "Когда жуки хотят уйти на короткий отдых чтобы передохнуть, они могут выбрать тип отдыха, который даст одно Действия Лагеря. Сон во время короткого отдыха не восстанавливает дополнительное Сердце за отсутствие голода. Короткий отдых также...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "travel-rest-rules.break"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "travel-rest-rules.break",
+        "source_file": "travel-rest-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "travel-rest-rules.break"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "glossary",
+        "hunger",
+        "rest",
+        "term-index",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 123,
+        "page_end": 123
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.travel-rest-rules.camp-actions",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "travel-rest-rules",
+      "name": "Действия Лагеря",
+      "raw_text": "Действия Лагеря\nКогда жук останавливается,\nчтобы отдохнуть,\nон может совершить два Действия Лагеря во\nвремя этого отдыха. Если жук не спит во\nвремя отдыха\n, он не восстанавливает душу за\nэтот отдых.\nДоступные Действия Лагеря это сон, уход,\nремонт, ремесло, исследование, практика и\nтренировка.\nМастер может придумывать свои Действия\nЛагеря, если так пожелает.",
+      "summary": "Когда жук останавливается, чтобы отдохнуть, он может совершить два Действия Лагеря во время этого отдыха. Если жук не спит во время отдыха , он не восстанавливает душу за этот отдых. Доступные Действия Лагеря это сон, уход, ремонт, ремес...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "travel-rest-rules.camp-actions"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "travel-rest-rules.camp-actions",
+        "source_file": "travel-rest-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "travel-rest-rules.camp-actions"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "glossary",
+        "rest",
+        "term-index",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 123,
+        "page_end": 123
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.travel-rest-rules.sleep",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "travel-rest-rules",
+      "name": "Сон",
+      "raw_text": "Сон\nЖук восстанавливает 1 Сердце.",
+      "summary": "Жук восстанавливает 1 Сердце.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "travel-rest-rules.sleep"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "travel-rest-rules.sleep",
+        "source_file": "travel-rest-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "travel-rest-rules.sleep"
+        }
+      ],
+      "tags": [
+        "camp-action",
+        "character-creation",
+        "glossary",
+        "rest",
+        "term-index",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 123,
+        "page_end": 123
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.travel-rest-rules.care",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "travel-rest-rules",
+      "name": "Уход",
+      "raw_text": "Уход\nЖук может совершить проверку Медицины\nили похожего Навыка. За каждый успех жук\nполучает 1 восстановление Сердца или 1\nвосстановление урона Характеристики,\nкоторое он может распределить между\nсобой и союзниками.\nЖук может совершить проверку Ухода за\nоружием, Кузнечного дела или похожего\nНавыка. За каждый успех жук зарабатывает 1\nвосстановление Прочности или Износа,\nкоторые он может распределить между\nснаряжением.",
+      "summary": "Жук может совершить проверку Медицины или похожего Навыка. За каждый успех жук получает 1 восстановление Сердца или 1 восстановление урона Характеристики, которое он может распределить между собой и союзниками. Жук может совершить провер...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "travel-rest-rules.care"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "travel-rest-rules.care",
+        "source_file": "travel-rest-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "travel-rest-rules.care"
+        }
+      ],
+      "tags": [
+        "camp-action",
+        "character-creation",
+        "glossary",
+        "rest",
+        "term-index",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 123,
+        "page_end": 123
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.travel-rest-rules.crafting",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "travel-rest-rules",
+      "name": "Ремесло",
+      "raw_text": "Ремесло\nЖук может совершить подходящую\nпроверку Навыка, если у него есть доступ к\nнеобходимым материалам.\nСобрав количество успехов, равное\nмодификатору Сложности предмета,\nснаряжения или модификации, жук может\nего создать. Если жук не смог закончить\nпроект за один Отдых, он может\nвозобновить прогресс в следующий раз.",
+      "summary": "Жук может совершить подходящую проверку Навыка, если у него есть доступ к необходимым материалам. Собрав количество успехов, равное модификатору Сложности предмета, снаряжения или модификации, жук может его создать. Если жук не смог зако...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "travel-rest-rules.crafting"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "travel-rest-rules.crafting",
+        "source_file": "travel-rest-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "travel-rest-rules.crafting"
+        }
+      ],
+      "tags": [
+        "camp-action",
+        "character-creation",
+        "downtime",
+        "glossary",
+        "rest",
+        "term-index",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 123,
+        "page_end": 123
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.travel-rest-rules.research",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "travel-rest-rules",
+      "name": "Исследование",
+      "raw_text": "Исследование\nЖук может совершить подходящую\nпроверку Навыка чтобы изучить новую\nТайну или ритуал. Как и при создании\nпредмета, он долж\nен получить 3 успеха\n(или больше, по решению Мастера), чтобы\nзакончить, и\nможет работать над проектом\nкаждый последующий Отдых. Когда дело\nдоходит до изобретения новой Тайны или\nритуала, Мастер должен решить, какая\nбудет Сложность при изучении.",
+      "summary": "Жук может совершить подходящую проверку Навыка чтобы изучить новую Тайну или ритуал. Как и при создании предмета, он долж ен получить 3 успеха (или больше, по решению Мастера), чтобы закончить, и может работать над проектом каждый послед...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "travel-rest-rules.research"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "travel-rest-rules.research",
+        "source_file": "travel-rest-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "travel-rest-rules.research"
+        }
+      ],
+      "tags": [
+        "camp-action",
+        "character-creation",
+        "downtime",
+        "glossary",
+        "rest",
+        "term-index",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 124,
+        "page_end": 124
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.travel-rest-rules.practice",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "travel-rest-rules",
+      "name": "Практика",
+      "raw_text": "Практика\nЖук\nможет сделать проверку подходящего\nНавыка, чтобы попрактиковаться и развить\nновое Искусство. Как и с исследованием,\nжук должен получить 3 успеха. Можно\nсовершить дополнительные броски если\nжук уже знает похожее Искусство или\nИскусство из такой же школы боя. Как и в\nмагии, если жук желает создать\nсобственное Искусство, он должен\nобсудить это с Мастером и решить, что\nподойдет лучше.",
+      "summary": "Жук может сделать проверку подходящего Навыка, чтобы попрактиковаться и развить новое Искусство. Как и с исследованием, жук должен получить 3 успеха. Можно совершить дополнительные броски если жук уже знает похожее Искусство или Искусств...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "travel-rest-rules.practice"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "travel-rest-rules.practice",
+        "source_file": "travel-rest-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "travel-rest-rules.practice"
+        }
+      ],
+      "tags": [
+        "camp-action",
+        "character-creation",
+        "downtime",
+        "glossary",
+        "term-index",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 124,
+        "page_end": 124
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.travel-rest-rules.training",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "travel-rest-rules",
+      "name": "Тренировка",
+      "raw_text": "Тренировка\nПуте\nм совместных тренировок один жук\nможет передать другому Искусства, Тайны\nи ритуалы, которыми владеет. Обучаться\nвместе всегда проще, чем в одиночку,\nпоэтому оба жука делают\nпроверку Навыка\nпротив Сложности завершения их\nтренировки и суммируют свои результаты.",
+      "summary": "Путе м совместных тренировок один жук может передать другому Искусства, Тайны и ритуалы, которыми владеет. Обучаться вместе всегда проще, чем в одиночку, поэтому оба жука делают проверку Навыка против Сложности завершения их тренировки и...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "travel-rest-rules.training"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "travel-rest-rules.training",
+        "source_file": "travel-rest-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "travel-rest-rules.training"
+        }
+      ],
+      "tags": [
+        "camp-action",
+        "character-creation",
+        "downtime",
+        "glossary",
+        "term-index",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 124,
+        "page_end": 124
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.travel-rest-rules.environmental-hazards",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "travel-rest-rules",
+      "name": "Опасности Окружения",
+      "raw_text": "Опасности Окружения\nОкружающий мир опасен для жука и не\nтолько из-за других существ , живущих в нем.\nИногда жукам приходится проходить через\nлужи кислоты, ямы острых камней, или пекло\nвулканических пещер. Вся еда в локации\nможет быть ядовита или непитательной для\nподдержания Сытости жука.\nКогда жук попадает в такие напряженные\nусловия, он может автоматически получить\nурон, если провалит проверку Навыка на\nбезопасное прохождение ландшафта:\nпрыжки\nчерез хлипкие камни в лужах кислоты или\nпродирание сквозь заросли шипов. Иногда\nжуки рискуют получить урон или Негативный\nэффект от высоких или низких температур, и\nпройти проверку Панциря,\nчтобы выстоять\nпротив опасности.\nИногда опасности окружения могут быть\nиспользованы как загадка, чтобы подтолкнуть\nжуков думать, а иногда окружение может быть\nпроверкой Выносливости, которую нельзя\nизбежать. Но к ней можно подготовиться:\nнапример, взяв с собой теплую одежду в\nхолодную местность.",
+      "summary": "Окружающий мир опасен для жука и не только из-за других существ , живущих в нем. Иногда жукам приходится проходить через лужи кислоты, ямы острых камней, или пекло вулканических пещер. Вся еда в локации может быть ядовита или непитательн...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "travel-rest-rules.environmental-hazards"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "travel-rest-rules.environmental-hazards",
+        "source_file": "travel-rest-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "travel-rest-rules.environmental-hazards"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "glossary",
+        "hazards",
+        "term-index",
+        "travel",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 124,
+        "page_end": 124
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.travel-rest-rules.falling-damage",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "travel-rest-rules",
+      "name": "Урон от падения",
+      "raw_text": "Урон от падения?\nЕдинственное, о чем жуку не надо беспоко-\nиться, это падение. Жук падает со скоростью\n10 клеток за ход и при обычных условиях жуки\nне страдают от урона от падения.\nНе бойтесь спрыгнуть с высокой скалы!\nПросто убедитесь , что ваш жук знает, как\nподняться обратно.",
+      "summary": "Единственное, о чем жуку не надо беспоко- иться, это падение. Жук падает со скоростью 10 клеток за ход и при обычных условиях жуки не страдают от урона от падения. Не бойтесь спрыгнуть с высокой скалы! Просто убедитесь , что ваш жук знае...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "travel-rest-rules.falling-damage"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "travel-rest-rules.falling-damage",
+        "source_file": "travel-rest-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "travel-rest-rules.falling-damage"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "glossary",
+        "hazards",
+        "term-index",
+        "travel",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 124,
+        "page_end": 124
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.social-rules.overview",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "social-rules",
+      "name": "Общение",
+      "raw_text": "12. ОБЩЕНИЕ\nСоциальные проверки выполняются, когда жук пытается повлиять на расположение и\nдействия других жуков. Существует несколько типов социальных проверок, которые\nсовершаются всякий раз, когда жук пытается социально повлиять на других жуков.",
+      "summary": "Социальные проверки выполняются, когда жук пытается повлиять на расположение и действия других жуков. Существует несколько типов социальных проверок, которые совершаются всякий раз, когда жук пытается социально повлиять на других жуков.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "social-rules.overview"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "social-rules.overview",
+        "source_file": "social-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "social-rules.overview"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "glossary",
+        "social",
+        "social-rules",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 125,
+        "page_end": 125
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.social-rules.charm",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "social-rules",
+      "name": "Очарование",
+      "raw_text": "Очарование\nОчарование позволяет вашему жуку\nиспользовать свое обаяние и привлека-\nтельную внешность, чтобы заставить\nдругих слушать. Приятная атмосфера и\nслова могут помешать некоторым воспри -\nнимать жука всерьез, но другие будут в\nвосторге.\nЧтобы пройти проверку Очарования, жук\nбросает количество кубиков, равное его\nпоказателю Привлекательности плюс его\nРанг в соответствующем Навыке, таком как\nЭтичность.",
+      "summary": "Очарование позволяет вашему жуку использовать свое обаяние и привлека- тельную внешность, чтобы заставить других слушать. Приятная атмосфера и слова могут помешать некоторым воспри - нимать жука всерьез, но другие будут в восторге. Чтобы...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "social-rules.charm"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "social-rules.charm",
+        "source_file": "social-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "social-rules.charm"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "glossary",
+        "social",
+        "social-rules",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 125,
+        "page_end": 125
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.social-rules.intimidation",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "social-rules",
+      "name": "Запугивание",
+      "raw_text": "Запугивание\nЕсли быть любезным недостаточно, ваш\nжук может попытаться запугать других,\nчтобы добиться своего. Некоторые жуки\nуважают силу, но другие будут недовольны\nманипулированием через страх.\nЧтобы пройти проверку Запугивания, жук\nбросает количество кубиков, равное\nзначению Жути, добавляя его Ранг в\nНавыке, таком как Запугивание.",
+      "summary": "Если быть любезным недостаточно, ваш жук может попытаться запугать других, чтобы добиться своего. Некоторые жуки уважают силу, но другие будут недовольны манипулированием через страх. Чтобы пройти проверку Запугивания, жук бросает количе...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "social-rules.intimidation"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "social-rules.intimidation",
+        "source_file": "social-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "social-rules.intimidation"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "glossary",
+        "social",
+        "social-rules",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 125,
+        "page_end": 125
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.social-rules.deception",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "social-rules",
+      "name": "Обман",
+      "raw_text": "Обман\nПравду не всегда легко принять. Когда ваш\nжук не может заставить других задуматься,\nему придется исказить факты, чтобы они\nсоответствовали истории. Будьте осторож-\nны, чтобы ваш жук не запутался в паутине\nлжи!\nПроверка Обмана совершается с использо-\nванием Проницательности жука и его\nРанга в Навыке, например, Обмане. Ей\nпротивопоставляется проверка Проница-\nтельности и ли другой соответствующий\nнавык их цели, такой как Интуиция.",
+      "summary": "Правду не всегда легко принять. Когда ваш жук не может заставить других задуматься, ему придется исказить факты, чтобы они соответствовали истории. Будьте осторож- ны, чтобы ваш жук не запутался в паутине лжи! Проверка Обмана совершается...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "social-rules.deception"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "social-rules.deception",
+        "source_file": "social-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "social-rules.deception"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "glossary",
+        "opposed-check",
+        "social",
+        "social-rules",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 125,
+        "page_end": 125
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.social-rules.persuasion",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "social-rules",
+      "name": "Убеждение",
+      "raw_text": "Убеждение\nЭто может быть нелегко, но иногда правда\n— это то, что необходимо. Вместо того,\nчтобы полагаться на тон или манипуляции,\nможете попытаться убедить других,\nиспользуя разум и спокойствие. Проверка\nУбеждения совершается с использованием\nПроницательности жука, а также его Ранга\nв соответствующем навыке, таком как\nУбеждение.",
+      "summary": "Это может быть нелегко, но иногда правда — это то, что необходимо. Вместо того, чтобы полагаться на тон или манипуляции, можете попытаться убедить других, используя разум и спокойствие. Проверка Убеждения совершается с использованием Про...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "social-rules.persuasion"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "social-rules.persuasion",
+        "source_file": "social-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "social-rules.persuasion"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "glossary",
+        "social",
+        "social-rules",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 125,
+        "page_end": 125
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.social-rules.impression",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "social-rules",
+      "name": "Впечатление",
+      "raw_text": "Впечатление\nЖуки могут использовать угрожающую\nвнешность, чтобы запугивать, но жук также\nможет использовать свои лучшие качества,\nчтобы вызвать восхищение.\nКогда жук захочет впечатлить других,\nвыберите, какое качество он хочет\nиспользовать: сокрушительная Мощь или\nГрациозный танец? В зависимости от цели,\nэффект от выступления вашего жука может\nиметь разный эффект на отношения.\nЧтобы пройти проверку Впечатления, жук\nвыбирает одну из своих Главных\nХарактеристик: Мощь, Проницательность,\nПанцирь или Грация; или одну из\nХарактеристик Жути или Привлека-\nтельности. Он делает бросок, используя эту\nХарактеристику, и добавляет свой Ранг в\nНавыке, например, Впечатлении или\nИсполнении.\n124",
+      "summary": "Жуки могут использовать угрожающую внешность, чтобы запугивать, но жук также может использовать свои лучшие качества, чтобы вызвать восхищение. Когда жук захочет впечатлить других, выберите, какое качество он хочет использовать: сокрушит...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "social-rules.impression"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "social-rules.impression",
+        "source_file": "social-rules.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "social-rules.impression"
+        }
+      ],
+      "tags": [
+        "character-creation",
+        "glossary",
+        "social",
+        "social-rules",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 125,
+        "page_end": 125
+      },
+      "needs_manual_review": false
+    },
+    {
+      "id": "glossary.paths.dust.shells",
+      "type": "glossary-entry",
+      "category": "Glossary",
+      "subcategory": "paths",
+      "name": "Оболочки",
+      "raw_text": "Приказал их господин, и мертвые снова поднялись на службу.\n«Восстань, голодай и пади. Ибо Прах ты и в Прах возвратишься»\nОболочки\nОболочка имеет те же Черты, что и при жизни, но больше не имеет знаний,\nЗаклинаний, Искусств, Путей, Навыков или Меток. Оболочка не может говорить и\nне получает ни пользы, ни вреда от потребляемых веществ. Она все еще может\nкровоточить, теряя песок и пыль, которые придают ей форму.\nУ Оболочки на 2 Скорости меньше, чем было при жизни (минимум 1) она получает\n2 Жути, имеет 0 Проницательности и не имеет Сердец, имеет 3 Выносливости и 2\nДуши — Душа, потраченная на ее оживление. Ее Душу может восполнить только\nтот, кто создал Оболочку, прикоснувшись к ней и Сфокусировав в ней Душу.\nОболочка имеет Поглощение 10.\nПри повреждении Оболочка теряет Панцирь вместо Сердец. Когда они достигают\n0, она разрушается и «умирает». Постоянный урон Панцирю превращает ее в\nпыль. Временный урон Панцирю может «убить» Оболочку, но позже ее можно\nподнять снова, сохранив уже имеющийся у ее постоянный урон Панцирю.\nОболочка, у которой Душа уменьшена до 0, также теряет свои мистические\nсвойства и становится обычным телом, которое позже может быть превращено в\nновую Оболочку.\n44",
+      "summary": "Приказал их господин, и мертвые снова поднялись на службу. «Восстань, голодай и пади. Ибо Прах ты и в Прах возвратишься» Оболочки Оболочка имеет те же Черты, что и при жизни, но больше не имеет знаний, Заклинаний, Искусств, Путей, Навыко...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "definition_reference",
+          "canonical_rule_id": "paths.dust.shells"
+        }
+      ],
+      "modifiers": {
+        "canonical_rule_id": "paths.dust.shells",
+        "source_file": "paths.json"
+      },
+      "relationships": [
+        {
+          "type": "defined_by",
+          "target": "paths.dust.shells"
+        }
+      ],
+      "tags": [
+        "companion",
+        "dust",
+        "glossary",
+        "glossary-term",
+        "path",
+        "term-index",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 45,
+        "page_end": 45
+      },
+      "needs_manual_review": false
+    }
+  ],
+  "release_metadata": {
+    "rdb_version": "1.0.0",
+    "published_at": "2026-07-01T17:49:47.900611+00:00"
+  }
+}

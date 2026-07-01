@@ -14,8 +14,8 @@ Each data file contains:
 {
   "category": "Traits",
   "file": "traits.json",
-  "complete": false,
-  "items": []
+  "complete": true,
+  "items": [{ "id": "normalized.rule.object" }]
 }
 ```
 
@@ -23,10 +23,10 @@ Each item must follow `schema/schema.json`.
 
 ## Completeness
 
-Placeholder files are intentionally marked:
+Released v1.0 data files are marked:
 
 ```json
-"complete": false
+"complete": true
 ```
 
 If a required category is incomplete, MODE CREATE must stop with:

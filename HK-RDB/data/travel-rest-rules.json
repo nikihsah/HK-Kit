@@ -1,1 +1,506 @@
-{"category":"Travel And Rest Rules","file":"travel-rest-rules.json","complete":false,"items":[]}
+{
+  "category": "Travel And Rest Rules",
+  "file": "travel-rest-rules.json",
+  "complete": true,
+  "items": [
+    {
+      "id": "travel-rest-rules.time",
+      "type": "travel-rest-rule",
+      "category": "Travel And Rest Rules",
+      "subcategory": "time",
+      "name": "Время",
+      "raw_text": "Время\nВ жизни Жука следить за временем\nстановится не так важно. Исключительно\nМастер решает, как будет отслеживать время\nв игре. Но эта система не требует сложных\nвычислений в минутах, часах и днях. Вместо\nэтого время отслеживается через сцены и\nотдых.",
+      "summary": "В жизни Жука следить за временем становится не так важно. Исключительно Мастер решает, как будет отслеживать время в игре. Но эта система не требует сложных вычислений в минутах, часах и днях. Вместо этого время отслеживается через сцены...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "unparsed_travel_rest_rule_text",
+          "text": "В жизни Жука следить за временем\nстановится не так важно. Исключительно\nМастер решает, как будет отслеживать время\nв игре. Но эта система не требует сложных\nвычислений в минутах, часах и днях. Вместо\nэтого время отслеживается через сцены и\nотдых.",
+          "needs_manual_review": false
+        }
+      ],
+      "modifiers": {
+        "rule_slug": "time",
+        "needs_manual_review": false
+      },
+      "relationships": [],
+      "tags": [
+        "character-creation",
+        "rest",
+        "time",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 123,
+        "page_end": 123
+      },
+      "needs_manual_review": false,
+      "draft_id": "travel-rest-rules.p123.b101.candidate"
+    },
+    {
+      "id": "travel-rest-rules.scenes",
+      "type": "travel-rest-rule",
+      "category": "Travel And Rest Rules",
+      "subcategory": "scenes",
+      "name": "Сцены",
+      "raw_text": "Сцены\nКогда Мастер добавляет, убирает или\nизменяет что-либо на игровом поле, будь это\nотдых, путешествие из одного места в другое,\nили уход игроков из локации, происходит\nсмена сцены.",
+      "summary": "Когда Мастер добавляет, убирает или изменяет что-либо на игровом поле, будь это отдых, путешествие из одного места в другое, или уход игроков из локации, происходит смена сцены.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "unparsed_travel_rest_rule_text",
+          "text": "Когда Мастер добавляет, убирает или\nизменяет что-либо на игровом поле, будь это\nотдых, путешествие из одного места в другое,\nили уход игроков из локации, происходит\nсмена сцены.",
+          "needs_manual_review": false
+        }
+      ],
+      "modifiers": {
+        "rule_slug": "scenes",
+        "needs_manual_review": false
+      },
+      "relationships": [],
+      "tags": [
+        "character-creation",
+        "rest",
+        "time",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 123,
+        "page_end": 123
+      },
+      "needs_manual_review": false,
+      "draft_id": "travel-rest-rules.p123.b102.candidate"
+    },
+    {
+      "id": "travel-rest-rules.rest",
+      "type": "travel-rest-rule",
+      "category": "Travel And Rest Rules",
+      "subcategory": "rest",
+      "name": "Отдых",
+      "raw_text": "Отдых\nКогда жуки останавливаются, чтобы разбить\nлагерь или выспаться в таверне, они уходят\nна отдых. Некоторые эффекты и способности\nизмеряются отдыхом, и Сытость жука\nуменьшается, когда он отдыхает. Отдыхом\nтакже считается момент, когда игроки кидают\nкости переваривания пищи. Решение уйти на\nотдых, когда жуки голодают, может быть\nкритическим, и если не быть слишком\nосторожным, запасы еды могут иссякнуть!",
+      "summary": "Когда жуки останавливаются, чтобы разбить лагерь или выспаться в таверне, они уходят на отдых. Некоторые эффекты и способности измеряются отдыхом, и Сытость жука уменьшается, когда он отдыхает. Отдыхом также считается момент, когда игрок...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "unparsed_travel_rest_rule_text",
+          "text": "Когда жуки останавливаются, чтобы разбить\nлагерь или выспаться в таверне, они уходят\nна отдых. Некоторые эффекты и способности\nизмеряются отдыхом, и Сытость жука\nуменьшается, когда он отдыхает. Отдыхом\nтакже считается момент, когда игроки кидают\nкости переваривания пищи. Решение уйти на\nотдых, когда жуки голодают, может быть\nкритическим, и если не быть слишком\nосторожным, запасы еды могут иссякнуть!",
+          "needs_manual_review": false
+        }
+      ],
+      "modifiers": {
+        "rule_slug": "rest",
+        "needs_manual_review": false
+      },
+      "relationships": [],
+      "tags": [
+        "character-creation",
+        "hunger",
+        "rest",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 123,
+        "page_end": 123
+      },
+      "needs_manual_review": false,
+      "draft_id": "travel-rest-rules.p123.b103.candidate"
+    },
+    {
+      "id": "travel-rest-rules.break",
+      "type": "travel-rest-rule",
+      "category": "Travel And Rest Rules",
+      "subcategory": "break",
+      "name": "Перерыв",
+      "raw_text": "Перерыв\nКогда жуки хотят уйти на короткий отдых\nчтобы передохнуть, они могут выбрать тип\nотдыха, который даст одно Действия Лагеря.\nСон во время короткого отдыха не\nвосстанавливает дополнительное Сердце за\nотсутствие голода. Короткий отдых также не\nтратит Голод, в то время как\nПродолжительный отдых тратит. Мастер\nможет сделать ограничение на количество\nперерывов, которые может сделать группа,\nчтобы не обесценить отдых.",
+      "summary": "Когда жуки хотят уйти на короткий отдых чтобы передохнуть, они могут выбрать тип отдыха, который даст одно Действия Лагеря. Сон во время короткого отдыха не восстанавливает дополнительное Сердце за отсутствие голода. Короткий отдых также...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "unparsed_travel_rest_rule_text",
+          "text": "Когда жуки хотят уйти на короткий отдых\nчтобы передохнуть, они могут выбрать тип\nотдыха, который даст одно Действия Лагеря.\nСон во время короткого отдыха не\nвосстанавливает дополнительное Сердце за\nотсутствие голода. Короткий отдых также не\nтратит Голод, в то время как\nПродолжительный отдых тратит. Мастер\nможет сделать ограничение на количество\nперерывов, которые может сделать группа,\nчтобы не обесценить отдых.",
+          "needs_manual_review": false
+        }
+      ],
+      "modifiers": {
+        "rule_slug": "break",
+        "needs_manual_review": false
+      },
+      "relationships": [],
+      "tags": [
+        "character-creation",
+        "hunger",
+        "rest",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 123,
+        "page_end": 123
+      },
+      "needs_manual_review": false,
+      "draft_id": "travel-rest-rules.p123.b104.candidate"
+    },
+    {
+      "id": "travel-rest-rules.camp-actions",
+      "type": "travel-rest-rule",
+      "category": "Travel And Rest Rules",
+      "subcategory": "camp-actions",
+      "name": "Действия Лагеря",
+      "raw_text": "Действия Лагеря\nКогда жук останавливается,\nчтобы отдохнуть,\nон может совершить два Действия Лагеря во\nвремя этого отдыха. Если жук не спит во\nвремя отдыха\n, он не восстанавливает душу за\nэтот отдых.\nДоступные Действия Лагеря это сон, уход,\nремонт, ремесло, исследование, практика и\nтренировка.\nМастер может придумывать свои Действия\nЛагеря, если так пожелает.",
+      "summary": "Когда жук останавливается, чтобы отдохнуть, он может совершить два Действия Лагеря во время этого отдыха. Если жук не спит во время отдыха , он не восстанавливает душу за этот отдых. Доступные Действия Лагеря это сон, уход, ремонт, ремес...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "unparsed_travel_rest_rule_text",
+          "text": "Когда жук останавливается,\nчтобы отдохнуть,\nон может совершить два Действия Лагеря во\nвремя этого отдыха. Если жук не спит во\nвремя отдыха\n, он не восстанавливает душу за\nэтот отдых.\nДоступные Действия Лагеря это сон, уход,\nремонт, ремесло, исследование, практика и\nтренировка.\nМастер может придумывать свои Действия\nЛагеря, если так пожелает.",
+          "needs_manual_review": false
+        }
+      ],
+      "modifiers": {
+        "rule_slug": "camp-actions",
+        "needs_manual_review": false
+      },
+      "relationships": [],
+      "tags": [
+        "character-creation",
+        "rest",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 123,
+        "page_end": 123
+      },
+      "needs_manual_review": false,
+      "draft_id": "travel-rest-rules.p123.b105.candidate"
+    },
+    {
+      "id": "travel-rest-rules.sleep",
+      "type": "travel-rest-rule",
+      "category": "Travel And Rest Rules",
+      "subcategory": "sleep",
+      "name": "Сон",
+      "raw_text": "Сон\nЖук восстанавливает 1 Сердце.",
+      "summary": "Жук восстанавливает 1 Сердце.",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "unparsed_travel_rest_rule_text",
+          "text": "Жук восстанавливает 1 Сердце.",
+          "needs_manual_review": false
+        }
+      ],
+      "modifiers": {
+        "rule_slug": "sleep",
+        "needs_manual_review": false
+      },
+      "relationships": [],
+      "tags": [
+        "camp-action",
+        "character-creation",
+        "rest",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 123,
+        "page_end": 123
+      },
+      "needs_manual_review": false,
+      "draft_id": "travel-rest-rules.p123.b106.candidate"
+    },
+    {
+      "id": "travel-rest-rules.care",
+      "type": "travel-rest-rule",
+      "category": "Travel And Rest Rules",
+      "subcategory": "care",
+      "name": "Уход",
+      "raw_text": "Уход\nЖук может совершить проверку Медицины\nили похожего Навыка. За каждый успех жук\nполучает 1 восстановление Сердца или 1\nвосстановление урона Характеристики,\nкоторое он может распределить между\nсобой и союзниками.\nЖук может совершить проверку Ухода за\nоружием, Кузнечного дела или похожего\nНавыка. За каждый успех жук зарабатывает 1\nвосстановление Прочности или Износа,\nкоторые он может распределить между\nснаряжением.",
+      "summary": "Жук может совершить проверку Медицины или похожего Навыка. За каждый успех жук получает 1 восстановление Сердца или 1 восстановление урона Характеристики, которое он может распределить между собой и союзниками. Жук может совершить провер...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "unparsed_travel_rest_rule_text",
+          "text": "Жук может совершить проверку Медицины\nили похожего Навыка. За каждый успех жук\nполучает 1 восстановление Сердца или 1\nвосстановление урона Характеристики,\nкоторое он может распределить между\nсобой и союзниками.\nЖук может совершить проверку Ухода за\nоружием, Кузнечного дела или похожего\nНавыка. За каждый успех жук зарабатывает 1\nвосстановление Прочности или Износа,\nкоторые он может распределить между\nснаряжением.",
+          "needs_manual_review": false
+        }
+      ],
+      "modifiers": {
+        "rule_slug": "care",
+        "needs_manual_review": false
+      },
+      "relationships": [],
+      "tags": [
+        "camp-action",
+        "character-creation",
+        "rest",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 123,
+        "page_end": 123
+      },
+      "needs_manual_review": false,
+      "draft_id": "travel-rest-rules.p123.b107.candidate"
+    },
+    {
+      "id": "travel-rest-rules.crafting",
+      "type": "travel-rest-rule",
+      "category": "Travel And Rest Rules",
+      "subcategory": "crafting",
+      "name": "Ремесло",
+      "raw_text": "Ремесло\nЖук может совершить подходящую\nпроверку Навыка, если у него есть доступ к\nнеобходимым материалам.\nСобрав количество успехов, равное\nмодификатору Сложности предмета,\nснаряжения или модификации, жук может\nего создать. Если жук не смог закончить\nпроект за один Отдых, он может\nвозобновить прогресс в следующий раз.",
+      "summary": "Жук может совершить подходящую проверку Навыка, если у него есть доступ к необходимым материалам. Собрав количество успехов, равное модификатору Сложности предмета, снаряжения или модификации, жук может его создать. Если жук не смог зако...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "unparsed_travel_rest_rule_text",
+          "text": "Жук может совершить подходящую\nпроверку Навыка, если у него есть доступ к\nнеобходимым материалам.\nСобрав количество успехов, равное\nмодификатору Сложности предмета,\nснаряжения или модификации, жук может\nего создать. Если жук не смог закончить\nпроект за один Отдых, он может\nвозобновить прогресс в следующий раз.",
+          "needs_manual_review": false
+        }
+      ],
+      "modifiers": {
+        "rule_slug": "crafting",
+        "needs_manual_review": false
+      },
+      "relationships": [],
+      "tags": [
+        "camp-action",
+        "character-creation",
+        "downtime",
+        "rest",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 123,
+        "page_end": 123
+      },
+      "needs_manual_review": false,
+      "draft_id": "travel-rest-rules.p123.b108.candidate"
+    },
+    {
+      "id": "travel-rest-rules.research",
+      "type": "travel-rest-rule",
+      "category": "Travel And Rest Rules",
+      "subcategory": "research",
+      "name": "Исследование",
+      "raw_text": "Исследование\nЖук может совершить подходящую\nпроверку Навыка чтобы изучить новую\nТайну или ритуал. Как и при создании\nпредмета, он долж\nен получить 3 успеха\n(или больше, по решению Мастера), чтобы\nзакончить, и\nможет работать над проектом\nкаждый последующий Отдых. Когда дело\nдоходит до изобретения новой Тайны или\nритуала, Мастер должен решить, какая\nбудет Сложность при изучении.",
+      "summary": "Жук может совершить подходящую проверку Навыка чтобы изучить новую Тайну или ритуал. Как и при создании предмета, он долж ен получить 3 успеха (или больше, по решению Мастера), чтобы закончить, и может работать над проектом каждый послед...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "unparsed_travel_rest_rule_text",
+          "text": "Жук может совершить подходящую\nпроверку Навыка чтобы изучить новую\nТайну или ритуал. Как и при создании\nпредмета, он долж\nен получить 3 успеха\n(или больше, по решению Мастера), чтобы\nзакончить, и\nможет работать над проектом\nкаждый последующий Отдых. Когда дело\nдоходит до изобретения новой Тайны или\nритуала, Мастер должен решить, какая\nбудет Сложность при изучении.",
+          "needs_manual_review": false
+        }
+      ],
+      "modifiers": {
+        "rule_slug": "research",
+        "needs_manual_review": false
+      },
+      "relationships": [],
+      "tags": [
+        "camp-action",
+        "character-creation",
+        "downtime",
+        "rest",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 124,
+        "page_end": 124
+      },
+      "needs_manual_review": false,
+      "draft_id": "travel-rest-rules.p124.b101.candidate"
+    },
+    {
+      "id": "travel-rest-rules.practice",
+      "type": "travel-rest-rule",
+      "category": "Travel And Rest Rules",
+      "subcategory": "practice",
+      "name": "Практика",
+      "raw_text": "Практика\nЖук\nможет сделать проверку подходящего\nНавыка, чтобы попрактиковаться и развить\nновое Искусство. Как и с исследованием,\nжук должен получить 3 успеха. Можно\nсовершить дополнительные броски если\nжук уже знает похожее Искусство или\nИскусство из такой же школы боя. Как и в\nмагии, если жук желает создать\nсобственное Искусство, он должен\nобсудить это с Мастером и решить, что\nподойдет лучше.",
+      "summary": "Жук может сделать проверку подходящего Навыка, чтобы попрактиковаться и развить новое Искусство. Как и с исследованием, жук должен получить 3 успеха. Можно совершить дополнительные броски если жук уже знает похожее Искусство или Искусств...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "unparsed_travel_rest_rule_text",
+          "text": "Жук\nможет сделать проверку подходящего\nНавыка, чтобы попрактиковаться и развить\nновое Искусство. Как и с исследованием,\nжук должен получить 3 успеха. Можно\nсовершить дополнительные броски если\nжук уже знает похожее Искусство или\nИскусство из такой же школы боя. Как и в\nмагии, если жук желает создать\nсобственное Искусство, он должен\nобсудить это с Мастером и решить, что\nподойдет лучше.",
+          "needs_manual_review": false
+        }
+      ],
+      "modifiers": {
+        "rule_slug": "practice",
+        "needs_manual_review": false
+      },
+      "relationships": [],
+      "tags": [
+        "camp-action",
+        "character-creation",
+        "downtime",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 124,
+        "page_end": 124
+      },
+      "needs_manual_review": false,
+      "draft_id": "travel-rest-rules.p124.b102.candidate"
+    },
+    {
+      "id": "travel-rest-rules.training",
+      "type": "travel-rest-rule",
+      "category": "Travel And Rest Rules",
+      "subcategory": "training",
+      "name": "Тренировка",
+      "raw_text": "Тренировка\nПуте\nм совместных тренировок один жук\nможет передать другому Искусства, Тайны\nи ритуалы, которыми владеет. Обучаться\nвместе всегда проще, чем в одиночку,\nпоэтому оба жука делают\nпроверку Навыка\nпротив Сложности завершения их\nтренировки и суммируют свои результаты.",
+      "summary": "Путе м совместных тренировок один жук может передать другому Искусства, Тайны и ритуалы, которыми владеет. Обучаться вместе всегда проще, чем в одиночку, поэтому оба жука делают проверку Навыка против Сложности завершения их тренировки и...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "unparsed_travel_rest_rule_text",
+          "text": "Путе\nм совместных тренировок один жук\nможет передать другому Искусства, Тайны\nи ритуалы, которыми владеет. Обучаться\nвместе всегда проще, чем в одиночку,\nпоэтому оба жука делают\nпроверку Навыка\nпротив Сложности завершения их\nтренировки и суммируют свои результаты.",
+          "needs_manual_review": false
+        }
+      ],
+      "modifiers": {
+        "rule_slug": "training",
+        "needs_manual_review": false
+      },
+      "relationships": [],
+      "tags": [
+        "camp-action",
+        "character-creation",
+        "downtime",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 124,
+        "page_end": 124
+      },
+      "needs_manual_review": false,
+      "draft_id": "travel-rest-rules.p124.b103.candidate"
+    },
+    {
+      "id": "travel-rest-rules.environmental-hazards",
+      "type": "travel-rest-rule",
+      "category": "Travel And Rest Rules",
+      "subcategory": "environmental-hazards",
+      "name": "Опасности Окружения",
+      "raw_text": "Опасности Окружения\nОкружающий мир опасен для жука и не\nтолько из-за других существ , живущих в нем.\nИногда жукам приходится проходить через\nлужи кислоты, ямы острых камней, или пекло\nвулканических пещер. Вся еда в локации\nможет быть ядовита или непитательной для\nподдержания Сытости жука.\nКогда жук попадает в такие напряженные\nусловия, он может автоматически получить\nурон, если провалит проверку Навыка на\nбезопасное прохождение ландшафта:\nпрыжки\nчерез хлипкие камни в лужах кислоты или\nпродирание сквозь заросли шипов. Иногда\nжуки рискуют получить урон или Негативный\nэффект от высоких или низких температур, и\nпройти проверку Панциря,\nчтобы выстоять\nпротив опасности.\nИногда опасности окружения могут быть\nиспользованы как загадка, чтобы подтолкнуть\nжуков думать, а иногда окружение может быть\nпроверкой Выносливости, которую нельзя\nизбежать. Но к ней можно подготовиться:\nнапример, взяв с собой теплую одежду в\nхолодную местность.",
+      "summary": "Окружающий мир опасен для жука и не только из-за других существ , живущих в нем. Иногда жукам приходится проходить через лужи кислоты, ямы острых камней, или пекло вулканических пещер. Вся еда в локации может быть ядовита или непитательн...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "unparsed_travel_rest_rule_text",
+          "text": "Окружающий мир опасен для жука и не\nтолько из-за других существ , живущих в нем.\nИногда жукам приходится проходить через\nлужи кислоты, ямы острых камней, или пекло\nвулканических пещер. Вся еда в локации\nможет быть ядовита или непитательной для\nподдержания Сытости жука.\nКогда жук попадает в такие напряженные\nусловия, он может автоматически получить\nурон, если провалит проверку Навыка на\nбезопасное прохождение ландшафта:\nпрыжки\nчерез хлипкие камни в лужах кислоты или\nпродирание сквозь заросли шипов. Иногда\nжуки рискуют получить урон или Негативный\nэффект от высоких или низких температур, и\nпройти проверку Панциря,\nчтобы выстоять\nпротив опасности.\nИногда опасности окружения могут быть\nиспользованы как загадка, чтобы подтолкнуть\nжуков думать, а иногда окружение может быть\nпроверкой Выносливости, которую нельзя\nизбежать. Но к ней можно подготовиться:\nнапример, взяв с собой теплую одежду в\nхолодную местность.",
+          "needs_manual_review": false
+        }
+      ],
+      "modifiers": {
+        "rule_slug": "environmental-hazards",
+        "needs_manual_review": false
+      },
+      "relationships": [],
+      "tags": [
+        "character-creation",
+        "hazards",
+        "travel",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 124,
+        "page_end": 124
+      },
+      "needs_manual_review": false,
+      "draft_id": "travel-rest-rules.p124.b104.candidate"
+    },
+    {
+      "id": "travel-rest-rules.falling-damage",
+      "type": "travel-rest-rule",
+      "category": "Travel And Rest Rules",
+      "subcategory": "falling-damage",
+      "name": "Урон от падения",
+      "raw_text": "Урон от падения?\nЕдинственное, о чем жуку не надо беспоко-\nиться, это падение. Жук падает со скоростью\n10 клеток за ход и при обычных условиях жуки\nне страдают от урона от падения.\nНе бойтесь спрыгнуть с высокой скалы!\nПросто убедитесь , что ваш жук знает, как\nподняться обратно.",
+      "summary": "Единственное, о чем жуку не надо беспоко- иться, это падение. Жук падает со скоростью 10 клеток за ход и при обычных условиях жуки не страдают от урона от падения. Не бойтесь спрыгнуть с высокой скалы! Просто убедитесь , что ваш жук знае...",
+      "costs": {},
+      "requirements": [],
+      "effects": [
+        {
+          "type": "unparsed_travel_rest_rule_text",
+          "text": "Единственное, о чем жуку не надо беспоко-\nиться, это падение. Жук падает со скоростью\n10 клеток за ход и при обычных условиях жуки\nне страдают от урона от падения.\nНе бойтесь спрыгнуть с высокой скалы!\nПросто убедитесь , что ваш жук знает, как\nподняться обратно.",
+          "needs_manual_review": false
+        }
+      ],
+      "modifiers": {
+        "rule_slug": "falling-damage",
+        "needs_manual_review": false
+      },
+      "relationships": [],
+      "tags": [
+        "character-creation",
+        "hazards",
+        "travel",
+        "travel-rest-rules",
+        "reviewed",
+        "promoted-candidate"
+      ],
+      "source": {
+        "book": "The Unofficial Hollow Knight RPG - RUS",
+        "page_start": 124,
+        "page_end": 124
+      },
+      "needs_manual_review": false,
+      "draft_id": "travel-rest-rules.p124.b105.candidate"
+    }
+  ],
+  "release_metadata": {
+    "rdb_version": "1.0.0",
+    "published_at": "2026-07-01T17:49:47.900611+00:00"
+  }
+}

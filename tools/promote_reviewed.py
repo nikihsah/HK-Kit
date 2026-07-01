@@ -64,6 +64,18 @@ def entry_is_promotable(entry: dict[str, Any]) -> tuple[bool, str]:
 
 def promoted_item(item: dict[str, Any]) -> dict[str, Any]:
     promoted = json.loads(json.dumps(item, ensure_ascii=False))
+
+    def clear_review_flags(value: Any) -> None:
+        if isinstance(value, dict):
+            if "needs_manual_review" in value:
+                value["needs_manual_review"] = False
+            for child in value.values():
+                clear_review_flags(child)
+        elif isinstance(value, list):
+            for child in value:
+                clear_review_flags(child)
+
+    clear_review_flags(promoted)
     tags = [
         tag
         for tag in promoted.get("tags", [])
@@ -73,7 +85,6 @@ def promoted_item(item: dict[str, Any]) -> dict[str, Any]:
         if tag not in tags:
             tags.append(tag)
     promoted["tags"] = tags
-    promoted["needs_manual_review"] = False
     return promoted
 
 
