@@ -20,16 +20,18 @@ HK-CAS exists because direct prompt-based character creation failed in repeated 
 
 ## Hunger Budget Optimization
 
-Hunger is a build budget that must be analyzed during Cross-Category Optimization and Build Assembly.
+Hunger is a build budget that must be analyzed during Cross-Category Optimization and Build Assembly. Among legal, non-redundant options that materially support the locked vision, the model must attempt to use as much of the available Hunger budget as possible.
 
-The goal is not to mechanically reach maximum Hunger. The model must:
+The model must:
 
 1. select every legal trait and subtrait that materially supports the locked character vision;
-2. avoid leaving a significant useful budget unanalyzed;
+2. search for the highest Hunger utilization achievable with useful, concept-aligned candidates;
 3. reject weak, useless, duplicative, or conceptually alien mechanics added only to fill the limit;
 4. explicitly explain every remaining unused Hunger point.
 
-`Hunger maximization` is forbidden as a goal by itself. `Hunger budget optimization` is mandatory in MODE CREATE.
+Blind `Hunger maximization` with filler mechanics is forbidden. Constrained Hunger maximization—maximizing utilization only after vision fit, legality, usefulness, and non-duplication are satisfied—is mandatory in MODE CREATE.
+
+When unused Hunger remains, the model must perform a second candidate pass before assembly. It may leave budget unused only when every affordable, compatible candidate would be weak, redundant, conceptually alien, illegal, or rejected by the player, and it must identify those candidates and reasons explicitly.
 
 ## Boundary
 

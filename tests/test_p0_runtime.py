@@ -89,6 +89,12 @@ class TestP0Runtime(unittest.TestCase):
             "maximum_hunger": 10,
             "unused_hunger": 4,
             "candidate_search_completed": True,
+            "second_pass_required": True,
+            "second_pass_completed": True,
+            "affordable_candidate_ids": [source_id],
+            "selected_after_second_pass": [source_id],
+            "rejected_after_second_pass": [],
+            "player_approved_underutilization": False,
             "optimization_status": "complete",
             "unused_hunger_explanation": "No remaining candidate materially supports the locked vision.",
             "audit_status": "pass",
@@ -97,11 +103,36 @@ class TestP0Runtime(unittest.TestCase):
         ledger["unused_hunger_explanation"] = ""
         self.assertIn("unused Hunger requires an explanation", hunger_ledger_errors(ledger, self.known_ids))
 
+    def test_unused_hunger_forces_second_pass_and_candidate_dispositions(self) -> None:
+        source_id = next(iter(self.known_ids))
+        ledger = {
+            "base_hunger": {"value": 4, "source_id": source_id, "source_file": "templates.json"},
+            "adjustments": [],
+            "positive_adjustments_total": 0,
+            "negative_adjustments_total": 0,
+            "other_adjustments_total": 0,
+            "final_hunger": 4,
+            "maximum_hunger": 20,
+            "unused_hunger": 16,
+            "candidate_search_completed": True,
+            "second_pass_required": False,
+            "second_pass_completed": False,
+            "affordable_candidate_ids": [source_id],
+            "selected_after_second_pass": [],
+            "rejected_after_second_pass": [],
+            "unused_hunger_explanation": "Large budget remains.",
+            "audit_status": "pass",
+        }
+        errors = hunger_ledger_errors(ledger, self.known_ids)
+        self.assertIn("unused Hunger requires a second pass", errors)
+        self.assertIn("Hunger second pass is incomplete", errors)
+        self.assertIn("affordable Hunger candidates lack explicit dispositions", errors)
+
     def test_optimization_documents_up_to_three_skills(self) -> None:
         optimization = (ROOT / "HK-CAS" / "08-optimization.md").read_text(encoding="utf-8")
         self.assertIn("Do not stop after finding the first suitable skill", optimization)
         self.assertIn("up to three skills", optimization)
-        self.assertIn("`Hunger budget optimization` is mandatory", optimization)
+        self.assertIn("Constrained Hunger maximization is mandatory", optimization)
 
     def test_concept_card_cannot_replace_completed_build(self) -> None:
         overview = (ROOT / "HK-CAS" / "00-overview.md").read_text(encoding="utf-8")

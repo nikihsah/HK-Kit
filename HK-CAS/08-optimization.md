@@ -17,14 +17,15 @@ If any checkpoint is missing, invalid, or incomplete, stop.
 
 ## Hunger budget
 
-Hunger is a build budget, not a score to maximize. Cross-Category Optimization and Build Assembly must maintain `templates/hunger-budget-ledger.yaml`.
+Hunger is a build budget. Cross-Category Optimization and Build Assembly must maintain `templates/hunger-budget-ledger.yaml` and attempt to use the maximum budget possible among legal, useful, non-redundant, concept-aligned candidates.
 
-The model must analyze all legal traits and subtraits that materially support the locked vision, including meaningful uses of remaining budget. It must not add a weak, useless, duplicative, or conceptually alien option merely to reach maximum Hunger. Every unused Hunger point requires an explicit explanation.
+The model must analyze all legal traits and subtraits that materially support the locked vision, including meaningful uses of remaining budget. It must not add a weak, useless, duplicative, or conceptually alien option merely to reach maximum Hunger. Every unused Hunger point requires an explicit explanation supported by concrete considered candidate IDs.
 
-- `Hunger maximization` is forbidden as a standalone objective.
-- `Hunger budget optimization` is mandatory.
+- Blind `Hunger maximization` through filler is forbidden.
+- Constrained Hunger maximization is mandatory after vision fit, legality, usefulness, and non-duplication are satisfied.
+- If `unused_hunger > 0`, a second pass over all affordable compatible trait and subtrait candidates is mandatory.
 
-Optimization is incomplete while the ledger has `candidate_search_completed: false`, an unexplained positive `unused_hunger`, an unverified adjustment, or a failed audit status.
+Optimization is incomplete while the ledger has `candidate_search_completed: false`, an incomplete required second pass, an unexplained positive `unused_hunger`, affordable candidates without explicit dispositions, an unverified adjustment, or a failed audit status.
 
 ## Skill selection breadth
 

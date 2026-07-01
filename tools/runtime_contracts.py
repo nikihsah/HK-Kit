@@ -74,8 +74,22 @@ def hunger_ledger_errors(ledger: dict[str, Any], known_ids: set[str]) -> list[st
             errors.append("unused Hunger is incorrect")
     if not ledger.get("candidate_search_completed"):
         errors.append("Hunger candidate search is incomplete")
-    if ledger.get("unused_hunger", 0) > 0 and not str(ledger.get("unused_hunger_explanation", "")).strip():
-        errors.append("unused Hunger requires an explanation")
+    if ledger.get("unused_hunger", 0) > 0:
+        if not ledger.get("second_pass_required"):
+            errors.append("unused Hunger requires a second pass")
+        if not ledger.get("second_pass_completed"):
+            errors.append("Hunger second pass is incomplete")
+        if not str(ledger.get("unused_hunger_explanation", "")).strip():
+            errors.append("unused Hunger requires an explanation")
+        affordable = set(ledger.get("affordable_candidate_ids", []))
+        disposed = set(ledger.get("selected_after_second_pass", [])) | {
+            item.get("id") for item in ledger.get("rejected_after_second_pass", []) if isinstance(item, dict) and item.get("reason")
+        }
+        if affordable - disposed:
+            errors.append("affordable Hunger candidates lack explicit dispositions")
+        unknown = affordable - known_ids
+        if unknown:
+            errors.append("affordable Hunger candidate is not in HK-RDB")
     if ledger.get("audit_status") != "pass":
         errors.append("Hunger ledger audit has not passed")
     return errors

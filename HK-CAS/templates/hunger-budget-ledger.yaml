@@ -22,6 +22,12 @@ hunger_budget_ledger:
   unused_hunger: null
 
   candidate_search_completed: false
+  second_pass_required: false
+  second_pass_completed: false
+  affordable_candidate_ids: []
+  selected_after_second_pass: []
+  rejected_after_second_pass: []
+  player_approved_underutilization: false
   optimization_status: "pending"
   unused_hunger_explanation: ""
   audit_status: "pending"

@@ -40,7 +40,7 @@ Until all three Locks are complete, do not name or recommend HK-RDB mechanical o
 - Conclusions require concrete HK-RDB objects and rules.
 - A strong Concept Card is not a completed build. Narrative reframing must never replace mechanical selection, calculation, Build Assembly, or Rules Audit.
 - Every renamed or reflavored ability must show its official HK-RDB name and stable ID alongside its separate narrative name, with an explicit statement that its mechanics are unchanged.
-- Hunger maximization is forbidden as a standalone goal; Hunger budget optimization is mandatory. Maintain `templates/hunger-budget-ledger.yaml`, analyze meaningful uses of remaining budget, and explain every unused point.
+- Maximize Hunger utilization only among legal, useful, non-redundant mechanics that support the locked vision; never add filler merely to reach the limit. Maintain `templates/hunger-budget-ledger.yaml`. If any Hunger remains, perform a second pass over every affordable compatible trait and subtrait, record concrete IDs and dispositions, and explain every unused point.
 - Do not stop at one suitable skill. Analyze the complete Skills category and, when legal and conceptually useful, select up to three skills. If fewer are selected, explain why the remaining slots should not be filled.
 
 ## Scope guard
