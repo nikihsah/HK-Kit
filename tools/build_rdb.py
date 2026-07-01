@@ -2823,6 +2823,137 @@ def social_rule_objects_from_candidate(candidate: dict[str, Any]) -> list[dict[s
     return objects
 
 
+CORE_RULE_HEADINGS = {
+    "Проверки Характеристик": ("characteristic-checks", "Проверки Характеристик"),
+    "Обычные броски": ("standard-checks", "Обычные броски"),
+    "Спасброски": ("saving-checks", "Спасброски"),
+    "Правило Вкуса": ("rule-of-flavor", "Правило Вкуса"),
+    "Правило Конкретности": ("specific-beats-general", "Правило Конкретности"),
+    "Главные и Вторичные Характеристики": ("characteristics", "Главные и Вторичные Характеристики"),
+    "Мощь": ("power", "Мощь"),
+    "Нагрузка": ("load", "Нагрузка"),
+    "Лёгкие Предметы": ("light-items", "Лёгкие Предметы"),
+    "Грация": ("grace", "Грация"),
+    "Манёвренность": ("maneuverability", "Манёвренность"),
+    "Панцирь": ("shell", "Панцирь"),
+    "Размер Пояса": ("belt-size", "Размер Пояса"),
+    "Проницательность": ("insight", "Проницательность"),
+    "Ячейки Техник": ("technique-slots", "Ячейки Техник"),
+    "Другие Характеристики": ("other-characteristics", "Другие Характеристики"),
+    "Голод и Сытость": ("hunger-and-satiety", "Голод и Сытость"),
+    "Жуть и Привлекательность": ("dread-and-appeal", "Жуть и Привлекательность"),
+    "Скорость": ("speed", "Скорость"),
+    "Вес": ("weight", "Вес"),
+    "Метки": ("marks", "Метки"),
+    "Поглощение": ("absorption", "Поглощение"),
+    "Размер": ("size", "Размер"),
+    "Запасы": ("resource-pools", "Запасы"),
+    "Сердце": ("heart", "Сердце"),
+    "Душа": ("soul", "Душа"),
+    "Выносливость": ("stamina", "Выносливость"),
+    "Припасы": ("supplies", "Припасы"),
+    "Приложение: Живокровь и Слава": ("lifeblood-and-glory", "Живокровь и Слава"),
+}
+
+
+CORE_RULE_MECHANICS = {
+    "characteristics": {"maximum": 7, "fractional_step": 0.5, "fractional_effect": "reroll_one_failed_die"},
+    "standard-checks": {"dice_pool": ["main_characteristic", "highest_applicable_skill_rank"]},
+    "saving-checks": {"success_condition": "successes_greater_than_or_equal_to_opposing_successes"},
+    "load": {"formula": "floor(power)", "overload_limit_multiplier": 2, "overload_roll_penalty_dice": 1, "overload_stamina_surcharge": 1},
+    "light-items": {"default_weight": 0, "optional_weight": "1/3"},
+    "maneuverability": {"formula": "ceil(grace / 2)"},
+    "belt-size": {"formula": "floor(shell)", "outside_belt_speed_cost": "max(item_weight, 1)"},
+    "technique-slots": {"formula": "floor(insight)"},
+    "hunger-and-satiety": {"maximum_satiety": "max(hunger, 10)", "rest_satiety_loss": "max(hunger, 10)", "death_below": -100},
+    "speed": {"movement_cells_per_turn": "speed"},
+    "weight": {"small": 2, "medium": 3, "large": 4},
+    "marks": {"starting_marks": "3 + path_rank"},
+    "size": {"small_cells": 1, "medium_cells": 1, "large_cells": 4, "large_footprint": "2x2"},
+    "heart": {"death_at": 0, "player_or_important_character_alternative": "death-doors"},
+    "soul": {"melee_damage_recovery": 1, "maximum_bonus_per_mystic_path_rank": 1},
+    "stamina": {"recovery_timing": "start_of_turn", "maximum_bonus_per_martial_path_rank": 1},
+    "supplies": {"starting_maximum": "ceil(insight / 2)", "common_cost": 1, "uncommon_cost": 2, "rare_cost": 3},
+}
+
+CORE_RULE_RELATIONSHIPS = {
+    "standard-checks": [("uses", "core-rules.characteristics")],
+    "saving-checks": [("specializes", "core-rules.characteristic-checks")],
+    "power": [("defines", "core-rules.load")],
+    "load": [("derived_from", "core-rules.power")],
+    "grace": [("defines", "core-rules.maneuverability")],
+    "maneuverability": [("derived_from", "core-rules.grace")],
+    "shell": [("defines", "core-rules.belt-size")],
+    "belt-size": [("derived_from", "core-rules.shell")],
+    "insight": [("defines", "core-rules.technique-slots"), ("defines", "core-rules.supplies")],
+    "technique-slots": [("derived_from", "core-rules.insight")],
+    "weight": [("derived_from", "core-rules.size")],
+    "heart": [("member_of", "core-rules.resource-pools")],
+    "soul": [("member_of", "core-rules.resource-pools")],
+    "stamina": [("member_of", "core-rules.resource-pools")],
+    "supplies": [("member_of", "core-rules.resource-pools"), ("derived_from", "core-rules.insight")],
+    "lifeblood-and-glory": [("extends", "core-rules.resource-pools")],
+}
+
+
+def split_core_rule_entries(raw_text: str) -> list[dict[str, Any]]:
+    text = re.sub(r"Главные и Вторичные\s+Характеристики", "Главные и Вторичные Характеристики", raw_text)
+    text = re.sub(r"Приложение:\s*\n?\s*Живокровь и Слава", "Приложение: Живокровь и Слава", text)
+    lines = [re.sub(r"\s+", " ", line).strip() for line in text.splitlines() if line.strip()]
+    starts: list[tuple[int, str, str]] = []
+    for index, line in enumerate(lines):
+        if line in CORE_RULE_HEADINGS:
+            slug, title = CORE_RULE_HEADINGS[line]
+            starts.append((index, slug, title))
+    entries = []
+    for position, (start, slug, title) in enumerate(starts):
+        end = starts[position + 1][0] if position + 1 < len(starts) else len(lines)
+        entry_lines = lines[start:end]
+        body = "\n".join(entry_lines[1:]).strip()
+        if body and not re.fullmatch(r"\d{1,3}", body):
+            entries.append({"slug": slug, "name": title, "body": body, "raw_text": "\n".join(entry_lines)})
+    return entries
+
+
+def normalize_core_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
+    entry = split_core_rule_entries(raw_text)[0]
+    slug = entry["slug"]
+    item.update({
+        "draft_id": item["id"],
+        "id": f"core-rules.{slug}",
+        "type": "core-rule",
+        "subcategory": slug,
+        "name": entry["name"],
+        "raw_text": entry["raw_text"],
+        "summary": summarize_raw_text(entry["body"]),
+        "costs": {},
+        "requirements": [],
+        "relationships": [
+            {"type": relation_type, "target_id": target_id}
+            for relation_type, target_id in CORE_RULE_RELATIONSHIPS.get(slug, [])
+        ],
+        "effects": [{"type": "rule_text", "text": entry["body"], "needs_manual_review": True}],
+        "modifiers": {"rule_slug": slug, **CORE_RULE_MECHANICS.get(slug, {}), "needs_manual_review": True},
+        "tags": sorted({"core-rule", "character-creation", slug}),
+    })
+    return item
+
+
+def core_rule_objects_from_candidate(candidate: dict[str, Any]) -> list[dict[str, Any]]:
+    entries = split_core_rule_entries(candidate.get("raw_text", ""))
+    if not entries:
+        return [candidate_to_rule_object(candidate)]
+    objects = []
+    for index, entry in enumerate(entries, start=1):
+        split_candidate = dict(candidate)
+        split_candidate["raw_text"] = entry["raw_text"]
+        split_candidate["title_hint"] = entry["name"]
+        split_candidate["source"] = dict(candidate.get("source", {}))
+        split_candidate["source"]["layer0_block"] = int(split_candidate["source"].get("layer0_block", 0)) * 100 + index
+        objects.append(candidate_to_rule_object(split_candidate))
+    return objects
+
+
 def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
     parts = split_trait_parts(raw_text)
     tags = list(item["tags"])
@@ -3083,7 +3214,9 @@ def candidate_to_rule_object(candidate: dict[str, Any]) -> dict[str, Any]:
     if "_equipment_section" in candidate:
         item["_equipment_section"] = candidate["_equipment_section"]
 
-    if category_hint == "traits":
+    if category_hint == "core-rules":
+        item = normalize_core_rule_object(item, raw_text)
+    elif category_hint == "traits":
         item = normalize_trait_rule_object(item, raw_text)
     elif category_hint == "templates":
         item = normalize_template_rule_object(item, raw_text)
@@ -3140,7 +3273,11 @@ def build_draft_containers(layer1: dict[str, Any]) -> tuple[dict[str, dict[str, 
                 }
             )
             continue
-        if category_hint == "templates":
+        if category_hint == "core-rules":
+            containers[CATEGORY_TO_FILE[category_hint]]["items"].extend(
+                core_rule_objects_from_candidate(candidate)
+            )
+        elif category_hint == "templates":
             containers[CATEGORY_TO_FILE[category_hint]]["items"].extend(
                 template_rule_objects_from_candidate(candidate)
             )

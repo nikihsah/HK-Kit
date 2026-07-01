@@ -47,6 +47,27 @@ def sample_candidate(category_hint: str = "traits") -> dict:
 
 
 class TestBuildRdb(unittest.TestCase):
+    def test_core_rules_are_split_into_atomic_objects(self) -> None:
+        candidate = sample_candidate("core-rules")
+        candidate["raw_text"] = (
+            "Проверки Характеристик\nОбщее правило проверок.\n"
+            "Обычные броски\nБросьте Главную Характеристику и Ранг навыка.\n"
+            "Спасброски\nУспехи отменяют успехи противника."
+        )
+        containers, _ = build_draft_containers({"candidates": [candidate]})
+        items = containers["core-rules.json"]["items"]
+        self.assertEqual([item["id"] for item in items], [
+            "core-rules.characteristic-checks",
+            "core-rules.standard-checks",
+            "core-rules.saving-checks",
+        ])
+        self.assertEqual(items[1]["modifiers"]["dice_pool"], [
+            "main_characteristic", "highest_applicable_skill_rank"
+        ])
+        self.assertEqual(items[1]["relationships"], [
+            {"type": "uses", "target_id": "core-rules.characteristics"}
+        ])
+
     def test_stable_name_slug_uses_known_trait_terms(self) -> None:
         self.assertEqual(stable_name_slug("Природный Снаряд"), "natural-projectile")
         self.assertEqual(stable_name_slug("Жидкости"), "fluids")

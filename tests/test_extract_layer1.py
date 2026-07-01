@@ -97,6 +97,8 @@ class TestExtractLayer1(unittest.TestCase):
         self.assertEqual(guess_category("Completely unrelated text."), "unknown")
 
     def test_page_category_hint_routes_traits_section(self) -> None:
+        self.assertEqual(page_category_hint(7), ("core-rules", "core_rules_section_page_range"))
+        self.assertEqual(page_category_hint(10), ("core-rules", "core_rules_section_page_range"))
         self.assertEqual(page_category_hint(11), ("templates", "templates_table_page_range"))
         self.assertEqual(page_category_hint(12), ("traits", "traits_section_page_range"))
         self.assertEqual(page_category_hint(21), ("traits", "traits_section_page_range"))
