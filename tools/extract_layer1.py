@@ -37,7 +37,13 @@ CATEGORY_HINTS = [
 
 PAGE_CATEGORY_HINTS = [
     {
-        "page_start": 13,
+        "page_start": 11,
+        "page_end": 11,
+        "category_hint": "templates",
+        "reason": "templates_table_page_range",
+    },
+    {
+        "page_start": 12,
         "page_end": 28,
         "category_hint": "traits",
         "reason": "traits_section_page_range",

@@ -967,6 +967,155 @@ def extract_trait_resource_usage_hints(body: str) -> list[dict[str, Any]]:
     return unique
 
 
+TEMPLATE_SIZE_BY_NAME = {
+    "Мелкий Жук": "Small",
+    "Средний Жук": "Medium",
+    "Большой Жук": "Large",
+}
+
+TEMPLATE_ID_BY_NAME = {
+    "Мелкий Жук": "templates.small-bug",
+    "Средний Жук": "templates.medium-bug",
+    "Большой Жук": "templates.large-bug",
+}
+
+
+def split_template_table_blocks(raw_text: str) -> list[str]:
+    names = list(TEMPLATE_SIZE_BY_NAME)
+    ranges: list[tuple[int, str]] = []
+    for name in names:
+        match = re.search(re.escape(name), raw_text, re.IGNORECASE)
+        if match:
+            ranges.append((match.start(), name))
+    if not ranges:
+        return [raw_text]
+
+    ranges.sort()
+    blocks: list[str] = []
+    for index, (start, _name) in enumerate(ranges):
+        end = ranges[index + 1][0] if index + 1 < len(ranges) else len(raw_text)
+        template_tail = raw_text.find("Шаблоны", start, end)
+        if template_tail != -1:
+            end = template_tail
+        block = raw_text[start:end].strip()
+        if block:
+            blocks.append(block)
+    return blocks
+
+
+def parse_template_numbers(block: str) -> dict[str, Any]:
+    lines = [line.strip() for line in block.splitlines() if line.strip()]
+    if not lines:
+        return {}
+
+    def numbers_after(label: str) -> list[float | int]:
+        for index, line in enumerate(lines):
+            if label in line and index + 1 < len(lines):
+                return [parse_number(value) for value in re.findall(r"-?\d+(?:[,.]\d+)?", lines[index + 1])]
+        return []
+
+    main_values = numbers_after("Мощь Проницательность Панцирь Грация")
+    resource_values = numbers_after("Сердце Выносливость Душа")
+    social_values = numbers_after("Привлекательность Жуть")
+
+    grace = main_values[3] if len(main_values) >= 4 else None
+    if grace is None:
+        for index, line in enumerate(lines):
+            if "Сердце Выносливость Душа" in line and index + 2 < len(lines):
+                maybe_grace = re.findall(r"-?\d+(?:[,.]\d+)?", lines[index + 2])
+                if len(maybe_grace) == 1:
+                    grace = parse_number(maybe_grace[0])
+
+    start_hunger = None
+    max_hunger = None
+    speed = None
+    for index, line in enumerate(lines):
+        if line.startswith("Старт:"):
+            match = re.search(r"-?\d+(?:[,.]\d+)?", line)
+            if match:
+                start_hunger = parse_number(match.group(0))
+        if line.startswith("Максимум:"):
+            values = [parse_number(value) for value in re.findall(r"-?\d+(?:[,.]\d+)?", line)]
+            if values:
+                max_hunger = values[0]
+            if len(values) > 1:
+                speed = values[1]
+            else:
+                for next_line in lines[index + 1 : index + 3]:
+                    next_values = [
+                        parse_number(value)
+                        for value in re.findall(r"-?\d+(?:[,.]\d+)?", next_line)
+                    ]
+                    if next_values:
+                        speed = next_values[-1]
+                        break
+
+    parsed: dict[str, Any] = {
+        "characteristics": {
+            "power": main_values[0] if len(main_values) > 0 else None,
+            "insight": main_values[1] if len(main_values) > 1 else None,
+            "shell": main_values[2] if len(main_values) > 2 else None,
+            "grace": grace,
+        },
+        "resources": {
+            "heart": resource_values[0] if len(resource_values) > 0 else None,
+            "stamina": resource_values[1] if len(resource_values) > 1 else None,
+            "soul": resource_values[2] if len(resource_values) > 2 else None,
+        },
+        "social": {
+            "appeal": social_values[0] if len(social_values) > 0 else None,
+            "dread": social_values[1] if len(social_values) > 1 else None,
+            "bonus_to_appeal_or_dread": social_values[2] if len(social_values) > 2 else None,
+        },
+        "hunger": {
+            "start": start_hunger,
+            "maximum": max_hunger,
+        },
+        "speed": speed,
+    }
+    return parsed
+
+
+def normalize_template_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
+    name = next((template for template in TEMPLATE_SIZE_BY_NAME if template in raw_text), item["name"])
+    item["draft_id"] = item["id"]
+    item["id"] = TEMPLATE_ID_BY_NAME.get(name, f"templates.{stable_name_slug(name, 'template')}")
+    item["type"] = "template"
+    item["subcategory"] = "Character Template"
+    item["name"] = name
+    item["summary"] = summarize_raw_text(raw_text)
+    item["tags"] = sorted(set(item["tags"] + ["template", "character-creation"]))
+    item["modifiers"] = parse_template_numbers(raw_text)
+    item["modifiers"]["size"] = TEMPLATE_SIZE_BY_NAME.get(name)
+    item["effects"] = [
+        {
+            "type": "sets_base_template",
+            "size": TEMPLATE_SIZE_BY_NAME.get(name),
+            "needs_manual_review": True,
+        }
+    ]
+    return item
+
+
+def template_rule_objects_from_candidate(candidate: dict[str, Any]) -> list[dict[str, Any]]:
+    raw_text = candidate.get("raw_text", "")
+    objects: list[dict[str, Any]] = []
+    for index, block in enumerate(split_template_table_blocks(raw_text), start=1):
+        split_candidate = dict(candidate)
+        split_candidate["raw_text"] = block
+        split_candidate["title_hint"] = next(
+            (template for template in TEMPLATE_SIZE_BY_NAME if template in block),
+            candidate.get("title_hint"),
+        )
+        split_candidate["source"] = dict(candidate.get("source", {}))
+        split_candidate["source"]["layer0_block"] = (
+            int(split_candidate["source"].get("layer0_block", 0)) * 100 + index
+        )
+        item = candidate_to_rule_object(split_candidate)
+        objects.append(item)
+    return objects
+
+
 def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
     parts = split_trait_parts(raw_text)
     tags = list(item["tags"])
@@ -1223,6 +1372,8 @@ def candidate_to_rule_object(candidate: dict[str, Any]) -> dict[str, Any]:
 
     if category_hint == "traits":
         item = normalize_trait_rule_object(item, raw_text)
+    elif category_hint == "templates":
+        item = normalize_template_rule_object(item, raw_text)
 
     return item
 
@@ -1256,9 +1407,14 @@ def build_draft_containers(layer1: dict[str, Any]) -> tuple[dict[str, dict[str, 
                 }
             )
             continue
-        containers[CATEGORY_TO_FILE[category_hint]]["items"].append(
-            candidate_to_rule_object(candidate)
-        )
+        if category_hint == "templates":
+            containers[CATEGORY_TO_FILE[category_hint]]["items"].extend(
+                template_rule_objects_from_candidate(candidate)
+            )
+        else:
+            containers[CATEGORY_TO_FILE[category_hint]]["items"].append(
+                candidate_to_rule_object(candidate)
+            )
 
     infer_trait_relationships(containers["traits.json"]["items"])
     infer_trait_constraints(containers["traits.json"]["items"])

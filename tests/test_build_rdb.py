@@ -19,6 +19,8 @@ from tools.build_rdb import (
     split_trait_parts,
     stable_rule_id,
     stable_name_slug,
+    split_template_table_blocks,
+    template_rule_objects_from_candidate,
     trait_costs,
     write_drafts,
 )
@@ -309,6 +311,135 @@ class TestBuildRdb(unittest.TestCase):
         )
 
         self.assertEqual(hints[0]["resource"], "glory_soul")
+
+    def test_split_template_table_blocks_finds_three_templates(self) -> None:
+        raw = (
+            "r 2. СОЗДАНИЕ ЖУКА\n"
+            "Мелкий Жук\n"
+            "Мощь Проницательность Панцирь Грация\n"
+            "2 3 3\n"
+            "Сердце Выносливость Душа\n"
+            "6 3 3\n"
+            "4\n"
+            "Привлекательность Жуть\n"
+            "1.5 1 1\n"
+            "Голод Скорость\n"
+            "Старт: -1\n"
+            "Максимум: 15 7\n"
+            "Средний Жук\n"
+            "Мощь Проницательность Панцирь Грация\n"
+            "3 3 3\n"
+            "Сердце Выносливость Душа\n"
+            "7 3 3\n"
+            "3\n"
+            "Привлекательность Жуть\n"
+            "1 1 1.5\n"
+            "Голод Скорость\n"
+            "Старт: 4\n"
+            "Максимум: 20 6\n"
+            "Большой Жук\n"
+            "Мощь Проницательность Панцирь Грация\n"
+            "4 3 4\n"
+            "Сердце Выносливость Душа\n"
+            "8 3 3\n"
+            "2\n"
+            "Привлекательность Жуть\n"
+            "1 1.5 1\n"
+            "Голод Скорость\n"
+            "Старт: 9\n"
+            "Максимум: 25\n"
+            "L\n"
+            "5\n"
+            "Шаблоны\n"
+        )
+
+        blocks = split_template_table_blocks(raw)
+
+        self.assertEqual(len(blocks), 3)
+        self.assertTrue(blocks[0].startswith("Мелкий Жук"))
+        self.assertTrue(blocks[2].startswith("Большой Жук"))
+
+    def test_template_rule_objects_extract_base_values(self) -> None:
+        candidate = sample_candidate("templates")
+        candidate["raw_text"] = (
+            "Мелкий Жук\n"
+            "Мощь Проницательность Панцирь Грация\n"
+            "2 3 3\n"
+            "Сердце Выносливость Душа\n"
+            "6 3 3\n"
+            "4\n"
+            "Привлекательность Жуть\n"
+            "1.5 1 1\n"
+            "Голод Скорость\n"
+            "Старт: -1\n"
+            "Максимум: 15 7\n"
+        )
+
+        item = template_rule_objects_from_candidate(candidate)[0]
+
+        self.assertEqual(item["id"], "templates.small-bug")
+        self.assertEqual(item["type"], "template")
+        self.assertEqual(item["subcategory"], "Character Template")
+        self.assertEqual(item["modifiers"]["size"], "Small")
+        self.assertEqual(item["modifiers"]["characteristics"]["power"], 2)
+        self.assertEqual(item["modifiers"]["characteristics"]["grace"], 4)
+        self.assertEqual(item["modifiers"]["resources"]["heart"], 6)
+        self.assertEqual(item["modifiers"]["social"]["appeal"], 1.5)
+        self.assertEqual(item["modifiers"]["hunger"]["start"], -1)
+        self.assertEqual(item["modifiers"]["hunger"]["maximum"], 15)
+        self.assertEqual(item["modifiers"]["speed"], 7)
+
+    def test_build_draft_containers_expands_template_page(self) -> None:
+        candidate = sample_candidate("templates")
+        candidate["raw_text"] = (
+            "Мелкий Жук\n"
+            "Мощь Проницательность Панцирь Грация\n"
+            "2 3 3\n"
+            "Сердце Выносливость Душа\n"
+            "6 3 3\n"
+            "4\n"
+            "Привлекательность Жуть\n"
+            "1.5 1 1\n"
+            "Голод Скорость\n"
+            "Старт: -1\n"
+            "Максимум: 15 7\n"
+            "Средний Жук\n"
+            "Мощь Проницательность Панцирь Грация\n"
+            "3 3 3\n"
+            "Сердце Выносливость Душа\n"
+            "7 3 3\n"
+            "3\n"
+            "Привлекательность Жуть\n"
+            "1 1 1.5\n"
+            "Голод Скорость\n"
+            "Старт: 4\n"
+            "Максимум: 20 6\n"
+            "Большой Жук\n"
+            "Мощь Проницательность Панцирь Грация\n"
+            "4 3 4\n"
+            "Сердце Выносливость Душа\n"
+            "8 3 3\n"
+            "2\n"
+            "Привлекательность Жуть\n"
+            "1 1.5 1\n"
+            "Голод Скорость\n"
+            "Старт: 9\n"
+            "Максимум: 25\n"
+            "L\n"
+            "5\n"
+        )
+        layer1 = {
+            "artifact": "HK-RDB Layer 1",
+            "mode_create_allowed": False,
+            "candidates": [candidate],
+        }
+
+        containers, skipped = build_draft_containers(layer1)
+
+        self.assertEqual(skipped, [])
+        self.assertEqual(len(containers["templates.json"]["items"]), 3)
+        self.assertEqual(containers["templates.json"]["items"][2]["id"], "templates.large-bug")
+        self.assertEqual(containers["templates.json"]["items"][2]["modifiers"]["speed"], 5)
 
     def test_candidate_to_rule_object_normalizes_traits(self) -> None:
         candidate = sample_candidate("traits")
