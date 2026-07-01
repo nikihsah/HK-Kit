@@ -1420,6 +1420,100 @@ def normalize_skill_rule_object(item: dict[str, Any], raw_text: str) -> dict[str
     return item
 
 
+def extract_advancement_milestones(raw_text: str) -> list[dict[str, Any]]:
+    milestones: list[dict[str, Any]] = []
+    for match in re.finditer(
+        r"(?m)^\s*(?P<milestone>\d+)\s+"
+        r"(?P<path_rank>\d+|-)\s+"
+        r"(?P<minor>\d+|-)\s+"
+        r"(?P<skill_rank>\d+|-)\s*$",
+        raw_text,
+    ):
+        def value(token: str) -> int | None:
+            return None if token == "-" else int(token)
+
+        milestones.append(
+            {
+                "milestone": int(match.group("milestone")),
+                "path_rank": value(match.group("path_rank")),
+                "minor_advancement": value(match.group("minor")),
+                "skill_rank": value(match.group("skill_rank")),
+                "needs_manual_review": True,
+            }
+        )
+    return milestones
+
+
+def extract_minor_advancement_options(raw_text: str) -> list[dict[str, Any]]:
+    if "Малое Продвижение" not in raw_text:
+        return []
+    section = raw_text.split("Малое Продвижение", 1)[1]
+    options: list[dict[str, Any]] = []
+    for chunk in re.split(r"\n\s*●\s*", section):
+        text = compact_wrapped_text(chunk.splitlines())
+        if not text or "Когда жук получает Малое Продвижение" in text:
+            continue
+        if text.endswith("47"):
+            text = text[:-2].rstrip()
+        option_type = "unclassified_minor_advancement"
+        if "+0.5" in text and "Характеристик" in text:
+            option_type = "increase_main_characteristic"
+        elif "+1" in text and "Скорости" in text:
+            option_type = "increase_speed"
+        elif "+1" in text and "Нагрузке" in text:
+            option_type = "increase_load"
+        elif "Ячейку Техники" in text:
+            option_type = "increase_technique_slots"
+        elif "Качество" in text:
+            option_type = "increase_natural_quality"
+        elif "модификацию" in text:
+            option_type = "add_natural_weapon_modification"
+        elif "ограниченных Черт" in text or "Мастерства" in text:
+            option_type = "increase_limited_trait_or_mastery_uses"
+        options.append(
+            {
+                "type": option_type,
+                "text": text,
+                "needs_manual_review": True,
+            }
+        )
+    return options
+
+
+def normalize_advancement_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
+    item["draft_id"] = item["id"]
+    item["id"] = "advancement.progression"
+    item["type"] = "advancement-rules"
+    item["subcategory"] = "Progression"
+    item["name"] = "Продвижение"
+    item["tags"] = sorted(set(item["tags"] + ["advancement", "character-creation"]))
+    item["modifiers"] = {
+        "milestone_table": extract_advancement_milestones(raw_text),
+        "progression_pattern": {
+            "even_milestones_after_zero": "skill_rank",
+            "odd_milestones": "minor_advancement",
+            "needs_manual_review": True,
+        },
+        "starting_recommendations": {
+            "start_at_milestone": 2,
+            "extra_art_or_secret_choice": True,
+            "source_text": "Игрокам, впервые пробующим эту систему, будет проще начать со второй вехи.",
+            "needs_manual_review": True,
+        },
+        "mystic_path_rank_grants_secret": "same_path",
+        "minor_advancement_options": extract_minor_advancement_options(raw_text),
+    }
+    item["effects"] = [
+        {
+            "type": "advancement_rules",
+            "text": raw_text,
+            "needs_manual_review": True,
+        }
+    ]
+    item["summary"] = summarize_raw_text(raw_text)
+    return item
+
+
 def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
     parts = split_trait_parts(raw_text)
     tags = list(item["tags"])
@@ -1682,6 +1776,8 @@ def candidate_to_rule_object(candidate: dict[str, Any]) -> dict[str, Any]:
         item = normalize_path_rule_object(item, raw_text)
     elif category_hint == "skills":
         item = normalize_skill_rule_object(item, raw_text)
+    elif category_hint == "advancement":
+        item = normalize_advancement_rule_object(item, raw_text)
 
     return item
 

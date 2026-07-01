@@ -551,6 +551,43 @@ class TestBuildRdb(unittest.TestCase):
         )
         self.assertEqual(item["modifiers"]["difficulty_scale"][0]["label"], "Простая задача")
 
+    def test_candidate_to_rule_object_normalizes_advancement(self) -> None:
+        candidate = sample_candidate("advancement")
+        candidate["raw_text"] = (
+            "5.Продвижение\n"
+            "Таблица Продвижения\n"
+            "Веха Ранг Пути Малое Продвижение Ранг Умения\n"
+            "0 1 - 1\n"
+            "1 - 1 -\n"
+            "2 1 - 1\n"
+            "3 - 1 -\n"
+            "И так далее: каждая четная веха дает Ранг Умения, а каждая нечетная — Малое Продвижение.\n"
+            "Мистические Ранги\n"
+            "Когда жук получает Ранг в Мистическом Пути, он также изучает одну Тайну из него.\n"
+            "Малое Продвижение\n"
+            "Когда жук получает Малое Продвижение, есть несколько вариантов того, как он может его использовать:\n"
+            "● Добавить +0.5 к любой Главной Характеристике жука.\n"
+            "● Добавить +1 к Скорости жука (не более 7).\n"
+            "● Добавить +1 к Нагрузке жука.\n"
+            "● Добавить 1 Ячейку Техники жуку.\n"
+        )
+        candidate["title_hint"] = "5.Продвижение"
+
+        item = candidate_to_rule_object(candidate)
+        modifiers = item["modifiers"]
+
+        self.assertEqual(item["id"], "advancement.progression")
+        self.assertEqual(item["type"], "advancement-rules")
+        self.assertEqual(modifiers["milestone_table"][0]["milestone"], 0)
+        self.assertEqual(modifiers["milestone_table"][0]["path_rank"], 1)
+        self.assertIsNone(modifiers["milestone_table"][1]["path_rank"])
+        self.assertEqual(modifiers["progression_pattern"]["odd_milestones"], "minor_advancement")
+        self.assertEqual(modifiers["mystic_path_rank_grants_secret"], "same_path")
+        self.assertEqual(
+            modifiers["minor_advancement_options"][0]["type"],
+            "increase_main_characteristic",
+        )
+
     def test_candidate_to_rule_object_normalizes_traits(self) -> None:
         candidate = sample_candidate("traits")
         candidate["raw_text"] = "Раздражающие Щетинки\n+3 Голод, +0.5 Привлекательность\nОписание."

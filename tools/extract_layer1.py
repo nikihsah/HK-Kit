@@ -24,7 +24,7 @@ CATEGORY_HINTS = [
     ("traits", ["черта", "подчерта", "особенность"]),
     ("paths", ["военные пути", "мистические пути"]),
     ("skills", ["4.умения", "примеры навыков", "пример мастерства"]),
-    ("advancement", ["развитие", "опыт", "уровень"]),
+    ("advancement", ["5.продвижение"]),
     ("combat-arts", ["боевое искусство", "техника", "прием", "приём"]),
     ("magic", ["магия", "заклинание", "душа"]),
     ("charms", ["амулет", "метка", "чары"]),
@@ -59,6 +59,12 @@ PAGE_CATEGORY_HINTS = [
         "page_end": 47,
         "category_hint": "skills",
         "reason": "skills_section_page_range",
+    },
+    {
+        "page_start": 48,
+        "page_end": 48,
+        "category_hint": "advancement",
+        "reason": "advancement_section_page_range",
     },
 ]
 
@@ -216,7 +222,7 @@ def build_candidates(layer0: dict[str, Any], min_chars: int = 40) -> dict[str, A
         page_hint, _page_reason = page_category_hint(page_number)
         blocks = (
             [normalize_block_text(text)]
-            if page_hint in {"paths", "skills"}
+            if page_hint in {"paths", "skills", "advancement"}
             else split_page_into_blocks(text)
         )
         for block_index, block in enumerate(blocks, start=1):
