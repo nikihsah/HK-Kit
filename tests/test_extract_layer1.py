@@ -106,6 +106,8 @@ class TestExtractLayer1(unittest.TestCase):
         self.assertEqual(page_category_hint(48), ("advancement", "advancement_section_page_range"))
         self.assertEqual(page_category_hint(49), ("combat-arts", "combat_arts_section_page_range"))
         self.assertEqual(page_category_hint(57), ("combat-arts", "combat_arts_section_page_range"))
+        self.assertEqual(page_category_hint(58), ("magic", "magic_section_page_range"))
+        self.assertEqual(page_category_hint(73), ("magic", "magic_section_page_range"))
         self.assertEqual(page_category_hint(99), (None, None))
 
     def test_choose_category_hint_prefers_template_page_context(self) -> None:
@@ -197,6 +199,28 @@ class TestExtractLayer1(unittest.TestCase):
         self.assertEqual(document["candidate_count"], 1)
         self.assertEqual(document["candidates"][0]["category_hint"], "combat-arts")
         self.assertIn("Замах", document["candidates"][0]["raw_text"])
+
+    def test_build_candidates_keeps_magic_pages_whole(self) -> None:
+        layer0 = {
+            "artifact": "HK-RDB Layer 0",
+            "mode_create_allowed": False,
+            "book": "Test Book",
+            "source": {"pdf_name": "test.pdf", "pdf_sha256": "abc123"},
+            "page_count": 1,
+            "pages": [
+                {
+                    "page": 62,
+                    "text": "Тайна\nТайна Шпиля\nРассеивание\nСложность: 2\nДальность: Касание\n"
+                    + ("Описание. " * 120),
+                }
+            ],
+        }
+
+        document = build_candidates(layer0, min_chars=10)
+
+        self.assertEqual(document["candidate_count"], 1)
+        self.assertEqual(document["candidates"][0]["category_hint"], "magic")
+        self.assertIn("Рассеивание", document["candidates"][0]["raw_text"])
 
     def test_choose_category_hint_prefers_page_context(self) -> None:
         category, source = choose_category_hint("еда, отдых, путешествие", 21)

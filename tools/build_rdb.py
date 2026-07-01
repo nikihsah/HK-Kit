@@ -1675,6 +1675,213 @@ def combat_art_rule_objects_from_candidate(candidate: dict[str, Any]) -> list[di
     return objects
 
 
+MAGIC_PATHS = {
+    "Тайна Шпиля": "spire",
+    "Тайна Плаща": "cloak",
+    "Тайна Грёз": "dreams",
+    "Тайна Кошмаров": "nightmares",
+    "Тайна Цветения": "bloom",
+    "Тайна Шипа": "thorn",
+    "Тайна Пыли": "dust",
+}
+MAGIC_PATHS_CASEFOLD = {name.casefold(): path for name, path in MAGIC_PATHS.items()}
+
+MAGIC_PAGE_PATH_HINTS = [
+    (62, 63, "spire"),
+    (64, 64, "cloak"),
+    (65, 66, "dreams"),
+    (67, 67, "nightmares"),
+    (68, 68, "bloom"),
+    (69, 70, "thorn"),
+    (71, 71, "dust"),
+]
+
+
+def magic_path_for_page(page: int) -> str | None:
+    for start, end, path in MAGIC_PAGE_PATH_HINTS:
+        if start <= page <= end:
+            return path
+    return None
+
+
+def split_magic_entries(raw_text: str, path_hint: str | None = None) -> list[dict[str, Any]]:
+    lines = [line.strip() for line in raw_text.splitlines() if line.strip()]
+    current_path: str | None = path_hint
+    starts: list[tuple[int, str, str | None]] = []
+    for index, line in enumerate(lines):
+        if line.casefold() in MAGIC_PATHS_CASEFOLD:
+            current_path = MAGIC_PATHS_CASEFOLD[line.casefold()]
+            continue
+        if index + 1 < len(lines) and re.match(r"^Сложност[ьиmъ]*:?\s*\d+", lines[index + 1], re.IGNORECASE):
+            if not line.startswith(("Тайна", "Дальность", "Длительность", "Стоимость", "Требования")):
+                starts.append((index, line, current_path))
+
+    entries: list[dict[str, Any]] = []
+    for position, (start, name, path) in enumerate(starts):
+        end = starts[position + 1][0] if position + 1 < len(starts) else len(lines)
+        entry_lines = lines[start:end]
+        text = "\n".join(entry_lines)
+        difficulty = re.search(r"Сложност[ьиmъ]*:?\s*(\d+)", text, re.IGNORECASE)
+        range_match = re.search(r"Дал[аьъ]ност[ьиmъ]*\s*(?:[АБAB])?:?\s*([^\n]+)", text, re.IGNORECASE)
+        duration = re.search(r"Дл[иu]тел[ьиmъ]*ност[ьиmъ]*:?\s*([^\n]+)", text, re.IGNORECASE)
+        body_start = 1
+        while body_start < len(entry_lines) and re.match(
+            r"^(Сложност|Дал|Дл)", entry_lines[body_start], re.IGNORECASE
+        ):
+            body_start += 1
+        entries.append(
+            {
+                "name": name,
+                "path": path,
+                "difficulty": int(difficulty.group(1)) if difficulty else None,
+                "range": range_match.group(1).strip() if range_match else None,
+                "duration": duration.group(1).strip() if duration else None,
+                "body": "\n".join(entry_lines[body_start:]).strip(),
+                "raw_text": text.strip(),
+            }
+        )
+    return entries
+
+
+def normalize_magic_overview(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
+    item["draft_id"] = item["id"]
+    if "7.Магия" in raw_text:
+        item["id"] = "magic.overview"
+        item["name"] = "Магия"
+    elif "Примеры Ритуалов" in raw_text or "Стоимость:" in raw_text:
+        item["id"] = f"magic.rituals.p{item['source']['page_start']:03d}"
+        item["name"] = "Примеры Ритуалов"
+    elif "Сущность" in raw_text and item["source"]["page_start"] == 59:
+        item["id"] = "magic.essence"
+        item["name"] = "Сущность"
+    else:
+        item["id"] = f"magic.rules.p{item['source']['page_start']:03d}"
+        item["name"] = "Правила магии"
+    item["type"] = "magic-rules"
+    item["subcategory"] = "Magic Rules"
+    item["tags"] = sorted(set(item["tags"] + ["magic", "character-creation"]))
+    item["modifiers"] = {
+        "prepared_with_technique_slots": True,
+        "prepared_complexity_limit": "twice_mystic_rank",
+        "normally_one_spell_per_turn": True,
+        "soul_cost_equals_difficulty": True,
+        "needs_manual_review": True,
+    }
+    item["effects"] = [
+        {
+            "type": "magic_usage_rules",
+            "text": raw_text,
+            "needs_manual_review": True,
+        }
+    ]
+    item["summary"] = summarize_raw_text(raw_text)
+    return item
+
+
+def normalize_spell_modification_rules(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
+    item["draft_id"] = item["id"]
+    item["id"] = (
+        "magic.spell-modifications"
+        if "Модификации Заклинаний" in raw_text
+        else "magic.spell-modifications.advanced-casting"
+    )
+    item["type"] = "magic-rules"
+    item["subcategory"] = "Spell Modifications"
+    item["name"] = "Модификации Заклинаний"
+    item["tags"] = sorted(set(item["tags"] + ["magic", "spell-modifications"]))
+    item["modifiers"] = {
+        "range_can_be_modified": "Таблица Дальности" in raw_text,
+        "damage_or_healing_can_be_increased": "Урон/Исцеление" in raw_text,
+        "duration_can_be_increased": "Длительность Заклинания" in raw_text,
+        "expanded_spells": "Расширенные заклинания" in raw_text,
+        "quickened_spells": "Ускоренные заклинания" in raw_text,
+        "conjured_spells": "Сотворенные заклинания" in raw_text,
+        "needs_manual_review": True,
+    }
+    item["effects"] = [
+        {
+            "type": "spell_modification_rules",
+            "text": raw_text,
+            "needs_manual_review": True,
+        }
+    ]
+    item["summary"] = summarize_raw_text(raw_text)
+    return item
+
+
+def normalize_magic_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
+    page_hint = magic_path_for_page(item["source"]["page_start"])
+    entries = split_magic_entries(raw_text, page_hint)
+    if not entries:
+        if "Модификации Заклинаний" in raw_text or "Расширенные заклинания" in raw_text:
+            return normalize_spell_modification_rules(item, raw_text)
+        return normalize_magic_overview(item, raw_text)
+
+    entry = entries[0]
+    entry_path = item.pop("_magic_path", None) or entry["path"] or page_hint
+    item["draft_id"] = item["id"]
+    item["id"] = f"magic.{entry_path or 'unknown'}.{stable_name_slug(entry['name'], 'secret')}"
+    item["type"] = "secret"
+    item["subcategory"] = "Secret"
+    item["name"] = entry["name"]
+    item["raw_text"] = entry["raw_text"]
+    item["summary"] = summarize_raw_text(entry["body"] or entry["raw_text"])
+    item["costs"] = {
+        "difficulty": entry["difficulty"],
+        "soul": entry["difficulty"],
+        "needs_manual_review": True,
+    }
+    item["requirements"] = (
+        [
+            {
+                "type": "mystic_path",
+                "value": entry_path,
+                "needs_manual_review": True,
+            }
+        ]
+        if entry_path
+        else []
+    )
+    item["modifiers"] = {
+        "path": entry_path,
+        "difficulty": entry["difficulty"],
+        "range": entry["range"],
+        "duration": entry["duration"],
+    }
+    item["effects"] = [
+        {
+            "type": "unparsed_secret_effect",
+            "text": entry["body"],
+            "needs_manual_review": True,
+        }
+    ]
+    item["tags"] = sorted(set(item["tags"] + ["magic", "secret", "character-creation"]))
+    return item
+
+
+def magic_rule_objects_from_candidate(candidate: dict[str, Any]) -> list[dict[str, Any]]:
+    raw_text = candidate.get("raw_text", "")
+    if "7.Магия" in raw_text or "Модификации Заклинаний" in raw_text or "Расширенные заклинания" in raw_text:
+        return [candidate_to_rule_object(candidate)]
+    page = int(candidate.get("source", {}).get("page_start", 0))
+    entries = split_magic_entries(raw_text, magic_path_for_page(page))
+    if not entries:
+        return [candidate_to_rule_object(candidate)]
+
+    objects: list[dict[str, Any]] = []
+    for index, entry in enumerate(entries, start=1):
+        split_candidate = dict(candidate)
+        split_candidate["raw_text"] = entry["raw_text"]
+        split_candidate["title_hint"] = entry["name"]
+        split_candidate["_magic_path"] = entry["path"]
+        split_candidate["source"] = dict(candidate.get("source", {}))
+        split_candidate["source"]["layer0_block"] = (
+            int(split_candidate["source"].get("layer0_block", 0)) * 100 + index
+        )
+        objects.append(candidate_to_rule_object(split_candidate))
+    return objects
+
+
 def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
     parts = split_trait_parts(raw_text)
     tags = list(item["tags"])
@@ -1928,6 +2135,8 @@ def candidate_to_rule_object(candidate: dict[str, Any]) -> dict[str, Any]:
         },
         "needs_manual_review": True,
     }
+    if "_magic_path" in candidate:
+        item["_magic_path"] = candidate["_magic_path"]
 
     if category_hint == "traits":
         item = normalize_trait_rule_object(item, raw_text)
@@ -1941,6 +2150,8 @@ def candidate_to_rule_object(candidate: dict[str, Any]) -> dict[str, Any]:
         item = normalize_advancement_rule_object(item, raw_text)
     elif category_hint == "combat-arts":
         item = normalize_combat_art_rule_object(item, raw_text)
+    elif category_hint == "magic":
+        item = normalize_magic_rule_object(item, raw_text)
 
     return item
 
@@ -1981,6 +2192,10 @@ def build_draft_containers(layer1: dict[str, Any]) -> tuple[dict[str, dict[str, 
         elif category_hint == "combat-arts":
             containers[CATEGORY_TO_FILE[category_hint]]["items"].extend(
                 combat_art_rule_objects_from_candidate(candidate)
+            )
+        elif category_hint == "magic":
+            containers[CATEGORY_TO_FILE[category_hint]]["items"].extend(
+                magic_rule_objects_from_candidate(candidate)
             )
         else:
             containers[CATEGORY_TO_FILE[category_hint]]["items"].append(

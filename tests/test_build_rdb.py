@@ -650,6 +650,103 @@ class TestBuildRdb(unittest.TestCase):
             ["Праща", "оружие ближнего боя с досягаемостью"],
         )
 
+    def test_candidate_to_rule_object_normalizes_magic_overview(self) -> None:
+        candidate = sample_candidate("magic")
+        candidate["raw_text"] = (
+            "7.Магия\n"
+            "Тайны — это строительные блоки магии.\n"
+            "Подготовка\n"
+            "Подготовленные заклинания со Сложностью, вдвое превышающей его Мистический Ранг.\n"
+        )
+        candidate["title_hint"] = "7.Магия"
+
+        item = candidate_to_rule_object(candidate)
+
+        self.assertEqual(item["id"], "magic.overview")
+        self.assertEqual(item["type"], "magic-rules")
+        self.assertTrue(item["modifiers"]["prepared_with_technique_slots"])
+        self.assertTrue(item["modifiers"]["soul_cost_equals_difficulty"])
+
+    def test_candidate_to_rule_object_normalizes_spell_modifications(self) -> None:
+        candidate = sample_candidate("magic")
+        candidate["raw_text"] = (
+            "Модификации Заклинаний\n"
+            "Таблица Дальности\n"
+            "Урон/Исцеление\n"
+            "Длительность Заклинания\n"
+            "Расширенные заклинания\n"
+            "Ускоренные заклинания\n"
+            "Сотворенные заклинания\n"
+        )
+        candidate["title_hint"] = "Модификации Заклинаний"
+
+        item = candidate_to_rule_object(candidate)
+
+        self.assertEqual(item["id"], "magic.spell-modifications")
+        self.assertTrue(item["modifiers"]["range_can_be_modified"])
+        self.assertTrue(item["modifiers"]["quickened_spells"])
+
+    def test_candidate_to_rule_object_normalizes_advanced_spell_modifications(self) -> None:
+        candidate = sample_candidate("magic")
+        candidate["raw_text"] = (
+            "Расширенные заклинания\n"
+            "Ускоренные заклинания\n"
+            "Сотворенные заклинания\n"
+        )
+        candidate["title_hint"] = "Расширенные заклинания"
+
+        item = candidate_to_rule_object(candidate)
+
+        self.assertEqual(item["id"], "magic.spell-modifications.advanced-casting")
+        self.assertTrue(item["modifiers"]["expanded_spells"])
+
+    def test_build_draft_containers_expands_magic_secrets(self) -> None:
+        candidate = sample_candidate("magic")
+        candidate["raw_text"] = (
+            "Тайна Шпиля\n"
+            "Рассеивание\n"
+            "Сложность: 2\n"
+            "Дальность: Касание\n"
+            "Магический эффект развеивается.\n"
+            "Левитация\n"
+            "Сложность: 1\n"
+            "Дальность А: Близко\n"
+            "Длительность: Краткая\n"
+            "Поднимает цель над землей.\n"
+        )
+        layer1 = {
+            "artifact": "HK-RDB Layer 1",
+            "mode_create_allowed": False,
+            "candidates": [candidate],
+        }
+
+        containers, skipped = build_draft_containers(layer1)
+        items = containers["magic.json"]["items"]
+
+        self.assertEqual(skipped, [])
+        self.assertEqual(len(items), 2)
+        self.assertEqual(items[0]["id"], "magic.spire.rasseivanie")
+        self.assertEqual(items[0]["costs"]["difficulty"], 2)
+        self.assertEqual(items[0]["requirements"][0]["value"], "spire")
+        self.assertEqual(items[1]["modifiers"]["duration"], "Краткая")
+
+    def test_magic_secret_uses_page_path_hint_when_header_is_missing(self) -> None:
+        candidate = sample_candidate("magic")
+        candidate["source"]["page_start"] = 63
+        candidate["source"]["page_end"] = 63
+        candidate["raw_text"] = (
+            "Подавление\n"
+            "Сложность: 1\n"
+            "Дальность: Касание\n"
+            "Длительность: Краткая\n"
+            "Метки и Ячейки Техники цели уменьшаются на 1.\n"
+        )
+
+        item = candidate_to_rule_object(candidate)
+
+        self.assertEqual(item["id"], "magic.spire.podavlenie")
+        self.assertEqual(item["requirements"][0]["value"], "spire")
+
     def test_candidate_to_rule_object_normalizes_traits(self) -> None:
         candidate = sample_candidate("traits")
         candidate["raw_text"] = "Раздражающие Щетинки\n+3 Голод, +0.5 Привлекательность\nОписание."
