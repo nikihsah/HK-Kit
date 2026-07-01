@@ -47,6 +47,67 @@ def sample_candidate(category_hint: str = "traits") -> dict:
 
 
 class TestBuildRdb(unittest.TestCase):
+    def test_equipment_modifications_are_atomic_and_keep_costs(self) -> None:
+        from tools.build_rdb import split_equipment_entries
+
+        entries = split_equipment_entries(
+            "Модификации оружия\nИзношенное\nШтраф -1 к Качеству.\n"
+            "Нитяное\nПозволяет прикрепить нить.\n25",
+            "weapon-modification",
+        )
+
+        self.assertEqual([entry["name"] for entry in entries], ["Изношенное", "Нитяное"])
+        self.assertEqual(entries[0]["stats"]["price"], "half_weapon_price")
+        self.assertEqual(entries[1]["stats"]["price"], "25")
+
+    def test_food_page_yields_rules_and_concrete_food_items(self) -> None:
+        from tools.build_rdb import split_equipment_entries
+
+        entries = split_equipment_entries(
+            "Припасы и рецепты\nМожно изучать рецепты.\n"
+            "Использование Припасов\nЗелье используется за 1 Выносливость.\n"
+            "Сырые растения 5 0.5 1\nПаек с мясом 15 0.2 10",
+            "food",
+        )
+        food = {entry["name"]: entry for entry in entries if entry["section"] == "food"}
+
+        self.assertIn("Припасы и рецепты", [entry["name"] for entry in entries])
+        self.assertEqual(food["Сырые растения"]["stats"]["satiety"], "5")
+        self.assertFalse(food["Паек с мясом"]["stats"]["spoils"])
+
+    def test_misordered_shield_cell_uses_verified_body(self) -> None:
+        from tools.build_rdb import split_equipment_entries
+
+        entries = split_equipment_entries(
+            "Обманка 50 + нач. цена\nПрактичный\n"
+            "Этот щит также считается инструментом.",
+            "shield-modification",
+        )
+        by_name = {entry["name"]: entry for entry in entries}
+
+        self.assertIn("сменить форму на оружие", by_name["Обманка"]["body"])
+        self.assertIn("считается инструментом", by_name["Практичный"]["body"])
+
+    def test_armor_modification_conflicts_are_explicit(self) -> None:
+        candidate = sample_candidate("equipment")
+        candidate["source"]["page_start"] = 98
+        candidate["source"]["page_end"] = 98
+        candidate["raw_text"] = (
+            "Модификации брони\nСтеганая\n+1 к Впитыванию.\n70\n"
+            "Утяжеленная\n+1 к весу.\n100\nШипованная\nЧерта Шипастый.\n150"
+        )
+        containers, _ = build_draft_containers({"candidates": [candidate]})
+        items = {item["name"]: item for item in containers["equipment.json"]["items"]}
+
+        self.assertEqual(items["Стеганая"]["requirements"][0]["value"], "armor")
+        self.assertEqual(
+            {relation["target"] for relation in items["Стеганая"]["relationships"]},
+            {
+                "equipment.armor-modification.utyazhelennaya",
+                "equipment.armor-modification.shipovannaya",
+            },
+        )
+
     def test_magic_split_handles_wrapped_difficulty_value(self) -> None:
         from tools.build_rdb import split_magic_entries
 

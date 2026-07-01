@@ -2239,7 +2239,7 @@ def clean_equipment_lines(raw_text: str) -> list[str]:
 
 def parse_equipment_price(value: str) -> int | str:
     cleaned = value.strip().rstrip("!*")
-    return int(cleaned) if cleaned.isdigit() else value.strip()
+    return int(cleaned) if re.fullmatch(r"-?\d+", cleaned) else value.strip()
 
 
 def parse_equipment_weight(value: str) -> int | float | str:
@@ -2314,9 +2314,203 @@ def match_equipment_window(lines: list[str], index: int, max_window: int = 4) ->
     return None, 0
 
 
+EQUIPMENT_MODIFICATION_NAMES = {
+    "weapon-modification": [
+        "Изношенное", "Нитяное", "Удлиненное", "Тяжелое", "Облегченное", "Изящное",
+        "Обманка", "Универсальное", "Пипетка", "Чародейское", "Лезвие",
+        "Сбалансированное", "Выкованное", "Убийца зверей", "Жестокое", "Мясницкое",
+        "Улучшение оружия",
+    ],
+    "shield-modification": [
+        "Изношенный", "Облегченный", "Укрепленный", "Шипованный", "Обманка",
+        "Практичный", "Сбалансированный", "Отражающий",
+    ],
+    "armor-modification": [
+        "Разбитая", "С седлом", "Надежная", "Стеганая", "Утяжеленная", "Шипованная",
+        "Устойчивая к ...", "Блестящая",
+    ],
+}
+
+EQUIPMENT_MODIFICATION_BODY_OVERRIDES = {
+    ("shield-modification", "Обманка"): (
+        "Щит может сменить форму на оружие с той же модификацией, и обратно. "
+        "Это стоит 1 Выносливость. Его вес равен весу более тяжелой формы. "
+        "Качество оружия определяется как 1 + бонусы Качества от других модификаций."
+    ),
+    ("shield-modification", "Практичный"): (
+        "Этот щит также считается инструментом, который выбирается при применении "
+        "модификации, Качество которого равно Качеству щита (минимум 1)."
+    ),
+    ("armor-modification", "Утяжеленная"): (
+        "+1 к весу. Владелец получает черту Удар, с Качеством 1 или 0, если броня "
+        "разбита. Модификация не совместима со Стеганой и Шипованной броней."
+    ),
+    ("armor-modification", "Шипованная"): (
+        "Владелец получает черту Шипастый с Качеством 1 или 0, если броня разбита. "
+        "Модификация не совместима с Утяжеленной и Стеганой броней."
+    ),
+}
+
+EQUIPMENT_MODIFICATION_COSTS = {
+    ("weapon-modification", "Изношенное"): "half_weapon_price",
+    ("weapon-modification", "Нитяное"): 25,
+    **{
+        ("weapon-modification", name): "50 + half_base_price"
+        for name in [
+            "Удлиненное", "Тяжелое", "Облегченное", "Обманка", "Универсальное",
+            "Пипетка", "Лезвие", "Сбалансированное", "Жестокое", "Мясницкое",
+        ]
+    },
+    **{
+        ("weapon-modification", name): "100 + half_base_price"
+        for name in ["Изящное", "Чародейское", "Выкованное в Грезах", "Убийца зверей"]
+    },
+    ("shield-modification", "Изношенный"): "half_shield_price",
+    ("shield-modification", "Облегченный"): "100 + half_base_price",
+    ("shield-modification", "Укрепленный"): "50 + half_base_price",
+    ("shield-modification", "Шипованный"): "50 + half_base_price",
+    ("shield-modification", "Обманка"): "50 + base_price",
+    ("shield-modification", "Практичный"): "50 + half_base_price",
+    ("shield-modification", "Сбалансированный"): "50 + half_base_price",
+    ("shield-modification", "Отражающий"): "100 + half_base_price",
+    ("armor-modification", "Разбитая"): -50,
+    ("armor-modification", "С седлом"): 25,
+    ("armor-modification", "Надежная"): 50,
+    ("armor-modification", "Стеганая"): 70,
+    ("armor-modification", "Утяжеленная"): 100,
+    ("armor-modification", "Шипованная"): 150,
+    ("armor-modification", "Устойчивая к ..."): "100 + base_price",
+    ("armor-modification", "Блестящая"): "300 + base_price",
+}
+
+
+def split_equipment_modification_entries(
+    raw_text: str, section_hint: str
+) -> list[dict[str, Any]]:
+    names = EQUIPMENT_MODIFICATION_NAMES.get(section_hint, [])
+    if not names:
+        return []
+    lines = clean_equipment_lines(raw_text)
+    starts: list[tuple[int, str]] = []
+    for index, line in enumerate(lines):
+        name = next(
+            (candidate for candidate in sorted(names, key=len, reverse=True) if line == candidate or line.startswith(candidate + " ")),
+            None,
+        )
+        if name:
+            starts.append((index, name))
+            if name == "Улучшение оружия":
+                break
+
+    entries = []
+    for position, (start, detected_name) in enumerate(starts):
+        end = starts[position + 1][0] if position + 1 < len(starts) else len(lines)
+        entry_lines = lines[start:end]
+        name = "Выкованное в Грезах" if detected_name == "Выкованное" else detected_name
+        first_remainder = entry_lines[0][len(detected_name) :].strip()
+        body_lines = ([first_remainder] if first_remainder else []) + entry_lines[1:]
+        body = "\n".join(body_lines).strip()
+        body = EQUIPMENT_MODIFICATION_BODY_OVERRIDES.get((section_hint, name), body)
+        entry_section = "weapon-upgrade" if name == "Улучшение оружия" else section_hint
+        price = EQUIPMENT_MODIFICATION_COSTS.get((section_hint, name))
+        entries.append(
+            {
+                "name": name,
+                "section": entry_section,
+                "raw_stats": "",
+                "body": body,
+                "raw_text": f"{name}\n{body}".strip(),
+                "stats": {"price": str(price)} if price is not None else {},
+                "rarity": None,
+            }
+        )
+    return entries
+
+
+FOOD_PAGE_RULE_HEADINGS = {
+    "Припасы и рецепты": "supplies-recipes",
+    "Использование Припасов": "supplies-use",
+    "Поиск Припасов": "supplies-search",
+    "Вес еды": "food-weight",
+    "Прием пищи": "eating",
+    "Разделывание": "butchering",
+}
+
+FOOD_PAGE_ITEMS = [
+    ("Сырые растения", 5, 0.5, 1, True),
+    ("Сырое мясо", 10, 0.25, 5, True),
+    ("Сырые грибы", 10, 0.25, 6, True),
+    ("Паек с растениями", 6, 0.25, 2, False),
+    ("Паек с мясом", 15, 0.2, 10, False),
+    ("Паек с грибами", 10, 0.2, 10, False),
+]
+
+EQUIPMENT_MODIFICATION_TARGETS = {
+    "weapon-modification": "weapon",
+    "shield-modification": "shield",
+    "armor-modification": "armor",
+    "weapon-upgrade": "weapon",
+}
+
+ARMOR_MODIFICATION_CONFLICTS = {
+    "Стеганая": ["Утяжеленная", "Шипованная"],
+    "Утяжеленная": ["Стеганая", "Шипованная"],
+    "Шипованная": ["Стеганая", "Утяжеленная"],
+}
+
+
+def split_food_page_entries(raw_text: str) -> list[dict[str, Any]]:
+    lines = clean_equipment_lines(raw_text)
+    starts = [(index, line) for index, line in enumerate(lines) if line in FOOD_PAGE_RULE_HEADINGS]
+    first_food_index = next(
+        (index for index, line in enumerate(lines) if any(line.startswith(name + " ") for name, *_ in FOOD_PAGE_ITEMS)),
+        len(lines),
+    )
+    entries = []
+    for position, (start, heading) in enumerate(starts):
+        next_start = starts[position + 1][0] if position + 1 < len(starts) else first_food_index
+        end = min(next_start, first_food_index)
+        body = "\n".join(lines[start + 1 : end]).strip()
+        if body:
+            entries.append(
+                {
+                    "name": heading,
+                    "section": "equipment-rules",
+                    "raw_stats": "",
+                    "body": body,
+                    "raw_text": f"{heading}\n{body}",
+                    "stats": {"rule_slug": FOOD_PAGE_RULE_HEADINGS[heading]},
+                    "rarity": None,
+                }
+            )
+    for name, satiety, weight, price, spoils in FOOD_PAGE_ITEMS:
+        effect = (
+            "Каждые пять привалов Сытость делится на два; при результате 1 на к6 жук "
+            "получает 1 отложенный урон ядом."
+            if spoils
+            else "Не портится с течением времени."
+        )
+        entries.append(
+            {
+                "name": name,
+                "section": "food",
+                "raw_stats": f"{name} {satiety} {weight} {price}",
+                "body": effect,
+                "raw_text": f"{name} {satiety} {weight} {price}\n{effect}",
+                "stats": {"satiety": str(satiety), "weight": str(weight), "price": str(price), "spoils": spoils},
+                "rarity": None,
+            }
+        )
+    return entries
+
+
 def split_equipment_entries(raw_text: str, section_hint: str | None) -> list[dict[str, Any]]:
     if section_hint == "equipment-rules":
         return []
+    if section_hint in EQUIPMENT_MODIFICATION_NAMES:
+        return split_equipment_modification_entries(raw_text, section_hint)
+    if section_hint == "food":
+        return split_food_page_entries(raw_text)
     lines = clean_equipment_lines(raw_text)
     starts: list[tuple[int, int, re.Match[str]]] = []
     index = 0
@@ -2378,7 +2572,8 @@ def normalize_equipment_overview(item: dict[str, Any], raw_text: str, section: s
 def normalize_equipment_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
     page = int(item["source"]["page_start"])
     section = item.pop("_equipment_section", None) or equipment_section_for_page(page)
-    entries = split_equipment_entries(raw_text, section)
+    prepared_entry = item.pop("_equipment_entry", None)
+    entries = [prepared_entry] if prepared_entry else split_equipment_entries(raw_text, section)
     if not entries:
         return normalize_equipment_overview(item, raw_text, section)
 
@@ -2386,7 +2581,13 @@ def normalize_equipment_rule_object(item: dict[str, Any], raw_text: str) -> dict
     stats = entry["stats"]
     item["draft_id"] = item["id"]
     item["id"] = f"equipment.{entry['section'] or 'unknown'}.{stable_name_slug(entry['name'], 'item')}"
-    item["type"] = "equipment-item"
+    item["type"] = (
+        "equipment-modification"
+        if entry["section"] and entry["section"].endswith("-modification")
+        else "equipment-rules"
+        if entry["section"] in {"equipment-rules", "weapon-upgrade"}
+        else "equipment-item"
+    )
     item["subcategory"] = entry["section"] or "equipment"
     item["name"] = entry["name"]
     item["raw_text"] = entry["raw_text"]
@@ -2395,6 +2596,23 @@ def normalize_equipment_rule_object(item: dict[str, Any], raw_text: str) -> dict
     if stats.get("price"):
         item["costs"]["geo"] = parse_equipment_price(stats["price"])
     item["requirements"] = []
+    target_category = EQUIPMENT_MODIFICATION_TARGETS.get(entry["section"])
+    if target_category:
+        item["requirements"].append(
+            {"type": "equipment_category", "value": target_category}
+        )
+    if entry["section"] == "weapon-modification" and entry["name"] == "Удлиненное":
+        item["requirements"].append(
+            {"type": "excludes_property", "value": "reach"}
+        )
+    if entry["section"] == "armor-modification":
+        item["relationships"] = [
+            {
+                "type": "conflicts_with",
+                "target": f"equipment.armor-modification.{stable_name_slug(conflict, 'modification')}",
+            }
+            for conflict in ARMOR_MODIFICATION_CONFLICTS.get(entry["name"], [])
+        ]
     item["modifiers"] = {
         "section": entry["section"],
         "raw_stats": entry["raw_stats"],
@@ -2428,6 +2646,7 @@ def equipment_rule_objects_from_candidate(candidate: dict[str, Any]) -> list[dic
         split_candidate["raw_text"] = entry["raw_text"]
         split_candidate["title_hint"] = entry["name"]
         split_candidate["_equipment_section"] = entry["section"]
+        split_candidate["_equipment_entry"] = entry
         split_candidate["source"] = dict(candidate.get("source", {}))
         split_candidate["source"]["layer0_block"] = (
             int(split_candidate["source"].get("layer0_block", 0)) * 100 + index
@@ -3323,6 +3542,8 @@ def candidate_to_rule_object(candidate: dict[str, Any]) -> dict[str, Any]:
         item["_charm_group"] = candidate["_charm_group"]
     if "_equipment_section" in candidate:
         item["_equipment_section"] = candidate["_equipment_section"]
+    if "_equipment_entry" in candidate:
+        item["_equipment_entry"] = candidate["_equipment_entry"]
 
     if category_hint == "core-rules":
         item = normalize_core_rule_object(item, raw_text)
