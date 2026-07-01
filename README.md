@@ -13,11 +13,37 @@ Concept:
 <your character concept>
 ```
 
+Expected first response:
+
+```text
+I have initialized HK-Kit and validated HK-RDB.
+
+Before selecting mechanics, I need to lock the character intent,
+vision, and campaign constraints:
+
+1. ...
+2. ...
+3. ...
+```
+
 You do not need to know or supply HK-CAS internals. The model initializes through `AGENTS.md` and uses the short `HK-CAS/runtime-create.md` route itself. It may ask focused questions when your fantasy creates a real choice.
 
 HK-RDB is the only rules source during character creation; the original PDF is maintainer-only. If required rules are missing or cannot prove legality, HK-Kit fails loudly instead of inventing an answer.
 
 `MODE CREATE` is the only supported v1 mode. Runtime files guide character creation; architecture, build tools, and source-processing documents are for repository maintenance and are not required for ordinary play.
+
+## Mandatory First Response Contract
+
+After receiving a new `MODE CREATE` concept, the model must not select or recommend any template, path, trait, weapon, skill, art, charm, spell, equipment item, or mechanical build component.
+
+The first substantive response must perform only:
+
+1. Repository and HK-RDB validation.
+2. Intent Lock.
+3. Vision Lock.
+4. Constraint Lock questions.
+
+This rule applies even when the concept appears clear. A clear concept may reduce the number of questions, but it never permits skipping the three Locks. Mechanical recommendations and character assembly begin only after all three Locks are complete.
 
 ## Информация для пользователя
 
@@ -31,6 +57,8 @@ MODE CREATE
 Концепт:
 Маленький жук-разведчик, который носит чужой панцирь и побеждает хитростью, а не силой.
 ```
+
+Первый содержательный ответ ИИ не должен предлагать путь, шаблон, черты, оружие, снаряжение или готовую сборку. Сначала он подтверждает загрузку HK-Kit и проверку HK-RDB, затем задаёт вопросы Intent Lock, Vision Lock и Constraint Lock. Даже ясный концепт не позволяет пропустить эти три этапа.
 
 Сначала ИИ уточнит только те детали, которые действительно влияют на персонажа: цель игры, желаемый стиль, обязательные элементы образа и ограничения. Например, он может спросить, должен ли чужой панцирь давать механическую защиту или оставаться частью внешности.
 

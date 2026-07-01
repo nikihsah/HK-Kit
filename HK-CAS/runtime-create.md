@@ -4,7 +4,13 @@ Purpose: transform the player's concept into a rules-valid character while prese
 
 ## Minimal initialization
 
-Read `AGENTS.md`, this file, `HK-RDB/data/index.json`, `manifest.json`, and `validation.json`, then only stage-relevant HK-CAS and HK-RDB files. Stop on validation `fail`, stale manifest, missing required data, or a required `blocked` object. Raw-text-authoritative objects use their preserved `raw_text`; do not infer missing structure.
+Read `AGENTS.md`, this file, `HK-RDB/data/index.json`, `manifest.json`, and `validation.json`, then only stage-relevant HK-CAS and HK-RDB files. Do not read `CODEX_BOOTSTRAP.md`, `CAS_EVOLUTION.md`, or `PROJECT_SPEC.md` during MODE CREATE. Stop on validation `fail`, stale manifest, missing required data, or a required `blocked` object. For every `raw_text_authoritative` object considered during analysis, read the complete preserved `raw_text` and treat it as the authoritative rule; its structured effects are incomplete and must not be used as a substitute. Do not infer missing structure.
+
+## First response gate
+
+The first substantive response to every new concept may only report repository/HK-RDB validation and ask the minimum necessary Intent Lock, Vision Lock, and Constraint Lock questions. This gate applies even when the concept seems clear.
+
+Until all three Locks are complete, do not name or recommend HK-RDB mechanical objects, propose paths or templates, recommend traits or equipment, calculate character values, or present any partial build. Violating this gate is a runtime protocol failure.
 
 ## Ordered states
 

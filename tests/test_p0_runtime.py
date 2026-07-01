@@ -79,8 +79,23 @@ class TestP0Runtime(unittest.TestCase):
 
     def test_runtime_does_not_require_maintainer_docs(self) -> None:
         runtime = (ROOT / "HK-CAS" / "runtime-create.md").read_text(encoding="utf-8")
-        self.assertNotIn("CODEX_BOOTSTRAP.md", runtime)
-        self.assertNotIn("CAS_EVOLUTION.md", runtime)
+        self.assertIn("Do not read `CODEX_BOOTSTRAP.md`", runtime)
+        agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        runtime_section = agents.split("## MODE CREATE Runtime Route", 1)[1].split("## Maintenance and Development", 1)[0]
+        self.assertIn("Do not read `CODEX_BOOTSTRAP.md`", runtime_section)
+        self.assertIn("raw_text_authoritative", runtime_section)
+
+    def test_first_response_contract_blocks_early_mechanics(self) -> None:
+        agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+        runtime = (ROOT / "HK-CAS" / "runtime-create.md").read_text(encoding="utf-8")
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        for document in (agents, runtime, readme):
+            self.assertIn("first substantive response", document.lower())
+            self.assertIn("Intent Lock", document)
+            self.assertIn("Vision Lock", document)
+            self.assertIn("Constraint Lock", document)
+        self.assertIn("runtime protocol failure", agents)
+        self.assertIn("partial or complete build", agents)
 
     def test_agents_forbids_unrelated_external_actions(self) -> None:
         agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
