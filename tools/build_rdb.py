@@ -2108,6 +2108,287 @@ def charm_rule_objects_from_candidate(candidate: dict[str, Any]) -> list[dict[st
     return objects
 
 
+EQUIPMENT_PAGE_SECTIONS = [
+    (88, 88, "equipment-rules"),
+    (89, 92, "weapon"),
+    (93, 94, "weapon-modification"),
+    (95, 95, "shield"),
+    (96, 96, "shield-modification"),
+    (97, 97, "armor"),
+    (98, 98, "armor-modification"),
+    (99, 99, "magic-focus"),
+    (100, 100, "food"),
+    (101, 102, "potion"),
+    (103, 103, "alcohol"),
+    (104, 106, "flask"),
+    (107, 108, "poison"),
+    (109, 111, "trap"),
+    (112, 112, "tool"),
+    (113, 114, "treasure"),
+    (115, 116, "belt-item"),
+]
+
+EQUIPMENT_RARITIES = {
+    "Обычный": "common",
+    "Обычная": "common",
+    "Обычное": "common",
+    "Необычный": "uncommon",
+    "Необычная": "uncommon",
+    "Необычное": "uncommon",
+    "Редкий": "rare",
+    "Редкая": "rare",
+    "Редкое": "rare",
+    "Легендарный": "legendary",
+    "Легендарная": "legendary",
+    "Легендарное": "legendary",
+}
+
+EQUIPMENT_WEAPON_TYPES = [
+    "Гвоздь",
+    "Игла",
+    "Крюк",
+    "Клык",
+    "Праща",
+    "Природное",
+]
+
+
+def equipment_section_for_page(page: int) -> str | None:
+    for start, end, section in EQUIPMENT_PAGE_SECTIONS:
+        if start <= page <= end:
+            return section
+    return None
+
+
+def clean_equipment_lines(raw_text: str) -> list[str]:
+    ignored = {
+        "Оружие Тип Урон Дальность боя Хватка Вес Цена",
+        "Оружие Тип Урон Дальность боя Вес Цена",
+        "Модификация Эффект Цена",
+        "Щит Качество Вес Цена",
+        "Броня         Максимальная Прочность   Понижение урона Вес Цена",
+        "Фокусировка Тип Урон Дальность Хватка Вес Цена",
+        "Еда Сытость в порции Вес порции Цена порции",
+        "Зелье Редкость Крепость Цена",
+        "Алкоголь Редкость Крепость Цена",
+        "Склянка Редкость Восстанавливается? Цена",
+        "Яд Редкость Дозы Цена",
+        "Ловушка Редкость Многоразовая? Вес Цена",
+        "Инструмент Навыки и применение Оружейный аналог Вес Цена",
+        "Предмет Вес Цена",
+        "Находка Эффекты Цена",
+        "Хватка",
+    }
+    lines = [re.sub(r"\s+", " ", line).strip() for line in raw_text.splitlines()]
+    return [
+        line
+        for line in lines
+        if line
+        and line not in ignored
+        and not re.fullmatch(r"\d{2,3}", line)
+        and not re.search(r"\(\d+/\d+\)$", line)
+    ]
+
+
+def parse_equipment_price(value: str) -> int | str:
+    cleaned = value.strip().rstrip("!*")
+    return int(cleaned) if cleaned.isdigit() else value.strip()
+
+
+def parse_equipment_weight(value: str) -> int | float | str:
+    cleaned = value.strip().replace(",", ".")
+    if cleaned.isdigit():
+        return int(cleaned)
+    try:
+        return float(cleaned)
+    except ValueError:
+        return value.strip()
+
+
+def match_equipment_window(lines: list[str], index: int, max_window: int = 4) -> tuple[re.Match[str] | None, int]:
+    first_line = lines[index].strip()
+    if (
+        len(first_line) > 55
+        or len(first_line.split()) > 10
+        or "." in first_line
+        or re.match(r"^[а-яё]", first_line)
+        or first_line.endswith((".", ":"))
+        or first_line.startswith(("+", "-", "Направленный:", "Окружение", "Окружение+", "Прием внутрь:", "Передозировка:"))
+        or re.match(
+            r"^(Атакующий|Атака|При |Прием|При попадании|Попытка|Может |Броски|Предел|Держа|Подготовленные|Ошеломляет|Вызывает|Также|Цель|Игнорирует|Это |Соединенная|Модификации|Качество|Владелец|Жук |Носитель|Если |Когда |Чтобы |Для |Примеры|Предмет,)",
+            first_line,
+            re.IGNORECASE,
+        )
+    ):
+        return None, 0
+
+    weapon_types = "|".join(EQUIPMENT_WEAPON_TYPES)
+    weapon_pattern = re.compile(
+        rf"^(?P<name>.+?) (?P<item_type>{weapon_types}(?:, ?(?:{weapon_types}))*) "
+        r"(?P<damage>\d+|-) (?:(?P<range>Ближний|Дальний \(\d+\)|Досяг\.) )?"
+        r"(?P<grip>[012]Р\+?) (?P<weight>Легкое|Легкий|\d+(?:[.,]\d+)?) (?P<price>\d+|-)$",
+        re.IGNORECASE,
+    )
+    shield_pattern = re.compile(
+        r"^(?P<name>Щит-[А-ЯЁа-яё-]+|Панцирный щит) (?P<quality>-?\d+) "
+        r"(?P<weight>Легкое|Легкий|\d+(?:[.,]\d+)?) (?P<price>\d+|-)$",
+        re.IGNORECASE,
+    )
+    armor_pattern = re.compile(
+        r"^(?P<name>[А-ЯЁа-яё]+ броня) (?P<durability>\d+) (?P<damage_reduction>\d+) "
+        r"(?P<weight>Легкое|Легкий|\d+(?:[.,]\d+)?) (?P<price>\d+|-)$",
+        re.IGNORECASE,
+    )
+    rarity_pattern = "|".join(sorted(EQUIPMENT_RARITIES, key=len, reverse=True))
+    rarity_item_pattern = re.compile(
+        rf"^(?P<name>.+?) (?P<rarity>{rarity_pattern}) "
+        r"(?:(?P<reusable>Да|Нет) )?(?:(?P<potency>\d+|-) )?"
+        r"(?:(?P<weight>Легкое|Легкий|\d+(?:[.,]\d+)?) )?"
+        r"(?P<price>\d+\*?|Бесценно!?|Только найти)$",
+        re.IGNORECASE,
+    )
+    food_pattern = re.compile(
+        r"^(?P<name>.+?) (?P<satiety>\d+|Полная) (?P<weight>Легкое|Легкий|\d+(?:[.,]\d+)?) "
+        r"(?P<price>\d+\*?|Бесценно!?)$",
+        re.IGNORECASE,
+    )
+    simple_item_pattern = re.compile(
+        r"^(?P<name>.+?) (?P<weight>Легкое|Легкий|\d+(?:[.,]\d+)?) (?P<price>\d+\*?|Только найти)$",
+        re.IGNORECASE,
+    )
+
+    patterns = [weapon_pattern, shield_pattern, armor_pattern, rarity_item_pattern, food_pattern, simple_item_pattern]
+    for size in range(1, max_window + 1):
+        text = " ".join(lines[index : index + size])
+        for pattern in patterns:
+            match = pattern.match(text)
+            if match:
+                return match, size
+    return None, 0
+
+
+def split_equipment_entries(raw_text: str, section_hint: str | None) -> list[dict[str, Any]]:
+    if section_hint == "equipment-rules":
+        return []
+    lines = clean_equipment_lines(raw_text)
+    starts: list[tuple[int, int, re.Match[str]]] = []
+    index = 0
+    while index < len(lines):
+        match, size = match_equipment_window(lines, index)
+        if match:
+            starts.append((index, size, match))
+            index += max(size, 1)
+        else:
+            index += 1
+
+    entries: list[dict[str, Any]] = []
+    for position, (start, size, match) in enumerate(starts):
+        end = starts[position + 1][0] if position + 1 < len(starts) else len(lines)
+        row_lines = lines[start : start + size]
+        body_lines = lines[start + size : end]
+        groups = match.groupdict()
+        rarity_raw = groups.get("rarity")
+        entries.append(
+            {
+                "name": groups.get("name", "").strip(),
+                "section": section_hint,
+                "raw_stats": " ".join(row_lines),
+                "body": "\n".join(body_lines).strip(),
+                "raw_text": "\n".join(lines[start:end]).strip(),
+                "stats": {
+                    key: value.strip()
+                    for key, value in groups.items()
+                    if key != "name" and value is not None and value.strip()
+                },
+                "rarity": EQUIPMENT_RARITIES.get(rarity_raw) if rarity_raw else None,
+            }
+        )
+    return entries
+
+
+def normalize_equipment_overview(item: dict[str, Any], raw_text: str, section: str | None) -> dict[str, Any]:
+    item["draft_id"] = item["id"]
+    item["id"] = "equipment.overview" if "9.Снаряжение" in raw_text else f"equipment.rules.p{item['source']['page_start']:03d}"
+    item["type"] = "equipment-rules"
+    item["subcategory"] = section or "equipment-rules"
+    item["name"] = "Снаряжение" if "9.Снаряжение" in raw_text else item["name"]
+    item["summary"] = summarize_raw_text(raw_text)
+    item["modifiers"] = {
+        "section": section,
+        "needs_manual_review": True,
+    }
+    item["effects"] = [
+        {
+            "type": "unparsed_equipment_rule_text",
+            "text": raw_text,
+            "needs_manual_review": True,
+        }
+    ]
+    item["tags"] = sorted(set(item["tags"] + ["equipment", "character-creation"]))
+    return item
+
+
+def normalize_equipment_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
+    page = int(item["source"]["page_start"])
+    section = item.pop("_equipment_section", None) or equipment_section_for_page(page)
+    entries = split_equipment_entries(raw_text, section)
+    if not entries:
+        return normalize_equipment_overview(item, raw_text, section)
+
+    entry = entries[0]
+    stats = entry["stats"]
+    item["draft_id"] = item["id"]
+    item["id"] = f"equipment.{entry['section'] or 'unknown'}.{stable_name_slug(entry['name'], 'item')}"
+    item["type"] = "equipment-item"
+    item["subcategory"] = entry["section"] or "equipment"
+    item["name"] = entry["name"]
+    item["raw_text"] = entry["raw_text"]
+    item["summary"] = summarize_raw_text(entry["body"] or entry["raw_text"])
+    item["costs"] = {}
+    if stats.get("price"):
+        item["costs"]["geo"] = parse_equipment_price(stats["price"])
+    item["requirements"] = []
+    item["modifiers"] = {
+        "section": entry["section"],
+        "raw_stats": entry["raw_stats"],
+        "stats": stats,
+        "rarity": entry["rarity"],
+    }
+    if stats.get("weight"):
+        item["modifiers"]["weight"] = parse_equipment_weight(stats["weight"])
+    item["effects"] = [
+        {
+            "type": "unparsed_equipment_effect",
+            "text": entry["body"],
+            "needs_manual_review": True,
+        }
+    ]
+    item["tags"] = sorted(set(item["tags"] + ["equipment", "character-creation"]))
+    return item
+
+
+def equipment_rule_objects_from_candidate(candidate: dict[str, Any]) -> list[dict[str, Any]]:
+    raw_text = candidate.get("raw_text", "")
+    page = int(candidate.get("source", {}).get("page_start", 0))
+    section = equipment_section_for_page(page)
+    entries = split_equipment_entries(raw_text, section)
+    if not entries:
+        return [candidate_to_rule_object(candidate)]
+
+    objects: list[dict[str, Any]] = []
+    for index, entry in enumerate(entries, start=1):
+        split_candidate = dict(candidate)
+        split_candidate["raw_text"] = entry["raw_text"]
+        split_candidate["title_hint"] = entry["name"]
+        split_candidate["_equipment_section"] = entry["section"]
+        split_candidate["source"] = dict(candidate.get("source", {}))
+        split_candidate["source"]["layer0_block"] = (
+            int(split_candidate["source"].get("layer0_block", 0)) * 100 + index
+        )
+        objects.append(candidate_to_rule_object(split_candidate))
+    return objects
+
+
 def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
     parts = split_trait_parts(raw_text)
     tags = list(item["tags"])
@@ -2365,6 +2646,8 @@ def candidate_to_rule_object(candidate: dict[str, Any]) -> dict[str, Any]:
         item["_magic_path"] = candidate["_magic_path"]
     if "_charm_group" in candidate:
         item["_charm_group"] = candidate["_charm_group"]
+    if "_equipment_section" in candidate:
+        item["_equipment_section"] = candidate["_equipment_section"]
 
     if category_hint == "traits":
         item = normalize_trait_rule_object(item, raw_text)
@@ -2382,6 +2665,8 @@ def candidate_to_rule_object(candidate: dict[str, Any]) -> dict[str, Any]:
         item = normalize_magic_rule_object(item, raw_text)
     elif category_hint == "charms":
         item = normalize_charm_rule_object(item, raw_text)
+    elif category_hint == "equipment":
+        item = normalize_equipment_rule_object(item, raw_text)
 
     return item
 
@@ -2430,6 +2715,10 @@ def build_draft_containers(layer1: dict[str, Any]) -> tuple[dict[str, dict[str, 
         elif category_hint == "charms":
             containers[CATEGORY_TO_FILE[category_hint]]["items"].extend(
                 charm_rule_objects_from_candidate(candidate)
+            )
+        elif category_hint == "equipment":
+            containers[CATEGORY_TO_FILE[category_hint]]["items"].extend(
+                equipment_rule_objects_from_candidate(candidate)
             )
         else:
             containers[CATEGORY_TO_FILE[category_hint]]["items"].append(

@@ -782,6 +782,65 @@ class TestBuildRdb(unittest.TestCase):
         self.assertTrue(item["modifiers"]["rarity_prices_present"])
         self.assertTrue(item["modifiers"]["overcharm_rules_present"])
 
+    def test_build_draft_containers_expands_equipment_weapons(self) -> None:
+        candidate = sample_candidate("equipment")
+        candidate["source"]["page_start"] = 89
+        candidate["source"]["page_end"] = 89
+        candidate["raw_text"] = (
+            "Оружие (1/4)\n"
+            "Оружие Тип Урон Дальность боя Хватка Вес Цена\n"
+            "Гвоздь Гвоздь 3\n"
+            "Ближний\n"
+            "1Р 1 100\n"
+            "Атакующий может перебросить один проваленный бросок.\n"
+            "Игла Игла 3 1Р 1 100\n"
+            "+2 к броску Инициативы.\n"
+        )
+        layer1 = {
+            "artifact": "HK-RDB Layer 1",
+            "mode_create_allowed": False,
+            "candidates": [candidate],
+        }
+
+        containers, skipped = build_draft_containers(layer1)
+        items = containers["equipment.json"]["items"]
+
+        self.assertEqual(skipped, [])
+        self.assertEqual(len(items), 2)
+        self.assertEqual(items[0]["id"], "equipment.weapon.gvozd")
+        self.assertEqual(items[0]["costs"]["geo"], 100)
+        self.assertEqual(items[0]["modifiers"]["weight"], 1)
+        self.assertEqual(items[0]["modifiers"]["stats"]["item_type"], "Гвоздь")
+        self.assertEqual(items[0]["modifiers"]["stats"]["damage"], "3")
+
+    def test_build_draft_containers_expands_equipment_consumables(self) -> None:
+        candidate = sample_candidate("equipment")
+        candidate["source"]["page_start"] = 104
+        candidate["source"]["page_end"] = 104
+        candidate["raw_text"] = (
+            "Склянки (1/3)\n"
+            "Склянка Редкость Восстанавливается? Цена\n"
+            "С водой Обычная Нет 10\n"
+            "Направленный: Весь огонь на цели затухает.\n"
+            "С пыльцой Необычная Да 50\n"
+            "Окружение+: Все жуки восстанавливают 1 Сердце.\n"
+        )
+        layer1 = {
+            "artifact": "HK-RDB Layer 1",
+            "mode_create_allowed": False,
+            "candidates": [candidate],
+        }
+
+        containers, skipped = build_draft_containers(layer1)
+        items = containers["equipment.json"]["items"]
+
+        self.assertEqual(skipped, [])
+        self.assertEqual(len(items), 2)
+        self.assertEqual(items[0]["id"], "equipment.flask.s-vodoy")
+        self.assertEqual(items[0]["modifiers"]["rarity"], "common")
+        self.assertEqual(items[0]["modifiers"]["stats"]["reusable"], "Нет")
+        self.assertEqual(items[1]["costs"]["geo"], 50)
+
     def test_magic_secret_uses_page_path_hint_when_header_is_missing(self) -> None:
         candidate = sample_candidate("magic")
         candidate["source"]["page_start"] = 63

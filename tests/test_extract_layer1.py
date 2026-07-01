@@ -110,7 +110,9 @@ class TestExtractLayer1(unittest.TestCase):
         self.assertEqual(page_category_hint(73), ("magic", "magic_section_page_range"))
         self.assertEqual(page_category_hint(74), ("charms", "charms_section_page_range"))
         self.assertEqual(page_category_hint(87), ("charms", "charms_section_page_range"))
-        self.assertEqual(page_category_hint(99), (None, None))
+        self.assertEqual(page_category_hint(88), ("equipment", "equipment_section_page_range"))
+        self.assertEqual(page_category_hint(116), ("equipment", "equipment_section_page_range"))
+        self.assertEqual(page_category_hint(117), (None, None))
 
     def test_choose_category_hint_prefers_template_page_context(self) -> None:
         category, source = choose_category_hint("Душа и магия рядом с таблицей шаблонов", 11)
@@ -250,6 +252,28 @@ class TestExtractLayer1(unittest.TestCase):
         self.assertEqual(document["candidate_count"], 1)
         self.assertEqual(document["candidates"][0]["category_hint"], "charms")
         self.assertIn("Древняя Сила", document["candidates"][0]["raw_text"])
+
+    def test_build_candidates_keeps_equipment_pages_whole(self) -> None:
+        layer0 = {
+            "artifact": "HK-RDB Layer 0",
+            "mode_create_allowed": False,
+            "book": "Test Book",
+            "source": {"pdf_name": "test.pdf", "pdf_sha256": "abc123"},
+            "page_count": 1,
+            "pages": [
+                {
+                    "page": 89,
+                    "text": "Оружие (1/4)\nГвоздь Гвоздь 3\nБлижний\n1Р 1 100\n"
+                    + ("Атакующий может перебросить один проваленный бросок. " * 80),
+                }
+            ],
+        }
+
+        document = build_candidates(layer0, min_chars=10)
+
+        self.assertEqual(document["candidate_count"], 1)
+        self.assertEqual(document["candidates"][0]["category_hint"], "equipment")
+        self.assertIn("Гвоздь", document["candidates"][0]["raw_text"])
 
     def test_choose_category_hint_prefers_page_context(self) -> None:
         category, source = choose_category_hint("еда, отдых, путешествие", 21)
