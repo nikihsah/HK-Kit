@@ -104,6 +104,12 @@ RU_TOKEN_MAP = {
     "ядовитый": "venomous",
 }
 
+TRAIT_NAME_ALIASES = {
+    "безруким": "безрукий",
+    "внешним панцирем": "внешний панцирь",
+    "плавания": "плавание",
+}
+
 
 def slugify(value: str, fallback: str = "entry") -> str:
     value = value.lower()
@@ -178,11 +184,12 @@ def summarize_raw_text(raw_text: str, max_len: int = 240) -> str:
     return text[: max_len - 3].rstrip() + "..."
 
 
-def clean_title(value: str) -> tuple[str, bool]:
+def clean_title(value: str) -> tuple[str, bool, int]:
     title = re.sub(r"\s+", " ", value).strip()
-    is_subtrait = title.startswith("●")
-    title = title.lstrip("●").strip()
-    return title, is_subtrait
+    subtrait_depth = 2 if title.startswith("○") else 1 if title.startswith("●") else 0
+    is_subtrait = subtrait_depth > 0
+    title = title.lstrip("●○").strip()
+    return title, is_subtrait, subtrait_depth
 
 
 def parse_number(value: str) -> float | int:
@@ -278,11 +285,12 @@ def split_trait_parts(raw_text: str) -> dict[str, Any]:
         return {
             "name": "",
             "is_subtrait": False,
+            "subtrait_depth": 0,
             "cost_text": "",
             "body": "",
         }
 
-    name, is_subtrait = clean_title(lines[0])
+    name, is_subtrait, subtrait_depth = clean_title(lines[0])
     cost_lines: list[str] = []
     body_start = 1
 
@@ -309,6 +317,7 @@ def split_trait_parts(raw_text: str) -> dict[str, Any]:
     return {
         "name": name,
         "is_subtrait": is_subtrait,
+        "subtrait_depth": subtrait_depth,
         "cost_text": " ".join(cost_lines).strip(),
         "body": body,
     }
@@ -472,6 +481,7 @@ def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str
 
     item["name"] = parts["name"] or item["name"]
     item["subcategory"] = "Subtrait" if parts["is_subtrait"] else "Trait"
+    item["subtrait_depth"] = parts["subtrait_depth"]
     item["costs"] = trait_costs(parts["cost_text"], parts["body"])
     item["summary"] = summarize_raw_text(parts["body"] or raw_text)
     item["effects"] = [
@@ -496,8 +506,10 @@ def unique_id(base_id: str, used_ids: set[str]) -> str:
 
 
 def infer_trait_relationships(items: list[dict[str, Any]]) -> None:
-    current_parent_id: str | None = None
-    current_parent_slug: str | None = None
+    current_root_id: str | None = None
+    current_root_slug: str | None = None
+    current_level_one_id: str | None = None
+    current_level_one_slug: str | None = None
     used_ids: set[str] = set()
     for item in items:
         original_id = item.get("id")
@@ -507,29 +519,175 @@ def infer_trait_relationships(items: list[dict[str, Any]]) -> None:
         if item.get("subcategory") == "Trait":
             base_id = f"traits.{stable_name_slug(item.get('name', ''), 'trait')}"
             item["id"] = unique_id(base_id, used_ids)
-            current_parent_id = item.get("id")
-            current_parent_slug = current_parent_id.removeprefix("traits.")
+            current_root_id = item.get("id")
+            current_root_slug = current_root_id.removeprefix("traits.")
+            current_level_one_id = None
+            current_level_one_slug = None
             continue
-        if item.get("subcategory") != "Subtrait" or not current_parent_id:
+        if item.get("subcategory") != "Subtrait" or not current_root_id:
             continue
+        depth = int(item.get("subtrait_depth", 1))
+        parent_id = current_root_id
+        parent_slug = current_root_slug
+        if depth >= 2 and current_level_one_id:
+            parent_id = current_level_one_id
+            parent_slug = current_level_one_slug
         subtrait_slug = stable_name_slug(item.get("name", ""), "subtrait")
-        base_id = f"traits.{current_parent_slug}.{subtrait_slug}" if current_parent_slug else f"traits.{subtrait_slug}"
+        base_id = f"traits.{parent_slug}.{subtrait_slug}" if parent_slug else f"traits.{subtrait_slug}"
         item["id"] = unique_id(base_id, used_ids)
+        if depth == 1:
+            current_level_one_id = item["id"]
+            current_level_one_slug = item["id"].removeprefix("traits.")
         relationships = item.setdefault("relationships", [])
         if not any(
             relationship.get("type") == "subtrait_of"
-            and relationship.get("target") == current_parent_id
+            and relationship.get("target") == parent_id
             for relationship in relationships
             if isinstance(relationship, dict)
         ):
             relationships.append(
                 {
                     "type": "subtrait_of",
-                    "target": current_parent_id,
+                    "target": parent_id,
                     "inferred": True,
                     "needs_manual_review": True,
                 }
             )
+
+
+def trait_body(item: dict[str, Any]) -> str:
+    for effect in item.get("effects", []):
+        if effect.get("type") == "unparsed_effect_text":
+            return str(effect.get("text", ""))
+    return ""
+
+
+def resolve_trait_target(name: str, name_map: dict[str, str]) -> str | None:
+    normalized = re.sub(r"\s+", " ", name).strip(" .,").casefold()
+    normalized = TRAIT_NAME_ALIASES.get(normalized, normalized)
+    return name_map.get(normalized)
+
+
+def append_relationship(
+    item: dict[str, Any], relationship_type: str, target: str, source_text: str
+) -> None:
+    relationships = item.setdefault("relationships", [])
+    if any(
+        relationship.get("type") == relationship_type
+        and relationship.get("target") == target
+        for relationship in relationships
+        if isinstance(relationship, dict)
+    ):
+        return
+    relationships.append(
+        {
+            "type": relationship_type,
+            "target": target,
+            "source_text": source_text,
+            "inferred": True,
+            "needs_manual_review": True,
+        }
+    )
+
+
+def infer_trait_constraints(items: list[dict[str, Any]]) -> None:
+    name_map = {
+        re.sub(r"\s+", " ", item.get("name", "")).strip().casefold(): item["id"]
+        for item in items
+        if item.get("name") and item.get("id")
+    }
+
+    for item in items:
+        body = re.sub(r"\s+", " ", item.get("raw_text", "")).strip()
+        if not body:
+            continue
+
+        for pattern, relationship_type in [
+            (
+                r"не\s+может\s+быть\s+взят[ао]?\s+с\s+([А-ЯЁ][А-Яа-яЁё -]+?)(?=\s+Если\b|\.|$)",
+                "conflicts_with",
+            ),
+            (
+                r"несовместим[ао]?\s+с\s+([А-ЯЁ][А-Яа-яЁё -]+?)(?=\s+Если\b|\.|$)",
+                "conflicts_with",
+            ),
+            (r"если\s+у\s+[^.]{0,80}?есть\s+черта\s+([А-ЯЁ][А-Яа-яЁё -]+)", "synergy_with"),
+        ]:
+            match = re.search(pattern, body, re.IGNORECASE)
+            if not match:
+                continue
+            source_text = sentence_around(body, match.start(), match.end())
+            target = resolve_trait_target(match.group(1), name_map)
+            if target:
+                append_relationship(item, relationship_type, target, source_text)
+
+        parent_match = re.search(
+            r"может\s+быть\s+взят[ао]?\s+как\s+Подчерт[ауы]\s+([А-ЯЁ][А-Яа-яЁё -]+)",
+            body,
+            re.IGNORECASE,
+        )
+        if parent_match:
+            source_text = sentence_around(body, parent_match.start(), parent_match.end())
+            target = resolve_trait_target(parent_match.group(1), name_map)
+            if target:
+                append_relationship(item, "may_be_subtrait_of", target, source_text)
+
+        if re.search(r"как\s+подчерт\w*\s+любой\s+другой\s+черты", body, re.IGNORECASE):
+            item.setdefault("requirements", []).append(
+                {
+                    "type": "subtrait_parent_scope",
+                    "scope": "any_trait",
+                    "needs_manual_review": True,
+                }
+            )
+
+        if re.search(
+            r"как\s+подчерт\w*\s+природного\s+оружия\s+для\s+атаки\s+укусом",
+            body,
+            re.IGNORECASE,
+        ):
+            item.setdefault("requirements", []).append(
+                {
+                    "type": "subtrait_parent_scope",
+                    "scope": "natural_weapon",
+                    "weapon_form": "bite",
+                    "needs_manual_review": True,
+                }
+            )
+
+        size_match = re.search(
+            r"должен\s+быть\s+Маленького\s+размера", body, re.IGNORECASE
+        )
+        if size_match:
+            item.setdefault("requirements", []).append(
+                {
+                    "type": "size",
+                    "operator": "equals",
+                    "value": "Small",
+                    "source_text": size_match.group(0),
+                    "needs_manual_review": True,
+                }
+            )
+
+        restrictions: list[dict[str, Any]] = []
+        if re.search(r"не\s+могут\s+быть\s+парным\s+оружием", body, re.IGNORECASE):
+            restrictions.append(
+                {
+                    "type": "cannot_dual_wield",
+                    "value": True,
+                    "needs_manual_review": True,
+                }
+            )
+        no_stack = re.search(r"не\s+суммируется\s+с\s+([^.,]+)", body, re.IGNORECASE)
+        if no_stack:
+            restrictions.append(
+                {
+                    "type": "does_not_stack",
+                    "with": no_stack.group(1).strip(),
+                    "needs_manual_review": True,
+                }
+            )
+        item.setdefault("effects", []).extend(restrictions)
 
 
 def candidate_to_rule_object(candidate: dict[str, Any]) -> dict[str, Any]:
@@ -601,6 +759,7 @@ def build_draft_containers(layer1: dict[str, Any]) -> tuple[dict[str, dict[str, 
         )
 
     infer_trait_relationships(containers["traits.json"]["items"])
+    infer_trait_constraints(containers["traits.json"]["items"])
 
     return containers, skipped
 

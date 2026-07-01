@@ -19,6 +19,7 @@ Every rule object must contain:
 - `type`
 - `category`
 - `subcategory`
+- `subtrait_depth` (optional; `0` for a trait, `1-2` for nested subtraits)
 - `name`
 - `raw_text`
 - `summary`
@@ -30,6 +31,8 @@ Every rule object must contain:
 - `tags`
 - `source`
 - `needs_manual_review`
+
+Draft-derived objects may also retain optional `draft_id` for maintenance traceability.
 
 ## Source
 

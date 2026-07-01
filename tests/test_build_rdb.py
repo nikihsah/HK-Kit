@@ -9,6 +9,7 @@ from tools.build_rdb import (
     candidate_to_rule_object,
     extract_trait_effect_hints,
     extract_trait_repeatability_hints,
+    infer_trait_constraints,
     infer_trait_relationships,
     parse_trait_base_costs,
     parse_trait_conditional_costs,
@@ -235,6 +236,116 @@ class TestBuildRdb(unittest.TestCase):
         self.assertEqual(child["relationships"][0]["type"], "subtrait_of")
         self.assertEqual(child["relationships"][0]["target"], parent["id"])
         self.assertTrue(child["relationships"][0]["needs_manual_review"])
+
+    def test_infer_trait_relationships_supports_two_bullet_levels(self) -> None:
+        raws = [
+            ("Мягкое Тело", "Мягкое Тело\n+1 Голод\nОписание."),
+            ("● Внешний Панцирь", "● Внешний Панцирь\n+5 Голод\nОписание."),
+            ("○ Скряга", "○ Скряга\n+2 Голод\nОписание."),
+            ("● Регенерация", "● Регенерация\n+5 Голод\nОписание."),
+        ]
+        items = []
+        for title, raw in raws:
+            candidate = sample_candidate("traits")
+            candidate["title_hint"] = title
+            candidate["raw_text"] = raw
+            items.append(candidate_to_rule_object(candidate))
+
+        infer_trait_relationships(items)
+
+        root, external_shell, hoarder, regeneration = items
+        self.assertEqual(external_shell["relationships"][0]["target"], root["id"])
+        self.assertEqual(hoarder["relationships"][0]["target"], external_shell["id"])
+        self.assertEqual(regeneration["relationships"][0]["target"], root["id"])
+        self.assertEqual(hoarder["subtrait_depth"], 2)
+
+    def test_infer_trait_constraints_resolves_named_conflict(self) -> None:
+        no_arms = candidate_to_rule_object(
+            {
+                **sample_candidate("traits"),
+                "raw_text": "Безрукий\n-10 Голод\nОписание.",
+                "title_hint": "Безрукий",
+            }
+        )
+        one_arm = candidate_to_rule_object(
+            {
+                **sample_candidate("traits"),
+                "raw_text": "Одна Рука\n-4 Голод\nНе может быть взят с Безруким.",
+                "title_hint": "Одна Рука",
+            }
+        )
+        items = [no_arms, one_arm]
+        infer_trait_relationships(items)
+        infer_trait_constraints(items)
+
+        conflict = next(r for r in one_arm["relationships"] if r["type"] == "conflicts_with")
+        self.assertEqual(conflict["target"], no_arms["id"])
+
+    def test_infer_trait_constraints_resolves_specific_subtrait_parent(self) -> None:
+        swimming = candidate_to_rule_object(
+            {
+                **sample_candidate("traits"),
+                "raw_text": "Плавание\n+2 Голод\nОписание.",
+                "title_hint": "Плавание",
+            }
+        )
+        underwater = candidate_to_rule_object(
+            {
+                **sample_candidate("traits"),
+                "raw_text": "Дыхание Под Водой\n+2 Голод\nМожет быть взята как Подчерта Плавания.",
+                "title_hint": "Дыхание Под Водой",
+            }
+        )
+        items = [swimming, underwater]
+        infer_trait_relationships(items)
+        infer_trait_constraints(items)
+
+        relation = next(
+            r for r in underwater["relationships"] if r["type"] == "may_be_subtrait_of"
+        )
+        self.assertEqual(relation["target"], swimming["id"])
+
+    def test_infer_trait_constraints_extracts_size_requirement(self) -> None:
+        tiny = candidate_to_rule_object(
+            {
+                **sample_candidate("traits"),
+                "raw_text": "Кроха\n+2 Голод, +1 Привлекательность должен быть Маленького размера\nОписание.",
+                "title_hint": "Кроха",
+            }
+        )
+        infer_trait_relationships([tiny])
+        infer_trait_constraints([tiny])
+
+        self.assertIn(
+            {
+                "type": "size",
+                "operator": "equals",
+                "value": "Small",
+                "source_text": "должен быть Маленького размера",
+                "needs_manual_review": True,
+            },
+            tiny["requirements"],
+        )
+
+    def test_infer_trait_constraints_extracts_venomous_bite_restrictions(self) -> None:
+        bite = candidate_to_rule_object(
+            {
+                **sample_candidate("traits"),
+                "raw_text": (
+                    "Ядовитый Укус\n+3 Голод\nЭто не суммируется с другими ОУ от той же атаки. "
+                    "Ядовитые укусы не могут быть парным оружием."
+                ),
+                "title_hint": "Ядовитый Укус",
+            }
+        )
+        infer_trait_relationships([bite])
+        infer_trait_constraints([bite])
+        restriction_types = {effect["type"] for effect in bite["effects"]}
+
+        self.assertIn("does_not_stack", restriction_types)
+        self.assertIn("cannot_dual_wield", restriction_types)
+        no_stack = next(effect for effect in bite["effects"] if effect["type"] == "does_not_stack")
+        self.assertEqual(no_stack["with"], "другими ОУ от той же атаки")
 
     def test_candidate_to_rule_object_is_review_draft(self) -> None:
         item = candidate_to_rule_object(sample_candidate())

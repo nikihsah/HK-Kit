@@ -72,6 +72,26 @@ class TestExtractLayer1(unittest.TestCase):
         self.assertEqual(len(blocks), 2)
         self.assertTrue(blocks[1].startswith("● Воздушный"))
 
+    def test_split_rule_list_blocks_detects_nested_circle_subtraits(self) -> None:
+        text = "\n".join(
+            [
+                "Мягкое Тело",
+                "+1 Голод",
+                "Описание.",
+                "● Внешний Панцирь",
+                "+5 Голод",
+                "Описание подчерты.",
+                "○ Скряга",
+                "+2 Голод",
+                "Описание вложенной подчерты.",
+            ]
+        )
+
+        blocks = split_rule_list_blocks(text)
+
+        self.assertEqual(len(blocks), 3)
+        self.assertTrue(blocks[2].startswith("○ Скряга"))
+
     def test_guess_category_is_conservative(self) -> None:
         self.assertEqual(guess_category("Эта черта дает необычную особенность."), "traits")
         self.assertEqual(guess_category("Completely unrelated text."), "unknown")

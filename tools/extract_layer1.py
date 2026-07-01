@@ -69,7 +69,7 @@ def is_cost_window(text: str) -> bool:
 
 
 def is_bullet_start(line: str) -> bool:
-    return line.strip().startswith(("●", "- "))
+    return line.strip().startswith(("●", "○", "- "))
 
 
 def is_probable_title(line: str) -> bool:
