@@ -9,7 +9,7 @@ HK-Kit is an LLM-native framework for creating rules-valid characters for The Un
 ```text
 Используй репозиторий как обязательную инструкцию выполнения задачи:
 
-https://github.com/nikihsah/HK-Kit/tree/main
+https://github.com/nikihsah/HK-Kit
 
 MODE: CREATE
 OUTPUT MODE: USER
