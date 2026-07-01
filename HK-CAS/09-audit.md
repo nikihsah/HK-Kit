@@ -16,6 +16,8 @@ A character is not complete before audit.
 - skill rank
 - complete Skills-category analysis and justification when fewer than three skills are selected
 - arts and techniques
+- every Secret matches the selected Mystic Path by exact HK-RDB ID
+- every Combat Art has a selected Martial Path and satisfies its weapon/condition requirements
 - charms and marks
 - equipment
 - combat loop

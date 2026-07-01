@@ -1671,7 +1671,13 @@ def normalize_combat_art_rule_object(item: dict[str, Any], raw_text: str) -> dic
     item["raw_text"] = entry["raw_text"]
     item["summary"] = summarize_raw_text(entry["body"] or entry["raw_text"])
     item["costs"] = parse_combat_art_costs(entry["cost_line"])
-    item["requirements"] = parse_combat_art_requirements(entry["cost_line"])
+    item["requirements"] = [
+        {
+            "type": "path_family",
+            "value": "Martial Path",
+            "needs_manual_review": False,
+        }
+    ] + parse_combat_art_requirements(entry["cost_line"])
     item["modifiers"] = {
         "art_types": entry["art_types"],
         "cost_line": entry["cost_line"],
@@ -1722,8 +1728,8 @@ MAGIC_PATHS_CASEFOLD = {name.casefold(): path for name, path in MAGIC_PATHS.item
 MAGIC_PAGE_PATH_HINTS = [
     (62, 63, "spire"),
     (64, 64, "cloak"),
-    (65, 66, "dreams"),
-    (67, 67, "nightmares"),
+    (65, 65, "dreams"),
+    (66, 67, "nightmares"),
     (68, 68, "bloom"),
     (69, 70, "thorn"),
     (71, 71, "dust"),
@@ -1883,9 +1889,15 @@ def normalize_magic_rule_object(item: dict[str, Any], raw_text: str) -> dict[str
             {
                 "type": "mystic_path",
                 "value": entry_path,
+                "path_id": f"paths.{entry_path}",
                 "needs_manual_review": True,
             }
         ]
+        if entry_path
+        else []
+    )
+    item["relationships"] = (
+        [{"type": "requires_path", "target": f"paths.{entry_path}"}]
         if entry_path
         else []
     )

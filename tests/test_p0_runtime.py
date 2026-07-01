@@ -8,7 +8,7 @@ from pathlib import Path
 
 
 from tools.generate_manifest import build_manifest
-from tools.runtime_contracts import checkpoint_is_complete, hunger_ledger_errors, optimization_allowed, validate_candidate_registry
+from tools.runtime_contracts import checkpoint_is_complete, hunger_ledger_errors, optimization_allowed, path_affinity_errors, validate_candidate_registry
 from tools.validate_rdb import RULE_FILES, validate_rdb
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -50,6 +50,17 @@ class TestP0Runtime(unittest.TestCase):
         result = validate_rdb(ROOT)
         self.assertEqual(result.report["duplicate_ids"], [])
         self.assertEqual(result.report["broken_relationship_targets"], [])
+        self.assertEqual(result.report["path_affinity_errors"], [])
+
+    def test_secret_and_combat_art_runtime_path_affinity(self) -> None:
+        paths = {item["id"]: item for item in json.loads((DATA / "paths.json").read_text(encoding="utf-8"))["items"]}
+        secrets = [item for item in json.loads((DATA / "magic.json").read_text(encoding="utf-8"))["items"] if item["type"] == "secret"]
+        arts = [item for item in json.loads((DATA / "combat-arts.json").read_text(encoding="utf-8"))["items"] if item["type"] == "combat-art"]
+        nightmare = next(item for item in secrets if item["id"] == "magic.nightmares.ognennyy-shar")
+        self.assertEqual(path_affinity_errors(paths["paths.nightmares"], [nightmare]), [])
+        self.assertTrue(path_affinity_errors(paths["paths.dreams"], [nightmare]))
+        self.assertEqual(path_affinity_errors(paths["paths.nail"], [arts[0]]), [])
+        self.assertTrue(path_affinity_errors(paths["paths.spire"], [arts[0]]))
 
     def test_unparsed_objects_have_honest_status(self) -> None:
         for name in RULE_FILES:

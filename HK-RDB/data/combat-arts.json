@@ -60,7 +60,13 @@
         "raw": "1 Выносливость",
         "stamina": 1
       },
-      "requirements": [],
+      "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        }
+      ],
       "effects": [
         {
           "type": "unparsed_combat_art_effect",
@@ -102,7 +108,13 @@
         "raw": "1 Выносливость",
         "stamina": 1
       },
-      "requirements": [],
+      "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        }
+      ],
       "effects": [
         {
           "type": "unparsed_combat_art_effect",
@@ -144,7 +156,13 @@
         "raw": "Концентрация",
         "focus": true
       },
-      "requirements": [],
+      "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        }
+      ],
       "effects": [
         {
           "type": "unparsed_combat_art_effect",
@@ -186,7 +204,13 @@
         "raw": "0 Выносливости",
         "stamina": 0
       },
-      "requirements": [],
+      "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        }
+      ],
       "effects": [
         {
           "type": "unparsed_combat_art_effect",
@@ -228,7 +252,13 @@
         "raw": "1 Выносливость",
         "stamina": 1
       },
-      "requirements": [],
+      "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        }
+      ],
       "effects": [
         {
           "type": "unparsed_combat_art_effect",
@@ -270,7 +300,13 @@
         "raw": "3 Выносливости",
         "stamina": 3
       },
-      "requirements": [],
+      "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        }
+      ],
       "effects": [
         {
           "type": "unparsed_combat_art_effect",
@@ -313,6 +349,11 @@
         "stamina": 2
       },
       "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
         {
           "type": "weapon_or_condition",
           "value": "Парное оружие",
@@ -360,7 +401,13 @@
         "raw": "X Выносливости",
         "stamina": "X"
       },
-      "requirements": [],
+      "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        }
+      ],
       "effects": [
         {
           "type": "unparsed_combat_art_effect",
@@ -403,6 +450,11 @@
         "stamina": 3
       },
       "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
         {
           "type": "weapon_or_condition",
           "value": "Оружие ближнего боя",
@@ -452,6 +504,11 @@
       },
       "requirements": [
         {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
+        {
           "type": "weapon_or_condition",
           "value": "Тяжелое оружие",
           "needs_manual_review": false
@@ -498,7 +555,13 @@
         "raw": "3 Выносливости",
         "stamina": 3
       },
-      "requirements": [],
+      "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        }
+      ],
       "effects": [
         {
           "type": "unparsed_combat_art_effect",
@@ -541,7 +604,13 @@
         "stamina": 2,
         "soul": 1
       },
-      "requirements": [],
+      "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        }
+      ],
       "effects": [
         {
           "type": "unparsed_combat_art_effect",
@@ -583,7 +652,13 @@
         "raw": "2 Выносливости",
         "stamina": 2
       },
-      "requirements": [],
+      "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        }
+      ],
       "effects": [
         {
           "type": "unparsed_combat_art_effect",
@@ -626,6 +701,11 @@
         "stamina": 1
       },
       "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
         {
           "type": "weapon_or_condition",
           "value": "без оружия",
@@ -675,6 +755,11 @@
       },
       "requirements": [
         {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
+        {
           "type": "weapon_or_condition",
           "value": "без оружия",
           "needs_manual_review": false
@@ -722,6 +807,11 @@
         "stamina": 2
       },
       "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
         {
           "type": "weapon_or_condition",
           "value": "без оружия",
@@ -776,6 +866,11 @@
       },
       "requirements": [
         {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
+        {
           "type": "weapon_or_condition",
           "value": "без оружия",
           "needs_manual_review": false
@@ -823,6 +918,11 @@
         "stamina": 1
       },
       "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
         {
           "type": "weapon_or_condition",
           "value": "без оружия",
@@ -872,6 +972,11 @@
       },
       "requirements": [
         {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
+        {
           "type": "weapon_or_condition",
           "value": "Гвоздь",
           "needs_manual_review": false
@@ -919,6 +1024,11 @@
         "stamina": 2
       },
       "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
         {
           "type": "weapon_or_condition",
           "value": "Гвоздь",
@@ -968,6 +1078,11 @@
       },
       "requirements": [
         {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
+        {
           "type": "weapon_or_condition",
           "value": "Гвоздь",
           "needs_manual_review": false
@@ -1015,6 +1130,11 @@
         "stamina": 2
       },
       "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
         {
           "type": "weapon_or_condition",
           "value": "Игла",
@@ -1065,6 +1185,11 @@
       },
       "requirements": [
         {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
+        {
           "type": "weapon_or_condition",
           "value": "Игла",
           "needs_manual_review": false
@@ -1112,6 +1237,11 @@
         "stamina": 3
       },
       "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
         {
           "type": "weapon_or_condition",
           "value": "Игла",
@@ -1166,6 +1296,11 @@
       },
       "requirements": [
         {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
+        {
           "type": "weapon_or_condition",
           "value": "Игла",
           "needs_manual_review": false
@@ -1214,6 +1349,11 @@
       },
       "requirements": [
         {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
+        {
           "type": "weapon_or_condition",
           "value": "Клык",
           "needs_manual_review": false
@@ -1261,6 +1401,11 @@
         "stamina": 2
       },
       "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
         {
           "type": "weapon_or_condition",
           "value": "Клык",
@@ -1313,7 +1458,13 @@
         "raw": "2 Выносливости- Клык",
         "stamina": 2
       },
-      "requirements": [],
+      "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        }
+      ],
       "effects": [
         {
           "type": "unparsed_combat_art_effect",
@@ -1356,6 +1507,11 @@
         "stamina": 2
       },
       "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
         {
           "type": "weapon_or_condition",
           "value": "природное",
@@ -1405,6 +1561,11 @@
       },
       "requirements": [
         {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
+        {
           "type": "weapon_or_condition",
           "value": "Клык",
           "needs_manual_review": false
@@ -1452,6 +1613,11 @@
         "stamina": 2
       },
       "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
         {
           "type": "weapon_or_condition",
           "value": "природное",
@@ -1506,6 +1672,11 @@
       },
       "requirements": [
         {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
+        {
           "type": "weapon_or_condition",
           "value": "Крюк",
           "needs_manual_review": false
@@ -1554,6 +1725,11 @@
         "soul": 1
       },
       "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
         {
           "type": "weapon_or_condition",
           "value": "Крюк",
@@ -1608,6 +1784,11 @@
       },
       "requirements": [
         {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
+        {
           "type": "weapon_or_condition",
           "value": "Праща",
           "needs_manual_review": false
@@ -1661,6 +1842,11 @@
       },
       "requirements": [
         {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
+        {
           "type": "weapon_or_condition",
           "value": "природное",
           "needs_manual_review": false
@@ -1709,6 +1895,11 @@
       },
       "requirements": [
         {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
+        {
           "type": "weapon_or_condition",
           "value": "природное",
           "needs_manual_review": false
@@ -1756,6 +1947,11 @@
         "stamina": 1
       },
       "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
         {
           "type": "weapon_or_condition",
           "value": "Крюк",
@@ -1811,6 +2007,11 @@
       },
       "requirements": [
         {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
+        {
           "type": "weapon_or_condition",
           "value": "Праща",
           "needs_manual_review": false
@@ -1858,6 +2059,11 @@
         "stamina": 2
       },
       "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
         {
           "type": "weapon_or_condition",
           "value": "Праща",
@@ -1912,6 +2118,11 @@
       },
       "requirements": [
         {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
+        {
           "type": "weapon_or_condition",
           "value": "Праща",
           "needs_manual_review": false
@@ -1959,6 +2170,11 @@
         "stamina": 3
       },
       "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
         {
           "type": "weapon_or_condition",
           "value": "Праща",
@@ -2014,6 +2230,11 @@
       },
       "requirements": [
         {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
+        {
           "type": "weapon_or_condition",
           "value": "Праща",
           "needs_manual_review": false
@@ -2061,6 +2282,11 @@
         "stamina": 2
       },
       "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
         {
           "type": "weapon_or_condition",
           "value": "Праща",
@@ -2115,6 +2341,11 @@
       },
       "requirements": [
         {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
+        {
           "type": "weapon_or_condition",
           "value": "Щит",
           "needs_manual_review": false
@@ -2162,6 +2393,11 @@
         "stamina": 1
       },
       "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
         {
           "type": "weapon_or_condition",
           "value": "Щит",
@@ -2211,6 +2447,11 @@
         "stamina": 1
       },
       "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
         {
           "type": "weapon_or_condition",
           "value": "природное",
@@ -2270,6 +2511,11 @@
       },
       "requirements": [
         {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
+        {
           "type": "weapon_or_condition",
           "value": "Гвоздь",
           "needs_manual_review": false
@@ -2327,6 +2573,11 @@
         "stamina": 2
       },
       "requirements": [
+        {
+          "type": "path_family",
+          "value": "Martial Path",
+          "needs_manual_review": false
+        },
         {
           "type": "weapon_or_condition",
           "value": "Щит",

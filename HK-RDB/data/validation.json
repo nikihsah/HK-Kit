@@ -6,7 +6,7 @@
   "status": "pass_with_warnings",
   "schema_version": "1.1.0",
   "data_version": "1.0.0",
-  "generated_at": "2026-07-01T18:28:31.362610+00:00",
+  "generated_at": "2026-07-01T20:00:47.398189+00:00",
   "validator_version": "2.0.0",
   "critical_errors": [],
   "warnings": [
@@ -72,22 +72,23 @@
   "missing_required_fields": [],
   "broken_relationship_targets": [],
   "unresolved_relationships": [],
+  "path_affinity_errors": [],
   "parsing_status_counts": {
     "raw_text_authoritative": 604,
     "structured": 156
   },
   "manual_review_remaining": [],
   "blocked_items": [],
-  "manifest_hash": "6c6e3b3ae8863a87d0f8248be93cd7f2af5ae7290a868426989d419153d2e0a1",
+  "manifest_hash": "9632c7001209be25849bb83580195904bdc224d51bb2334429ef1b173a908d56",
   "hashes_by_file": {
     "advancement.json": "22e955560ce71a2010bcf5212bd0f1aee82b7152c26d1cf562c4b1a19e540add",
     "charms.json": "ed59724e5eae8786c7864799566eba86f7c841f31b7ea7980c492b7aa62e83fb",
-    "combat-arts.json": "0d3c8c7acb049ea5ab1389095e42f07565c549974c61b942665747ea4bf1e6b1",
+    "combat-arts.json": "d97a0251649e03f88bcae7337f6a3aba3e0addd31809f8ce0f7a7bbec632c45e",
     "combat-rules.json": "cabb423692ac27129727d489f94b753719bb574d596b54d7d6bceb43bdb707eb",
     "core-rules.json": "6821863e84b229413dbd839308f391a7ff04b6910ea42036e181eaaaf3f63136",
     "equipment.json": "7eeefb9ef33b03cbf5ab5616cc511ec36e92c9ed5f2ee142d691a226cb059a3c",
     "glossary.json": "eb694c403cd6e0ef7300c6bd6bc00d47802ecdfde28e2e9cffff6069ced7a952",
-    "magic.json": "70cf79daad4ba5a32bf2c84a59aad32d083244aa4210391a439c0cc4fc668f37",
+    "magic.json": "001782d480eb32be6fb243528fec244ef47ce3b1c37f046ce1ec469cc322c9ef",
     "paths.json": "aef85c53ce1f10d4e374aaaf26e8b0a4af545185da6c6deb040353f0fdcf5e90",
     "skills.json": "fe4440af4287054a1ee7796a94868d4c7ca2084bea91046563740ec4c617ab18",
     "social-rules.json": "da0fc3cb39d4c000c28d30f819dbf85bda0af20b0fbfeaa948af89ac84e28c8a",
@@ -101,6 +102,7 @@
     "required_fields",
     "unique_ids",
     "relationship_targets",
+    "path_affinity",
     "parsing_status",
     "manifest_freshness",
     "counts"

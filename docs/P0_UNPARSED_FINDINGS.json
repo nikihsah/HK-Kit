@@ -2980,28 +2980,28 @@
     },
     {
       "file": "HK-RDB/data/magic.json",
-      "id": "magic.dreams.pozhiratel-snov",
+      "id": "magic.nightmares.pozhiratel-snov",
       "current_state": "raw_text_authoritative; machine effect structure incomplete",
       "why_problematic": "Runtime must consult raw_text and cannot treat effects as fully structured.",
       "evidence_needed_for_change": "Maintainer verification against the source text and an approved structured representation."
     },
     {
       "file": "HK-RDB/data/magic.json",
-      "id": "magic.dreams.vostorg",
+      "id": "magic.nightmares.vostorg",
       "current_state": "raw_text_authoritative; machine effect structure incomplete",
       "why_problematic": "Runtime must consult raw_text and cannot treat effects as fully structured.",
       "evidence_needed_for_change": "Maintainer verification against the source text and an approved structured representation."
     },
     {
       "file": "HK-RDB/data/magic.json",
-      "id": "magic.dreams.ognennyy-shar",
+      "id": "magic.nightmares.ognennyy-shar",
       "current_state": "raw_text_authoritative; machine effect structure incomplete",
       "why_problematic": "Runtime must consult raw_text and cannot treat effects as fully structured.",
       "evidence_needed_for_change": "Maintainer verification against the source text and an approved structured representation."
     },
     {
       "file": "HK-RDB/data/magic.json",
-      "id": "magic.dreams.manipulyatsiya",
+      "id": "magic.nightmares.manipulyatsiya",
       "current_state": "raw_text_authoritative; machine effect structure incomplete",
       "why_problematic": "Runtime must consult raw_text and cannot treat effects as fully structured.",
       "evidence_needed_for_change": "Maintainer verification against the source text and an approved structured representation."

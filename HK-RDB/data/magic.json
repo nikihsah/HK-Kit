@@ -184,6 +184,7 @@
         {
           "type": "mystic_path",
           "value": "spire",
+          "path_id": "paths.spire",
           "needs_manual_review": false
         }
       ],
@@ -200,7 +201,12 @@
         "range": "Касание",
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.spire"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -234,6 +240,7 @@
         {
           "type": "mystic_path",
           "value": "spire",
+          "path_id": "paths.spire",
           "needs_manual_review": false
         }
       ],
@@ -250,7 +257,12 @@
         "range": "Близко",
         "duration": "Краткая"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.spire"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -284,6 +296,7 @@
         {
           "type": "mystic_path",
           "value": "spire",
+          "path_id": "paths.spire",
           "needs_manual_review": false
         }
       ],
@@ -300,7 +313,12 @@
         "range": "Близко",
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.spire"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -334,6 +352,7 @@
         {
           "type": "mystic_path",
           "value": "spire",
+          "path_id": "paths.spire",
           "needs_manual_review": false
         }
       ],
@@ -350,7 +369,12 @@
         "range": "На себя",
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.spire"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -384,6 +408,7 @@
         {
           "type": "mystic_path",
           "value": "spire",
+          "path_id": "paths.spire",
           "needs_manual_review": false
         }
       ],
@@ -400,7 +425,12 @@
         "range": "Близко",
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.spire"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -434,6 +464,7 @@
         {
           "type": "mystic_path",
           "value": "spire",
+          "path_id": "paths.spire",
           "needs_manual_review": false
         }
       ],
@@ -450,7 +481,12 @@
         "range": "Касание",
         "duration": "Особая"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.spire"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -484,6 +520,7 @@
         {
           "type": "mystic_path",
           "value": "spire",
+          "path_id": "paths.spire",
           "needs_manual_review": false
         }
       ],
@@ -500,7 +537,12 @@
         "range": "Касание",
         "duration": "Краткая"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.spire"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -534,6 +576,7 @@
         {
           "type": "mystic_path",
           "value": "spire",
+          "path_id": "paths.spire",
           "needs_manual_review": false
         }
       ],
@@ -550,7 +593,12 @@
         "range": "Касание",
         "duration": ": Сцена"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.spire"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -584,6 +632,7 @@
         {
           "type": "mystic_path",
           "value": "spire",
+          "path_id": "paths.spire",
           "needs_manual_review": false
         }
       ],
@@ -600,7 +649,12 @@
         "range": "Близко",
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.spire"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -634,6 +688,7 @@
         {
           "type": "mystic_path",
           "value": "cloak",
+          "path_id": "paths.cloak",
           "needs_manual_review": false
         }
       ],
@@ -650,7 +705,12 @@
         "range": "На себя",
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.cloak"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -684,6 +744,7 @@
         {
           "type": "mystic_path",
           "value": "cloak",
+          "path_id": "paths.cloak",
           "needs_manual_review": false
         }
       ],
@@ -700,7 +761,12 @@
         "range": "На себя",
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.cloak"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -734,6 +800,7 @@
         {
           "type": "mystic_path",
           "value": "cloak",
+          "path_id": "paths.cloak",
           "needs_manual_review": false
         }
       ],
@@ -750,7 +817,12 @@
         "range": "На себя",
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.cloak"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -784,6 +856,7 @@
         {
           "type": "mystic_path",
           "value": "cloak",
+          "path_id": "paths.cloak",
           "needs_manual_review": false
         }
       ],
@@ -800,7 +873,12 @@
         "range": "Касание",
         "duration": "Концентрация"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.cloak"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -834,6 +912,7 @@
         {
           "type": "mystic_path",
           "value": "cloak",
+          "path_id": "paths.cloak",
           "needs_manual_review": false
         }
       ],
@@ -850,7 +929,12 @@
         "range": "Касание",
         "duration": "Краткость"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.cloak"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -884,6 +968,7 @@
         {
           "type": "mystic_path",
           "value": "cloak",
+          "path_id": "paths.cloak",
           "needs_manual_review": false
         }
       ],
@@ -900,7 +985,12 @@
         "range": "Касание",
         "duration": "Краткая"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.cloak"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -934,6 +1024,7 @@
         {
           "type": "mystic_path",
           "value": "cloak",
+          "path_id": "paths.cloak",
           "needs_manual_review": false
         }
       ],
@@ -950,7 +1041,12 @@
         "range": "Касание",
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.cloak"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -984,6 +1080,7 @@
         {
           "type": "mystic_path",
           "value": "dreams",
+          "path_id": "paths.dreams",
           "needs_manual_review": false
         }
       ],
@@ -1000,7 +1097,12 @@
         "range": "Близко",
         "duration": "Краткая"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.dreams"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -1034,6 +1136,7 @@
         {
           "type": "mystic_path",
           "value": "dreams",
+          "path_id": "paths.dreams",
           "needs_manual_review": false
         }
       ],
@@ -1050,7 +1153,12 @@
         "range": "На себя",
         "duration": "Сцена"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.dreams"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -1084,6 +1192,7 @@
         {
           "type": "mystic_path",
           "value": "dreams",
+          "path_id": "paths.dreams",
           "needs_manual_review": false
         }
       ],
@@ -1100,7 +1209,12 @@
         "range": "Близко",
         "duration": "Краткая"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.dreams"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -1134,6 +1248,7 @@
         {
           "type": "mystic_path",
           "value": "dreams",
+          "path_id": "paths.dreams",
           "needs_manual_review": false
         }
       ],
@@ -1150,7 +1265,12 @@
         "range": null,
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.dreams"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -1184,6 +1304,7 @@
         {
           "type": "mystic_path",
           "value": "dreams",
+          "path_id": "paths.dreams",
           "needs_manual_review": false
         }
       ],
@@ -1200,7 +1321,12 @@
         "range": null,
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.dreams"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -1234,6 +1360,7 @@
         {
           "type": "mystic_path",
           "value": "dreams",
+          "path_id": "paths.dreams",
           "needs_manual_review": false
         }
       ],
@@ -1250,7 +1377,12 @@
         "range": null,
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.dreams"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -1284,6 +1416,7 @@
         {
           "type": "mystic_path",
           "value": "dreams",
+          "path_id": "paths.dreams",
           "needs_manual_review": false
         }
       ],
@@ -1300,7 +1433,12 @@
         "range": null,
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.dreams"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -1334,6 +1472,7 @@
         {
           "type": "mystic_path",
           "value": "nightmares",
+          "path_id": "paths.nightmares",
           "needs_manual_review": false
         }
       ],
@@ -1350,7 +1489,12 @@
         "range": null,
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.nightmares"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -1368,7 +1512,7 @@
       "parsing_status": "raw_text_authoritative"
     },
     {
-      "id": "magic.dreams.pozhiratel-snov",
+      "id": "magic.nightmares.pozhiratel-snov",
       "type": "secret",
       "category": "Magic",
       "subcategory": "Secret",
@@ -1383,7 +1527,8 @@
       "requirements": [
         {
           "type": "mystic_path",
-          "value": "dreams",
+          "value": "nightmares",
+          "path_id": "paths.nightmares",
           "needs_manual_review": false
         }
       ],
@@ -1395,12 +1540,17 @@
         }
       ],
       "modifiers": {
-        "path": "dreams",
+        "path": "nightmares",
         "difficulty": 1,
         "range": "Касание",
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.nightmares"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -1418,7 +1568,7 @@
       "parsing_status": "raw_text_authoritative"
     },
     {
-      "id": "magic.dreams.vostorg",
+      "id": "magic.nightmares.vostorg",
       "type": "secret",
       "category": "Magic",
       "subcategory": "Secret",
@@ -1433,7 +1583,8 @@
       "requirements": [
         {
           "type": "mystic_path",
-          "value": "dreams",
+          "value": "nightmares",
+          "path_id": "paths.nightmares",
           "needs_manual_review": false
         }
       ],
@@ -1445,12 +1596,17 @@
         }
       ],
       "modifiers": {
-        "path": "dreams",
+        "path": "nightmares",
         "difficulty": 2,
         "range": "Касание",
         "duration": "Концентрация"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.nightmares"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -1468,7 +1624,7 @@
       "parsing_status": "raw_text_authoritative"
     },
     {
-      "id": "magic.dreams.ognennyy-shar",
+      "id": "magic.nightmares.ognennyy-shar",
       "type": "secret",
       "category": "Magic",
       "subcategory": "Secret",
@@ -1483,7 +1639,8 @@
       "requirements": [
         {
           "type": "mystic_path",
-          "value": "dreams",
+          "value": "nightmares",
+          "path_id": "paths.nightmares",
           "needs_manual_review": false
         }
       ],
@@ -1495,12 +1652,17 @@
         }
       ],
       "modifiers": {
-        "path": "dreams",
+        "path": "nightmares",
         "difficulty": 2,
         "range": "Близко",
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.nightmares"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -1518,7 +1680,7 @@
       "parsing_status": "raw_text_authoritative"
     },
     {
-      "id": "magic.dreams.manipulyatsiya",
+      "id": "magic.nightmares.manipulyatsiya",
       "type": "secret",
       "category": "Magic",
       "subcategory": "Secret",
@@ -1533,7 +1695,8 @@
       "requirements": [
         {
           "type": "mystic_path",
-          "value": "dreams",
+          "value": "nightmares",
+          "path_id": "paths.nightmares",
           "needs_manual_review": false
         }
       ],
@@ -1545,12 +1708,17 @@
         }
       ],
       "modifiers": {
-        "path": "dreams",
+        "path": "nightmares",
         "difficulty": 1,
         "range": "Близко",
         "duration": "Сцена"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.nightmares"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -1584,6 +1752,7 @@
         {
           "type": "mystic_path",
           "value": "nightmares",
+          "path_id": "paths.nightmares",
           "needs_manual_review": false
         }
       ],
@@ -1600,7 +1769,12 @@
         "range": "Близко",
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.nightmares"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -1634,6 +1808,7 @@
         {
           "type": "mystic_path",
           "value": "nightmares",
+          "path_id": "paths.nightmares",
           "needs_manual_review": false
         }
       ],
@@ -1650,7 +1825,12 @@
         "range": "На себя",
         "duration": "Краткая"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.nightmares"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -1684,6 +1864,7 @@
         {
           "type": "mystic_path",
           "value": "bloom",
+          "path_id": "paths.bloom",
           "needs_manual_review": false
         }
       ],
@@ -1700,7 +1881,12 @@
         "range": "Касание",
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.bloom"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -1734,6 +1920,7 @@
         {
           "type": "mystic_path",
           "value": "bloom",
+          "path_id": "paths.bloom",
           "needs_manual_review": false
         }
       ],
@@ -1750,7 +1937,12 @@
         "range": "Касание",
         "duration": "Краткая"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.bloom"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -1784,6 +1976,7 @@
         {
           "type": "mystic_path",
           "value": "bloom",
+          "path_id": "paths.bloom",
           "needs_manual_review": false
         }
       ],
@@ -1800,7 +1993,12 @@
         "range": "Касание",
         "duration": "Краткая"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.bloom"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -1834,6 +2032,7 @@
         {
           "type": "mystic_path",
           "value": "bloom",
+          "path_id": "paths.bloom",
           "needs_manual_review": false
         }
       ],
@@ -1850,7 +2049,12 @@
         "range": "Близко",
         "duration": "Краткая"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.bloom"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -1884,6 +2088,7 @@
         {
           "type": "mystic_path",
           "value": "bloom",
+          "path_id": "paths.bloom",
           "needs_manual_review": false
         }
       ],
@@ -1900,7 +2105,12 @@
         "range": "Касание",
         "duration": "Краткая"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.bloom"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -1934,6 +2144,7 @@
         {
           "type": "mystic_path",
           "value": "bloom",
+          "path_id": "paths.bloom",
           "needs_manual_review": false
         }
       ],
@@ -1950,7 +2161,12 @@
         "range": "На себя",
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.bloom"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -1984,6 +2200,7 @@
         {
           "type": "mystic_path",
           "value": "bloom",
+          "path_id": "paths.bloom",
           "needs_manual_review": false
         }
       ],
@@ -2000,7 +2217,12 @@
         "range": "Касание",
         "duration": "Краткая"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.bloom"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -2034,6 +2256,7 @@
         {
           "type": "mystic_path",
           "value": "thorn",
+          "path_id": "paths.thorn",
           "needs_manual_review": false
         }
       ],
@@ -2050,7 +2273,12 @@
         "range": "Касание",
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.thorn"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -2084,6 +2312,7 @@
         {
           "type": "mystic_path",
           "value": "thorn",
+          "path_id": "paths.thorn",
           "needs_manual_review": false
         }
       ],
@@ -2100,7 +2329,12 @@
         "range": "Далеко",
         "duration": "Краткая"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.thorn"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -2134,6 +2368,7 @@
         {
           "type": "mystic_path",
           "value": "thorn",
+          "path_id": "paths.thorn",
           "needs_manual_review": false
         }
       ],
@@ -2150,7 +2385,12 @@
         "range": "Касание",
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.thorn"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -2184,6 +2424,7 @@
         {
           "type": "mystic_path",
           "value": "thorn",
+          "path_id": "paths.thorn",
           "needs_manual_review": false
         }
       ],
@@ -2200,7 +2441,12 @@
         "range": "Близко",
         "duration": "Концентрация"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.thorn"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -2234,6 +2480,7 @@
         {
           "type": "mystic_path",
           "value": "thorn",
+          "path_id": "paths.thorn",
           "needs_manual_review": false
         }
       ],
@@ -2250,7 +2497,12 @@
         "range": "Касание",
         "duration": "Краткая"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.thorn"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -2284,6 +2536,7 @@
         {
           "type": "mystic_path",
           "value": "thorn",
+          "path_id": "paths.thorn",
           "needs_manual_review": false
         }
       ],
@@ -2300,7 +2553,12 @@
         "range": "Далеко",
         "duration": "Краткая"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.thorn"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -2334,6 +2592,7 @@
         {
           "type": "mystic_path",
           "value": "thorn",
+          "path_id": "paths.thorn",
           "needs_manual_review": false
         }
       ],
@@ -2350,7 +2609,12 @@
         "range": "Близко",
         "duration": "Краткая"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.thorn"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -2384,6 +2648,7 @@
         {
           "type": "mystic_path",
           "value": "dust",
+          "path_id": "paths.dust",
           "needs_manual_review": false
         }
       ],
@@ -2400,7 +2665,12 @@
         "range": "Близко",
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.dust"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -2434,6 +2704,7 @@
         {
           "type": "mystic_path",
           "value": "dust",
+          "path_id": "paths.dust",
           "needs_manual_review": false
         }
       ],
@@ -2450,7 +2721,12 @@
         "range": "Касание",
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.dust"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -2484,6 +2760,7 @@
         {
           "type": "mystic_path",
           "value": "dust",
+          "path_id": "paths.dust",
           "needs_manual_review": false
         }
       ],
@@ -2500,7 +2777,12 @@
         "range": "Близко",
         "duration": null
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.dust"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -2534,6 +2816,7 @@
         {
           "type": "mystic_path",
           "value": "dust",
+          "path_id": "paths.dust",
           "needs_manual_review": false
         }
       ],
@@ -2550,7 +2833,12 @@
         "range": "Касание",
         "duration": "Жизнь"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.dust"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -2584,6 +2872,7 @@
         {
           "type": "mystic_path",
           "value": "dust",
+          "path_id": "paths.dust",
           "needs_manual_review": false
         }
       ],
@@ -2600,7 +2889,12 @@
         "range": "Касание",
         "duration": "Краткая"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.dust"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -2634,6 +2928,7 @@
         {
           "type": "mystic_path",
           "value": "dust",
+          "path_id": "paths.dust",
           "needs_manual_review": false
         }
       ],
@@ -2650,7 +2945,12 @@
         "range": "Касание",
         "duration": "Вечность"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.dust"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",
@@ -2684,6 +2984,7 @@
         {
           "type": "mystic_path",
           "value": "dust",
+          "path_id": "paths.dust",
           "needs_manual_review": false
         }
       ],
@@ -2700,7 +3001,12 @@
         "range": "Близко",
         "duration": "Краткая"
       },
-      "relationships": [],
+      "relationships": [
+        {
+          "type": "requires_path",
+          "target": "paths.dust"
+        }
+      ],
       "tags": [
         "character-creation",
         "magic",

@@ -81,6 +81,7 @@ def validate_rdb(root: Path, *, write_report: bool = False) -> ValidationResult:
     duplicates: list[str] = []
     broken: list[dict[str, str]] = []
     unresolved: list[dict[str, str]] = []
+    path_affinity_errors: list[dict[str, str]] = []
     blocked: list[str] = []
     manual: list[str] = []
     parsing_counts: Counter[str] = Counter()
@@ -137,9 +138,51 @@ def validate_rdb(root: Path, *, write_report: bool = False) -> ValidationResult:
                     if relationship.get("required") is False: unresolved.append(finding)
                     else: broken.append(finding)
 
+    path_families = {
+        item.get("id"): item.get("modifiers", {}).get("family")
+        for item in containers.get("paths.json", {}).get("items", [])
+        if item.get("type") == "path"
+    }
+    for item in containers.get("magic.json", {}).get("items", []):
+        if item.get("type") != "secret":
+            continue
+        requirements = [r for r in item.get("requirements", []) if r.get("type") == "mystic_path"]
+        path_id = requirements[0].get("path_id") if len(requirements) == 1 else None
+        id_path = ".".join(str(item.get("id", "")).split(".")[:2]).replace("magic.", "paths.")
+        relationship_targets = {
+            r.get("target") for r in item.get("relationships", []) if r.get("type") == "requires_path"
+        }
+        if (
+            len(requirements) != 1
+            or path_families.get(path_id) != "Mystic Path"
+            or path_id != id_path
+            or relationship_targets != {path_id}
+        ):
+            path_affinity_errors.append({
+                "id": str(item.get("id")),
+                "expected_family": "Mystic Path",
+                "path_id": str(path_id),
+                "reason": "Secret ID, requirement, relationship, and Mystic Path must agree",
+            })
+    for item in containers.get("combat-arts.json", {}).get("items", []):
+        if item.get("type") != "combat-art":
+            continue
+        family_requirements = [
+            r for r in item.get("requirements", [])
+            if r.get("type") == "path_family" and r.get("value") == "Martial Path"
+        ]
+        if len(family_requirements) != 1:
+            path_affinity_errors.append({
+                "id": str(item.get("id")),
+                "expected_family": "Martial Path",
+                "path_id": "selected_at_runtime",
+                "reason": "Combat Art must require the Martial Path family",
+            })
+
     if duplicates: errors.append("duplicate stable IDs found")
     if broken: errors.append("broken relationship targets found")
     if missing_fields: errors.append("missing required fields found")
+    if path_affinity_errors: errors.append("path affinity errors found")
     manifest, manifest_error = load_json(data_dir / "manifest.json")
     expected_manifest = build_manifest(data_dir, generated_at=(manifest or {}).get("generated_at") if isinstance(manifest, dict) else None)
     manifest_stale = bool(manifest_error or not isinstance(manifest, dict) or manifest != expected_manifest)
@@ -161,10 +204,11 @@ def validate_rdb(root: Path, *, write_report: bool = False) -> ValidationResult:
         "counts_by_type": dict(sorted(counts_type.items())), "total_item_count": sum(counts_file.values()),
         "duplicate_ids": sorted(set(duplicates)), "missing_required_fields": missing_fields,
         "broken_relationship_targets": broken, "unresolved_relationships": unresolved,
+        "path_affinity_errors": path_affinity_errors,
         "parsing_status_counts": dict(sorted(parsing_counts.items())), "manual_review_remaining": manual,
         "blocked_items": blocked, "manifest_hash": sha256_file(data_dir / "manifest.json") if not manifest_error else None,
         "hashes_by_file": dict(sorted(hashes.items())), "manifest_stale": manifest_stale,
-        "checks_performed": ["required_files", "required_fields", "unique_ids", "relationship_targets", "parsing_status", "manifest_freshness", "counts"],
+        "checks_performed": ["required_files", "required_fields", "unique_ids", "relationship_targets", "path_affinity", "parsing_status", "manifest_freshness", "counts"],
     }
     if write_report:
         (data_dir / "validation.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

@@ -1,6 +1,6 @@
 {
   "manifest_version": "1.0.0",
-  "generated_at": "2026-07-01T18:28:31.148209+00:00",
+  "generated_at": "2026-07-01T20:00:47.257142+00:00",
   "generator_version": "1.0.0",
   "files": [
     {
@@ -234,7 +234,7 @@
         "combat-art",
         "combat-art-rules"
       ],
-      "sha256": "0d3c8c7acb049ea5ab1389095e42f07565c549974c61b942665747ea4bf1e6b1"
+      "sha256": "d97a0251649e03f88bcae7337f6a3aba3e0addd31809f8ce0f7a7bbec632c45e"
     },
     {
       "category": "Combat Rules",
@@ -913,10 +913,10 @@
         "magic.dreams.polutelesnost",
         "magic.dreams.razgovor-s-grezami",
         "magic.nightmares.kipenie-krovi",
-        "magic.dreams.pozhiratel-snov",
-        "magic.dreams.vostorg",
-        "magic.dreams.ognennyy-shar",
-        "magic.dreams.manipulyatsiya",
+        "magic.nightmares.pozhiratel-snov",
+        "magic.nightmares.vostorg",
+        "magic.nightmares.ognennyy-shar",
+        "magic.nightmares.manipulyatsiya",
         "magic.nightmares.marionetka",
         "magic.nightmares.roy",
         "magic.bloom.amrita",
@@ -954,13 +954,15 @@
         "Spell Modifications": 2
       },
       "required_for_mode_create": true,
-      "dependencies": [],
+      "dependencies": [
+        "paths.json"
+      ],
       "schema": "../schema/schema.json",
       "data_types": [
         "magic-rules",
         "secret"
       ],
-      "sha256": "70cf79daad4ba5a32bf2c84a59aad32d083244aa4210391a439c0cc4fc668f37"
+      "sha256": "001782d480eb32be6fb243528fec244ef47ce3b1c37f046ce1ec469cc322c9ef"
     },
     {
       "category": "Paths",

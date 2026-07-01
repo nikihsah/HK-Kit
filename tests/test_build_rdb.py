@@ -765,7 +765,8 @@ class TestBuildRdb(unittest.TestCase):
         self.assertEqual(items[0]["id"], "combat-arts.zamakh")
         self.assertEqual(items[0]["costs"]["stamina"], 1)
         self.assertEqual(items[0]["modifiers"]["art_types"], ["boost"])
-        self.assertEqual(items[1]["requirements"][0]["value"], "Оружие ближнего боя")
+        self.assertEqual(items[1]["requirements"][0]["value"], "Martial Path")
+        self.assertEqual(items[1]["requirements"][1]["value"], "Оружие ближнего боя")
 
     def test_combat_art_cost_requirements_join_wrapped_lines(self) -> None:
         candidate = sample_candidate("combat-arts")
@@ -781,8 +782,22 @@ class TestBuildRdb(unittest.TestCase):
 
         self.assertEqual(
             [requirement["value"] for requirement in item["requirements"]],
-            ["Праща", "оружие ближнего боя с досягаемостью"],
+            ["Martial Path", "Праща", "оружие ближнего боя с досягаемостью"],
         )
+
+    def test_page_66_magic_entries_belong_to_nightmares(self) -> None:
+        candidate = sample_candidate("magic")
+        candidate["source"]["page_start"] = 66
+        candidate["source"]["page_end"] = 66
+        candidate["raw_text"] = (
+            "Огненный шар\nСложность: 2\nДальность: Близко\nПламя наносит урон."
+        )
+
+        item = candidate_to_rule_object(candidate)
+
+        self.assertEqual(item["id"], "magic.nightmares.ognennyy-shar")
+        self.assertEqual(item["requirements"][0]["path_id"], "paths.nightmares")
+        self.assertEqual(item["relationships"], [{"type": "requires_path", "target": "paths.nightmares"}])
 
     def test_candidate_to_rule_object_normalizes_magic_overview(self) -> None:
         candidate = sample_candidate("magic")

@@ -93,3 +93,22 @@ def hunger_ledger_errors(ledger: dict[str, Any], known_ids: set[str]) -> list[st
     if ledger.get("audit_status") != "pass":
         errors.append("Hunger ledger audit has not passed")
     return errors
+
+
+def path_affinity_errors(selected_path: dict[str, Any], selected_components: list[dict[str, Any]]) -> list[str]:
+    errors: list[str] = []
+    path_id = selected_path.get("id")
+    family = selected_path.get("modifiers", {}).get("family")
+    for component in selected_components:
+        if component.get("type") == "secret":
+            required = [r.get("path_id") for r in component.get("requirements", []) if r.get("type") == "mystic_path"]
+            if family != "Mystic Path" or required != [path_id]:
+                errors.append(f"{component.get('id')}: Secret does not match selected Mystic Path")
+        if component.get("type") == "combat-art":
+            martial = any(
+                r.get("type") == "path_family" and r.get("value") == "Martial Path"
+                for r in component.get("requirements", [])
+            )
+            if family != "Martial Path" or not martial:
+                errors.append(f"{component.get('id')}: Combat Art requires a Martial Path")
+    return errors

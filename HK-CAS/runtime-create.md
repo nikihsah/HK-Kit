@@ -42,6 +42,7 @@ Until all three Locks are complete, do not name or recommend HK-RDB mechanical o
 - Every renamed or reflavored ability must show its official HK-RDB name and stable ID alongside its separate narrative name, with an explicit statement that its mechanics are unchanged.
 - Maximize Hunger utilization only among legal, useful, non-redundant mechanics that support the locked vision; never add filler merely to reach the limit. Maintain `templates/hunger-budget-ledger.yaml`. If any Hunger remains, perform a second pass over every affordable compatible trait and subtrait, record concrete IDs and dispositions, and explain every unused point.
 - Do not stop at one suitable skill. Analyze the complete Skills category and, when legal and conceptually useful, select up to three skills. If fewer are selected, explain why the remaining slots should not be filled.
+- A selected Secret must require the character's selected `Mystic Path` by exact HK-RDB path ID. A selected Combat Art requires a `Martial Path` and must also satisfy every weapon or condition requirement. A path-family mismatch blocks Build Assembly and fails Rules Audit.
 
 ## Scope guard
 
