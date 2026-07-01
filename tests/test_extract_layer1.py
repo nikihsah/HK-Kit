@@ -108,12 +108,19 @@ class TestExtractLayer1(unittest.TestCase):
         self.assertEqual(page_category_hint(57), ("combat-arts", "combat_arts_section_page_range"))
         self.assertEqual(page_category_hint(58), ("magic", "magic_section_page_range"))
         self.assertEqual(page_category_hint(73), ("magic", "magic_section_page_range"))
+        self.assertEqual(page_category_hint(74), ("charms", "charms_section_page_range"))
+        self.assertEqual(page_category_hint(87), ("charms", "charms_section_page_range"))
         self.assertEqual(page_category_hint(99), (None, None))
 
     def test_choose_category_hint_prefers_template_page_context(self) -> None:
         category, source = choose_category_hint("Душа и магия рядом с таблицей шаблонов", 11)
         self.assertEqual(category, "templates")
         self.assertEqual(source, "templates_table_page_range")
+
+    def test_choose_category_hint_keeps_front_matter_unknown(self) -> None:
+        category, source = choose_category_hint("Оглавление Боевые Искусства Амулеты", 4)
+        self.assertEqual(category, "unknown")
+        self.assertEqual(source, "front_matter")
 
     def test_build_candidates_keeps_path_pages_whole(self) -> None:
         layer0 = {
@@ -222,6 +229,28 @@ class TestExtractLayer1(unittest.TestCase):
         self.assertEqual(document["candidates"][0]["category_hint"], "magic")
         self.assertIn("Рассеивание", document["candidates"][0]["raw_text"])
 
+    def test_build_candidates_keeps_charm_pages_whole(self) -> None:
+        layer0 = {
+            "artifact": "HK-RDB Layer 0",
+            "mode_create_allowed": False,
+            "book": "Test Book",
+            "source": {"pdf_name": "test.pdf", "pdf_sha256": "abc123"},
+            "page_count": 1,
+            "pages": [
+                {
+                    "page": 82,
+                    "text": "Боевые Амулеты\nДревняя Сила - Обычный\n⊚⊚\n"
+                    + ("Описание эффекта. " * 120),
+                }
+            ],
+        }
+
+        document = build_candidates(layer0, min_chars=10)
+
+        self.assertEqual(document["candidate_count"], 1)
+        self.assertEqual(document["candidates"][0]["category_hint"], "charms")
+        self.assertIn("Древняя Сила", document["candidates"][0]["raw_text"])
+
     def test_choose_category_hint_prefers_page_context(self) -> None:
         category, source = choose_category_hint("еда, отдых, путешествие", 21)
         self.assertEqual(category, "traits")
@@ -239,7 +268,7 @@ class TestExtractLayer1(unittest.TestCase):
             "page_count": 1,
             "pages": [
                 {
-                    "page": 1,
+                    "page": 6,
                     "text": "Черта панциря.\n\nЭта черта помогает описать защиту персонажа.",
                 }
             ],
@@ -251,7 +280,7 @@ class TestExtractLayer1(unittest.TestCase):
         self.assertFalse(document["mode_create_allowed"])
         self.assertEqual(document["candidate_count"], 2)
         self.assertEqual(document["candidates"][0]["status"], "needs_review")
-        self.assertEqual(document["candidates"][0]["source"]["page_start"], 1)
+        self.assertEqual(document["candidates"][0]["source"]["page_start"], 6)
         self.assertEqual(document["candidates"][1]["category_hint"], "traits")
         self.assertEqual(document["candidates"][1]["category_hint_source"], "keyword")
 

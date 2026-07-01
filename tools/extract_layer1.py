@@ -27,7 +27,7 @@ CATEGORY_HINTS = [
     ("advancement", ["5.продвижение"]),
     ("combat-arts", ["6. боевые искусства", "обычные боевые искусства"]),
     ("magic", ["7.магия"]),
-    ("charms", ["амулет", "метка", "чары"]),
+    ("charms", ["__charms_section_page_range_only__"]),
     ("equipment", ["снаряжение", "оружие", "броня", "предмет"]),
     ("combat-rules", ["бой", "атака", "урон", "защита"]),
     ("travel-rest-rules", ["путешествие", "отдых", "голод"]),
@@ -77,6 +77,12 @@ PAGE_CATEGORY_HINTS = [
         "page_end": 73,
         "category_hint": "magic",
         "reason": "magic_section_page_range",
+    },
+    {
+        "page_start": 74,
+        "page_end": 87,
+        "category_hint": "charms",
+        "reason": "charms_section_page_range",
     },
 ]
 
@@ -208,6 +214,8 @@ def choose_category_hint(text: str, page: int) -> tuple[str, str]:
     page_hint, reason = page_category_hint(page)
     if page_hint:
         return page_hint, reason or "page_range"
+    if page <= 5:
+        return "unknown", "front_matter"
     keyword_hint = guess_category(text)
     return keyword_hint, "keyword"
 
@@ -234,7 +242,7 @@ def build_candidates(layer0: dict[str, Any], min_chars: int = 40) -> dict[str, A
         page_hint, _page_reason = page_category_hint(page_number)
         blocks = (
             [normalize_block_text(text)]
-            if page_hint in {"paths", "skills", "advancement", "combat-arts", "magic"}
+            if page_hint in {"paths", "skills", "advancement", "combat-arts", "magic", "charms"}
             else split_page_into_blocks(text)
         )
         for block_index, block in enumerate(blocks, start=1):

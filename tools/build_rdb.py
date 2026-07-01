@@ -1882,6 +1882,232 @@ def magic_rule_objects_from_candidate(candidate: dict[str, Any]) -> list[dict[st
     return objects
 
 
+CHARM_RARITIES = {
+    "Обычный": "common",
+    "Обычная": "common",
+    "Необычный": "uncommon",
+    "Необычная": "uncommon",
+    "Редкий": "rare",
+    "Редкая": "rare",
+    "Уникальный": "unique",
+    "Уникальная": "unique",
+    "Легендарный": "legendary",
+    "Легендарная": "legendary",
+    "Проклятый": "cursed",
+    "Проклятая": "cursed",
+    "Хрупкий": "fragile",
+    "Хрупкая": "fragile",
+}
+
+CHARM_GROUP_HEADINGS = {
+    "Амулеты Смерти": "death",
+    "Общие Амулеты": "general",
+    "Амулеты Общения": "social",
+    "Боевые Амулеты": "combat",
+    "Амулеты Владения Орудием": "tool-mastery",
+    "Магические Амулеты": "magic",
+    "Амулеты Путей": "path",
+}
+
+CHARM_PAGE_GROUP_HINTS = [
+    (75, 75, "death"),
+    (76, 80, "general"),
+    (81, 81, "general"),
+    (82, 82, "social"),
+    (83, 83, "combat"),
+    (84, 84, "combat"),
+    (85, 85, "magic"),
+    (86, 87, "path"),
+]
+
+
+def charm_group_for_page(page: int) -> str | None:
+    for start, end, group in CHARM_PAGE_GROUP_HINTS:
+        if start <= page <= end:
+            return group
+    return None
+
+
+def normalize_charm_lines(raw_text: str) -> list[str]:
+    lines = [line.strip() for line in raw_text.splitlines() if line.strip()]
+    normalized: list[str] = []
+    pending = ""
+    for line in lines:
+        if pending:
+            line = f"{pending} {line}".strip()
+            pending = ""
+        if line.endswith("-") or line.endswith(","):
+            pending = line
+            continue
+        normalized.append(line)
+    if pending:
+        normalized.append(pending)
+    return normalized
+
+
+def split_charm_entries(raw_text: str, group_hint: str | None = None) -> list[dict[str, Any]]:
+    lines = normalize_charm_lines(raw_text)
+    rarity_pattern = "|".join(sorted(CHARM_RARITIES, key=len, reverse=True))
+    title_pattern = re.compile(
+        rf"^(?P<name>[А-ЯЁA-Z][^⊚\n]{{2,120}}?)\s+-\s*(?P<rarity>{rarity_pattern})\.?$",
+        re.IGNORECASE,
+    )
+    current_group = group_hint
+    starts: list[tuple[int, re.Match[str] | None, str, str | None]] = []
+    for index, line in enumerate(lines):
+        heading = CHARM_GROUP_HEADINGS.get(line)
+        if heading:
+            current_group = heading
+            continue
+        match = title_pattern.match(line)
+        if match and index + 1 < len(lines) and "⊚" in lines[index + 1]:
+            starts.append((index, match, match.group("name").strip(), current_group))
+            continue
+        if (
+            index + 1 < len(lines)
+            and "⊚" in lines[index + 1]
+            and re.match(r"^[А-ЯЁA-Z][^:]{2,80}$", line)
+            and line not in CHARM_GROUP_HEADINGS
+        ):
+            starts.append((index, None, line.strip(), current_group))
+
+    entries: list[dict[str, Any]] = []
+    for position, (start, match, name, group) in enumerate(starts):
+        end = starts[position + 1][0] if position + 1 < len(starts) else len(lines)
+        entry_lines = lines[start:end]
+        notch_line = entry_lines[1] if len(entry_lines) > 1 else ""
+        body_start = 2
+        requirement_lines: list[str] = []
+        while body_start < len(entry_lines) and (
+            entry_lines[body_start].startswith("Требования:")
+            or (requirement_lines and len(entry_lines[body_start]) <= 80 and not entry_lines[body_start].endswith("."))
+        ):
+            requirement_lines.append(entry_lines[body_start])
+            body_start += 1
+            if requirement_lines and body_start < len(entry_lines) and not entry_lines[body_start - 1].rstrip().endswith(("или", ",")):
+                break
+        rarity_raw = match.group("rarity") if match else None
+        entries.append(
+            {
+                "name": name,
+                "rarity": CHARM_RARITIES.get(rarity_raw) if rarity_raw else None,
+                "rarity_raw": rarity_raw,
+                "group": group,
+                "notches": notch_line.count("⊚"),
+                "notch_line": notch_line,
+                "requirements_raw": " ".join(requirement_lines).strip(),
+                "body": "\n".join(entry_lines[body_start:]).strip(),
+                "raw_text": "\n".join(entry_lines).strip(),
+            }
+        )
+    return entries
+
+
+def parse_charm_requirements(requirements_raw: str) -> list[dict[str, Any]]:
+    if not requirements_raw:
+        return []
+    text = re.sub(r"\s+", " ", requirements_raw).strip()
+    requirements: list[dict[str, Any]] = [
+        {
+            "type": "raw_requirement",
+            "text": text,
+            "needs_manual_review": True,
+        }
+    ]
+    for rank, path in re.findall(r"(\d+)\s+Ранг\s+([А-ЯЁа-яё ,]+)", text, re.IGNORECASE):
+        requirements.append(
+            {
+                "type": "path_rank",
+                "rank": int(rank),
+                "path_raw": path.strip(" ."),
+                "needs_manual_review": True,
+            }
+        )
+    return requirements
+
+
+def normalize_charm_overview(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
+    item["draft_id"] = item["id"]
+    item["id"] = "charms.overview" if "8. Амулеты" in raw_text else f"charms.rules.p{item['source']['page_start']:03d}"
+    item["type"] = "charm-rules"
+    item["subcategory"] = "Charm Rules"
+    item["name"] = "Амулеты" if "8. Амулеты" in raw_text else item["name"]
+    item["summary"] = summarize_raw_text(raw_text)
+    item["modifiers"] = {
+        "rarity_prices_present": "Цена:" in raw_text,
+        "overcharm_rules_present": "Переочарован" in raw_text,
+        "death_charms_present": "Амулеты Смерти" in raw_text,
+        "needs_manual_review": True,
+    }
+    item["effects"] = [
+        {
+            "type": "unparsed_charm_rule_text",
+            "text": raw_text,
+            "needs_manual_review": True,
+        }
+    ]
+    item["tags"] = sorted(set(item["tags"] + ["charms", "character-creation"]))
+    return item
+
+
+def normalize_charm_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
+    page = int(item["source"]["page_start"])
+    entries = split_charm_entries(raw_text, charm_group_for_page(page))
+    if not entries:
+        return normalize_charm_overview(item, raw_text)
+
+    entry = entries[0]
+    group = item.pop("_charm_group", None) or entry["group"] or charm_group_for_page(page)
+    item["draft_id"] = item["id"]
+    item["id"] = f"charms.{group or 'unknown'}.{stable_name_slug(entry['name'], 'charm')}"
+    item["type"] = "charm"
+    item["subcategory"] = "Charm"
+    item["name"] = entry["name"]
+    item["raw_text"] = entry["raw_text"]
+    item["summary"] = summarize_raw_text(entry["body"] or entry["raw_text"])
+    item["costs"] = {
+        "notches": entry["notches"],
+        "raw": entry["notch_line"],
+        "needs_manual_review": True,
+    }
+    item["requirements"] = parse_charm_requirements(entry["requirements_raw"])
+    item["modifiers"] = {
+        "group": group,
+        "rarity": entry["rarity"],
+        "rarity_raw": entry["rarity_raw"],
+    }
+    item["effects"] = [
+        {
+            "type": "unparsed_charm_effect",
+            "text": entry["body"],
+            "needs_manual_review": True,
+        }
+    ]
+    item["tags"] = sorted(set(item["tags"] + ["charm", "character-creation"]))
+    return item
+
+
+def charm_rule_objects_from_candidate(candidate: dict[str, Any]) -> list[dict[str, Any]]:
+    raw_text = candidate.get("raw_text", "")
+    page = int(candidate.get("source", {}).get("page_start", 0))
+    entries = split_charm_entries(raw_text, charm_group_for_page(page))
+    if not entries:
+        return [candidate_to_rule_object(candidate)]
+
+    objects: list[dict[str, Any]] = []
+    for index, entry in enumerate(entries, start=1):
+        split_candidate = dict(candidate)
+        split_candidate["raw_text"] = entry["raw_text"]
+        split_candidate["title_hint"] = entry["name"]
+        split_candidate["_charm_group"] = entry["group"]
+        split_candidate["source"] = dict(candidate.get("source", {}))
+        split_candidate["source"]["layer0_block"] = (
+            int(split_candidate["source"].get("layer0_block", 0)) * 100 + index
+        )
+        objects.append(candidate_to_rule_object(split_candidate))
+    return objects
+
+
 def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
     parts = split_trait_parts(raw_text)
     tags = list(item["tags"])
@@ -2137,6 +2363,8 @@ def candidate_to_rule_object(candidate: dict[str, Any]) -> dict[str, Any]:
     }
     if "_magic_path" in candidate:
         item["_magic_path"] = candidate["_magic_path"]
+    if "_charm_group" in candidate:
+        item["_charm_group"] = candidate["_charm_group"]
 
     if category_hint == "traits":
         item = normalize_trait_rule_object(item, raw_text)
@@ -2152,6 +2380,8 @@ def candidate_to_rule_object(candidate: dict[str, Any]) -> dict[str, Any]:
         item = normalize_combat_art_rule_object(item, raw_text)
     elif category_hint == "magic":
         item = normalize_magic_rule_object(item, raw_text)
+    elif category_hint == "charms":
+        item = normalize_charm_rule_object(item, raw_text)
 
     return item
 
@@ -2196,6 +2426,10 @@ def build_draft_containers(layer1: dict[str, Any]) -> tuple[dict[str, dict[str, 
         elif category_hint == "magic":
             containers[CATEGORY_TO_FILE[category_hint]]["items"].extend(
                 magic_rule_objects_from_candidate(candidate)
+            )
+        elif category_hint == "charms":
+            containers[CATEGORY_TO_FILE[category_hint]]["items"].extend(
+                charm_rule_objects_from_candidate(candidate)
             )
         else:
             containers[CATEGORY_TO_FILE[category_hint]]["items"].append(

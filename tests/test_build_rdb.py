@@ -730,6 +730,58 @@ class TestBuildRdb(unittest.TestCase):
         self.assertEqual(items[0]["requirements"][0]["value"], "spire")
         self.assertEqual(items[1]["modifiers"]["duration"], "Краткая")
 
+    def test_build_draft_containers_expands_charm_entries(self) -> None:
+        candidate = sample_candidate("charms")
+        candidate["source"]["page_start"] = 82
+        candidate["source"]["page_end"] = 82
+        candidate["raw_text"] = (
+            "Боевые Амулеты\n"
+            "Древняя Сила - Обычный\n"
+            "⊚⊚\n"
+            "Природное оружие носителя получает одну модификацию оружия.\n"
+            "Острая Тень - Обычный\n"
+            "⊚⊚\n"
+            "Требования: 1 Ранг Плаща\n"
+            "Один раз в ход носитель может нанести 2 урона.\n"
+        )
+        layer1 = {
+            "artifact": "HK-RDB Layer 1",
+            "mode_create_allowed": False,
+            "candidates": [candidate],
+        }
+
+        containers, skipped = build_draft_containers(layer1)
+        items = containers["charms.json"]["items"]
+
+        self.assertEqual(skipped, [])
+        self.assertEqual(len(items), 2)
+        self.assertEqual(items[0]["id"], "charms.combat.drevnyaya-sila")
+        self.assertEqual(items[0]["costs"]["notches"], 2)
+        self.assertEqual(items[0]["modifiers"]["rarity"], "common")
+        self.assertEqual(items[0]["modifiers"]["group"], "combat")
+        self.assertEqual(items[1]["requirements"][0]["type"], "raw_requirement")
+        self.assertEqual(items[1]["requirements"][1]["rank"], 1)
+
+    def test_candidate_to_rule_object_normalizes_charm_overview(self) -> None:
+        candidate = sample_candidate("charms")
+        candidate["source"]["page_start"] = 74
+        candidate["source"]["page_end"] = 74
+        candidate["raw_text"] = (
+            "8. Амулеты\n"
+            "Амулеты занимают Метки.\n"
+            "Переочарованные жуки получают удвоенный урон.\n"
+            "Редкость Амулетов\n"
+            "Обычные Амулеты\n"
+            "Цена: 100 Гео\n"
+        )
+
+        item = candidate_to_rule_object(candidate)
+
+        self.assertEqual(item["id"], "charms.overview")
+        self.assertEqual(item["type"], "charm-rules")
+        self.assertTrue(item["modifiers"]["rarity_prices_present"])
+        self.assertTrue(item["modifiers"]["overcharm_rules_present"])
+
     def test_magic_secret_uses_page_path_hint_when_header_is_missing(self) -> None:
         candidate = sample_candidate("magic")
         candidate["source"]["page_start"] = 63
