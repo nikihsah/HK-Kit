@@ -286,14 +286,24 @@ def split_trait_parts(raw_text: str) -> dict[str, Any]:
     cost_lines: list[str] = []
     body_start = 1
 
-    for index in range(1, min(len(lines), 4)):
-        window = " ".join(lines[1 : index + 1])
-        if re.match(r"^\s*[+-]?\d+(?:[,.]\d+)?", window) and re.search(
-            r"Голод|Жут|Привлекательност|Обоим", window, re.IGNORECASE
-        ):
-            cost_lines = lines[1 : index + 1]
-            body_start = index + 1
-            break
+    if len(lines) > 1 and re.match(r"^\s*[+-]?\d+(?:[,.]\d+)?", lines[1]):
+        cost_lines.append(lines[1])
+        body_start = 2
+        while body_start < min(len(lines), 5):
+            next_line = lines[body_start]
+            combined = " ".join(cost_lines)
+            needs_term = not re.search(
+                r"Голод|Жут|Привлекательност|Обоим", combined, re.IGNORECASE
+            )
+            is_continuation = bool(
+                next_line.startswith((",", ";"))
+                or re.match(r"^(Голод|Жут|Привлекательност|Обоим)\b", next_line, re.IGNORECASE)
+                or combined.rstrip().lower().endswith("или")
+            )
+            if not needs_term and not is_continuation:
+                break
+            cost_lines.append(next_line)
+            body_start += 1
 
     body = "\n".join(lines[body_start:]).strip()
     return {
@@ -302,6 +312,75 @@ def split_trait_parts(raw_text: str) -> dict[str, Any]:
         "cost_text": " ".join(cost_lines).strip(),
         "body": body,
     }
+
+
+def extract_trait_effect_hints(body: str) -> list[dict[str, Any]]:
+    normalized = re.sub(r"\s+", " ", body).strip()
+    hints: list[dict[str, Any]] = []
+
+    if re.search(r"природн\w* оруж", normalized, re.IGNORECASE):
+        hints.append(
+            {
+                "type": "natural_weapon",
+                "value": True,
+                "needs_manual_review": True,
+            }
+        )
+
+    for match in re.finditer(
+        r"(?:наносит|наносят|нанести)\s+(\d+)\s+урон", normalized, re.IGNORECASE
+    ):
+        hints.append(
+            {
+                "type": "damage",
+                "amount": int(match.group(1)),
+                "context": sentence_around(normalized, match.start(), match.end()),
+                "needs_manual_review": True,
+            }
+        )
+
+    for match in re.finditer(
+        r"(?:радиус действия|дальность(?:ю)?)\s+(\d+)\s+клет", normalized, re.IGNORECASE
+    ):
+        hints.append(
+            {
+                "type": "range",
+                "cells": int(match.group(1)),
+                "context": sentence_around(normalized, match.start(), match.end()),
+                "needs_manual_review": True,
+            }
+        )
+
+    weapon_type = re.search(
+        r"природн\w* оруж\w*\s+относится к типу\s+([А-Яа-яЁёA-Za-z-]+)",
+        normalized,
+        re.IGNORECASE,
+    )
+    if weapon_type:
+        hints.append(
+            {
+                "type": "weapon_type",
+                "value": weapon_type.group(1),
+                "needs_manual_review": True,
+            }
+        )
+
+    repeatable = re.search(
+        r"(?:можно брать|может быть взят[ао]?|может быть взята|взята)\s+[^.]{0,50}(?:несколько|множество)\s+раз",
+        normalized,
+        re.IGNORECASE,
+    )
+    if repeatable:
+        hints.append(
+            {
+                "type": "repeatable",
+                "value": True,
+                "context": sentence_around(normalized, repeatable.start(), repeatable.end()),
+                "needs_manual_review": True,
+            }
+        )
+
+    return hints
 
 
 def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str, Any]:
@@ -322,7 +401,7 @@ def normalize_trait_rule_object(item: dict[str, Any], raw_text: str) -> dict[str
             "text": parts["body"] or raw_text,
             "needs_manual_review": True,
         }
-    ]
+    ] + extract_trait_effect_hints(parts["body"] or raw_text)
     item["tags"] = tags
     return item
 

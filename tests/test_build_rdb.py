@@ -7,6 +7,7 @@ from pathlib import Path
 from tools.build_rdb import (
     build_draft_containers,
     candidate_to_rule_object,
+    extract_trait_effect_hints,
     infer_trait_relationships,
     parse_trait_base_costs,
     parse_trait_conditional_costs,
@@ -87,6 +88,41 @@ class TestBuildRdb(unittest.TestCase):
             parts["body"],
             "Выберите обычный эффект или необычный, за +2 голода.\nОписание.",
         )
+
+    def test_split_trait_parts_joins_multiline_cost(self) -> None:
+        parts = split_trait_parts(
+            "Щупальце\n+3 Голод\n, +0.5 Жуть\nОписание эффекта."
+        )
+
+        self.assertEqual(parts["cost_text"], "+3 Голод , +0.5 Жуть")
+        self.assertEqual(parts["body"], "Описание эффекта.")
+
+    def test_split_trait_parts_joins_or_both_cost(self) -> None:
+        parts = split_trait_parts(
+            "Мелкий Недостаток\n-1 Голод, +0.5 Жути, Привлекательности или\nОбоим\nОписание."
+        )
+
+        self.assertIn("Обоим", parts["cost_text"])
+        self.assertEqual(parts["body"], "Описание.")
+
+    def test_extract_trait_effect_hints_finds_explicit_mechanics(self) -> None:
+        hints = extract_trait_effect_hints(
+            "Этот жук запускает снаряд. Он наносит 2 урона и имеет радиус действия 4 клетки. "
+            "Это природное оружие относится к типу Праща. Черта может быть взята несколько раз."
+        )
+        by_type = {hint["type"]: hint for hint in hints}
+
+        self.assertTrue(by_type["natural_weapon"]["value"])
+        self.assertEqual(by_type["damage"]["amount"], 2)
+        self.assertEqual(by_type["range"]["cells"], 4)
+        self.assertEqual(by_type["weapon_type"]["value"], "Праща")
+        self.assertTrue(by_type["repeatable"]["value"])
+
+    def test_extract_trait_effect_hints_accepts_infinitive_damage(self) -> None:
+        hints = extract_trait_effect_hints("Щупальце может нанести 1 урон.")
+        damage = [hint for hint in hints if hint["type"] == "damage"]
+
+        self.assertEqual(damage[0]["amount"], 1)
 
     def test_candidate_to_rule_object_normalizes_traits(self) -> None:
         candidate = sample_candidate("traits")
